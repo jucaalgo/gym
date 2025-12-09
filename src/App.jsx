@@ -8,6 +8,12 @@ import Matrix from './pages/Matrix';
 import Nutrition from './pages/Nutrition';
 import Routines from './pages/Routines';
 import MobileNavbar from './components/layout/MobileNavbar';
+import Sidebar from './components/layout/Sidebar';
+import AdminPanel from './pages/AdminPanel';
+import LevelUpOverlay from './components/ui/LevelUpOverlay';
+import Profile from './pages/Profile';
+import Onboarding from './pages/Onboarding';
+import AICamera from './pages/AICamera';
 
 // Layout Shell with Sidebar & Mobile Nav
 const Layout = ({ children }) => {
