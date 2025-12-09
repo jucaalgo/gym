@@ -1,0 +1,352 @@
+/**
+ * THE GRAND LIBRARY - BASE PATTERNS (ATOMS)
+ * Core movement definitions that serve as the root for procedural generation.
+ */
+
+export const BASE_MOVES = {
+    // ════════ CHEST (PUSH HORIZONTAL) ════════
+    BENCH_PRESS: {
+        id: 'bench_press',
+        name: 'Press de Banca',
+        muscle: 'Pecho',
+        pattern: 'push_horizontal',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 1, // 3D Atom default
+    },
+    CHEST_FLY: {
+        id: 'chest_fly',
+        name: 'Aperturas',
+        muscle: 'Pecho',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 4,
+        visualLevel: 1,
+    },
+    PUSH_UP: {
+        id: 'push_up',
+        name: 'Flexiones',
+        muscle: 'Pecho',
+        pattern: 'push_horizontal',
+        mechanics: 'compound',
+        baseDifficulty: 5,
+        visualLevel: 2, // Video default
+    },
+    DIPS: {
+        id: 'dips',
+        name: 'Fondos',
+        muscle: 'Pecho',
+        pattern: 'push_vertical_down',
+        mechanics: 'compound',
+        baseDifficulty: 7,
+        visualLevel: 2,
+    },
+
+    // ════════ BACK (PULL) ════════
+    PULL_UP: {
+        id: 'pull_up',
+        name: 'Dominadas',
+        muscle: 'Espalda',
+        pattern: 'pull_vertical',
+        mechanics: 'compound',
+        baseDifficulty: 8,
+        visualLevel: 2,
+    },
+    LAT_PULLDOWN: {
+        id: 'lat_pulldown',
+        name: 'Jalón al Pecho',
+        muscle: 'Espalda',
+        pattern: 'pull_vertical',
+        mechanics: 'compound',
+        baseDifficulty: 4,
+        visualLevel: 1,
+    },
+    ROW: {
+        id: 'row',
+        name: 'Remo',
+        muscle: 'Espalda',
+        pattern: 'pull_horizontal',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 2,
+    },
+    PULLOVER: {
+        id: 'pullover',
+        name: 'Pullover',
+        muscle: 'Espalda',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 5,
+        visualLevel: 1,
+    },
+
+    // ════════ SHOULDERS (PUSH VERTICAL) ════════
+    OVERHEAD_PRESS: {
+        id: 'overhead_press',
+        name: 'Press Militar',
+        muscle: 'Hombros',
+        pattern: 'push_vertical',
+        mechanics: 'compound',
+        baseDifficulty: 7,
+        visualLevel: 2,
+    },
+    LATERAL_RAISE: {
+        id: 'lateral_raise',
+        name: 'Elevaciones Laterales',
+        muscle: 'Hombros',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 4,
+        visualLevel: 1,
+    },
+    FRONT_RAISE: {
+        id: 'front_raise',
+        name: 'Elevaciones Frontales',
+        muscle: 'Hombros',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 3,
+        visualLevel: 1,
+    },
+    REAR_DELT_FLY: {
+        id: 'rear_delt_fly',
+        name: 'Pájaros',
+        muscle: 'Hombros',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 5,
+        visualLevel: 1,
+    },
+
+    // ════════ LEGS - QUAD (KNEE DOMINANT) ════════
+    SQUAT: {
+        id: 'squat',
+        name: 'Sentadilla',
+        muscle: 'Cuádriceps',
+        pattern: 'knee_dominant',
+        mechanics: 'compound',
+        baseDifficulty: 7,
+        visualLevel: 2,
+    },
+    LUNGE: {
+        id: 'lunge',
+        name: 'Zancadas',
+        muscle: 'Cuádriceps',
+        pattern: 'unilateral_leg',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 2,
+    },
+    LEG_EXTENSION: {
+        id: 'leg_extension',
+        name: 'Extensiones de Cuádriceps',
+        muscle: 'Cuádriceps',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 3,
+        visualLevel: 1,
+    },
+    LEG_PRESS: {
+        id: 'leg_press',
+        name: 'Prensa de Piernas',
+        muscle: 'Cuádriceps',
+        pattern: 'knee_dominant',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 1,
+    },
+
+    // ════════ LEGS - HAM/GLUTE (HIP DOMINANT) ════════
+    DEADLIFT: {
+        id: 'deadlift',
+        name: 'Peso Muerto',
+        muscle: 'Isquios',
+        pattern: 'hip_hinge',
+        mechanics: 'compound',
+        baseDifficulty: 8,
+        visualLevel: 2,
+    },
+    HIP_THRUST: {
+        id: 'hip_thrust',
+        name: 'Hip Thrust',
+        muscle: 'Glúteos',
+        pattern: 'hip_extension',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 2,
+    },
+    LEG_CURL: {
+        id: 'leg_curl',
+        name: 'Curl Femoral',
+        muscle: 'Isquios',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 4,
+        visualLevel: 1,
+    },
+    GLUTE_KICKBACK: {
+        id: 'glute_kickback',
+        name: 'Patada de Glúteo',
+        muscle: 'Glúteos',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 3,
+        visualLevel: 1,
+    },
+    ABDUCTOR: {
+        id: 'abductor',
+        name: 'Abductores',
+        muscle: 'Glúteos',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 2,
+        visualLevel: 1,
+    },
+
+    // ════════ ARMS ════════
+    BICEP_CURL: {
+        id: 'bicep_curl',
+        name: 'Curl de Bíceps',
+        muscle: 'Bíceps',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 3,
+        visualLevel: 1,
+    },
+    TRICEP_EXTENSION: {
+        id: 'tricep_extension',
+        name: 'Extensión de Tríceps',
+        muscle: 'Tríceps',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 3,
+        visualLevel: 1,
+    },
+
+    // ════════ CORE ════════
+    PLANK: {
+        id: 'plank',
+        name: 'Plancha',
+        muscle: 'Core',
+        pattern: 'isometric',
+        mechanics: 'compound',
+        baseDifficulty: 4,
+        visualLevel: 3, // Lottie
+    },
+    CRUNCH: {
+        id: 'crunch',
+        name: 'Crunch Abdominal',
+        muscle: 'Core',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 2,
+        visualLevel: 3,
+    },
+    LEG_RAISE: {
+        id: 'leg_raise',
+        name: 'Elevación de Piernas',
+        muscle: 'Core',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 5,
+        visualLevel: 3,
+    },
+
+    // ════════ CALVES ════════
+    CALF_RAISE_STANDING: {
+        id: 'calf_raise_standing',
+        name: 'Elevación de Talones (Pie)',
+        muscle: 'Gemelos',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 2,
+        visualLevel: 1,
+    },
+    CALF_RAISE_SEATED: {
+        id: 'calf_raise_seated',
+        name: 'Elevación de Talones (Sentado)',
+        muscle: 'Sóleo',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 2,
+        visualLevel: 1,
+    },
+
+    // ════════ TRAPS & NECK ════════
+    SHRUGS: {
+        id: 'shrugs',
+        name: 'Encogimientos',
+        muscle: 'Trapecios',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 3,
+        visualLevel: 1,
+    },
+    FACE_PULL: {
+        id: 'face_pull',
+        name: 'Face Pull',
+        muscle: 'Hombros', // Rear delts/Traps
+        pattern: 'pull_horizontal',
+        mechanics: 'isolation',
+        baseDifficulty: 4,
+        visualLevel: 2,
+    },
+
+    // ════════ FOREARMS ════════
+    WRIST_CURL: {
+        id: 'wrist_curl',
+        name: 'Curl de Muñeca',
+        muscle: 'Antebrazos',
+        pattern: 'isolation',
+        mechanics: 'isolation',
+        baseDifficulty: 2,
+        visualLevel: 1,
+    },
+    FARMERS_WALK: {
+        id: 'farmers_walk',
+        name: 'Paseo del Granjero',
+        muscle: 'Full Body',
+        pattern: 'carry',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 1,
+    },
+
+    // ════════ CARDIO / METABOLIC ════════
+    JUMP_SQUAT: {
+        id: 'jump_squat',
+        name: 'Sentadilla con Salto',
+        muscle: 'Piernas',
+        pattern: 'plyometric',
+        mechanics: 'compound',
+        baseDifficulty: 6,
+        visualLevel: 2,
+    },
+    BOX_JUMP: {
+        id: 'box_jump',
+        name: 'Salto al Cajón',
+        muscle: 'Piernas',
+        pattern: 'plyometric',
+        mechanics: 'compound',
+        baseDifficulty: 7,
+        visualLevel: 2,
+    },
+    BATTLE_ROPES: {
+        id: 'battle_ropes',
+        name: 'Battle Ropes',
+        muscle: 'Full Body',
+        pattern: 'metabolic',
+        mechanics: 'compound',
+        baseDifficulty: 8,
+        visualLevel: 2,
+    },
+    SLED_PUSH: {
+        id: 'sled_push',
+        name: 'Empuje de Trineo',
+        muscle: 'Piernas',
+        pattern: 'push_horizontal',
+        mechanics: 'compound',
+        baseDifficulty: 9,
+        visualLevel: 2,
+    }
+};
