@@ -1,21 +1,30 @@
 {
-    "name": "JCA GYM",
+    "name": "JCA GYM | System Core",
     "short_name": "JCA GYM",
+    "description": "Advanced Cybernetic Training System for Elite Agents.",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#000000",
     "orientation": "portrait",
+    "categories": [
+        "fitness",
+        "health",
+        "lifestyle"
+    ],
     "icons": [
         {
             "src": "favicon.svg",
             "sizes": "192x192",
-            "type": "image/svg+xml"
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
         },
         {
             "src": "favicon.svg",
             "sizes": "512x512",
-            "type": "image/svg+xml"
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
         }
-    ]
+    ],
+    "prefer_related_applications": false
 }

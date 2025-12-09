@@ -6,22 +6,26 @@ import {
     Target,
     Camera,
     Trophy,
-    Settings
+    Settings,
+    TrendingUp,
+    Book
 } from 'lucide-react';
 
 const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Home' },
-    { to: '/encyclopedia', icon: BookOpen, label: 'Wiki' },
     { to: '/matrix', icon: Target, label: 'Matrix' },
     { to: '/nutrition', icon: Camera, label: 'Scan' },
     { to: '/routines', icon: Trophy, label: 'Gym' },
+    { to: '/analytics', icon: TrendingUp, label: 'Stats' },
+    { to: '/journal', icon: Book, label: 'Log' },
+    { to: '/encyclopedia', icon: BookOpen, label: 'Wiki' },
     { to: '/profile', icon: Settings, label: 'Profile' },
 ];
 
 const MobileNavbar = () => {
     return (
-        <nav className="fixed bottom-0 left-0 right-0 h-20 bg-black/80 backdrop-blur-lg border-t border-white/10 z-50 md:hidden pb-safe">
-            <div className="flex justify-around items-center h-full px-2">
+        <nav className="fixed bottom-0 left-0 right-0 h-20 bg-black/90 backdrop-blur-lg border-t border-white/10 z-50 md:hidden pb-safe">
+            <div className="flex items-center h-full overflow-x-auto no-scrollbar px-4 gap-2">
                 {navItems.map(({ to, icon: Icon, label }) => (
                     <NavLink
                         key={to}

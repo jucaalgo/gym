@@ -9,7 +9,9 @@ import {
     Settings,
     LogOut,
     Shield,
-    Zap
+    Zap,
+    TrendingUp,
+    Book
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════
@@ -21,6 +23,8 @@ const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Dashboard' },
     { to: '/encyclopedia', icon: BookOpen, label: 'Encyclopedia' },
     { to: '/matrix', icon: Target, label: 'The Matrix' },
+    { to: '/analytics', icon: TrendingUp, label: 'Analytics' },
+    { to: '/journal', icon: Book, label: 'Journal' },
     { to: '/nutrition', icon: Camera, label: 'Snap & Track' },
     { to: '/routines', icon: Trophy, label: 'Routines' },
     { to: '/profile', icon: Settings, label: 'Profile' },

@@ -15,6 +15,8 @@ import Profile from './pages/Profile';
 import Onboarding from './pages/Onboarding';
 import AICamera from './pages/AICamera';
 import InstallPrompt from './components/ui/InstallPrompt';
+import Analytics from './pages/Analytics';
+import Journal from './pages/Journal';
 
 // Layout Shell with Sidebar & Mobile Nav
 const Layout = ({ children }) => {
@@ -100,6 +102,9 @@ function App() {
                     <Route path="/nutrition" element={<RequireAuth><Layout><Nutrition /></Layout></RequireAuth>} />
                     <Route path="/routines" element={<RequireAuth><Layout><Routines /></Layout></RequireAuth>} />
                     <Route path="/profile" element={<RequireAuth><Layout><Profile /></Layout></RequireAuth>} />
+                    <Route path="/analytics" element={<RequireAuth><Layout><Analytics /></Layout></RequireAuth>} />
+                    <Route path="/journal" element={<RequireAuth><Layout><Journal /></Layout></RequireAuth>} />
+
 
                     {/* Protected Admin Routes */}
                     <Route

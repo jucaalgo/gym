@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // Added useLocation
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useSwipeable } from 'react-swipeable';
 import {
     Play,
     Pause,
@@ -17,13 +18,16 @@ import {
 } from 'lucide-react';
 import VisualAsset from '../components/ui/VisualAsset';
 import { useUser } from '../context/UserContext';
+import soundManager from '../utils/sounds';
+import { triggerHaptic } from '../utils/haptics';
 import {
     generateRoutine,
-    loadSuggestedRoutine, // Added import
+    loadSuggestedRoutine,
     generateWarmup,
     generateCooldown,
     calculateWorkoutXP
 } from '../modules/matrix/generator';
+import RestTimer from '../components/ui/RestTimer';
 
 // ═══════════════════════════════════════════════════════════════
 // THE MATRIX - TRAINING ENGINE
@@ -37,6 +41,7 @@ const Matrix = () => {
     const [timer, setTimer] = useState(0);
     const [phase, setPhase] = useState('preview'); // preview, warmup, workout, cooldown, complete
     const [completedExercises, setCompletedExercises] = useState([]);
+    const [isResting, setIsResting] = useState(false);
 
     const location = useLocation(); // Hook to get logic
     const navigate = useNavigate();
@@ -98,13 +103,20 @@ const Matrix = () => {
     const handleCompleteExercise = () => {
         const currentEx = routine.exercises[currentExerciseIndex];
         setCompletedExercises(prev => [...prev, currentEx.id]);
+        soundManager.play('success');
+        triggerHaptic('success');
 
         if (currentExerciseIndex < routine.exercises.length - 1) {
-            setCurrentExerciseIndex(prev => prev + 1);
+            setIsResting(true); // Start rest
         } else {
             // Workout complete!
             handleWorkoutComplete();
         }
+    };
+
+    const handleFinishRest = () => {
+        setIsResting(false);
+        setCurrentExerciseIndex(prev => prev + 1);
     };
 
     const handleWorkoutComplete = () => {
@@ -245,101 +257,137 @@ const Matrix = () => {
             {/* ═══════════════════════════════════════════════════════════════
           WORKOUT PHASE (Active Player)
           ═══════════════════════════════════════════════════════════════ */}
-            {phase === 'workout' && currentExercise && (
-                <div className="fixed inset-0 bg-background/95 backdrop-blur-xl z-50 flex flex-col">
-                    {/* Top Bar */}
-                    <div className="flex items-center justify-between p-4 border-b border-white/10">
-                        <button
-                            onClick={handleCloseWorkout}
-                            className="p-2 rounded-xl hover:bg-white/10 transition-colors"
-                        >
-                            <X className="w-6 h-6 text-white/60" />
-                        </button>
+            {phase === 'workout' && currentExercise && (() => {
+                // Swipe handlers
+                const swipeHandlers = useSwipeable({
+                    onSwipedLeft: () => {
+                        if (currentExerciseIndex < routine.exercises.length - 1) {
+                            setCurrentExerciseIndex(prev => prev + 1);
+                            triggerHaptic('light');
+                        }
+                    },
+                    onSwipedRight: () => {
+                        if (currentExerciseIndex > 0) {
+                            setCurrentExerciseIndex(prev => prev - 1);
+                            triggerHaptic('light');
+                        }
+                    },
+                    preventDefaultTouchmoveEvent: true,
+                    trackMouse: false
+                });
 
-                        <div className="text-center">
-                            <div className="text-sm text-white/50">Exercise {currentExerciseIndex + 1} of {routine.exercises.length}</div>
-                            <div className="text-2xl font-bold text-white font-mono">{formatTime(timer)}</div>
+                return (
+                    <div className="fixed inset-0 bg-background/95 backdrop-blur-xl z-50 flex flex-col">
+                        {/* Top Bar */}
+                        <div className="flex items-center justify-between p-4 border-b border-white/10">
+                            <button
+                                onClick={handleCloseWorkout}
+                                className="p-2 rounded-xl hover:bg-white/10 transition-colors"
+                            >
+                                <X className="w-6 h-6 text-white/60" />
+                            </button>
+
+                            <div className="text-center">
+                                <div className="text-sm text-white/50">Exercise {currentExerciseIndex + 1} of {routine.exercises.length}</div>
+                                <div className="text-2xl font-bold text-white font-mono">{formatTime(timer)}</div>
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                {routine.exercises.map((_, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`w-2 h-2 rounded-full transition-colors ${idx < currentExerciseIndex ? 'bg-success' :
+                                            idx === currentExerciseIndex ? 'bg-primary' :
+                                                'bg-white/20'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                            {routine.exercises.map((_, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`w-2 h-2 rounded-full transition-colors ${idx < currentExerciseIndex ? 'bg-success' :
-                                        idx === currentExerciseIndex ? 'bg-primary' :
-                                            'bg-white/20'
-                                        }`}
+                        {/* Main Content - WITH SWIPE */}
+                        <div {...swipeHandlers} className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
+                            {/* Exercise Visual - INTEGRATED */}
+                            <div className="w-full max-w-sm md:max-w-md aspect-square md:aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
+                                <VisualAsset
+                                    exercise={currentExercise}
+                                    type="3d_viewer"
+                                    className="w-full h-full object-contain md:object-cover"
                                 />
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Main Content */}
-                    <div className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
-                        {/* Exercise Visual - INTEGRATED */}
-                        <div className="w-full max-w-sm md:max-w-md aspect-square md:aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
-                            <VisualAsset
-                                exercise={currentExercise}
-                                type="3d_viewer"
-                                className="w-full h-full object-contain md:object-cover"
-                            />
-                        </div>
-
-                        {/* Exercise Info */}
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-1 text-center">{currentExercise.name}</h2>
-                        <p className="text-white/50 mb-6 text-center">{currentExercise.muscleGroup}</p>
-
-                        {/* Sets & Reps */}
-                        <div className="flex items-center justify-center gap-8 mb-6">
-                            <div className="text-center">
-                                <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.sets}</div>
-                                <div className="text-white/50 text-sm">sets</div>
                             </div>
-                            <div className="text-3xl text-white/30">×</div>
-                            <div className="text-center">
-                                <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.reps}</div>
-                                <div className="text-white/50 text-sm">reps</div>
+
+                            {/* REST TIMER OVERLAY */}
+                            {isResting && (
+                                <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 backdrop-blur-md p-6 animate-in fade-in duration-300">
+                                    <RestTimer
+                                        initialSeconds={currentExercise.rest || 60}
+                                        onComplete={handleFinishRest}
+                                        onSkip={handleFinishRest}
+                                    />
+                                </div>
+                            )}
+
+                            {/* Exercise Info */}
+                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-1 text-center">{currentExercise.name}</h2>
+                            <p className="text-white/50 mb-6 text-center">{currentExercise.muscleGroup}</p>
+
+                            {/* Sets & Reps */}
+                            <div className="flex items-center justify-center gap-8 mb-6">
+                                <div className="text-center">
+                                    <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.sets}</div>
+                                    <div className="text-white/50 text-sm">sets</div>
+                                </div>
+                                <div className="text-3xl text-white/30">×</div>
+                                <div className="text-center">
+                                    <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.reps}</div>
+                                    <div className="text-white/50 text-sm">reps</div>
+                                </div>
+                            </div>
+
+                            {/* Rest Indicator */}
+                            <div className="text-sm text-white/40 mb-4 text-center">
+                                Rest: {currentExercise.rest} seconds
+                            </div>
+
+                            {/* Swipe Hint */}
+                            <div className="text-xs text-white/30 mb-2 text-center md:hidden">
+                                ← Swipe to navigate →
                             </div>
                         </div>
 
-                        {/* Rest Indicator */}
-                        <div className="text-sm text-white/40 mb-4 text-center">
-                            Rest: {currentExercise.rest} seconds
+                        {/* Bottom Controls */}
+                        <div className="p-4 md:p-6 border-t border-white/10 bg-black/60 backdrop-blur-lg pb-safe">
+                            <div className="flex items-center justify-between gap-4">
+                                {/* Prev Button */}
+                                <button
+                                    onClick={() => setCurrentExerciseIndex(prev => Math.max(0, prev - 1))}
+                                    disabled={currentExerciseIndex === 0}
+                                    className={`p-4 rounded-xl bg-white/10 flex items-center justify-center transition-colors ${currentExerciseIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20'}`}
+                                >
+                                    <ChevronRight className="w-6 h-6 text-white rotate-180" />
+                                </button>
+
+                                {/* Play/Pause */}
+                                <button
+                                    onClick={() => setIsPlaying(!isPlaying)}
+                                    className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors shrink-0"
+                                >
+                                    {isPlaying ? <Pause className="w-8 h-8 text-white" /> : <Play className="w-8 h-8 text-white" />}
+                                </button>
+
+                                {/* Complete/Next */}
+                                <button
+                                    onClick={handleCompleteExercise}
+                                    className={`flex-1 py-4 md:py-5 rounded-2xl bg-gradient-to-r ${routine.archetype?.color || 'from-primary to-accent'} text-white font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg whitespace-nowrap`}
+                                >
+                                    <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
+                                    <span>{currentExerciseIndex === routine.exercises.length - 1 ? 'FINISH' : 'NEXT'}</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-
-                    {/* Bottom Controls */}
-                    <div className="p-4 md:p-6 border-t border-white/10 bg-black/60 backdrop-blur-lg pb-safe">
-                        <div className="flex items-center justify-between gap-4">
-                            {/* Prev Button */}
-                            <button
-                                onClick={() => setCurrentExerciseIndex(prev => Math.max(0, prev - 1))}
-                                disabled={currentExerciseIndex === 0}
-                                className={`p-4 rounded-xl bg-white/10 flex items-center justify-center transition-colors ${currentExerciseIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20'}`}
-                            >
-                                <ChevronRight className="w-6 h-6 text-white rotate-180" />
-                            </button>
-
-                            {/* Play/Pause */}
-                            <button
-                                onClick={() => setIsPlaying(!isPlaying)}
-                                className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors shrink-0"
-                            >
-                                {isPlaying ? <Pause className="w-8 h-8 text-white" /> : <Play className="w-8 h-8 text-white" />}
-                            </button>
-
-                            {/* Complete/Next */}
-                            <button
-                                onClick={handleCompleteExercise}
-                                className={`flex-1 py-4 md:py-5 rounded-2xl bg-gradient-to-r ${routine.archetype?.color || 'from-primary to-accent'} text-white font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg whitespace-nowrap`}
-                            >
-                                <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
-                                <span>{currentExerciseIndex === routine.exercises.length - 1 ? 'FINISH' : 'NEXT'}</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+                );
+            })()}
 
             {/* ═══════════════════════════════════════════════════════════════
           COMPLETE PHASE

@@ -16,8 +16,12 @@ import {
     X,
     Scan
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useUser } from '../context/UserContext';
 import { getSuggestedRoutinesAsync } from '../data/routines';
+import CountUp from '../components/ui/CountUp';
+import soundManager from '../utils/sounds';
+import { triggerHaptic } from '../utils/haptics';
 
 // ═══════════════════════════════════════════════════════════════
 // BENTO GRID DASHBOARD - HUD STYLE
@@ -149,7 +153,9 @@ const Dashboard = () => {
                     </div>
 
                     <div>
-                        <div className="text-4xl font-bold text-white">{user.level}</div>
+                        <div className="text-4xl font-bold text-white">
+                            <CountUp value={user.level} duration={1} />
+                        </div>
                         <div className="w-full h-2 bg-white/10 rounded-full mt-2 overflow-hidden">
                             <div
                                 className={`h-full bg-gradient-to-r ${archetype.color} rounded-full transition-all duration-500`}
@@ -171,7 +177,9 @@ const Dashboard = () => {
 
                     <div className="flex items-end justify-between">
                         <div>
-                            <div className="text-4xl font-bold text-white">{user.currentStreak}</div>
+                            <div className="text-4xl font-bold text-white">
+                                <CountUp value={user.currentStreak} duration={0.8} />
+                            </div>
                             <div className="text-sm text-white/50">days</div>
                         </div>
                         <div className="text-right">

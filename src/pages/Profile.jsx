@@ -1,9 +1,50 @@
 import React from 'react';
 import { useUser } from '../context/UserContext';
-import { User, Shield, Activity, Calendar, Trophy, Zap } from 'lucide-react';
+import { User, Shield, Activity, Calendar, Trophy, Zap, Download, Upload, Smartphone } from 'lucide-react';
+import soundManager from '../utils/sounds';
+import { triggerHaptic } from '../utils/haptics';
 
 const Profile = () => {
-    const { user, logout } = useUser();
+    const { user, logout, setUser } = useUser();
+
+    // Export Data (Backup)
+    const handleExport = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(user));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", `jca_gym_backup_${new Date().toISOString().split('T')[0]}.json`);
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+        soundManager.play('success');
+        triggerHaptic('success');
+    };
+
+    // Import Data (Restore)
+    const handleImport = (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const importedUser = JSON.parse(e.target.result);
+                if (importedUser && importedUser.id) {
+                    setUser(importedUser);
+                    localStorage.setItem('currentUser', JSON.stringify(importedUser)); // Force immediate save
+                    soundManager.play('levelUp');
+                    triggerHaptic('success');
+                    alert('Data restored successfully! Welcome back, Agent.');
+                } else {
+                    alert('Invalid backup file.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error reading file.');
+            }
+        };
+        reader.readAsText(file);
+    };
 
     if (!user) return null;
 
@@ -105,6 +146,39 @@ const Profile = () => {
                     <div className="p-4 rounded-xl bg-white/5 border border-white/5">
                         <div className="text-white/40 text-xs uppercase mb-1">Gender</div>
                         <div className="text-xl font-bold text-white capitalize">{user.gender}</div>
+                    </div>
+                </div>
+            </div>
+            {/* Data Management (Sync) */}
+            <div className="glass-panel p-6 rounded-3xl border border-primary/20">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <Smartphone className="w-5 h-5 text-primary" />
+                    Device Sync & Backup
+                </h3>
+                <p className="text-white/50 text-sm mb-6">
+                    Since this is a secure offline system, your data lives on this device.
+                    To transfer to another phone, Export here and Import on the new device.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button
+                        onClick={handleExport}
+                        className="py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 transition-all shadow-lg"
+                    >
+                        <Download className="w-5 h-5" />
+                        Export Backup
+                    </button>
+
+                    <div className="relative">
+                        <input
+                            type="file"
+                            accept=".json"
+                            onChange={handleImport}
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                        <button className="w-full h-full py-4 rounded-xl bg-primary/20 hover:bg-primary/30 text-primary font-semibold flex items-center justify-center gap-2 transition-all border border-primary/20">
+                            <Upload className="w-5 h-5" />
+                            Restore Data
+                        </button>
                     </div>
                 </div>
             </div>
