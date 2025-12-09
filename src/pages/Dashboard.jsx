@@ -66,10 +66,10 @@ const Dashboard = () => {
             <header className="flex items-center justify-between">
                 <div>
                     <h1 className="text-3xl font-bold text-white">
-                        Bienvenido, <span className="text-gradient">{user.name}</span>
+                        Welcome, <span className="text-gradient">{user.name}</span>
                     </h1>
                     <p className="text-white/60 mt-1">
-                        Sistema en línea • Protocolo del día listo
+                        System Online • Daily Protocol Ready
                     </p>
                 </div>
                 <div className={`px-4 py-2 rounded-xl bg-gradient-to-r ${archetype.color} text-white font-semibold flex items-center gap-2`}>
@@ -91,20 +91,20 @@ const Dashboard = () => {
                             <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2 text-primary">
                                     <Target className="w-5 h-5" />
-                                    <span className="text-sm font-medium uppercase tracking-wider">Misión del Día</span>
+                                    <span className="text-sm font-medium uppercase tracking-wider">Daily Mission</span>
                                 </div>
                                 <button
                                     onClick={() => setShowRoutineSelector(true)}
                                     className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
                                 >
                                     <RefreshCw className="w-4 h-4" />
-                                    <span className="text-sm">Cambiar Rutina</span>
+                                    <span className="text-sm">Change Routine</span>
                                 </button>
                             </div>
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                                 {selectedRoutineId ?
-                                    availableRoutines.find(r => r.id === selectedRoutineId)?.name || `Protocolo ${archetype.name}`
-                                    : `Protocolo ${archetype.name}`}
+                                    availableRoutines.find(r => r.id === selectedRoutineId)?.name || `Protocol ${archetype.name}`
+                                    : `Protocol ${archetype.name}`}
                             </h2>
                             <p className="text-white/60 max-w-md">
                                 {selectedRoutineId ?
@@ -122,8 +122,8 @@ const Dashboard = () => {
                                 <div className="flex items-center gap-2 text-white/80">
                                     <Dumbbell className="w-4 h-4" />
                                     <span>{selectedRoutineId ?
-                                        `${availableRoutines.find(r => r.id === selectedRoutineId)?.exercises.length || 6} ejercicios`
-                                        : '6 ejercicios'}</span>
+                                        `${availableRoutines.find(r => r.id === selectedRoutineId)?.exercises.length || 6} exercises`
+                                        : '6 exercises'}</span>
                                 </div>
                             </div>
 
@@ -131,7 +131,7 @@ const Dashboard = () => {
                                 onClick={handleStartWorkout}
                                 className={`px-6 py-3 rounded-xl bg-gradient-to-r ${archetype.color} text-white font-semibold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg`}
                             >
-                                <span>INICIAR</span>
+                                <span>START</span>
                                 <ChevronRight className="w-5 h-5" />
                             </button>
                         </div>
@@ -143,7 +143,7 @@ const Dashboard = () => {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2 text-accent">
                             <Trophy className="w-5 h-5" />
-                            <span className="text-sm font-medium uppercase tracking-wider">Nivel</span>
+                            <span className="text-sm font-medium uppercase tracking-wider">Level</span>
                         </div>
                         <span className="text-2xl">{archetype.icon}</span>
                     </div>
@@ -166,17 +166,17 @@ const Dashboard = () => {
                 <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 flex flex-col justify-between">
                     <div className="flex items-center gap-2 text-warning">
                         <Flame className="w-5 h-5" />
-                        <span className="text-sm font-medium uppercase tracking-wider">Racha</span>
+                        <span className="text-sm font-medium uppercase tracking-wider">Streak</span>
                     </div>
 
                     <div className="flex items-end justify-between">
                         <div>
                             <div className="text-4xl font-bold text-white">{user.currentStreak}</div>
-                            <div className="text-sm text-white/50">días seguidos</div>
+                            <div className="text-sm text-white/50">days</div>
                         </div>
                         <div className="text-right">
                             <div className="text-lg font-semibold text-warning">🔥</div>
-                            <div className="text-xs text-white/40">Récord: {user.longestStreak}</div>
+                            <div className="text-xs text-white/40">Record: {user.longestStreak}</div>
                         </div>
                     </div>
                 </div>
@@ -194,9 +194,9 @@ const Dashboard = () => {
                                 <Scan className="w-5 h-5" />
                                 <span className="text-sm font-medium uppercase tracking-wider">Neural Scan</span>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-2">Escanear Todo</h3>
+                            <h3 className="text-xl font-bold text-white mb-2">Scan Everything</h3>
                             <p className="text-white/50 text-sm">
-                                Identifica Máquinas y Comidas (Calorías) con IA Vision
+                                Identify Equipment & Food (Calories) with AI Vision
                             </p>
                         </div>
 
@@ -211,7 +211,7 @@ const Dashboard = () => {
                         </div>
 
                         <button className="w-full py-3 rounded-xl bg-secondary/20 text-secondary font-semibold group-hover:bg-secondary group-hover:text-white transition-all">
-                            Iniciar Escáner
+                            Start Scanner
                         </button>
                     </div>
                 </Link>
@@ -221,7 +221,7 @@ const Dashboard = () => {
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2 text-success">
                             <Zap className="w-5 h-5" />
-                            <span className="text-sm font-medium uppercase tracking-wider">Energía</span>
+                            <span className="text-sm font-medium uppercase tracking-wider">Energy</span>
                         </div>
                         <Brain className="w-5 h-5 text-white/40" />
                     </div>
@@ -230,7 +230,7 @@ const Dashboard = () => {
                         {/* Energy Bar */}
                         <div className="flex-1">
                             <div className="flex justify-between text-xs text-white/50 mb-1">
-                                <span>Nivel de Energía</span>
+                                <span>Energy Level</span>
                                 <span>{user.energyLevel}/10</span>
                             </div>
                             <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
@@ -246,7 +246,7 @@ const Dashboard = () => {
                             <div className={`text-2xl ${user.stressLevel > 7 ? 'text-error' : user.stressLevel > 4 ? 'text-warning' : 'text-success'}`}>
                                 {user.stressLevel > 7 ? '😰' : user.stressLevel > 4 ? '😐' : '😊'}
                             </div>
-                            <div className="text-xs text-white/40">Estrés</div>
+                            <div className="text-xs text-white/40">Stress</div>
                         </div>
                     </div>
                 </div>
@@ -256,15 +256,15 @@ const Dashboard = () => {
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2 text-primary">
                             <TrendingUp className="w-5 h-5" />
-                            <span className="text-sm font-medium uppercase tracking-wider">Calorías Hoy</span>
+                            <span className="text-sm font-medium uppercase tracking-wider">Calories Today</span>
                         </div>
-                        <span className="text-sm text-white/50">{user.calorieGoal} kcal meta</span>
+                        <span className="text-sm text-white/50">{user.calorieGoal} kcal goal</span>
                     </div>
 
                     <div className="flex items-end justify-between">
                         <div>
                             <div className="text-3xl font-bold text-white">{user.todayCalories}</div>
-                            <div className="text-sm text-white/50">kcal consumidas</div>
+                            <div className="text-sm text-white/50">kcal consumed</div>
                         </div>
 
                         {/* Macro Pills */}
@@ -276,7 +276,7 @@ const Dashboard = () => {
                                 C: {user.todayCarbs}g
                             </div>
                             <div className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 text-xs font-medium">
-                                G: {user.todayFat}g
+                                F: {user.todayFat}g
                             </div>
                         </div>
                     </div>
@@ -299,10 +299,10 @@ const Dashboard = () => {
                         <div>
                             <div className="flex items-center gap-2 text-accent mb-2">
                                 <Sparkles className="w-5 h-5" />
-                                <span className="text-sm font-medium uppercase tracking-wider">Enciclopedia</span>
+                                <span className="text-sm font-medium uppercase tracking-wider">Encyclopedia</span>
                             </div>
                             <div className="text-2xl font-bold text-white">5000+</div>
-                            <div className="text-sm text-white/50">Átomos de Movimiento</div>
+                            <div className="text-sm text-white/50">Atoms of Movement</div>
                         </div>
                         <ChevronRight className="w-8 h-8 text-white/30 group-hover:text-accent group-hover:translate-x-1 transition-all" />
                     </div>
@@ -312,21 +312,21 @@ const Dashboard = () => {
                 <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5">
                     <div className="flex items-center gap-2 text-white/60 mb-3">
                         <Dumbbell className="w-4 h-4" />
-                        <span className="text-sm font-medium uppercase tracking-wider">Estadísticas</span>
+                        <span className="text-sm font-medium uppercase tracking-wider">Stats</span>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 text-center">
                         <div>
                             <div className="text-xl font-bold text-white">{user.totalWorkouts}</div>
-                            <div className="text-xs text-white/40">Entrenamientos</div>
+                            <div className="text-xs text-white/40">Workouts</div>
                         </div>
                         <div>
                             <div className="text-xl font-bold text-white">{Math.round(user.totalMinutes / 60)}h</div>
-                            <div className="text-xs text-white/40">Entrenadas</div>
+                            <div className="text-xs text-white/40">Trained</div>
                         </div>
                         <div>
                             <div className="text-xl font-bold text-white">{(user.caloriesBurned / 1000).toFixed(1)}k</div>
-                            <div className="text-xs text-white/40">kcal quemadas</div>
+                            <div className="text-xs text-white/40">kcal burned</div>
                         </div>
                     </div>
                 </div>
@@ -341,8 +341,8 @@ const Dashboard = () => {
                         {/* Modal Header */}
                         <div className="p-6 border-b border-white/10 flex items-center justify-between">
                             <div>
-                                <h2 className="text-2xl font-bold text-white">Seleccionar Rutina</h2>
-                                <p className="text-white/60">Elige tu misión de hoy</p>
+                                <h2 className="text-2xl font-bold text-white">Select Routine</h2>
+                                <p className="text-white/60">Choose your mission for today</p>
                             </div>
                             <button
                                 onClick={() => setShowRoutineSelector(false)}
@@ -371,7 +371,7 @@ const Dashboard = () => {
                                     >
                                         <div className="flex items-center gap-2 mb-2">
                                             <span className="text-2xl">{archetype.icon}</span>
-                                            <span className="font-bold text-white">Protocolo {archetype.name}</span>
+                                            <span className="font-bold text-white">Protocol {archetype.name}</span>
                                         </div>
                                         <p className="text-sm text-white/60 line-clamp-2">
                                             {archetype.description}

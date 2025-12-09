@@ -15,7 +15,7 @@ const navItems = [
     { to: '/matrix', icon: Target, label: 'Matrix' },
     { to: '/nutrition', icon: Camera, label: 'Scan' },
     { to: '/routines', icon: Trophy, label: 'Gym' },
-    { to: '/profile', icon: Settings, label: 'Perfil' },
+    { to: '/profile', icon: Settings, label: 'Profile' },
 ];
 
 const MobileNavbar = () => {

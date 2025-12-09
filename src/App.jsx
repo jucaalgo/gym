@@ -17,6 +17,16 @@ import AICamera from './pages/AICamera';
 
 // Layout Shell with Sidebar & Mobile Nav
 const Layout = ({ children }) => {
+    const location = useLocation();
+    const mainContentRef = React.useRef(null);
+
+    // Scroll to top of main content on route change
+    React.useLayoutEffect(() => {
+        if (mainContentRef.current) {
+            mainContentRef.current.scrollTop = 0;
+        }
+    }, [location.pathname]);
+
     return (
         <div className="flex h-screen overflow-hidden relative bg-background">
             {/* Desktop Sidebar (Hidden on Mobile) */}
@@ -24,7 +34,10 @@ const Layout = ({ children }) => {
                 <Sidebar />
             </div>
 
-            <main className="flex-1 overflow-y-auto relative pb-24 md:pb-8 w-full">
+            <main
+                ref={mainContentRef}
+                className="flex-1 overflow-y-auto relative pb-24 md:pb-8 w-full scroll-smooth"
+            >
                 {children}
                 {/* Global Footer */}
                 <div className="py-6 text-center">
@@ -34,8 +47,8 @@ const Layout = ({ children }) => {
                 </div>
             </main>
 
-            {/* Mobile Bottom Nav (Hidden on Desktop) */}
-            <MobileNavbar />
+            {/* Mobile Bottom Nav (Hidden on Desktop & Matrix) */}
+            {location.pathname !== '/matrix' && <MobileNavbar />}
         </div>
     );
 };

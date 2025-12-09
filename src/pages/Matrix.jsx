@@ -241,6 +241,7 @@ const Matrix = () => {
                 </>
             )}
 
+
             {/* ═══════════════════════════════════════════════════════════════
           WORKOUT PHASE (Active Player)
           ═══════════════════════════════════════════════════════════════ */}
@@ -256,7 +257,7 @@ const Matrix = () => {
                         </button>
 
                         <div className="text-center">
-                            <div className="text-sm text-white/50">Ejercicio {currentExerciseIndex + 1} de {routine.exercises.length}</div>
+                            <div className="text-sm text-white/50">Exercise {currentExerciseIndex + 1} of {routine.exercises.length}</div>
                             <div className="text-2xl font-bold text-white font-mono">{formatTime(timer)}</div>
                         </div>
 
@@ -274,9 +275,9 @@ const Matrix = () => {
                     </div>
 
                     {/* Main Content */}
-                    <div className="flex-1 flex flex-col items-center justify-center p-8">
+                    <div className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
                         {/* Exercise Visual - INTEGRATED */}
-                        <div className="w-full max-w-md aspect-video rounded-3xl overflow-hidden mb-8 border border-white/10 shadow-2xl bg-black">
+                        <div className="w-full max-w-sm md:max-w-md aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
                             <VisualAsset
                                 exercise={currentExercise}
                                 type="3d_viewer"
@@ -285,50 +286,55 @@ const Matrix = () => {
                         </div>
 
                         {/* Exercise Info */}
-                        <h2 className="text-3xl font-bold text-white mb-2">{currentExercise.name}</h2>
-                        <p className="text-white/50 mb-8">{currentExercise.muscleGroup}</p>
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-1 text-center">{currentExercise.name}</h2>
+                        <p className="text-white/50 mb-6 text-center">{currentExercise.muscleGroup}</p>
 
                         {/* Sets & Reps */}
-                        <div className="flex items-center gap-8 mb-8">
+                        <div className="flex items-center justify-center gap-8 mb-6">
                             <div className="text-center">
-                                <div className="text-5xl font-bold text-white">{currentExercise.sets}</div>
-                                <div className="text-white/50">series</div>
+                                <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.sets}</div>
+                                <div className="text-white/50 text-sm">sets</div>
                             </div>
-                            <div className="text-4xl text-white/30">×</div>
+                            <div className="text-3xl text-white/30">×</div>
                             <div className="text-center">
-                                <div className="text-5xl font-bold text-white">{currentExercise.reps}</div>
-                                <div className="text-white/50">repeticiones</div>
+                                <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.reps}</div>
+                                <div className="text-white/50 text-sm">reps</div>
                             </div>
                         </div>
 
                         {/* Rest Indicator */}
-                        <div className="text-sm text-white/40 mb-8">
-                            Descanso: {currentExercise.rest} segundos
-                        </div>
-
-                        {/* Source Badge */}
-                        <div className="px-4 py-2 rounded-xl bg-white/5 text-white/60 text-sm">
-                            Fuente: {currentExercise.source}
+                        <div className="text-sm text-white/40 mb-4 text-center">
+                            Rest: {currentExercise.rest} seconds
                         </div>
                     </div>
 
                     {/* Bottom Controls */}
-                    <div className="p-6 border-t border-white/10">
-                        <div className="flex items-center justify-center gap-4">
+                    <div className="p-4 md:p-6 border-t border-white/10 bg-black/60 backdrop-blur-lg pb-safe">
+                        <div className="flex items-center justify-between gap-4">
+                            {/* Prev Button */}
+                            <button
+                                onClick={() => setCurrentExerciseIndex(prev => Math.max(0, prev - 1))}
+                                disabled={currentExerciseIndex === 0}
+                                className={`p-4 rounded-xl bg-white/10 flex items-center justify-center transition-colors ${currentExerciseIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20'}`}
+                            >
+                                <ChevronRight className="w-6 h-6 text-white rotate-180" />
+                            </button>
+
+                            {/* Play/Pause */}
                             <button
                                 onClick={() => setIsPlaying(!isPlaying)}
-                                className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                                className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors shrink-0"
                             >
                                 {isPlaying ? <Pause className="w-8 h-8 text-white" /> : <Play className="w-8 h-8 text-white" />}
                             </button>
 
+                            {/* Complete/Next */}
                             <button
                                 onClick={handleCompleteExercise}
-                                className={`flex-1 max-w-md py-5 rounded-2xl bg-gradient-to-r ${routine.archetype?.color || 'from-primary to-accent'} text-white font-bold text-lg flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform`}
+                                className={`flex-1 py-4 md:py-5 rounded-2xl bg-gradient-to-r ${routine.archetype?.color || 'from-primary to-accent'} text-white font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg whitespace-nowrap`}
                             >
-                                <CheckCircle2 className="w-6 h-6" />
-                                <span>COMPLETADO</span>
-                                <SkipForward className="w-5 h-5" />
+                                <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
+                                <span>{currentExerciseIndex === routine.exercises.length - 1 ? 'FINISH' : 'NEXT'}</span>
                             </button>
                         </div>
                     </div>
@@ -339,34 +345,34 @@ const Matrix = () => {
           COMPLETE PHASE
           ═══════════════════════════════════════════════════════════════ */}
             {phase === 'complete' && (
-                <div className="text-center py-12">
+                <div className="text-center py-12 px-4">
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-success to-emerald-400 flex items-center justify-center mx-auto mb-6 animate-pulse">
                         <Trophy className="w-12 h-12 text-white" />
                     </div>
 
-                    <h2 className="text-4xl font-bold text-white mb-2">¡Misión Completada!</h2>
-                    <p className="text-white/60 mb-8">Has terminado el protocolo {routine.archetype?.name}</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Mission Complete!</h2>
+                    <p className="text-white/60 mb-8">You have completed the {routine.archetype?.name} protocol</p>
 
-                    <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-8">
-                        <div className="glass-panel rounded-2xl p-4">
-                            <div className="text-3xl font-bold text-white">{formatTime(timer)}</div>
-                            <div className="text-sm text-white/50">Duración</div>
+                    <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-lg mx-auto mb-8">
+                        <div className="glass-panel rounded-2xl p-3 md:p-4">
+                            <div className="text-2xl md:text-3xl font-bold text-white">{formatTime(timer)}</div>
+                            <div className="text-xs md:text-sm text-white/50">Duration</div>
                         </div>
-                        <div className="glass-panel rounded-2xl p-4">
-                            <div className="text-3xl font-bold text-white">{completedExercises.length}</div>
-                            <div className="text-sm text-white/50">Ejercicios</div>
+                        <div className="glass-panel rounded-2xl p-3 md:p-4">
+                            <div className="text-2xl md:text-3xl font-bold text-white">{completedExercises.length}</div>
+                            <div className="text-xs md:text-sm text-white/50">Exercises</div>
                         </div>
-                        <div className="glass-panel rounded-2xl p-4">
-                            <div className="text-3xl font-bold text-accent">+{calculateWorkoutXP(routine, completedExercises.length, Math.round(timer / 60))}</div>
-                            <div className="text-sm text-white/50">XP Ganados</div>
+                        <div className="glass-panel rounded-2xl p-3 md:p-4">
+                            <div className="text-2xl md:text-3xl font-bold text-accent">+{calculateWorkoutXP(routine, completedExercises.length, Math.round(timer / 60))}</div>
+                            <div className="text-xs md:text-sm text-white/50">XP Earned</div>
                         </div>
                     </div>
 
                     <button
                         onClick={handleCloseWorkout}
-                        className="px-8 py-4 rounded-2xl bg-white/10 text-white font-semibold hover:bg-white/20 transition-colors"
+                        className="px-8 py-4 rounded-2xl bg-white/10 text-white font-semibold hover:bg-white/20 transition-colors w-full max-w-sm"
                     >
-                        Volver al Dashboard
+                        Return to Dashboard
                     </button>
                 </div>
             )}

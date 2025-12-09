@@ -40,14 +40,14 @@ const AICamera = () => {
                 if (response.data.isMachine) {
                     setResult(response.data);
                 } else {
-                    setError(response.data.message || "No detecté ninguna máquina conocida.");
+                    setError(response.data.message || "No known machine detected.");
                 }
             } else {
                 // Food Mode
                 if (response.data.isFood) {
                     setResult(response.data);
                 } else {
-                    setError(response.data.message || "No detecté comida.");
+                    setError(response.data.message || "No food detected.");
                 }
             }
         } else {
@@ -87,14 +87,14 @@ const AICamera = () => {
                         className={`flex-1 py-3 rounded-xl flex items-center justify-center gap-2 font-bold text-sm transition-all ${scanMode === 'gym' ? 'bg-secondary text-white shadow-lg shadow-secondary/20' : 'text-white/40 hover:text-white'}`}
                     >
                         <Scan className="w-4 h-4" />
-                        EQUIPO GYM
+                        GYM EQUIPMENT
                     </button>
                     <button
                         onClick={() => { setScanMode('food'); setResult(null); setError(null); setImageUrl(null); }}
                         className={`flex-1 py-3 rounded-xl flex items-center justify-center gap-2 font-bold text-sm transition-all ${scanMode === 'food' ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' : 'text-white/40 hover:text-white'}`}
                     >
                         <Utensils className="w-4 h-4" />
-                        NUTRICIÓN
+                        NUTRITION
                     </button>
                 </div>
 
@@ -118,10 +118,10 @@ const AICamera = () => {
                                 <Camera className={`w-8 h-8 text-white/40 transition-colors ${scanMode === 'food' ? 'group-hover:text-green-500' : 'group-hover:text-secondary'}`} />
                             </div>
                             <h3 className="font-bold text-white mb-1">
-                                {scanMode === 'food' ? 'Escanear Alimento' : 'Escanear Máquina'}
+                                {scanMode === 'food' ? 'Scan Food' : 'Scan Machine'}
                             </h3>
                             <p className="text-sm text-white/40">
-                                {scanMode === 'food' ? 'Calcula calorías y macros al instante' : 'Identifica equipo y ejercicios'}
+                                {scanMode === 'food' ? 'Calculate calories & macros instantly' : 'Identify equipment & exercises'}
                             </p>
                         </div>
                     )}
@@ -154,7 +154,7 @@ const AICamera = () => {
                             {result.description}
                         </p>
 
-                        <h3 className="font-bold text-white mb-3 text-sm uppercase tracking-wider opacity-80">Ejercicios Sugeridos</h3>
+                        <h3 className="font-bold text-white mb-3 text-sm uppercase tracking-wider opacity-80">Suggested Exercises</h3>
                         <div className="space-y-3">
                             {result.exercises.map((ex, idx) => (
                                 <div key={idx} className="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between group cursor-pointer hover:bg-white/10 transition-colors">
@@ -194,7 +194,7 @@ const AICamera = () => {
                         {/* Macros Grid */}
                         <div className="grid grid-cols-3 gap-3 mb-6">
                             <div className="p-3 bg-white/5 rounded-2xl text-center">
-                                <span className="block text-xs text-white/40 mb-1">PROTEITNA</span>
+                                <span className="block text-xs text-white/40 mb-1">PROTEIN</span>
                                 <span className="font-bold text-lg text-white">{result.protein}g</span>
                             </div>
                             <div className="p-3 bg-white/5 rounded-2xl text-center">
@@ -202,7 +202,7 @@ const AICamera = () => {
                                 <span className="font-bold text-lg text-white">{result.carbs}g</span>
                             </div>
                             <div className="p-3 bg-white/5 rounded-2xl text-center">
-                                <span className="block text-xs text-white/40 mb-1">GRASAS</span>
+                                <span className="block text-xs text-white/40 mb-1">FAT</span>
                                 <span className="font-bold text-lg text-white">{result.fat}g</span>
                             </div>
                         </div>
@@ -215,12 +215,12 @@ const AICamera = () => {
                             {foodLogged ? (
                                 <>
                                     <Check className="w-5 h-5" />
-                                    REGISTRADO
+                                    LOGGED
                                 </>
                             ) : (
                                 <>
                                     <Zap className="w-5 h-5" />
-                                    REGISTRAR EN DIARIO
+                                    ADD TO DIARY
                                 </>
                             )}
                         </button>
@@ -230,13 +230,13 @@ const AICamera = () => {
                 {/* Error Message */}
                 {error && (
                     <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-center animate-shake">
-                        <p className="font-bold">Error de Escaneo</p>
+                        <p className="font-bold">Scan Error</p>
                         <p className="text-sm opacity-80 mt-1">{error}</p>
                         <button
                             className="mt-3 text-xs bg-red-500/20 px-3 py-1 rounded-full hover:bg-red-500/30 transition-colors"
                             onClick={() => setError(null)}
                         >
-                            Intentar de nuevo
+                            Try Again
                         </button>
                     </div>
                 )}
@@ -245,7 +245,7 @@ const AICamera = () => {
             {/* Global Footer */}
             <div className="fixed bottom-4 left-0 right-0 text-center pointer-events-none z-0">
                 <p className="text-white/20 text-xs font-mono uppercase tracking-widest">
-                    Creado Por Juan Carlos Alvarado
+                    Created By Juan Carlos Alvarado
                 </p>
             </div>
         </div>

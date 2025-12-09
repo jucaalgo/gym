@@ -11,14 +11,14 @@ const Profile = () => {
         <div className="p-6 space-y-6 max-w-4xl mx-auto">
             <header className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-white">Perfil de Agente</h1>
-                    <p className="text-white/60">Identidad y Estadísticas</p>
+                    <h1 className="text-3xl font-bold text-white">Agent Profile</h1>
+                    <p className="text-white/60">Identity & Stats</p>
                 </div>
                 <button
                     onClick={logout}
                     className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-xl border border-red-500/20 transition-colors"
                 >
-                    Cerrar Sesión
+                    Logout
                 </button>
             </header>
 
@@ -46,10 +46,10 @@ const Profile = () => {
 
                         <div className="flex gap-4">
                             <div className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-sm text-white/80">
-                                Rango: <span className="text-white font-bold">{user.rank}</span>
+                                Rank: <span className="text-white font-bold">{user.rank}</span>
                             </div>
                             <div className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-sm text-white/80">
-                                Nivel: <span className="text-primary font-bold">{user.level}</span>
+                                Level: <span className="text-primary font-bold">{user.level}</span>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ const Profile = () => {
                 <div className="glass-panel p-5 rounded-2xl">
                     <div className="flex items-center gap-3 mb-2 text-primary">
                         <Activity className="w-5 h-5" />
-                        <h3 className="font-bold">Total Entrenado</h3>
+                        <h3 className="font-bold">Total Trained</h3>
                     </div>
                     <p className="text-2xl font-bold text-white">{Math.floor(user.totalMinutes / 60)}h {user.totalMinutes % 60}m</p>
                 </div>
@@ -69,7 +69,7 @@ const Profile = () => {
                 <div className="glass-panel p-5 rounded-2xl">
                     <div className="flex items-center gap-3 mb-2 text-secondary">
                         <Zap className="w-5 h-5" />
-                        <h3 className="font-bold">Calorías</h3>
+                        <h3 className="font-bold">Calories</h3>
                     </div>
                     <p className="text-2xl font-bold text-white">{(user.caloriesBurned / 1000).toFixed(1)}k kcal</p>
                 </div>
@@ -77,9 +77,9 @@ const Profile = () => {
                 <div className="glass-panel p-5 rounded-2xl">
                     <div className="flex items-center gap-3 mb-2 text-accent">
                         <Trophy className="w-5 h-5" />
-                        <h3 className="font-bold">Racha Actual</h3>
+                        <h3 className="font-bold">Current Streak</h3>
                     </div>
-                    <p className="text-2xl font-bold text-white">{user.currentStreak} días</p>
+                    <p className="text-2xl font-bold text-white">{user.currentStreak} days</p>
                 </div>
             </div>
 
@@ -87,23 +87,23 @@ const Profile = () => {
             <div className="glass-panel p-6 rounded-3xl">
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                     <Activity className="w-5 h-5 text-success" />
-                    Biometría
+                    Biometrics
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <div className="text-white/40 text-xs uppercase mb-1">Peso</div>
+                        <div className="text-white/40 text-xs uppercase mb-1">Weight</div>
                         <div className="text-xl font-bold text-white">{user.weight} kg</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <div className="text-white/40 text-xs uppercase mb-1">Altura</div>
+                        <div className="text-white/40 text-xs uppercase mb-1">Height</div>
                         <div className="text-xl font-bold text-white">{user.height} cm</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <div className="text-white/40 text-xs uppercase mb-1">Edad</div>
-                        <div className="text-xl font-bold text-white">{user.age} años</div>
+                        <div className="text-white/40 text-xs uppercase mb-1">Age</div>
+                        <div className="text-xl font-bold text-white">{user.age} yrs</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <div className="text-white/40 text-xs uppercase mb-1">Género</div>
+                        <div className="text-white/40 text-xs uppercase mb-1">Gender</div>
                         <div className="text-xl font-bold text-white capitalize">{user.gender}</div>
                     </div>
                 </div>

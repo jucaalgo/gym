@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════
-// ANTIGRAVITY - PREMIUM SIDEBAR
+// JCA GYM - PREMIUM SIDEBAR
 // Glassmorphism Navigation with Neon Accents
 // ═══════════════════════════════════════════════════════════════
 
@@ -36,16 +36,16 @@ const Sidebar = () => {
     };
 
     return (
-        <aside className="w-72 h-screen glass-panel border-r border-white/10 flex flex-col">
+        <aside className="w-72 h-screen glass-panel border-r border-white/10 flex flex-col intro-x">
             {/* Logo */}
             <div className="p-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center">
-                        <Zap className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-xl bg-black/50 border border-primary/30 flex items-center justify-center overflow-hidden p-1 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                        <img src="/jca-logo.png" alt="JCA Logo" className="w-full h-full object-contain" />
                     </div>
                     <div>
-                        <h1 className="text-xl font-bold text-gradient">ANTIGRAVITY</h1>
-                        <p className="text-xs text-white/40">SYSTEM ONLINE</p>
+                        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary drop-shadow-[0_0_5px_rgba(59,130,246,0.5)]">JCA GYM</h1>
+                        <p className="text-xs text-white/40 tracking-widest">SYSTEM ONLINE</p>
                     </div>
                 </div>
             </div>
@@ -57,15 +57,15 @@ const Sidebar = () => {
                         key={to}
                         to={to}
                         className={({ isActive }) =>
-                            `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
+                            `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group
               ${isActive
-                                ? 'bg-primary/20 text-primary border border-primary/30'
-                                : 'text-white/60 hover:text-white hover:bg-white/5'
+                                ? 'bg-primary/10 text-primary border border-primary/30 shadow-[0_0_15px_rgba(59,130,246,0.2)]'
+                                : 'text-white/60 hover:text-white hover:bg-white/5 hover:border hover:border-white/10'
                             }`
                         }
                     >
-                        <Icon className="w-5 h-5" />
-                        <span className="font-medium">{label}</span>
+                        <Icon className="w-5 h-5 transition-transform group-hover:scale-110" />
+                        <span className="font-medium tracking-wide">{label}</span>
                     </NavLink>
                 ))}
 
@@ -103,13 +103,13 @@ const Sidebar = () => {
                         className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-error/60 hover:text-error hover:bg-error/10 transition-all"
                     >
                         <LogOut className="w-5 h-5" />
-                        <span className="font-medium">Cerrar Sesión</span>
+                        <span className="font-medium">Logout</span>
                     </button>
                 )}
 
                 {/* Version */}
-                <div className="text-center text-xs text-white/20 pt-2">
-                    Phoenix Protocol v2.0
+                <div className="text-center text-xs text-white/20 pt-2 font-mono">
+                    JCA Systems v2.1
                 </div>
             </div>
         </aside>
