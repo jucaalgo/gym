@@ -81,7 +81,17 @@ export const UserProvider = ({ children }) => {
     });
 
     // Current Session State
-    const [user, setUser] = useState(null); // Active user object
+    const [user, setUser] = useState(() => {
+        const savedSession = localStorage.getItem('antigravity_session_user');
+        if (savedSession) {
+            try {
+                return JSON.parse(savedSession);
+            } catch {
+                return null;
+            }
+        }
+        return null;
+    });
     const [levelUpEvent, setLevelUpEvent] = useState(null);
 
     // Save DB whenever it changes
@@ -90,12 +100,16 @@ export const UserProvider = ({ children }) => {
     }, [db]);
 
     // Save Current User to DB whenever it changes (auto-save progress)
+    // AND update session storage
     useEffect(() => {
         if (user && db.users && user.role !== 'admin') {
             setDb(prev => ({
                 ...prev,
                 users: prev.users.map(u => u.id === user.id ? user : u)
             }));
+            localStorage.setItem('antigravity_session_user', JSON.stringify(user));
+        } else if (user && user.role === 'admin') {
+            localStorage.setItem('antigravity_session_user', JSON.stringify(user));
         }
     }, [user]);
 
@@ -133,6 +147,7 @@ export const UserProvider = ({ children }) => {
     const logout = () => {
         setUser(null);
         localStorage.removeItem('antigravity_admin');
+        localStorage.removeItem('antigravity_session_user');
     };
 
     // ═══════════════════════════════════════════════════════════════

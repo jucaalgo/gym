@@ -277,11 +277,11 @@ const Matrix = () => {
                     {/* Main Content */}
                     <div className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
                         {/* Exercise Visual - INTEGRATED */}
-                        <div className="w-full max-w-sm md:max-w-md aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
+                        <div className="w-full max-w-sm md:max-w-md aspect-square md:aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
                             <VisualAsset
                                 exercise={currentExercise}
                                 type="3d_viewer"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain md:object-cover"
                             />
                         </div>
 

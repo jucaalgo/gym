@@ -162,13 +162,18 @@ const Encyclopedia = () => {
                             className="glass-panel rounded-2xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer group">
                             <div className="aspect-video bg-black/40 relative overflow-hidden">
                                 {imageUrl ? (
-                                    <img src={imageUrl} alt={exercise.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                                    <img
+                                        src={imageUrl}
+                                        alt={exercise.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                                        loading="lazy"
+                                    />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center"><Dumbbell className="w-12 h-12 text-white/20" /></div>
                                 )}
-                                <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium ${levelBadge.color}`}>{levelBadge.label}</div>
+                                <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium backdrop-blur-md ${levelBadge.color} shadow-sm`}>{levelBadge.label}</div>
                                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <Play className="w-12 h-12 text-white" />
+                                    <Play className="w-12 h-12 text-white drop-shadow-lg" />
                                 </div>
                             </div>
                             <div className="p-4">

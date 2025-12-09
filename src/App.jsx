@@ -14,6 +14,7 @@ import LevelUpOverlay from './components/ui/LevelUpOverlay';
 import Profile from './pages/Profile';
 import Onboarding from './pages/Onboarding';
 import AICamera from './pages/AICamera';
+import InstallPrompt from './components/ui/InstallPrompt';
 
 // Layout Shell with Sidebar & Mobile Nav
 const Layout = ({ children }) => {
@@ -116,6 +117,7 @@ function App() {
 
                 {/* Global Overlays */}
                 <LevelUpOverlay />
+                <InstallPrompt />
             </Router>
         </UserProvider>
     );

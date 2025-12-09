@@ -106,6 +106,10 @@ const VisualAsset = ({ exercise, type = '3d_viewer', className = '' }) => {
                 <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-[10px] font-mono text-white/80">LIVE FEED</span>
             </div>
+
+            {/* Fallback / Loading Optimization */}
+            {/* Force browser to respect z-index for overlays on mobile */}
+            <div className="absolute inset-0 bg-transparent translate-z-0"></div>
         </div>
     );
 };
