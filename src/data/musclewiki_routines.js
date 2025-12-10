@@ -166,7 +166,7 @@ export const ALL_ROUTINES = [
 ];
 
 // Helper Functions
-export const getRoutinesBy Gender = (gender) => {
+export const getRoutinesByGender = (gender) => {
     return ALL_ROUTINES.filter(r => r.targetGender === gender);
 };
 

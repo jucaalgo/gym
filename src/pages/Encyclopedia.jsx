@@ -5,47 +5,41 @@ import {
     X,
     Play,
     Sparkles,
-    Loader2
+    Loader2,
+    Filter
 } from 'lucide-react';
-import { realExercisesAdapter } from '../data/real_exercises_adapter';
+import {
+    ALL_EXERCISES,
+    MUSCLE_GROUPS,
+    EQUIPMENT_TYPES,
+    getExercisesByMuscle,
+    getExercisesByEquipment
+} from '../data/musclewiki_exercises';
+import ExercisePreviewModal from '../components/ui/ExercisePreviewModal';
 
 // ═══════════════════════════════════════════════════════════════
-// ENCYCLOPEDIA - 800+ REAL EXERCISES
-// Using real exercise database with images
+// ENCYCLOPEDIA - MUSCLEWIKI PREMIUM EXERCISES
+// Gym-focused exercise library with video demonstrations
 // ═══════════════════════════════════════════════════════════════
 
 const Encyclopedia = () => {
-    const [exercises, setExercises] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [exercises, setExercises] = useState(ALL_EXERCISES);
+    const [loading, setLoading] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedMuscle, setSelectedMuscle] = useState('all');
-    const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedEquipment, setSelectedEquipment] = useState('all');
     const [selectedExercise, setSelectedExercise] = useState(null);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [previewExercise, setPreviewExercise] = useState(null);
 
-    // Load exercises on mount
-    useEffect(() => {
-        const loadData = async () => {
-            setLoading(true);
-            await realExercisesAdapter.init();
-            const allExercises = realExercisesAdapter.getAll();
-            setExercises(allExercises);
-            setLoading(false);
-        };
-        loadData();
-    }, []);
-
-    // Get unique filter options
+    // Get unique filter options from new database
     const muscles = useMemo(() => {
-        const set = new Set();
-        exercises.forEach(ex => {
-            if (ex.primaryMuscles) {
-                ex.primaryMuscles.forEach(m => set.add(m));
-            }
+        const uniqueMuscles = new Set();
+        ALL_EXERCISES.forEach(ex => {
+            uniqueMuscles.add(ex.primaryMuscle);
+            ex.secondaryMuscles?.forEach(m => uniqueMuscles.add(m));
         });
-        return ['all', ...Array.from(set).sort()];
-    }, [exercises]);
+        return ['all', ...Array.from(uniqueMuscles).sort()];
+    }, []);
 
     const categories = useMemo(() => {
         const set = new Set(exercises.map(ex => ex.category).filter(Boolean));
@@ -158,7 +152,7 @@ const Encyclopedia = () => {
                     const levelBadge = getLevelBadge(exercise.level);
                     const imageUrl = getImageUrl(exercise);
                     return (
-                        <div key={exercise.id} onClick={() => { setSelectedExercise(exercise); setCurrentImageIndex(0); }}
+                        <div key={exercise.id} onClick={() => setPreviewExercise(exercise)}
                             className="glass-panel rounded-2xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer group">
                             <div className="aspect-video bg-black/40 relative overflow-hidden">
                                 {imageUrl ? (
@@ -261,6 +255,11 @@ const Encyclopedia = () => {
                     </div>
                 </div>
             )}
+            {/* Exercise Preview Modal */}
+            <ExercisePreviewModal
+                exercise={previewExercise}
+                onClose={() => setPreviewExercise(null)}
+            />
         </div>
     );
 };

@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useUser } from '../context/UserContext';
-import { getSuggestedRoutinesAsync } from '../data/routines';
+import { ALL_ROUTINES } from '../data/musclewiki_routines';
 import CountUp from '../components/ui/CountUp';
 import soundManager from '../utils/sounds';
 import { triggerHaptic } from '../utils/haptics';
@@ -40,21 +40,11 @@ const Dashboard = () => {
     // Load routines when selector opens
     useEffect(() => {
         if (showRoutineSelector) {
-            loadRoutines();
+            setAvailableRoutines(ALL_ROUTINES);
         }
     }, [showRoutineSelector]);
 
-    const loadRoutines = async () => {
-        setLoadingRoutines(true);
-        const routines = await getSuggestedRoutinesAsync();
-        // Filter by current archetype's goal if possible
-        const filtered = routines.filter(r =>
-            r.targetGender === 'unisex' ||
-            r.targetGender === (user.gender || 'unisex')
-        );
-        setAvailableRoutines(filtered.slice(0, 12)); // Show top 12
-        setLoadingRoutines(false);
-    };
+
 
     const handleStartWorkout = () => {
         if (selectedRoutineId) {

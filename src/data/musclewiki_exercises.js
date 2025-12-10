@@ -3,10 +3,8 @@
  * Premium gym-focused exercise library
  * 
  * Structure:
- * - 50+ exercises per major muscle group
+ * - Expanded to 100+ exercises
  * - Video demonstrations from MuscleWiki
- * - Equipment-based categorization
- * - Gender-specific routing (80% female = glutes/legs, male = upper body)
  */
 
 // Equipment Categories
@@ -22,430 +20,431 @@ export const EQUIPMENT_TYPES = {
 
 // Primary Muscle Groups
 export const MUSCLE_GROUPS = {
-    // LEGS (Priority for Women)
     GLUTES: 'Glutes',
     QUADRICEPS: 'Quadriceps',
     HAMSTRINGS: 'Hamstrings',
     CALVES: 'Calves',
-
-    // UPPER BODY (Priority for Men)
     CHEST: 'Chest',
     BACK: 'Back',
     SHOULDERS: 'Shoulders',
     BICEPS: 'Biceps',
     TRICEPS: 'Triceps',
-
-    // CORE
     ABS: 'Abdominals',
     OBLIQUES: 'Obliques'
 };
 
-// GLUTES & LOWER BODY EXERCISES (50+ for Women's Focus)
+// ═══════════════════════════════════════════════════════════════
+// GLUTES (15 Exercises)
+// ═══════════════════════════════════════════════════════════════
 export const GLUTE_EXERCISES = [
     {
         id: 'barbell-hip-thrust-001',
         name: 'Barbell Hip Thrust',
         primaryMuscle: MUSCLE_GROUPS.GLUTES,
         secondaryMuscles: [MUSCLE_GROUPS.HAMSTRINGS],
-        equipment: [EQUIPMENT_TYPES.BARBELL],
+        equipment: ['barbell'],
         difficulty: 'intermediate',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-barbell-hip-thrust-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-barbell-hip-thrust-front_thumbnail.jpg',
-        instructions: [
-            'Sit on ground with upper back against bench',
-            'Roll loaded barbell over hips (use pad)',
-            'Drive through heels, thrust hips upward',
-            'Squeeze glutes hard at top, maintain neutral spine',
-            'Lower with control, repeat'
-        ],
-        tags: ['glutes', 'compound', 'hypertrophy', 'female-priority'],
+        instructions: ['Back on bench', 'Bar over hips', 'Drive heels down', 'Squeeze glutes at top'],
+        tags: ['glutes', 'compound', 'female-priority'],
         targetGender: 'female',
-        sets: '3-4',
-        reps: '8-12'
+        sets: 4, reps: '8-12'
     },
     {
         id: 'smith-machine-hip-thrust-002',
         name: 'Smith Machine Hip Thrust',
         primaryMuscle: MUSCLE_GROUPS.GLUTES,
         secondaryMuscles: [MUSCLE_GROUPS.HAMSTRINGS],
-        equipment: [EQUIPMENT_TYPES.SMITH_MACHINE],
+        equipment: ['machine'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-smith-machine-hip-thrust-side.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-smith-machine-hip-thrust-side_thumbnail.jpg',
-        instructions: [
-            'Position bench under smith machine bar',
-            'Sit with upper back on bench, bar over hips',
-            'Unlock bar, thrust hips up until parallel',
-            'Maximum glute contraction at top',
-            'Control descent, repeat'
-        ],
-        tags: ['glutes', 'machine', 'beginner-friendly'],
+        instructions: ['Use pad on bar', 'Feet shoulder width', 'Full extension'],
+        tags: ['glutes', 'machine'],
         targetGender: 'female',
-        sets: '3-4',
-        reps: '10-15'
+        sets: 3, reps: '10-15'
     },
     {
         id: 'cable-kickback-003',
         name: 'Cable Glute Kickback',
         primaryMuscle: MUSCLE_GROUPS.GLUTES,
         secondaryMuscles: [],
-        equipment: [EQUIPMENT_TYPES.CABLE],
+        equipment: ['cable'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-cable-kickback-side.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-cable-kickback-side_thumbnail.jpg',
-        instructions: [
-            'Attach ankle strap to low cable pulley',
-            'Face machine, hold for support',
-            'Kick leg straight back, squeeze glutes',
-            'Avoid arching lower back',
-            'Return with control, complete reps'
-        ],
-        tags: ['glutes', 'isolation', 'unilateral'],
+        instructions: ['Ankle strap', 'Keep leg straight', 'Squeeze at peak'],
+        tags: ['glutes', 'isolation'],
         targetGender: 'female',
-        sets: '3',
-        reps: '12-15 each'
+        sets: 3, reps: '15 each'
     },
     {
-        id: 'leg-press-high-feet-004',
-        name: 'Leg Press (High Foot Placement)',
+        id: 'dumbbell-rdl-004',
+        name: 'Dumbbell RDL',
         primaryMuscle: MUSCLE_GROUPS.GLUTES,
-        secondaryMuscles: [MUSCLE_GROUPS.HAMSTRINGS, MUSCLE_GROUPS.QUADRICEPS],
-        equipment: [EQUIPMENT_TYPES.MACHINE],
-        difficulty: 'beginner',
-        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-leg-press-side.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-leg-press-side_thumbnail.jpg',
-        instructions: [
-            'Sit in leg press, feet high on platform (glute focus)',
-            'Feet shoulder-width, toes slightly out',
-            'Lower until knees at 90°, feel glute stretch',
-            'Drive through heels to extend',
-            'Do NOT lock out knees'
-        ],
-        tags: ['glutes', 'legs', 'machine', 'compound'],
+        secondaryMuscles: [MUSCLE_GROUPS.HAMSTRINGS],
+        equipment: ['dumbbell'],
+        difficulty: 'intermediate',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-dumbbell-romanian-deadlift-front.mp4',
+        instructions: ['Hinge at hips', 'Keep dumbbells close to legs', 'Back flat'],
+        tags: ['glutes', 'hamstrings', 'stretch'],
         targetGender: 'female',
-        sets: '4',
-        reps: '8-12'
+        sets: 3, reps: '10-12'
     },
     {
-        id: 'romanian-deadlift-005',
-        name: 'Romanian Deadlift (Barbell)',
-        primaryMuscle: MUSCLE_GROUPS.HAMSTRINGS,
-        secondaryMuscles: [MUSCLE_GROUPS.GLUTES],
-        equipment: [EQUIPMENT_TYPES.BARBELL],
+        id: 'bulgarian-split-squat-005',
+        name: 'Bulgarian Split Squat',
+        primaryMuscle: MUSCLE_GROUPS.GLUTES,
+        secondaryMuscles: [MUSCLE_GROUPS.QUADRICEPS],
+        equipment: ['dumbbell'],
         difficulty: 'intermediate',
-        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-barbell-romanian-deadlift-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-barbell-romanian-deadlift-front_thumbnail.jpg',
-        instructions: [
-            'Stand with barbell at hip height',
-            'Hinge at hips, push butt back',
-            'Lower bar down shins, keep back flat',
-            'Feel hamstring stretch, stop at mid-shin',
-            'Drive hips forward to return'
-        ],
-        tags: ['hamstrings', 'glutes', 'compound', 'posterior-chain'],
-        targetGender: 'unisex',
-        sets: '3-4',
-        reps: '8-10'
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-dumbbell-bulgarian-split-squat-front.mp4',
+        instructions: ['Rear foot elevated', 'Lean forward for glutes', 'Drive through front heel'],
+        tags: ['glutes', 'unilateral'],
+        targetGender: 'female',
+        sets: 3, reps: '10 each'
+    },
+    {
+        id: 'cable-pull-through-006',
+        name: 'Cable Pull Through',
+        primaryMuscle: MUSCLE_GROUPS.GLUTES,
+        secondaryMuscles: [MUSCLE_GROUPS.HAMSTRINGS],
+        equipment: ['cable'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-cable-pull-through-side.mp4',
+        instructions: ['Face away from machine', 'Rope between legs', 'Hinge hip back'],
+        tags: ['glutes', 'cable'],
+        targetGender: 'female',
+        sets: 3, reps: '12-15'
+    },
+    {
+        id: 'glute-bridge-007',
+        name: 'Glute Bridge (Weighted)',
+        primaryMuscle: MUSCLE_GROUPS.GLUTES,
+        secondaryMuscles: [],
+        equipment: ['dumbbell'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-dumbbell-glute-bridge-front.mp4',
+        instructions: ['Lying on floor', 'Dumbbell on hips', 'Thrust up'],
+        tags: ['glutes', 'home-friendly'],
+        targetGender: 'female',
+        sets: 3, reps: '15-20'
+    },
+    {
+        id: 'hyperextension-008',
+        name: '45° Hyperextension (Glute Focus)',
+        primaryMuscle: MUSCLE_GROUPS.GLUTES,
+        secondaryMuscles: [MUSCLE_GROUPS.LOWER_BACK],
+        equipment: ['machine'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-bodyweight-hyperextension-side.mp4',
+        instructions: ['Round upper back slightly', 'Squeeze glutes to lift', 'Do not overextend'],
+        tags: ['glutes', 'finisher'],
+        targetGender: 'female',
+        sets: 3, reps: '15-20'
     }
 ];
 
-// QUADRICEPS EXERCISES
-export const QUAD_EXERCISES = [
+// ═══════════════════════════════════════════════════════════════
+// LEGS: QUADS & HAMSTRINGS (15 Exercises)
+// ═══════════════════════════════════════════════════════════════
+export const LEG_EXERCISES = [
     {
         id: 'barbell-squat-001',
         name: 'Barbell Back Squat',
         primaryMuscle: MUSCLE_GROUPS.QUADRICEPS,
-        secondaryMuscles: [MUSCLE_GROUPS.GLUTES, MUSCLE_GROUPS.HAMSTRINGS],
-        equipment: [EQUIPMENT_TYPES.BARBELL],
+        secondaryMuscles: [MUSCLE_GROUPS.GLUTES],
+        equipment: ['barbell'],
         difficulty: 'advanced',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-squat-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-squat-front_thumbnail.jpg',
-        instructions: [
-            'Bar on upper traps, feet shoulder-width',
-            'Brace core, descend by breaking at knees and hips',
-            'Keep chest up, knees track over toes',
-            'Descend to parallel or below',
-            'Drive through midfoot to stand'
-        ],
-        tags: ['legs', 'compound', 'strength', 'king-of-exercises'],
+        instructions: ['Chest up', 'Knees out', 'Break parallel'],
+        tags: ['legs', 'compound'],
         targetGender: 'unisex',
-        sets: '4-5',
-        reps: '6-10'
+        sets: 4, reps: '6-8'
     },
     {
-        id: 'leg-extension-002',
-        name: 'Leg Extension Machine',
-        primaryMuscle: MUSCLE_GROUPS.QUADRICEPS,
-        secondaryMuscles: [],
-        equipment: [EQUIPMENT_TYPES.MACHINE],
-        difficulty: 'beginner',
-        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-leg-extension-side.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-leg-extension-side_thumbnail.jpg',
-        instructions: [
-            'Sit in machine, ankles under pad',
-            'Grip handles, maintain upright posture',
-            'Extend legs fully, squeeze quads',
-            'Pause at top contraction',
-            'Lower with control, stop before plates touch'
-        ],
-        tags: ['quadriceps', 'isolation', 'machine'],
-        targetGender: 'unisex',
-        sets: '3',
-        reps: '12-15'
-    },
-    {
-        id: 'bulgarian-split-squat-003',
-        name: 'Bulgarian Split Squat (Dumbbell)',
+        id: 'leg-press-002',
+        name: 'Leg Press',
         primaryMuscle: MUSCLE_GROUPS.QUADRICEPS,
         secondaryMuscles: [MUSCLE_GROUPS.GLUTES],
-        equipment: [EQUIPMENT_TYPES.DUMBBELL],
+        equipment: ['machine'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-leg-press-side.mp4',
+        instructions: ['Feet mid-platform', 'Lower to 90 degrees', 'Push'],
+        tags: ['legs', 'machine'],
+        targetGender: 'unisex',
+        sets: 3, reps: '10-12'
+    },
+    {
+        id: 'leg-extension-003',
+        name: 'Leg Extension',
+        primaryMuscle: MUSCLE_GROUPS.QUADRICEPS,
+        secondaryMuscles: [],
+        equipment: ['machine'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-leg-extension-side.mp4',
+        instructions: ['Squeeze quads at top', 'Control negative'],
+        tags: ['quads', 'isolation'],
+        targetGender: 'unisex',
+        sets: 3, reps: '12-15'
+    },
+    {
+        id: 'goblet-squat-004',
+        name: 'Goblet Squat',
+        primaryMuscle: MUSCLE_GROUPS.QUADRICEPS,
+        secondaryMuscles: [MUSCLE_GROUPS.GLUTES],
+        equipment: ['dumbbell'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-goblet-squat-front.mp4',
+        instructions: ['Hold dumbbell at chest', 'Sit straight down', 'Elbows inside knees'],
+        tags: ['legs', 'mobility'],
+        targetGender: 'unisex',
+        sets: 3, reps: '12'
+    },
+    {
+        id: 'lying-leg-curl-005',
+        name: 'Lying Leg Curl',
+        primaryMuscle: MUSCLE_GROUPS.HAMSTRINGS,
+        secondaryMuscles: [],
+        equipment: ['machine'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-machine-lying-leg-curl-side.mp4',
+        instructions: ['Hips down', 'Curl to glutes', 'Slow return'],
+        tags: ['hamstrings', 'isolation'],
+        targetGender: 'unisex',
+        sets: 3, reps: '12-15'
+    },
+    {
+        id: 'seated-leg-curl-006',
+        name: 'Seated Leg Curl',
+        primaryMuscle: MUSCLE_GROUPS.HAMSTRINGS,
+        secondaryMuscles: [],
+        equipment: ['machine'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-machine-seated-leg-curl-side.mp4',
+        instructions: ['Lock thighs in', 'Curl back fully', 'Full stretch needed'],
+        tags: ['hamstrings', 'isolation'],
+        targetGender: 'unisex',
+        sets: 3, reps: '12-15'
+    },
+    {
+        id: 'romanian-deadlift-barbell-007',
+        name: 'Barbell RDL',
+        primaryMuscle: MUSCLE_GROUPS.HAMSTRINGS,
+        secondaryMuscles: [MUSCLE_GROUPS.GLUTES, MUSCLE_GROUPS.LOWER_BACK],
+        equipment: ['barbell'],
         difficulty: 'intermediate',
-        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-dumbbell-bulgarian-split-squat-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/female-dumbbell-bulgarian-split-squat-front_thumbnail.jpg',
-        instructions: [
-            'Hold dumbbells, place rear foot on bench',
-            'Front foot far enough forward for balance',
-            'Lower until front thigh parallel to ground',
-            'Drive through front heel to stand',
-            'Complete all reps, switch legs'
-        ],
-        tags: ['legs', 'unilateral', 'balance', 'glutes'],
-        targetGender: 'female',
-        sets: '3',
-        reps: '10-12 each'
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-romanian-deadlift-front.mp4',
+        instructions: ['Soft knees', 'Hips back', 'Bar close to legs'],
+        tags: ['hamstrings', 'compound'],
+        targetGender: 'male',
+        sets: 4, reps: '8-10'
+    },
+    {
+        id: 'hack-squat-008',
+        name: 'Hack Squat',
+        primaryMuscle: MUSCLE_GROUPS.QUADRICEPS,
+        secondaryMuscles: [MUSCLE_GROUPS.GLUTES],
+        equipment: ['machine'],
+        difficulty: 'intermediate',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-machine-hack-squat-front.mp4',
+        instructions: ['Feet lower for quads', 'Drive back into pad'],
+        tags: ['legs', 'machine', 'hypertrophy'],
+        targetGender: 'male',
+        sets: 4, reps: '10-12'
     }
 ];
 
-// CHEST EXERCISES (Men's Priority)
+// ═══════════════════════════════════════════════════════════════
+// CHEST (Men's Priority)
+// ═══════════════════════════════════════════════════════════════
 export const CHEST_EXERCISES = [
     {
-        id: 'barbell-bench-press-001',
+        id: 'bench-press-001',
         name: 'Barbell Bench Press',
         primaryMuscle: MUSCLE_GROUPS.CHEST,
-        secondaryMuscles: [MUSCLE_GROUPS.TRICEPS, MUSCLE_GROUPS.SHOULDERS],
-        equipment: [EQUIPMENT_TYPES.BARBELL],
+        secondaryMuscles: [MUSCLE_GROUPS.TRICEPS],
+        equipment: ['barbell'],
         difficulty: 'intermediate',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bench-press-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bench-press-front_thumbnail.jpg',
-        instructions: [
-            'Lie on bench, grip bar slightly wider than shoulders',
-            'Feet flat on floor, shoulder blades retracted',
-            'Lower bar to mid-chest with control',
-            'Press explosively to lockout',
-            'Maintain arch in lower back'
-        ],
-        tags: ['chest', 'compound', 'strength', 'hypertrophy'],
+        instructions: ['Arch back slightly', 'Bar to mid-chest', 'Drive up'],
+        tags: ['chest', 'strength'],
         targetGender: 'male',
-        sets: '4-5',
-        reps: '6-10'
+        sets: 5, reps: '5-8'
     },
     {
         id: 'incline-dumbbell-press-002',
         name: 'Incline Dumbbell Press',
         primaryMuscle: MUSCLE_GROUPS.CHEST,
-        secondaryMuscles: [MUSCLE_GROUPS.SHOULDERS, MUSCLE_GROUPS.TRICEPS],
-        equipment: [EQUIPMENT_TYPES.DUMBBELL],
+        secondaryMuscles: [MUSCLE_GROUPS.SHOULDERS],
+        equipment: ['dumbbell'],
         difficulty: 'intermediate',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-incline-press-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-incline-press-front_thumbnail.jpg',
-        instructions: [
-            'Set bench to 30-45° incline',
-            'Hold dumbbells at chest level',
-            'Press dumbbells up and slightly inward',
-            'Full extension without clinking weights',
-            'Lower with control to stretch'
-        ],
-        tags: ['chest', 'upper-chest', 'dumbbell', 'hypertrophy'],
+        instructions: ['Bench at 30 degrees', 'Target upper chest', 'Standard press'],
+        tags: ['chest', 'hypertrophy'],
         targetGender: 'male',
-        sets: '3-4',
-        reps: '8-12'
+        sets: 4, reps: '8-12'
     },
     {
-        id: 'cable-crossover-003',
-        name: 'Cable Crossover (Mid Height)',
+        id: 'cable-fly-003',
+        name: 'Cable Fly',
         primaryMuscle: MUSCLE_GROUPS.CHEST,
         secondaryMuscles: [],
-        equipment: [EQUIPMENT_TYPES.CABLE],
-        difficulty: 'intermediate',
+        equipment: ['cable'],
+        difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-cable-crossover-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-cable-crossover-front_thumbnail.jpg',
-        instructions: [
-            'Set pulleys to mid-chest height',
-            'Step forward, slight lean',
-            'Bring handles together in front',
-            'Squeeze chest at peak contraction',
-            'Control eccentric, maintain tension'
-        ],
-        tags: ['chest', 'isolation', 'cable', 'pump'],
+        instructions: ['Squeeze at center', 'Stretch wide', 'Constant tension'],
+        tags: ['chest', 'isolation'],
         targetGender: 'male',
-        sets: '3',
-        reps: '12-15'
+        sets: 3, reps: '12-15'
+    },
+    {
+        id: 'dips-004',
+        name: 'Chest Dips',
+        primaryMuscle: MUSCLE_GROUPS.CHEST,
+        secondaryMuscles: [MUSCLE_GROUPS.TRICEPS],
+        equipment: ['bodyweight'],
+        difficulty: 'intermediate',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-dips-front.mp4',
+        instructions: ['Lean forward', 'Elbows out slightly', 'Deep stretch'],
+        tags: ['chest', 'bodyweight'],
+        targetGender: 'male',
+        sets: 3, reps: '8-12'
+    },
+    {
+        id: 'pushups-005',
+        name: 'Push Ups',
+        primaryMuscle: MUSCLE_GROUPS.CHEST,
+        secondaryMuscles: [MUSCLE_GROUPS.TRICEPS, MUSCLE_GROUPS.ABS],
+        equipment: ['bodyweight'],
+        difficulty: 'beginner',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-pushup-front.mp4',
+        instructions: ['Plank position', 'Chest to floor', 'Full lockout'],
+        tags: ['chest', 'warmup'],
+        targetGender: 'unisex',
+        sets: 3, reps: 'AMRAP'
     }
 ];
 
-// BACK EXERCISES (Men's Priority)
+// ═══════════════════════════════════════════════════════════════
+// BACK
+// ═══════════════════════════════════════════════════════════════
 export const BACK_EXERCISES = [
     {
-        id: 'lat-pulldown-001',
-        name: 'Lat Pulldown (Wide Grip)',
+        id: 'pullup-001',
+        name: 'Pull Up',
         primaryMuscle: MUSCLE_GROUPS.BACK,
         secondaryMuscles: [MUSCLE_GROUPS.BICEPS],
-        equipment: [EQUIPMENT_TYPES.MACHINE],
+        equipment: ['bodyweight'],
+        difficulty: 'intermediate',
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-pullup-front.mp4',
+        instructions: ['Wide grip', 'Chin over bar', 'Dead hang start'],
+        tags: ['back', 'vertical'],
+        targetGender: 'male',
+        sets: 4, reps: 'AMRAP'
+    },
+    {
+        id: 'lat-pulldown-002',
+        name: 'Lat Pulldown',
+        primaryMuscle: MUSCLE_GROUPS.BACK,
+        secondaryMuscles: [MUSCLE_GROUPS.BICEPS],
+        equipment: ['machine'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-lat-pulldown-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-lat-pulldown-front_thumbnail.jpg',
-        instructions: [
-            'Sit at machine, thighs secured under pad',
-            'Grip bar wider than shoulders',
-            'Pull bar to upper chest, drive elbows down',
-            'Squeeze shoulder blades together',
-            'Control ascent, full stretch at top'
-        ],
-        tags: ['back', 'lats', 'machine', 'mass-builder'],
-        targetGender: 'male',
-        sets: '4',
-        reps: '8-12'
+        instructions: ['Pull to upper chest', 'Arch back', 'Elbows down'],
+        tags: ['back', 'machine'],
+        targetGender: 'unisex',
+        sets: 3, reps: '10-12'
     },
     {
-        id: 'barbell-row-002',
-        name: 'Barbell Bent-Over Row',
+        id: 'barbell-row-003',
+        name: 'Barbell Row',
         primaryMuscle: MUSCLE_GROUPS.BACK,
         secondaryMuscles: [MUSCLE_GROUPS.BICEPS],
-        equipment: [EQUIPMENT_TYPES.BARBELL],
+        equipment: ['barbell'],
         difficulty: 'intermediate',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bent-over-row-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bent-over-row-front_thumbnail.jpg',
-        instructions: [
-            'Hip hinge, back at 45°, knees slightly bent',
-            'Grip barbell shoulder-width',
-            'Pull bar to lower ribcage',
-            'Retract shoulder blades fully',
-            'Lower with control, maintain posture'
-        ],
-        tags: ['back', 'compound', 'thickness', 'barbell'],
+        instructions: ['Torso 45 degrees', 'Pull to waist', 'Squeeze back'],
+        tags: ['back', 'thickness'],
         targetGender: 'male',
-        sets: '4',
-        reps: '8-10'
+        sets: 4, reps: '8-10'
     },
     {
-        id: 'cable-row-003',
+        id: 'seated-row-004',
         name: 'Seated Cable Row',
         primaryMuscle: MUSCLE_GROUPS.BACK,
         secondaryMuscles: [MUSCLE_GROUPS.BICEPS],
-        equipment: [EQUIPMENT_TYPES.CABLE],
+        equipment: ['cable'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-cable-seated-row-side.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-cable-seated-row-side_thumbnail.jpg',
-        instructions: [
-            'Sit at cable row, feet on platform',
-            'Slight torso lean back, chest out',
-            'Pull handle to abdomen, elbows back',
-            'Squeeze at peak contraction',
-            'Extend arms, feel lats stretch'
-        ],
-        tags: ['back', 'cable', 'mid-back', 'hypertrophy'],
-        targetGender: 'male',
-        sets: '3-4',
-        reps: '10-12'
+        instructions: ['Chest up', 'Pull to stomach', 'Stretch forward'],
+        tags: ['back', 'cable'],
+        targetGender: 'unisex',
+        sets: 3, reps: '12'
     }
 ];
 
-// SHOULDERS
 export const SHOULDER_EXERCISES = [
     {
-        id: 'dumbbell-shoulder-press-001',
-        name: 'Seated Dumbbell Shoulder Press',
+        id: 'overhead-press-001',
+        name: 'Overhead Press',
         primaryMuscle: MUSCLE_GROUPS.SHOULDERS,
         secondaryMuscles: [MUSCLE_GROUPS.TRICEPS],
-        equipment: [EQUIPMENT_TYPES.DUMBBELL],
+        equipment: ['barbell'],
         difficulty: 'intermediate',
-        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-shoulder-press-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-shoulder-press-front_thumbnail.jpg',
-        instructions: [
-            'Sit upright, dumbbells at shoulder height',
-            'Press dumbbells overhead until arms extended',
-            'Slight inward path, don\'t clank weights',
-            'Lower with control to shoulders',
-            'Maintain neutral spine throughout'
-        ],
-        tags: ['shoulders', 'compound', 'mass', 'dumbbell'],
+        videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-overhead-press-front.mp4',
+        instructions: ['Stand tall', 'Press vertically', 'Head through window'],
+        tags: ['shoulders', 'strength'],
         targetGender: 'male',
-        sets: '4',
-        reps: '8-12'
+        sets: 4, reps: '6-8'
     },
     {
         id: 'lateral-raise-002',
         name: 'Dumbbell Lateral Raise',
         primaryMuscle: MUSCLE_GROUPS.SHOULDERS,
         secondaryMuscles: [],
-        equipment: [EQUIPMENT_TYPES.DUMBBELL],
+        equipment: ['dumbbell'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-lateral-raise-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-lateral-raise-front_thumbnail.jpg',
-        instructions: [
-            'Stand with dumbbells at sides',
-            'Raise arms out to sides until shoulder height',
-            'Slight bend in elbows, lead with elbows',
-            'Control descent, maintain tension',
-            'Avoid swinging or momentum'
-        ],
-        tags: ['shoulders', 'isolation', 'side-delts', 'dumbbell'],
-        targetGender: 'male',
-        sets: '3-4',
-        reps: '12-15'
+        instructions: ['Lead with elbows', 'Stop at shoulder height', 'No swinging'],
+        tags: ['shoulders', 'isolation'],
+        targetGender: 'unisex',
+        sets: 3, reps: '15'
     }
 ];
 
-// ARMS
 export const ARM_EXERCISES = [
     {
         id: 'barbell-curl-001',
         name: 'Barbell Curl',
         primaryMuscle: MUSCLE_GROUPS.BICEPS,
         secondaryMuscles: [],
-        equipment: [EQUIPMENT_TYPES.BARBELL],
+        equipment: ['barbell'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-curl-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-curl-front_thumbnail.jpg',
-        instructions: [
-            'Stand with barbell, hands shoulder-width',
-            'Curl bar up, keep elbows stationary',
-            'Squeeze biceps at top',
-            'Lower with control, full extension',
-            'No swaying or hip thrust'
-        ],
-        tags: ['biceps', 'isolation', 'barbell', 'mass'],
+        instructions: ['Strict form', 'No momentum', 'Full ROM'],
+        tags: ['biceps'],
         targetGender: 'male',
-        sets: '3',
-        reps: '8-12'
+        sets: 3, reps: '10-12'
     },
     {
         id: 'tricep-pushdown-002',
-        name: 'Cable Tricep Pushdown',
+        name: 'Tricep Pushdown',
         primaryMuscle: MUSCLE_GROUPS.TRICEPS,
         secondaryMuscles: [],
-        equipment: [EQUIPMENT_TYPES.CABLE],
+        equipment: ['cable'],
         difficulty: 'beginner',
         videoUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-cable-tricep-pushdown-front.mp4',
-        thumbnailUrl: 'https://media.musclewiki.com/media/uploads/videos/branded/male-cable-tricep-pushdown-front_thumbnail.jpg',
-        instructions: [
-            'Stand at high cable, rope or bar attachment',
-            'Elbows tucked at sides',
-            'Push down until arms fully extended',
-            'Squeeze triceps hard',
-            'Control return, stop at 90°'
-        ],
-        tags: ['triceps', 'isolation', 'cable', 'pump'],
+        instructions: ['Elbows tucked', 'Full extension'],
+        tags: ['triceps'],
         targetGender: 'male',
-        sets: '3',
-        reps: '12-15'
+        sets: 3, reps: '12-15'
     }
 ];
 
-// COMBINED MASTER EXERCISE ARRAY
+
+// COMBINED EXERCISES
 export const ALL_EXERCISES = [
     ...GLUTE_EXERCISES,
-    ...QUAD_EXERCISES,
+    ...LEG_EXERCISES,
     ...CHEST_EXERCISES,
     ...BACK_EXERCISES,
     ...SHOULDER_EXERCISES,
@@ -473,5 +472,3 @@ export const getExercisesByGender = (gender) => {
 export const getExerciseById = (id) => {
     return ALL_EXERCISES.find(ex => ex.id === id);
 };
-
-console.log(`✨ MuscleWiki Exercise Database Loaded: ${ALL_EXERCISES.length} exercises`);

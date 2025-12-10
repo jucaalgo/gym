@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Zap, Target, Flag, ChevronRight, Star, Dumbbell, Play, X, Loader2 } from 'lucide-react';
-import { getSuggestedRoutinesAsync } from '../data/routines';
+import {
+    ALL_ROUTINES,
+    getFullRoutine,
+    getRoutinesByGender
+} from '../data/musclewiki_routines';
 import { useNavigate } from 'react-router-dom';
+import RoutineHeaderCarousel from '../components/ui/RoutineHeaderCarousel';
 
 // ═══════════════════════════════════════════════════════════════
-// ROUTINES BROWSER - 90+ WORKOUT PROGRAMS
+// ROUTINES BROWSER - MUSCLEWIKI SPLIT PROGRAMS
+// Gender-optimized workout templates
 // ═══════════════════════════════════════════════════════════════
 
 const Routines = () => {
-    const [routines, setRoutines] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [routines, setRoutines] = useState(ALL_ROUTINES);
+    const [loading, setLoading] = useState(false);
     const [genderFilter, setGenderFilter] = useState('all');
-    const [goalFilter, setGoalFilter] = useState('all');
+    const [difficultyFilter, setDifficultyFilter] = useState('all');
     const [selectedRoutine, setSelectedRoutine] = useState(null);
     const navigate = useNavigate();
 
-    // Load routines asynchronously
-    useEffect(() => {
-        const loadRoutines = async () => {
-            setLoading(true);
-            const loadedRoutines = await getSuggestedRoutinesAsync();
-            setRoutines(loadedRoutines);
-            setLoading(false);
-        };
-        loadRoutines();
-    }, []);
-
     // Filter logic
     const filteredRoutines = routines.filter(routine => {
-        const matchesGender = genderFilter === 'all' ||
-            routine.targetGender === genderFilter ||
-            routine.targetGender === 'unisex';
-        const matchesGoal = goalFilter === 'all' || routine.goal === goalFilter;
-        return matchesGender && matchesGoal;
+        const matchesGender = genderFilter === 'all' || routine.targetGender === genderFilter;
+        const matchesDifficulty = difficultyFilter === 'all' || routine.difficulty === difficultyFilter;
+        return matchesGender && matchesDifficulty;
     });
+
+
 
     const getGoalLabel = (goal) => {
         const labels = {
@@ -199,7 +194,7 @@ const Routines = () => {
                     <Flag className="w-12 h-12 text-white/20 mx-auto mb-4" />
                     <p className="text-white/50">No programs found with these filters</p>
                     <button
-                        onClick={() => { setGenderFilter('all'); setGoalFilter('all'); }}
+                        onClick={() => { setGenderFilter('all'); setDifficultyFilter('all'); }}
                         className="mt-4 px-4 py-2 rounded-xl bg-white/10 text-white/60 hover:bg-white/20 transition-colors"
                     >
                         Clear Filters
@@ -209,67 +204,65 @@ const Routines = () => {
 
             {/* Routine Detail Modal */}
             {selectedRoutine && (
-                <div
-                    className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6"
-                    onClick={() => setSelectedRoutine(null)}
-                >
-                    <div
-                        className="glass-panel rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Modal Header */}
-                        <div className={`p-6 bg-gradient-to-r ${getGradientColor(selectedRoutine.goal)} relative`}>
-                            <button
-                                onClick={() => setSelectedRoutine(null)}
-                                className="absolute top-4 right-4 p-2 rounded-xl bg-black/30 hover:bg-black/50 transition-colors"
-                            >
-                                <X className="w-5 h-5 text-white" />
-                            </button>
-                            <Dumbbell className="w-12 h-12 text-white/80 mb-4" />
-                            <h2 className="text-2xl font-bold text-white">{selectedRoutine.name}</h2>
-                            <p className="text-white/80 mt-1">{selectedRoutine.description}</p>
-                        </div>
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedRoutine(null)}>
+                    <div className="bg-zinc-900 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 shadow-2xl" onClick={e => e.stopPropagation()}>
+                        <div className="p-6">
+                            {/* Header */}
+                            <div className="flex items-center justify-between mb-6">
+                                <div>
+                                    <h2 className="text-2xl font-bold italic text-white">{selectedRoutine.name}</h2>
+                                    <p className="text-white/60 text-sm">{selectedRoutine.description}</p>
+                                </div>
+                                <button onClick={() => setSelectedRoutine(null)} className="p-2 hover:bg-white/10 rounded-full text-white/60 hover:text-white transition-colors">
+                                    <X className="w-6 h-6" />
+                                </button>
+                            </div>
 
-                        {/* Modal Content */}
-                        <div className="p-6 space-y-6">
+                            {/* Dynamic Carousel Header */}
+                            {getFullRoutine(selectedRoutine.id)?.exercises && (
+                                <RoutineHeaderCarousel exercises={getFullRoutine(selectedRoutine.id).exercises} />
+                            )}
+
                             {/* Quick Stats */}
-                            <div className="grid grid-cols-3 gap-4">
-                                <div className="glass-panel rounded-xl p-4 text-center">
-                                    <Calendar className="w-5 h-5 text-primary mx-auto mb-1" />
-                                    <div className="text-white font-bold">{selectedRoutine.duration}</div>
-                                    <div className="text-xs text-white/50">Duration</div>
+                            <div className="grid grid-cols-3 gap-4 mb-8">
+                                <div className="bg-white/5 rounded-xl p-4 text-center border border-white/5">
+                                    <Calendar className="w-5 h-5 text-primary mx-auto mb-2" />
+                                    <div className="font-bold text-white">{selectedRoutine.weeklyFrequency}x/wk</div>
+                                    <div className="text-xs text-white/40 uppercase">Frequency</div>
                                 </div>
-                                <div className="glass-panel rounded-xl p-4 text-center">
-                                    <Dumbbell className="w-5 h-5 text-primary mx-auto mb-1" />
-                                    <div className="text-white font-bold">{selectedRoutine.exercises.length}</div>
-                                    <div className="text-xs text-white/50">Exercises</div>
+                                <div className="bg-white/5 rounded-xl p-4 text-center border border-white/5">
+                                    <Target className="w-5 h-5 text-primary mx-auto mb-2" />
+                                    <div className="font-bold text-white capitalize">{selectedRoutine.tags?.[0] || 'General'}</div>
+                                    <div className="text-xs text-white/40 uppercase">Focus</div>
                                 </div>
-                                <div className="glass-panel rounded-xl p-4 text-center">
-                                    <Zap className="w-5 h-5 text-primary mx-auto mb-1" />
-                                    <div className="text-white font-bold">{selectedRoutine.calories}</div>
-                                    <div className="text-xs text-white/50">Calories</div>
+                                <div className="bg-white/5 rounded-xl p-4 text-center border border-white/5">
+                                    <Zap className="w-5 h-5 text-primary mx-auto mb-2" />
+                                    <div className="font-bold text-white capitalize">{selectedRoutine.difficulty}</div>
+                                    <div className="text-xs text-white/40 uppercase">Level</div>
                                 </div>
                             </div>
 
-                            {/* Exercise List */}
-                            <div>
+                            {/* Exercises List */}
+                            <div className="mb-8">
                                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <Target className="w-5 h-5 text-primary" />
-                                    Exercises
+                                    <Dumbbell className="w-5 h-5 text-primary" />
+                                    Workout Plan
                                 </h3>
-                                <div className="space-y-2">
-                                    {selectedRoutine.exercises.map((ex, idx) => (
-                                        <div key={idx} className="glass-panel rounded-xl p-4 flex items-center gap-4">
-                                            <div className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+                                <div className="space-y-3">
+                                    {getFullRoutine(selectedRoutine.id)?.exercises.map((ex, idx) => (
+                                        <div key={idx} className="flex items-center gap-4 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
+                                            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm shrink-0">
                                                 {idx + 1}
                                             </div>
-                                            <div className="flex-1">
-                                                <div className="font-medium text-white">{ex.name}</div>
-                                                <div className="text-sm text-white/50">
-                                                    {ex.sets} sets × {ex.reps} • Rest {ex.rest}
-                                                </div>
+                                            <div className="min-w-0 flex-1">
+                                                <div className="font-medium text-white truncate">{ex.name}</div>
+                                                <div className="text-xs text-white/50">{ex.sets} sets × {ex.reps}</div>
                                             </div>
-                                            <div className="text-xs text-white/40 capitalize">{ex.muscle}</div>
+                                            {ex.videoUrl && (
+                                                <div className="w-16 h-10 bg-black rounded overflow-hidden shrink-0">
+                                                    <video src={ex.videoUrl} className="w-full h-full object-cover opacity-60" muted />
+                                                </div>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -277,14 +270,11 @@ const Routines = () => {
 
                             {/* Start Button */}
                             <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    navigate('/matrix', { state: { routineId: selectedRoutine.id } });
-                                }}
-                                className={`w-full py-4 rounded-2xl bg-gradient-to-r ${getGradientColor(selectedRoutine.goal)} text-white font-bold text-lg flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform shadow-lg`}
+                                onClick={() => navigate('/matrix', { state: { routineId: selectedRoutine.id } })}
+                                className="w-full py-4 bg-primary hover:bg-primary-hover text-black font-bold text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-transform active:scale-95"
                             >
-                                <Play className="w-5 h-5" />
-                                <span>START WORKOUT</span>
+                                <Play className="w-6 h-6 fill-current" />
+                                START WORKOUT
                             </button>
                         </div>
                     </div>

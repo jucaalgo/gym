@@ -60,6 +60,7 @@ export const analyzeGymMachine = async (imageFile, mode = 'gym') => {
                    "isMachine": true,
                    "name": "Machine Name",
                    "description": "Brief description",
+                   "primaryMuscle": "Chest", // Must be one of: Chest, Back, Shoulders, Biceps, Triceps, Quadriceps, Hamstrings, Glutes, Calves, Abs
                    "exercises": [
                      { "name": "Exercise 1", "difficulty": "Beginner" },
                      { "name": "Exercise 2", "difficulty": "Intermediate" },
