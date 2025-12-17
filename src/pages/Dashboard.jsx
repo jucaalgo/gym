@@ -57,76 +57,99 @@ const Dashboard = () => {
     return (
         <div className="min-h-screen p-6 space-y-6">
             {/* Header */}
-            <header className="flex items-center justify-between">
-                <div>
-                    <h1 className="text-3xl font-bold text-white">
-                        Bienvenido, <span className="text-gradient">{user.name}</span>
-                    </h1>
-                    <p className="text-white/60 mt-1">
-                        Sistema En Línea • Protocolo Diario Listo
-                    </p>
+            <header className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${archetype.color} flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(0,0,0,0.3)] border border-white/10`}>
+                        {archetype.icon}
+                    </div>
+                    <div>
+                        <h1 className="text-2xl font-bold text-white leading-tight">
+                            Status: <span className="text-primary uppercase tracking-tighter">Online</span>
+                        </h1>
+                        <p className="text-white/40 text-xs font-['Roboto_Mono'] uppercase tracking-widest">
+                            {user.name} • {user.rank}
+                        </p>
+                    </div>
                 </div>
-                <div className={`px-4 py-2 rounded-xl bg-gradient-to-r ${archetype.color} text-white font-semibold flex items-center gap-2`}>
-                    <span className="text-xl">{archetype.icon}</span>
-                    <span>{user.rank}</span>
+                <div className="flex flex-col items-end">
+                    <div className="text-[10px] text-white/30 font-bold uppercase tracking-widest mb-1">System Load</div>
+                    <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map(i => (
+                            <div key={i} className={`w-3 h-1 rounded-full ${i <= 3 ? 'bg-primary' : 'bg-white/10'}`} />
+                        ))}
+                    </div>
                 </div>
             </header>
+
+            {/* ═══ SMART ACTION HUB (NEW) ═══ */}
+            <div className="grid grid-cols-2 gap-4">
+                <Link to="/scan" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group transition-all hover:border-primary/40 active:scale-95">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                        <Scan className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-tighter text-white/80">Escanear Gym</span>
+                </Link>
+                <Link to="/nutrition" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group transition-all hover:border-accent/40 active:scale-95">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-black transition-all">
+                        <Camera className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-tighter text-white/80">Control Dieta</span>
+                </Link>
+            </div>
 
             {/* BENTO GRID */}
             <div className="grid grid-cols-12 gap-4 auto-rows-[140px]">
 
                 {/* ═══ MAIN MISSION CARD (Large) ═══ */}
-                <div className="col-span-12 md:col-span-8 row-span-2 glass-panel rounded-3xl p-6 hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
-                    {/* Animated Background Gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${archetype.color} opacity-10 transition-opacity`} />
+                <div className="col-span-12 row-span-2 glass-panel rounded-3xl p-6 hover:border-primary/50 transition-all duration-300 relative overflow-hidden border-primary/20 bg-primary/5">
+                    {/* HUD Scanline Effect */}
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-primary/20 animate-scan pointer-events-none" />
 
                     <div className="relative z-10 h-full flex flex-col justify-between">
                         <div>
-                            <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center gap-2 text-primary">
-                                    <Target className="w-5 h-5" />
-                                    <span className="text-sm font-medium uppercase tracking-wider">Misión Diaria</span>
+                                    <Target className="w-5 h-5 animate-pulse" />
+                                    <span className="text-sm font-bold uppercase tracking-[0.2em] font-['Orbitron']">MISIÓN CRÍTICA</span>
                                 </div>
                                 <button
                                     onClick={() => setShowRoutineSelector(true)}
-                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
+                                    className="p-2 rounded-lg bg-black/40 border border-white/5 text-white/60 hover:text-white transition-all active:scale-90"
                                 >
                                     <RefreshCw className="w-4 h-4" />
-                                    <span className="text-sm">Cambiar Rutina</span>
                                 </button>
                             </div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 font-['Orbitron'] tracking-wide">
                                 {selectedRoutineId ?
                                     availableRoutines.find(r => r.id === selectedRoutineId)?.name || `Protocol ${archetype.name}`
                                     : `Protocol ${archetype.name}`}
                             </h2>
-                            <p className="text-white/60 max-w-md">
-                                {selectedRoutineId ?
+                            <p className="text-white/50 text-sm leading-relaxed max-w-md italic">
+                                "{selectedRoutineId ?
                                     availableRoutines.find(r => r.id === selectedRoutineId)?.description || archetype.description
-                                    : archetype.description}
+                                    : archetype.description}"
                             </p>
                         </div>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
                             <div className="flex items-center gap-4">
-                                <div className="flex items-center gap-2 text-white/80">
-                                    <Clock className="w-4 h-4" />
-                                    <span>{user.timeAvailable} min</span>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] text-white/30 uppercase font-bold tracking-widest">Tiempo</span>
+                                    <span className="text-white font-['Roboto_Mono']">{user.timeAvailable}m</span>
                                 </div>
-                                <div className="flex items-center gap-2 text-white/80">
-                                    <Dumbbell className="w-4 h-4" />
-                                    <span>{selectedRoutineId ?
-                                        `${availableRoutines.find(r => r.id === selectedRoutineId)?.exercises.length || 6} exercises`
-                                        : '6 exercises'}</span>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] text-white/30 uppercase font-bold tracking-widest">Ejercicios</span>
+                                    <span className="text-white font-['Roboto_Mono']">{selectedRoutineId ?
+                                        availableRoutines.find(r => r.id === selectedRoutineId)?.exercises.length || 6
+                                        : '6'}</span>
                                 </div>
                             </div>
 
                             <button
                                 onClick={handleStartWorkout}
-                                className={`px-6 py-3 rounded-xl bg-gradient-to-r ${archetype.color} text-white font-semibold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg`}
+                                className="px-8 py-3 rounded-xl bg-primary text-black font-black flex items-center gap-2 hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,212,255,0.4)] font-['Orbitron'] text-sm tracking-widest"
                             >
-                                <span>START</span>
-                                <ChevronRight className="w-5 h-5" />
+                                START <ChevronRight className="w-4 h-4" />
                             </button>
                         </div>
                     </div>
@@ -179,40 +202,6 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                {/* ═══ NEURAL SCAN (AI Machine ID) ═══ */}
-                <Link
-                    to="/scan"
-                    className="col-span-6 md:col-span-4 row-span-2 glass-panel rounded-3xl p-5 hover:border-secondary/50 transition-all duration-300 group cursor-pointer relative overflow-hidden"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    <div className="relative z-10 h-full flex flex-col justify-between">
-                        <div>
-                            <div className="flex items-center gap-2 text-secondary mb-3">
-                                <Scan className="w-5 h-5" />
-                                <span className="text-sm font-medium uppercase tracking-wider">Neural Scan</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-2">Scan Everything</h3>
-                            <p className="text-white/50 text-sm">
-                                Identify Equipment & Food (Calories) with AI Vision
-                            </p>
-                        </div>
-
-                        {/* Camera Preview Placeholder */}
-                        <div className="flex-1 my-4 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-center relative overflow-hidden">
-                            <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
-                                {[...Array(9)].map((_, i) => (
-                                    <div key={i} className="border border-white/5" />
-                                ))}
-                            </div>
-                            <Camera className="w-10 h-10 text-white/30 group-hover:text-secondary group-hover:scale-110 transition-all" />
-                        </div>
-
-                        <button className="w-full py-3 rounded-xl bg-secondary/20 text-secondary font-semibold group-hover:bg-secondary group-hover:text-white transition-all">
-                            Start Scanner
-                        </button>
-                    </div>
-                </Link>
 
                 {/* ═══ BIOMETRICS / ENERGY ═══ */}
                 <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5">

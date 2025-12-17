@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useExercises } from '../hooks/useExercises';
 import { getRoutineEngine } from '../services/routineEngine';
 import { getFatigueManager } from '../services/fatigueManager';
+import VisualAsset from '../components/ui/VisualAsset';
 
 export default function ActiveWorkoutView() {
     const navigate = useNavigate();
@@ -22,6 +23,7 @@ export default function ActiveWorkoutView() {
     const [restTimeRemaining, setRestTimeRemaining] = useState(0);
     const [showRPEInput, setShowRPEInput] = useState(false);
     const [fatigueStatus, setFatigueStatus] = useState(null);
+    const [isFinished, setIsFinished] = useState(false);
 
     useEffect(() => {
         loadCurrentExercise();
@@ -55,22 +57,21 @@ export default function ActiveWorkoutView() {
 
         setCurrentExercise(next);
         setCurrentSet(1);
-        setReps(0);
+        setReps(next.reps); // Default to target reps
     }
 
-    function handleFinishSet(selectedRPE) {
+    function handleFinishSetAction() {
         if (!currentExercise) return;
 
-        // Record RPE
+        // Automatically record set with a neutral RPE for now (will evaluate at end)
         const status = fatigueManager.current.recordSet(
-            selectedRPE,
+            7, // Neutral RPE
             currentExercise.index,
             currentSet,
             currentExercise.name
         );
 
         setFatigueStatus(status);
-        setShowRPEInput(false);
 
         // Check if more sets remaining
         if (currentSet < currentExercise.sets) {
@@ -85,10 +86,21 @@ export default function ActiveWorkoutView() {
             setRestTimeRemaining(restTime);
             setIsResting(true);
             setCurrentSet(currentSet + 1);
+            setReps(currentExercise.reps);
         } else {
             // Exercise complete, move to next
             routineEngine.current.completeExercise(currentExercise.index);
-            loadCurrentExercise();
+
+            // Re-load to check if routine is finished
+            const routine = routineEngine.current.getCurrentRoutine();
+            const next = routineEngine.current.getNextExercise();
+
+            if (!next) {
+                // ROUTINE COMPLETE - Show Final Evaluation
+                setIsFinished(true);
+            } else {
+                loadCurrentExercise();
+            }
         }
     }
 
@@ -100,6 +112,18 @@ export default function ActiveWorkoutView() {
     function handleSkipRest() {
         setRestTimeRemaining(0);
         endRest();
+    }
+
+    if (isFinished) {
+        return <FinalEvaluationView
+            routine={routineEngine.current.getCurrentRoutine()}
+            summary={fatigueManager.current.getSessionSummary()}
+            onComplete={() => {
+                routineEngine.current.clearRoutine();
+                fatigueManager.current.resetSession();
+                navigate('/');
+            }}
+        />;
     }
 
     if (isResting) {
@@ -143,14 +167,11 @@ export default function ActiveWorkoutView() {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
                     <div>
-                        <div className="text-[#00D4FF] text-sm font-['Roboto_Mono'] mb-1">
-                            EXERCISE {progress.completed + 1} / {progress.total}
+                        <div className="text-white text-2xl font-['Orbitron'] tracking-tight">
+                            {currentExercise.name} <span className="text-primary ml-2 uppercase text-sm font-['Roboto_Mono']">Set {currentSet}</span>
                         </div>
-                        <div className="text-white text-2xl font-['Orbitron']">
-                            {currentExercise.name}
-                        </div>
-                        <div className="text-gray-400 text-sm mt-1">
-                            Set {currentSet} of {currentExercise.sets}
+                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">
+                            EXERCISE {progress.completed + 1} OF {progress.total}
                         </div>
                     </div>
 
@@ -167,13 +188,10 @@ export default function ActiveWorkoutView() {
                     {/* Exercise Image */}
                     {exerciseDetail && (
                         <div className="w-full aspect-video rounded-2xl overflow-hidden mb-6 border-2 border-[#00D4FF]/30">
-                            <img
-                                src={exerciseDetail.imagePath}
-                                alt={currentExercise.name}
-                                className="w-full h-full object-cover"
-                                onError={(e) => {
-                                    e.target.style.display = 'none';
-                                }}
+                            <VisualAsset
+                                exercise={exerciseDetail}
+                                type="3d_viewer"
+                                className="w-full h-full"
                             />
                         </div>
                     )}
@@ -254,8 +272,8 @@ export default function ActiveWorkoutView() {
 
                     {/* Finish Set Button */}
                     <button
-                        onClick={() => setShowRPEInput(true)}
-                        className="w-full py-4 bg-gradient-to-r from-[#00D4FF] to-[#39FF14] text-black rounded-xl font-bold text-lg hover:opacity-90 transition-opacity"
+                        onClick={handleFinishSetAction}
+                        className="w-full py-5 bg-primary text-black rounded-xl font-black text-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(0,212,255,0.3)] uppercase tracking-widest font-['Orbitron'] mt-auto"
                     >
                         Finish Set
                     </button>
@@ -273,7 +291,84 @@ export default function ActiveWorkoutView() {
     );
 }
 
-// RPE Input Modal Component
+// Final Evaluation View (NEW STATE D)
+function FinalEvaluationView({ routine, summary, onComplete }) {
+    const [finalRPE, setFinalRPE] = useState(7);
+
+    return (
+        <div className="min-h-screen bg-[#050508] flex items-center justify-center p-6 relative overflow-hidden">
+            {/* Background HUD decorative lines */}
+            <div className="absolute inset-0 pointer-events-none opacity-20">
+                <div className="absolute top-0 left-0 w-full h-1 bg-primary/20 animate-scan" />
+            </div>
+
+            <div className="max-w-md w-full glass-panel rounded-3xl p-8 border-primary/30 relative z-10">
+                <div className="text-center mb-10">
+                    <div className="inline-block p-4 rounded-full bg-primary/10 mb-4">
+                        <span className="text-4xl">🏆</span>
+                    </div>
+                    <h1 className="text-3xl font-black text-white font-['Orbitron'] tracking-tighter uppercase mb-2">
+                        MISIÓN COMPLETADA
+                    </h1>
+                    <p className="text-white/40 text-xs font-['Roboto_Mono'] tracking-[0.4em] uppercase">
+                        Protocol: {routine?.id}
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                    <div className="bg-black/40 rounded-2xl p-4 border border-white/5">
+                        <div className="text-[10px] text-white/30 uppercase font-bold tracking-widest mb-1">Carga Total</div>
+                        <div className="text-xl font-bold text-white uppercase">{summary.totalSets} <span className="text-primary text-xs">Series</span></div>
+                    </div>
+                    <div className="bg-black/40 rounded-2xl p-4 border border-white/5">
+                        <div className="text-[10px] text-white/30 uppercase font-bold tracking-widest mb-1">Fatiga Final</div>
+                        <div className="text-xl font-bold text-white uppercase">{summary.fatigueLevel}</div>
+                    </div>
+                </div>
+
+                <div className="mb-10">
+                    <div className="text-center mb-6">
+                        <h2 className="text-white font-bold uppercase tracking-widest text-sm mb-1">Esfuerzo Percibido (RPE)</h2>
+                        <p className="text-white/30 text-[10px]">¿Qué tan duro fue el entrenamiento hoy?</p>
+                    </div>
+
+                    <div className="grid grid-cols-5 gap-2">
+                        {[6, 7, 8, 9, 10].map(rpe => (
+                            <button
+                                key={rpe}
+                                onClick={() => setFinalRPE(rpe)}
+                                className={`h-12 rounded-xl font-bold transition-all border ${finalRPE === rpe
+                                    ? 'bg-primary text-black border-primary shadow-[0_0_20px_rgba(0,212,255,0.4)]'
+                                    : 'bg-white/5 text-white/40 border-white/5 hover:bg-white/10'
+                                    }`}
+                            >
+                                {rpe}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="mt-4 text-center">
+                        <span className="text-[10px] font-['Roboto_Mono'] text-primary uppercase">
+                            {finalRPE === 10 && 'Esfuerzo Máximo / Límite'}
+                            {finalRPE === 9 && 'Muy Difícil / 1 cerca del fallo'}
+                            {finalRPE === 8 && 'Difícil / 2 cerca del fallo'}
+                            {finalRPE === 7 && 'Óptimo / 3-4 cerca del fallo'}
+                            {finalRPE === 6 && 'Moderado / Entrenamiento de base'}
+                        </span>
+                    </div>
+                </div>
+
+                <button
+                    onClick={onComplete}
+                    className="w-full py-5 bg-primary text-black rounded-2xl font-black text-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(0,212,255,0.3)] uppercase tracking-[0.2em] font-['Orbitron']"
+                >
+                    Finalizar Sesión
+                </button>
+            </div>
+        </div>
+    );
+}
+
+// RPE Input Modal Component (Keep for individual sets if needed, but the user requested final evaluation)
 function RPEInputModal({ onSubmit, onCancel }) {
     const [selectedRPE, setSelectedRPE] = useState(7);
 
@@ -359,13 +454,10 @@ function RestView({ exercise, restTimeRemaining, onSkip, fatigueStatus, exercise
                 {/* Exercise Image */}
                 {exerciseDetail && (
                     <div className="w-full aspect-video rounded-2xl overflow-hidden mb-6 border-2 border-[#00D4FF]/30">
-                        <img
-                            src={exerciseDetail.imagePath}
-                            alt={exercise.name}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                                e.target.style.display = 'none';
-                            }}
+                        <VisualAsset
+                            exercise={exerciseDetail}
+                            type="3d_viewer"
+                            className="w-full h-full"
                         />
                     </div>
                 )}

@@ -11,6 +11,7 @@ import {
     ChevronRight
 } from 'lucide-react';
 import { useWorkoutData } from '../hooks/useWorkoutData';
+import VisualAsset from '../components/ui/VisualAsset';
 
 // ═══════════════════════════════════════════════════════════════
 // ENCYCLOPEDIA - SYSTEM DATABASE v2.1
@@ -164,25 +165,11 @@ const Encyclopedia = () => {
                     >
                         {/* Image Container */}
                         <div className="aspect-video bg-black/60 relative overflow-hidden">
-                            {getImageUrl(exercise) && (
-                                <img
-                                    src={getImageUrl(exercise)}
-                                    alt={exercise.name}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                                    loading="lazy"
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.nextSibling.style.display = 'flex';
-                                    }}
-                                />
-                            )}
-
-                            <div className="hidden w-full h-full absolute inset-0 flex items-center justify-center bg-[#111]">
-                                <div className="text-center">
-                                    <Dumbbell className="w-12 h-12 text-white/10 mx-auto mb-2" />
-                                    <span className="text-[10px] text-white/20 font-['Roboto_Mono']">NO VISUAL</span>
-                                </div>
-                            </div>
+                            <VisualAsset
+                                exercise={exercise}
+                                type="3d_viewer"
+                                className="w-full h-full"
+                            />
                         </div>
 
                         {/* Card Content */}
@@ -264,21 +251,11 @@ const Encyclopedia = () => {
                         <div className="p-6 md:p-8 grid lg:grid-cols-2 gap-8">
                             <div className="space-y-6">
                                 <div className="aspect-square bg-black/40 rounded-2xl overflow-hidden relative border border-[#00D4FF]/20 shadow-2xl">
-                                    {getImageUrl(selectedExercise) ? (
-                                        <img
-                                            src={getImageUrl(selectedExercise)}
-                                            alt={selectedExercise.name}
-                                            className="w-full h-full object-contain p-4"
-                                            onError={(e) => {
-                                                e.target.style.display = 'none';
-                                                e.target.nextSibling.style.display = 'flex';
-                                            }}
-                                        />
-                                    ) : null}
-                                    <div className="hidden w-full h-full absolute inset-0 flex flex-col items-center justify-center">
-                                        <Dumbbell className="w-24 h-24 text-[#00D4FF]/20 mb-4" />
-                                        <span className="text-white/30 font-['Roboto_Mono'] text-sm">NO VISUAL DATA AVAILABLE</span>
-                                    </div>
+                                    <VisualAsset
+                                        exercise={selectedExercise}
+                                        type="3d_viewer"
+                                        className="w-full h-full"
+                                    />
                                 </div>
                             </div>
 

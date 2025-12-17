@@ -7,6 +7,7 @@ import { analyzeGymMachine } from '../services/geminiVision';
 import { useUser } from '../context/UserContext';
 import { ALL_EXERCISES } from '../data/musclewiki_exercises';
 import soundManager from '../utils/sounds';
+import VisualAsset from '../components/ui/VisualAsset';
 
 const AICamera = () => {
     const navigate = useNavigate();
@@ -170,9 +171,13 @@ const AICamera = () => {
                                             <h3 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-2">JCA Gym Matches</h3>
                                             {suggestedExercises.map(ex => (
                                                 <div key={ex.id} className="flex items-center gap-4 p-3 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                                                    {ex.videoUrl && (
-                                                        <video src={ex.videoUrl} className="w-12 h-12 object-cover rounded-lg bg-black" muted />
-                                                    )}
+                                                    <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                                                        <VisualAsset
+                                                            exercise={ex}
+                                                            type="3d_viewer"
+                                                            className="w-full h-full"
+                                                        />
+                                                    </div>
                                                     <div className="flex-1">
                                                         <div className="font-bold text-white text-sm">{ex.name}</div>
                                                         <div className="text-xs text-white/40">{ex.sets} sets x {ex.reps} reps</div>

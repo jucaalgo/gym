@@ -103,7 +103,7 @@ export async function loadRoutines() {
                 name: exercise.trim(),
                 sets: parseInt(sets) || 3,
                 reps: parseInt(reps) || 10,
-                rest: rest ? rest.trim() : '60s',
+                rest: parseInt(rest) || 60,
                 targetRPE: rpe ? rpe.trim() : '7'
             });
         }

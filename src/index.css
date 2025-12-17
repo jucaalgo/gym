@@ -6,15 +6,15 @@
    ═══════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* Color Palette - JCA Neon */
-  --color-background: #030305;
-  --color-surface: #0a0a12;
-  --color-primary: #00f2ff; /* Neon Cyan */
-  --color-secondary: #bf00ff; /* Neon Purple */
-  --color-accent: #2d5af5; /* Electric Blue */
-  --color-success: #00ff9d;
-  --color-warning: #ffbd00;
-  --color-error: #ff0055;
+  /* Color Palette - Cyber-Obsidian HUD */
+  --color-background: #050508;
+  --color-surface: #0c0c14;
+  --color-primary: #00D4FF; /* Cyber Teal */
+  --color-secondary: #B026FF; /* Deep Purple */
+  --color-accent: #FFD700; /* Cyber Gold */
+  --color-success: #39FF14; /* Neon Green */
+  --color-warning: #FFA500;
+  --color-error: #FF3131;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;

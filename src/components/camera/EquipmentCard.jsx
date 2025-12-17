@@ -10,6 +10,7 @@ import { useExercises } from '../../hooks/useExercises';
 import { useRoutines } from '../../hooks/useRoutines';
 import { useEquipmentMap } from '../../hooks/useEquipmentMap';
 import { getRoutineEngine } from '../../services/routineEngine';
+import VisualAsset from '../ui/VisualAsset';
 
 export default function EquipmentCard({ detection, onSelectRoutine, onClose, userGender = 'female' }) {
     const navigate = useNavigate();
@@ -94,14 +95,10 @@ export default function EquipmentCard({ detection, onSelectRoutine, onClose, use
                                         <div className="flex items-start gap-4">
                                             {/* Exercise Image */}
                                             <div className="w-20 h-20 rounded-lg bg-black/50 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                                                <img
-                                                    src={ex.imagePath}
-                                                    alt={ex.name}
-                                                    className="w-full h-full object-cover"
-                                                    onError={(e) => {
-                                                        e.target.style.display = 'none';
-                                                        e.target.parentElement.innerHTML = '<div class="text-4xl">💪</div>';
-                                                    }}
+                                                <VisualAsset
+                                                    exercise={ex}
+                                                    type="3d_viewer"
+                                                    className="w-full h-full"
                                                 />
                                             </div>
 

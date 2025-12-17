@@ -45,9 +45,15 @@ const VisualAsset = ({ exercise, type = '3d_viewer', className = '' }) => {
             const urls = realExercisesAdapter.getImageUrls(foundExercise);
             if (urls.length > 0) {
                 setImageUrls(urls);
+            } else if (exercise?.imagePath || exercise?.videoUrl || exercise?.thumbnailUrl) {
+                // Support for csvLoader.js and MuscleWiki exercises
+                setImageUrls([exercise.imagePath || exercise.videoUrl || exercise.thumbnailUrl]);
             } else {
                 setError(true);
             }
+        } else if (exercise?.imagePath || exercise?.videoUrl || exercise?.thumbnailUrl) {
+            // Support for csvLoader.js and MuscleWiki exercises even if not found in realExercisesAdapter
+            setImageUrls([exercise.imagePath || exercise.videoUrl || exercise.thumbnailUrl]);
         } else {
             setError(true);
         }
