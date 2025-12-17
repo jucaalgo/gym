@@ -38,8 +38,14 @@ const getFocusCategory = (target) => {
     return target; // Return original if no match (e.g. "Full Body")
 };
 
+const normalizeName = (name) => {
+    if (!name) return "";
+    // Remove everything inside parentheses and trim
+    return name.split('(')[0].trim().toLowerCase();
+};
+
 const Routines = () => {
-    const { routines, loading, error } = useWorkoutData();
+    const { routines, exercises, loading, error } = useWorkoutData();
     const navigate = useNavigate();
     const [selectedRoutine, setSelectedRoutine] = useState(null);
     const [showFilters, setShowFilters] = useState(false);
@@ -95,16 +101,32 @@ const Routines = () => {
             if (intensityFilter === 'medium') matchesIntensity = routine.exercises.length >= 5 && routine.exercises.length <= 8;
             if (intensityFilter === 'high') matchesIntensity = routine.exercises.length > 8;
 
-            // Focus
+            // Focus (Improved matching with normalization)
             let matchesFocus = true;
             if (focusFilter !== 'all') {
-                const category = getFocusCategory(routine.target);
-                matchesFocus = category === focusFilter;
+                const normalizedFilter = focusFilter;
+
+                // Check if any exercise in the routine matches the focusFilter
+                matchesFocus = routine.exercises.some(ex => {
+                    const normExName = normalizeName(ex.name);
+                    const masterEx = exercises.find(m => normalizeName(m.name) === normExName);
+
+                    if (!masterEx) return false;
+
+                    const category = getFocusCategory(masterEx.targetMuscle);
+                    return category === normalizedFilter;
+                });
+
+                // Fallback: Check the routine's own target string if no exercises matched
+                if (!matchesFocus) {
+                    const routineCategory = getFocusCategory(routine.target);
+                    matchesFocus = routineCategory === normalizedFilter;
+                }
             }
 
             return matchesGender && matchesTime && matchesIntensity && matchesFocus;
         });
-    }, [enrichedRoutines, genderFilter, timeFilter, intensityFilter, focusFilter]);
+    }, [enrichedRoutines, exercises, genderFilter, timeFilter, intensityFilter, focusFilter]);
 
     const focusCategories = ['all', ...Object.keys(MUSCLE_GROUPS), 'Full Body', 'Other'];
 

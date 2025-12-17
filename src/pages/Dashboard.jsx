@@ -98,10 +98,33 @@ const Dashboard = () => {
             </div>
 
             {/* BENTO GRID */}
-            <div className="grid grid-cols-12 gap-4 auto-rows-[140px]">
+            <div className="grid grid-cols-12 gap-4 auto-rows-auto md:auto-rows-[140px]">
+
+                {/* ═══ TOTAL STATS (TOP) ═══ */}
+                <div className="col-span-12 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 border-white/10 bg-white/5">
+                    <div className="flex items-center gap-2 text-white/40 mb-3">
+                        <Dumbbell className="w-4 h-4" />
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Resumen de Actividad</span>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 text-center">
+                        <div className="bg-black/20 p-2 rounded-xl border border-white/5">
+                            <div className="text-xl font-bold text-white leading-none whitespace-nowrap">{user.totalWorkouts}</div>
+                            <div className="text-[9px] text-white/30 uppercase mt-1">Sesiones</div>
+                        </div>
+                        <div className="bg-black/20 p-2 rounded-xl border border-white/5">
+                            <div className="text-xl font-bold text-white leading-none whitespace-nowrap">{Math.round(user.totalMinutes / 60)}h</div>
+                            <div className="text-[9px] text-white/30 uppercase mt-1">Tiempo</div>
+                        </div>
+                        <div className="bg-black/20 p-2 rounded-xl border border-white/5">
+                            <div className="text-xl font-bold text-white leading-none whitespace-nowrap">{(user.caloriesBurned / 1000).toFixed(1)}k</div>
+                            <div className="text-[9px] text-white/30 uppercase mt-1">Kcal</div>
+                        </div>
+                    </div>
+                </div>
 
                 {/* ═══ MAIN MISSION CARD (Large) ═══ */}
-                <div className="col-span-12 row-span-2 glass-panel rounded-3xl p-6 hover:border-primary/50 transition-all duration-300 relative overflow-hidden border-primary/20 bg-primary/5">
+                <div className="col-span-12 md:col-span-8 row-span-2 glass-panel rounded-3xl p-6 hover:border-primary/50 transition-all duration-300 relative overflow-hidden border-primary/20 bg-primary/5">
                     {/* HUD Scanline Effect */}
                     <div className="absolute top-0 left-0 right-0 h-[1px] bg-primary/20 animate-scan pointer-events-none" />
 
@@ -239,7 +262,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* ═══ TODAY'S NUTRITION ═══ */}
-                <div className="col-span-12 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5">
+                <div className="col-span-12 md:col-span-8 row-span-1 glass-panel rounded-3xl p-5">
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2 text-primary">
                             <TrendingUp className="w-5 h-5" />
@@ -248,14 +271,14 @@ const Dashboard = () => {
                         <span className="text-sm text-white/50">{user.calorieGoal} kcal goal</span>
                     </div>
 
-                    <div className="flex items-end justify-between">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                         <div>
                             <div className="text-3xl font-bold text-white">{user.todayCalories}</div>
                             <div className="text-sm text-white/50">kcal consumed</div>
                         </div>
 
                         {/* Macro Pills */}
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                             <div className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">
                                 P: {user.todayProtein}g
                             </div>
@@ -274,47 +297,6 @@ const Dashboard = () => {
                             className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all"
                             style={{ width: `${Math.min((user.todayCalories / user.calorieGoal) * 100, 100)}%` }}
                         />
-                    </div>
-                </div>
-
-                {/* ═══ ENCYCLOPEDIA SHORTCUT ═══ */}
-                <Link
-                    to="/encyclopedia"
-                    className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 hover:border-accent/50 transition-all duration-300 group cursor-pointer"
-                >
-                    <div className="flex items-center justify-between h-full">
-                        <div>
-                            <div className="flex items-center gap-2 text-accent mb-2">
-                                <Sparkles className="w-5 h-5" />
-                                <span className="text-sm font-medium uppercase tracking-wider">Encyclopedia</span>
-                            </div>
-                            <div className="text-2xl font-bold text-white">5000+</div>
-                            <div className="text-sm text-white/50">Atoms of Movement</div>
-                        </div>
-                        <ChevronRight className="w-8 h-8 text-white/30 group-hover:text-accent group-hover:translate-x-1 transition-all" />
-                    </div>
-                </Link>
-
-                {/* ═══ TOTAL STATS ═══ */}
-                <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5">
-                    <div className="flex items-center gap-2 text-white/60 mb-3">
-                        <Dumbbell className="w-4 h-4" />
-                        <span className="text-sm font-medium uppercase tracking-wider">Stats</span>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2 text-center">
-                        <div>
-                            <div className="text-xl font-bold text-white">{user.totalWorkouts}</div>
-                            <div className="text-xs text-white/40">Workouts</div>
-                        </div>
-                        <div>
-                            <div className="text-xl font-bold text-white">{Math.round(user.totalMinutes / 60)}h</div>
-                            <div className="text-xs text-white/40">Trained</div>
-                        </div>
-                        <div>
-                            <div className="text-xl font-bold text-white">{(user.caloriesBurned / 1000).toFixed(1)}k</div>
-                            <div className="text-xs text-white/40">kcal burned</div>
-                        </div>
                     </div>
                 </div>
 
