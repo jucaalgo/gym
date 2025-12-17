@@ -18,21 +18,22 @@ import { useWorkoutData } from '../hooks/useWorkoutData';
 // ═══════════════════════════════════════════════════════════════
 
 // MAPPING LOGIC: Raw Muscle -> Category
+// MAPPING LOGIC: Raw Muscle -> Category
 const MUSCLE_GROUPS = {
-    'Chest': ['Pectoralis', 'Serratus', 'Chest'],
-    'Back': ['Latissimus', 'Trapezius', 'Rhomboids', 'Teres', 'Back'],
-    'Legs': ['Quadriceps', 'Hamstrings', 'Gluteus', 'Adductor', 'Abductor', 'Calves', 'Soleus', 'Tibialis', 'Legs', 'Thigh'],
-    'Shoulders': ['Deltoid', 'Shoulder'],
-    'Arms': ['Biceps', 'Triceps', 'Brachialis', 'Forearms', 'Arms'],
+    'Pecho': ['Pectoralis', 'Serratus', 'Chest'],
+    'Espalda': ['Latissimus', 'Trapezius', 'Rhomboids', 'Teres', 'Back'],
+    'Piernas': ['Quadriceps', 'Hamstrings', 'Gluteus', 'Adductor', 'Abductor', 'Calves', 'Soleus', 'Tibialis', 'Legs', 'Thigh'],
+    'Hombros': ['Deltoid', 'Shoulder'],
+    'Brazos': ['Biceps', 'Triceps', 'Brachialis', 'Forearms', 'Arms'],
     'Core': ['Abdominis', 'Obliques', 'Core']
 };
 
 const getMuscleCategory = (muscleName) => {
-    if (!muscleName) return 'Other';
+    if (!muscleName) return 'Otros';
     for (const [category, keywords] of Object.entries(MUSCLE_GROUPS)) {
         if (keywords.some(k => muscleName.includes(k))) return category;
     }
-    return 'Other';
+    return 'Otros';
 };
 
 const PAGE_SIZE = 24;
@@ -42,13 +43,13 @@ const Encyclopedia = () => {
 
     // UI State
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('all'); // Replaces specific muscle filter
+    const [selectedCategory, setSelectedCategory] = useState('todos'); // Replaces specific muscle filter
     const [selectedEquipment, setSelectedEquipment] = useState('all');
     const [selectedExercise, setSelectedExercise] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
 
     // Filter Options
-    const categories = ['all', ...Object.keys(MUSCLE_GROUPS), 'Other'];
+    const categories = ['todos', ...Object.keys(MUSCLE_GROUPS), 'Otros'];
 
     const equipmentList = useMemo(() => {
         const set = new Set();
@@ -70,7 +71,7 @@ const Encyclopedia = () => {
                 ex.name.toLowerCase().includes(searchQuery.toLowerCase());
 
             const exCategory = getMuscleCategory(ex.targetMuscle);
-            const matchesCategory = selectedCategory === 'all' || exCategory === selectedCategory;
+            const matchesCategory = selectedCategory === 'todos' || exCategory === selectedCategory;
 
             const matchesEquipment = selectedEquipment === 'all' ||
                 ex.equipment === selectedEquipment;

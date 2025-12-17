@@ -8,7 +8,7 @@ const JCAAssistant = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([
-        { role: 'model', text: 'Commands ready. How can I assist you today, Agent?' }
+        { role: 'model', text: 'Comandos listos. ¿Cómo puedo asistirte hoy, Agente?' }
     ]);
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
@@ -40,7 +40,7 @@ const JCAAssistant = () => {
         if (response.success) {
             setMessages(prev => [...prev, { role: 'model', text: response.text }]);
         } else {
-            setMessages(prev => [...prev, { role: 'model', text: '⚠️ Connection unstable. System reboot advised.' }]);
+            setMessages(prev => [...prev, { role: 'model', text: '⚠️ Conexión inestable. Se recomienda reiniciar el sistema.' }]);
         }
     };
 
@@ -55,7 +55,7 @@ const JCAAssistant = () => {
                     <div className="p-4 border-b border-white/10 bg-gradient-to-r from-primary/10 to-transparent flex justify-between items-center">
                         <div className="flex items-center gap-2">
                             <Bot className="w-5 h-5 text-primary animate-pulse" />
-                            <span className="font-display font-bold text-white tracking-wider">JCA AI CORE</span>
+                            <span className="font-display font-bold text-white tracking-wider">NÚCLEO JCA AI</span>
                         </div>
                         <button
                             onClick={() => setIsOpen(false)}
@@ -80,8 +80,8 @@ const JCAAssistant = () => {
 
                                 <div
                                     className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
-                                            ? 'bg-primary text-black rounded-tr-none font-medium shadow-[0_0_15px_rgba(59,130,246,0.4)]'
-                                            : 'bg-white/5 text-white/90 rounded-tl-none border border-white/10'
+                                        ? 'bg-primary text-black rounded-tr-none font-medium shadow-[0_0_15px_rgba(59,130,246,0.4)]'
+                                        : 'bg-white/5 text-white/90 rounded-tl-none border border-white/10'
                                         }`}
                                 >
                                     {msg.text}
@@ -100,7 +100,7 @@ const JCAAssistant = () => {
                                     <Loader2 className="w-4 h-4 text-primary animate-spin" />
                                 </div>
                                 <div className="bg-white/5 text-primary/60 text-xs p-3 rounded-2xl rounded-tl-none border border-white/5 flex items-center gap-2">
-                                    Processing Neural Request...
+                                    Procesando Solicitud Neural...
                                 </div>
                             </div>
                         )}
@@ -114,7 +114,7 @@ const JCAAssistant = () => {
                                 type="text"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                placeholder="Command the system..."
+                                placeholder="Comanda el sistema..."
                                 className="w-full bg-white/5 border border-white/10 rounded-xl pl-4 pr-12 py-3 text-white text-sm focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/20"
                                 disabled={isLoading}
                             />
@@ -134,8 +134,8 @@ const JCAAssistant = () => {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`group relative flex items-center justify-center w-14 h-14 rounded-full shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-300 ${isOpen
-                        ? 'bg-red-500 rotate-90 scale-90'
-                        : 'bg-gradient-to-tr from-primary via-blue-500 to-indigo-600 hover:scale-110 hover:rotate-12'
+                    ? 'bg-red-500 rotate-90 scale-90'
+                    : 'bg-gradient-to-tr from-primary via-blue-500 to-indigo-600 hover:scale-110 hover:rotate-12'
                     }`}
             >
                 {isOpen ? (

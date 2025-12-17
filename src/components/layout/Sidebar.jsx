@@ -17,15 +17,15 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-    { to: '/', icon: LayoutGrid, label: 'Dashboard' },
-    { to: '/encyclopedia', icon: BookOpen, label: 'Encyclopedia' },
-    { to: '/matrix', icon: Target, label: 'The Matrix' },
-    { to: '/analytics', icon: TrendingUp, label: 'Analytics' },
-    { to: '/journal', icon: Book, label: 'Journal' },
-    { to: '/nutrition', icon: Camera, label: 'Snap & Track' },
-    { to: '/scan', icon: Scan, label: 'Hyper-Vision' },
-    { to: '/routines', icon: Trophy, label: 'Routines' },
-    { to: '/profile', icon: Settings, label: 'Profile' },
+    { to: '/', icon: LayoutGrid, label: 'Tablero' },
+    { to: '/encyclopedia', icon: BookOpen, label: 'Enciclopedia' },
+    { to: '/matrix', icon: Target, label: 'La Matrix' },
+    { to: '/analytics', icon: TrendingUp, label: 'Analíticas' },
+    { to: '/journal', icon: Book, label: 'Diario' },
+    { to: '/nutrition', icon: Camera, label: 'Nutrición' },
+    { to: '/scan', icon: Scan, label: 'Híper-Visión' },
+    { to: '/routines', icon: Trophy, label: 'Rutinas' },
+    { to: '/profile', icon: Settings, label: 'Perfil' },
 ];
 
 const Sidebar = () => {
@@ -50,7 +50,7 @@ const Sidebar = () => {
                     </div>
                     <div>
                         <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary drop-shadow-[0_0_5px_rgba(59,130,246,0.5)]">JCA GYM</h1>
-                        <p className="text-xs text-white/40 tracking-widest">SYSTEM ONLINE</p>
+                        <p className="text-xs text-white/40 tracking-widest">SISTEMA EN LÍNEA</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@ const Sidebar = () => {
                         }
                     >
                         <Shield className="w-5 h-5" />
-                        <span className="font-medium tracking-wide">ADMIN PANEL</span>
+                        <span className="font-medium tracking-wide">PANEL DE ADMIN</span>
                     </NavLink>
                 )}
             </nav>
@@ -99,7 +99,7 @@ const Sidebar = () => {
                     className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500/60 hover:text-red-500 hover:bg-red-500/10 transition-all group"
                 >
                     <LogOut className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    <span className="font-medium">Logout</span>
+                    <span className="font-medium">Cerrar Sesión</span>
                 </button>
 
                 {/* Version */}

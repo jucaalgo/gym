@@ -60,10 +60,10 @@ const Dashboard = () => {
             <header className="flex items-center justify-between">
                 <div>
                     <h1 className="text-3xl font-bold text-white">
-                        Welcome, <span className="text-gradient">{user.name}</span>
+                        Bienvenido, <span className="text-gradient">{user.name}</span>
                     </h1>
                     <p className="text-white/60 mt-1">
-                        System Online • Daily Protocol Ready
+                        Sistema En Línea • Protocolo Diario Listo
                     </p>
                 </div>
                 <div className={`px-4 py-2 rounded-xl bg-gradient-to-r ${archetype.color} text-white font-semibold flex items-center gap-2`}>
@@ -85,14 +85,14 @@ const Dashboard = () => {
                             <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2 text-primary">
                                     <Target className="w-5 h-5" />
-                                    <span className="text-sm font-medium uppercase tracking-wider">Daily Mission</span>
+                                    <span className="text-sm font-medium uppercase tracking-wider">Misión Diaria</span>
                                 </div>
                                 <button
                                     onClick={() => setShowRoutineSelector(true)}
                                     className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
                                 >
                                     <RefreshCw className="w-4 h-4" />
-                                    <span className="text-sm">Change Routine</span>
+                                    <span className="text-sm">Cambiar Rutina</span>
                                 </button>
                             </div>
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">

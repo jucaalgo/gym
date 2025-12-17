@@ -43,13 +43,13 @@ const Profile = () => {
                     localStorage.setItem('currentUser', JSON.stringify(importedUser)); // Force immediate save
                     soundManager.play('levelUp');
                     triggerHaptic('success');
-                    alert('Data restored successfully! Welcome back, Agent.');
+                    alert('¡Datos restaurados con éxito! Bienvenido de nuevo, Agente.');
                 } else {
-                    alert('Invalid backup file.');
+                    alert('Archivo de respaldo inválido.');
                 }
             } catch (err) {
                 console.error(err);
-                alert('Error reading file.');
+                alert('Error leyendo archivo.');
             }
         };
         reader.readAsText(file);
@@ -65,15 +65,15 @@ const Profile = () => {
             <header className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold text-white font-['Orbitron'] tracking-wide">
-                        AGENT <span className="text-[#00D4FF]">PROFILE</span>
+                        PERFIL DE <span className="text-[#00D4FF]">AGENTE</span>
                     </h1>
-                    <p className="text-white/60 font-['Roboto_Mono'] text-sm">Identity & Performance Stats</p>
+                    <p className="text-white/60 font-['Roboto_Mono'] text-sm">Identidad y Estadísticas</p>
                 </div>
                 <button
                     onClick={logout}
                     className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-xl border border-red-500/20 transition-colors font-['Orbitron'] text-xs tracking-wider"
                 >
-                    LOGOUT
+                    CERRAR SESIÓN
                 </button>
             </header>
 

@@ -13,15 +13,15 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-    { to: '/', icon: LayoutGrid, label: 'Home' },
+    { to: '/', icon: LayoutGrid, label: 'Inicio' },
     { to: '/matrix', icon: Target, label: 'Matrix' },
-    { to: '/nutrition', icon: Camera, label: 'Food' },
-    { to: '/scan', icon: Scan, label: 'Vision' },
+    { to: '/nutrition', icon: Camera, label: 'Comida' },
+    { to: '/scan', icon: Scan, label: 'Visión' },
     { to: '/routines', icon: Trophy, label: 'Gym' },
     { to: '/analytics', icon: TrendingUp, label: 'Stats' },
-    { to: '/journal', icon: Book, label: 'Log' },
+    { to: '/journal', icon: Book, label: 'Diario' },
     { to: '/encyclopedia', icon: BookOpen, label: 'Wiki' },
-    { to: '/profile', icon: Settings, label: 'Profile' },
+    { to: '/profile', icon: Settings, label: 'Perfil' },
 ];
 
 const MobileNavbar = () => {
