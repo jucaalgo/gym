@@ -24,19 +24,19 @@ const Login = () => {
         if (isRegistering) {
             // Registration strictly requires Email
             if (!email || !password || !name) {
-                setError('All fields are required');
+                setError('Todos los campos son requeridos');
                 setIsLoading(false);
                 return;
             }
             if (!email.includes('@')) {
-                setError('Please provide a valid email for registration');
+                setError('Por favor proporcione un correo válido');
                 setIsLoading(false);
                 return;
             }
 
             const result = await registerUser(email, password, name);
             if (result.success) {
-                setSuccessMsg('Account created! Logging in...');
+                setSuccessMsg('¡Cuenta creada! Iniciando...');
                 setTimeout(() => {
                     navigate('/onboarding');
                 }, 1000);
@@ -47,7 +47,7 @@ const Login = () => {
         } else {
             // Login accepts Username OR Email
             if (!email || !password) {
-                setError('Identity and Password required');
+                setError('Identidad y Contraseña requeridos');
                 setIsLoading(false);
                 return;
             }
@@ -71,10 +71,10 @@ const Login = () => {
                 {/* Brand Header */}
                 <div className="text-center mb-8 animate-fade-in">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-black/50 border border-primary/30 mb-4 shadow-[0_0_30px_rgba(0,242,255,0.2)]">
-                        <img src="/jca-logo.png" alt="JCA Logo" className="w-full h-full object-contain p-2" />
+                        <img src={`${import.meta.env.BASE_URL}jca-logo.png`} alt="JCA Logo" className="w-full h-full object-contain p-2" />
                     </div>
                     <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-secondary drop-shadow-[0_0_10px_rgba(0,242,255,0.5)] tracking-tighter">JCA GYM</h1>
-                    <p className="text-primary/60 text-sm uppercase tracking-[0.3em] mt-2 font-medium">Cloud System v3.2 (Fix)</p>
+                    <p className="text-primary/60 text-sm uppercase tracking-[0.3em] mt-2 font-medium">Sistema Cloud v3.2 (Fix)</p>
                 </div>
 
                 {/* Login Card */}
@@ -82,14 +82,14 @@ const Login = () => {
 
                     <div className="mb-6 text-center">
                         <h2 className="text-xl text-white font-medium tracking-wide">
-                            {isRegistering ? 'Create Agent Profile' : 'System Access'}
+                            {isRegistering ? 'Crear Perfil de Agente' : 'Acceso al Sistema'}
                         </h2>
                     </div>
 
                     <form onSubmit={handleAuth} className="space-y-4">
                         {isRegistering && (
                             <div className="space-y-1 animate-in slide-in-from-left-4 fade-in duration-300">
-                                <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Agent Name</label>
+                                <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Nombre de Agente</label>
                                 <div className="relative group/input">
                                     <Target className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
                                     <input
@@ -97,7 +97,7 @@ const Login = () => {
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         className="w-full bg-black/40 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
-                                        placeholder="John Doe"
+                                        placeholder="Juan Pérez"
                                     />
                                 </div>
                             </div>
@@ -105,7 +105,7 @@ const Login = () => {
 
                         <div className="space-y-1">
                             <label className="text-xs text-white/40 uppercase tracking-wider ml-1">
-                                {isRegistering ? 'Email Address' : 'Identity (Email or Username)'}
+                                {isRegistering ? 'Correo Electrónico' : 'Identidad (Email o Usuario)'}
                             </label>
                             <div className="relative group/input">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
@@ -114,13 +114,13 @@ const Login = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full bg-black/40 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-mono"
-                                    placeholder={isRegistering ? "agent@jcagym.com" : "agent@jcagym.com OR agent_id"}
+                                    placeholder={isRegistering ? "agente@jcagym.com" : "agente@jcagym.com O usuario"}
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-1">
-                            <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Secure Token (Password)</label>
+                            <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Token de Seguridad (Contraseña)</label>
                             <div className="relative group/input">
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
                                 <input
@@ -156,7 +156,7 @@ const Login = () => {
                                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                             ) : (
                                 <>
-                                    <span>{isRegistering ? 'INITIALIZE NEW AGENT' : 'AUTHENTICATE'}</span>
+                                    <span>{isRegistering ? 'INICIALIZAR NUEVO AGENTE' : 'AUTENTICAR'}</span>
                                     <ArrowRight className="w-5 h-5" />
                                 </>
                             )}
@@ -170,14 +170,14 @@ const Login = () => {
                                 onClick={() => { setIsRegistering(false); setError(''); }}
                                 className="text-sm text-white/40 hover:text-white transition-colors"
                             >
-                                Already active? <span className="text-primary underline">Login Here</span>
+                                ¿Ya activo? <span className="text-primary underline">Iniciar Sesión</span>
                             </button>
                         ) : (
                             <button
                                 onClick={() => { setIsRegistering(true); setError(''); }}
                                 className="text-sm text-white/40 hover:text-white transition-colors"
                             >
-                                First time access? <span className="text-primary underline">Create Agent Profile</span>
+                                ¿Primer acceso? <span className="text-primary underline">Crear Perfil de Agente</span>
                             </button>
                         )}
                     </div>
@@ -185,13 +185,13 @@ const Login = () => {
 
                 <div className="text-center mt-8 space-y-2">
                     <p className="text-white/20 text-xs text-shadow-glow">
-                        CLOUD SYNC ACTIVE • FIREBASE SECURED
+                        SINCRONIZACIÓN CLOUD ACTIVA • SEGURIDAD FIREBASE
                     </p>
                 </div>
             </div>
             <div className="absolute bottom-4 left-0 right-0 text-center z-10">
                 <p className="text-white/20 text-xs font-mono uppercase tracking-widest">
-                    Created By Juan Carlos Alvarado
+                    Creado Por Juan Carlos Alvarado
                 </p>
             </div>
         </div>

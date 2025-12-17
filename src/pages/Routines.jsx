@@ -22,16 +22,16 @@ import { getRoutineEngine } from '../services/routineEngine';
 // ═══════════════════════════════════════════════════════════════
 
 const MUSCLE_GROUPS = {
-    'Chest': ['Chest', 'Pectoralis'],
-    'Back': ['Back', 'Latissimus', 'Trapezius', 'Lats'],
-    'Legs': ['Legs', 'Quadriceps', 'Hamstrings', 'Gluteus', 'Glutes', 'Calves'],
-    'Shoulders': ['Shoulders', 'Deltoid'],
-    'Arms': ['Arms', 'Biceps', 'Triceps'],
+    'Pecho': ['Chest', 'Pectoralis'],
+    'Espalda': ['Back', 'Latissimus', 'Trapezius', 'Lats'],
+    'Piernas': ['Legs', 'Quadriceps', 'Hamstrings', 'Gluteus', 'Glutes', 'Calves'],
+    'Hombros': ['Shoulders', 'Deltoid'],
+    'Brazos': ['Arms', 'Biceps', 'Triceps'],
     'Core': ['Core', 'Abs', 'Abdominis']
 };
 
 const getFocusCategory = (target) => {
-    if (!target) return 'All Types';
+    if (!target) return 'Todos';
     for (const [category, keywords] of Object.entries(MUSCLE_GROUPS)) {
         if (keywords.some(k => target.includes(k))) return category;
     }
@@ -57,9 +57,9 @@ const Routines = () => {
             const totalExercises = routine.exercises.length;
 
             // Infer Difficulty/Intensity based on count
-            let difficulty = 'Intermediate';
-            if (totalExercises < 5) difficulty = 'Beginner';
-            if (totalExercises > 8) difficulty = 'Advanced';
+            let difficulty = 'Intermedio';
+            if (totalExercises < 5) difficulty = 'Principiante';
+            if (totalExercises > 8) difficulty = 'Avanzado';
 
             // Infer Duration (approx 3 min per set + transition)
             const duration = Math.round(totalSets * 2.5 + totalExercises);
@@ -133,15 +133,15 @@ const Routines = () => {
             <header className="mb-8">
                 <div className="flex items-center gap-2 text-[#00D4FF] mb-2">
                     <Activity className="w-5 h-5" />
-                    <span className="text-sm font-medium uppercase tracking-wider font-['Roboto_Mono']">System Protocols</span>
+                    <span className="text-sm font-medium uppercase tracking-wider font-['Roboto_Mono']">Protocolos del Sistema</span>
                 </div>
                 <div>
                     <h1 className="text-4xl font-bold text-white font-['Orbitron'] tracking-wide">
-                        WORKOUT <span className="text-[#00D4FF]">MATRIX</span>
+                        MATRIZ DE <span className="text-[#00D4FF]">ENTRENAMIENTO</span>
                     </h1>
                     <p className="text-white/60 mt-2 font-['Roboto_Mono'] flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#39FF14] animate-pulse" />
-                        {filteredRoutines.length} Programs Available
+                        {filteredRoutines.length} Programas Disponibles
                     </p>
                 </div>
             </header>
@@ -150,12 +150,12 @@ const Routines = () => {
             <button
                 onClick={() => setShowFilters(!showFilters)}
                 className={`mb-6 flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${showFilters
-                        ? 'bg-[#00D4FF]/10 border-[#00D4FF] text-[#00D4FF]'
-                        : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
+                    ? 'bg-[#00D4FF]/10 border-[#00D4FF] text-[#00D4FF]'
+                    : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
                     }`}
             >
                 <Filter className="w-4 h-4" />
-                <span className="font-['Roboto_Mono'] text-sm uppercase">Advanced Filters</span>
+                <span className="font-['Roboto_Mono'] text-sm uppercase">Filtros Avanzados</span>
                 {showFilters ? <X className="w-4 h-4 ml-2" /> : null}
             </button>
 
@@ -222,8 +222,8 @@ const Routines = () => {
                     >
                         {/* Header Gradient */}
                         <div className={`h-2 w-full bg-gradient-to-r ${routine.gender === 'female' ? 'from-pink-500 to-rose-500' :
-                                routine.gender === 'male' ? 'from-blue-500 to-cyan-500' :
-                                    'from-emerald-500 to-teal-500'
+                            routine.gender === 'male' ? 'from-blue-500 to-cyan-500' :
+                                'from-emerald-500 to-teal-500'
                             }`} />
 
                         <div className="p-6 flex-1 flex flex-col">
@@ -232,8 +232,8 @@ const Routines = () => {
                                     <Dumbbell className="w-6 h-6 text-white group-hover:text-[#00D4FF] transition-colors" />
                                 </div>
                                 <div className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border ${routine.difficulty === 'Advanced' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                                        routine.difficulty === 'Beginner' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                                            'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
+                                    routine.difficulty === 'Beginner' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                                        'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
                                     }`}>
                                     {routine.difficulty}
                                 </div>
@@ -287,7 +287,7 @@ const Routines = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-1">
                                     <span className={`w-2 h-2 rounded-full ${selectedRoutine.gender === 'female' ? 'bg-pink-500' :
-                                            selectedRoutine.gender === 'male' ? 'bg-blue-500' : 'bg-emerald-500'
+                                        selectedRoutine.gender === 'male' ? 'bg-blue-500' : 'bg-emerald-500'
                                         } animate-pulse`} />
                                     <span className="text-xs font-['Roboto_Mono'] text-white/40 uppercase tracking-widest">
                                         PROTOCOL {selectedRoutine.id}

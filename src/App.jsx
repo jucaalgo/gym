@@ -89,7 +89,7 @@ const RequireAdmin = ({ children }) => {
 function App() {
     return (
         <UserProvider>
-            <Router>
+            <Router basename={import.meta.env.BASE_URL}>
                 <Routes>
                     {/* Public Routes */}
                     <Route path="/login" element={<Login />} />

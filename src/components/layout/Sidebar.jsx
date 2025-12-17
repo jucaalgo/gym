@@ -46,7 +46,7 @@ const Sidebar = () => {
             <div className="p-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl bg-black/50 border border-primary/30 flex items-center justify-center overflow-hidden p-1 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                        <img src="/jca-logo.png" alt="JCA Logo" className="w-full h-full object-contain" />
+                        <img src={`${import.meta.env.BASE_URL}jca-logo.png`} alt="JCA Logo" className="w-full h-full object-contain" />
                     </div>
                     <div>
                         <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary drop-shadow-[0_0_5px_rgba(59,130,246,0.5)]">JCA GYM</h1>
