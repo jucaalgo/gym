@@ -1,7 +1,7 @@
 import https from 'https';
 import fs from 'fs';
 
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 // URI from previous step output
 const FILE_URI = 'https://generativelanguage.googleapis.com/v1beta/files/d31rsgpypyo8:download?alt=media';
 const OUTPUT_FILE = 'public/test_squat.mp4';

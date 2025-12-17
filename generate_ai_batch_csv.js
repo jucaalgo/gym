@@ -5,7 +5,7 @@ import path from 'path';
 // ===========================
 // CONFIGURATION
 // ===========================
-const API_KEY = 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 const MODEL = 'imagen-4.0-fast-generate-001';
 const OUTPUT_DIR = './public/exercises';
 const CSV_PATH = './public/exercises/NEW_EXERCISES_MASTER.csv';

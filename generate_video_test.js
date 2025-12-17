@@ -1,7 +1,7 @@
 import https from 'https';
 import fs from 'fs';
 
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 const MODEL = 'veo-2.0-generate-001'; // Video generation model
 
 console.log(`🎥 Initializing Video Generation Test with ${MODEL}...`);

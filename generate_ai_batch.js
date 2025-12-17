@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 // CONFIGURATION
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 const MODEL = 'imagen-4.0-fast-generate-001';
 const OUTPUT_DIR = 'public/exercises';
 
@@ -39,12 +39,12 @@ function generateExerciseList() {
                 const isStandard = variant === 'Standard';
                 const finalName = isStandard ? `${eq} ${move.name}` : `${eq} ${move.name} (${variant})`;
                 const slug = finalName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-                
-                exercises.push({ 
-                    name: finalName, 
-                    slug: slug, 
-                    gender: move.genderBias || 'unisex', 
-                    muscle: move.primary 
+
+                exercises.push({
+                    name: finalName,
+                    slug: slug,
+                    gender: move.genderBias || 'unisex',
+                    muscle: move.primary
                 });
             });
         });

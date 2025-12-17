@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 // --- CONFIG ---
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 const MODEL = 'veo-2.0-generate-001';
 const OUTPUT_DIR = 'public/videos';
 const MANIFEST_FILE = 'public/video_manifest.json';
@@ -134,27 +134,28 @@ async function generateVideoTask(exercise, filepath) {
             }
         }
     }
+}
 
-    // Low-level helpers (same as before)
-    const makeRequest = (u, o, d) => new Promise((resolve) => {
-        const req = https.request(u, o, (res) => {
-            let body = '';
-            res.on('data', c => body += c);
-            res.on('end', () => resolve({ status: res.statusCode, body }));
-        });
-        if (d) req.write(d);
-        req.end();
+// Low-level helpers (same as before)
+const makeRequest = (u, o, d) => new Promise((resolve) => {
+    const req = https.request(u, o, (res) => {
+        let body = '';
+        res.on('data', c => body += c);
+        res.on('end', () => resolve({ status: res.statusCode, body }));
     });
+    if (d) req.write(d);
+    req.end();
+});
 
-    const download = (url, dest) => new Promise((resolve, reject) => {
-        const finalUrl = url.includes('key=') ? url : `${url}&key=${API_KEY}`;
-        https.get(finalUrl, (res) => {
-            if (res.statusCode >= 300 && res.statusCode < 400) {
-                download(res.headers.location, dest).then(resolve).catch(reject);
-                return;
-            }
-            res.pipe(fs.createWriteStream(dest)).on('finish', resolve).on('error', reject);
-        });
+const download = (url, dest) => new Promise((resolve, reject) => {
+    const finalUrl = url.includes('key=') ? url : `${url}&key=${API_KEY}`;
+    https.get(finalUrl, (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400) {
+            download(res.headers.location, dest).then(resolve).catch(reject);
+            return;
+        }
+        res.pipe(fs.createWriteStream(dest)).on('finish', resolve).on('error', reject);
     });
+});
 
-    main();
+main();

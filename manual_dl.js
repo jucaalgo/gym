@@ -1,7 +1,7 @@
 import https from 'https';
 import fs from 'fs';
 
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 // Extracted from log output manually
 const FILE_URI = 'https://generativelanguage.googleapis.com/v1beta/files/w2983794h1s8:download?alt=media';
 const OUTPUT_FILE = 'public/test_anatomical.mp4';

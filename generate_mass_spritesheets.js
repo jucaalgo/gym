@@ -4,7 +4,7 @@ import path from 'path';
 import https from 'https';
 
 // --- CONFIG ---
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 // Using the latest available Imagen model. 
 // If 4.0 fails, we might need to fallback, but let's try to stick to high quality.
 const MODEL = 'imagen-4.0-generate-001';

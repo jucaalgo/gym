@@ -1,7 +1,7 @@
 import https from 'https';
 import fs from 'fs';
 
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCLW9eXuvNAwafbES2N7iryCVZWBqCMXsE';
+const API_KEY = process.env.GOOGLE_API_KEY || '';
 const MODEL = 'imagen-4.0-generate-001'; // WOW
 
 console.log(`🎨 Generating with ${MODEL}...`);
