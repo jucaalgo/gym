@@ -259,51 +259,70 @@ const Nutrition = () => {
                         </div>
 
                         {/* Scanning Line Animation */}
-                        <div
-                            className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent"
-                            style={{
-                                top: `${scanProgress}%`,
-                                boxShadow: '0 0 20px var(--color-secondary), 0 0 40px var(--color-secondary)'
-                            }}
+                        <motion.div
+                            animate={{ top: ['0%', '100%', '0%'] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                            className="absolute left-0 right-0 h-[2px] bg-secondary shadow-[0_0_15px_var(--color-secondary)] z-10"
                         />
 
-                        {/* Detection Boxes (Animated) */}
-                        {scanProgress > 30 && (
-                            <div className="absolute top-1/4 left-1/4 w-1/3 h-1/4 border-2 border-primary rounded-lg animate-pulse">
-                                <div className="absolute -top-6 left-0 bg-primary text-white text-xs px-2 py-1 rounded">
-                                    Detectando...
-                                </div>
-                            </div>
+                        {/* Neural Bounding Boxes */}
+                        {scanProgress > 20 && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="absolute top-[20%] left-[15%] w-[40%] h-[30%] border-2 border-primary/50 rounded-sm"
+                            >
+                                <div className="absolute top-0 left-0 bg-primary text-black text-[10px] font-bold px-1.5 font-['Roboto_Mono']">PROTEIN_UNIT_01</div>
+                                <div className="absolute bottom-0 right-0 text-[8px] text-primary/70 p-1">CONF: 98.2%</div>
+                            </motion.div>
                         )}
-                        {scanProgress > 60 && (
-                            <div className="absolute bottom-1/4 right-1/4 w-1/4 h-1/5 border-2 border-success rounded-lg animate-pulse">
-                                <div className="absolute -top-6 left-0 bg-success text-white text-xs px-2 py-1 rounded">
-                                    Detectando...
-                                </div>
-                            </div>
+                        {scanProgress > 50 && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="absolute bottom-[20%] right-[15%] w-[35%] h-[25%] border-2 border-accent/50 rounded-sm"
+                            >
+                                <div className="absolute top-0 left-0 bg-accent text-black text-[10px] font-bold px-1.5 font-['Roboto_Mono']">CARB_UNIT_02</div>
+                                <div className="absolute bottom-0 right-0 text-[8px] text-accent/70 p-1">CONF: 94.7%</div>
+                            </motion.div>
                         )}
+
+                        {/* HUD Elements */}
+                        <div className="absolute top-4 left-4 text-[10px] font-['Roboto_Mono'] text-white/30 space-y-1">
+                            <div>SCAN_MODE: VOLUME_METRIC</div>
+                            <div>SENSOR: SONY_IMX_766</div>
+                            <div>AI_CORE: NEURAL_LENS_v4</div>
+                        </div>
 
                         {/* Progress Overlay */}
                         <div className="absolute bottom-4 left-4 right-4">
-                            <div className="glass-panel rounded-xl p-3">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <Scan className="w-5 h-5 text-secondary animate-pulse" />
-                                    <span className="text-white text-sm">YOLOv8 + Volumetría</span>
+                            <div className="glass-panel rounded-xl p-4 bg-black/60 backdrop-blur-md">
+                                <div className="flex items-center justify-between mb-2">
+                                    <div className="flex items-center gap-2">
+                                        <RefreshCw className="w-4 h-4 text-secondary animate-spin" />
+                                        <span className="text-white text-xs font-bold font-['Orbitron'] tracking-widest uppercase">Analyzing Molecular Data</span>
+                                    </div>
+                                    <span className="text-secondary font-['Roboto_Mono'] text-xs font-bold">{scanProgress}%</span>
                                 </div>
-                                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full bg-secondary rounded-full transition-all"
-                                        style={{ width: `${scanProgress}%` }}
+                                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <motion.div
+                                        className="h-full bg-secondary"
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${scanProgress}%` }}
                                     />
                                 </div>
-                                <div className="text-xs text-white/40 mt-1">{scanProgress}% completado</div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="text-center text-white/60">
-                        <p>Segmentando elementos del plato...</p>
-                        <p className="text-sm mt-1">Calculando volumen y densidad</p>
+                    <div className="flex flex-col items-center gap-2 mt-4">
+                        <div className="flex items-center gap-2 px-3 py-1 rounded bg-secondary/10 border border-secondary/20">
+                            <Utensils className="w-3 h-3 text-secondary" />
+                            <span className="text-[10px] text-secondary font-bold font-['Roboto_Mono'] uppercase">Identifying Food_Group_Sigma</span>
+                        </div>
+                        <p className="text-white/40 text-xs text-center font-['Roboto_Mono'] animate-pulse italic">
+                            Aislado térmico y cálculo volumétrico en progreso...
+                        </p>
                     </div>
                 </div>
             )}

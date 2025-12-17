@@ -3,6 +3,9 @@ import { useUser } from '../context/UserContext';
 import { User, Shield, Activity, Calendar, Trophy, Zap, Download, Upload, Smartphone, Edit2, Save } from 'lucide-react';
 import soundManager from '../utils/sounds';
 import { triggerHaptic } from '../utils/haptics';
+import DigitalTwinAvatar from '../components/ui/DigitalTwinAvatar';
+import Augmentations from '../components/ui/Augmentations';
+import { ARCHETYPES } from '../data/archetypes';
 
 const Profile = () => {
     const { user, logout, setUser, updateUserProfile } = useUser();
@@ -83,12 +86,17 @@ const Profile = () => {
                     <div className="text-6xl md:text-8xl grayscale opacity-20">{user.rankIcon}</div>
                 </div>
 
-                <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
-                    <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#00D4FF] to-blue-600 flex items-center justify-center text-4xl font-bold text-black shadow-[0_0_20px_rgba(0,212,255,0.3)] font-['Orbitron']">
-                        {displayName.charAt(0)}
+                <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6">
+                    {/* Digital Twin Hero */}
+                    <div className="w-48 h-64 glass-panel rounded-2xl overflow-hidden bg-black/40 border-white/5 shadow-2xl">
+                        <DigitalTwinAvatar
+                            level={user.level}
+                            archetype={Object.values(ARCHETYPES).find(a => a.id === user.archetype) || ARCHETYPES.GUERRERO}
+                            biometrics={{ hrv: user.hrv, sleep: user.sleepScore }}
+                        />
                     </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 mt-4 md:mt-0 text-center md:text-left">
                         <div className="flex flex-col md:flex-row items-center gap-2 mb-2">
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-['Orbitron'] tracking-wide">{displayName}</h2>
                             {user.role === 'admin' && (
@@ -101,12 +109,24 @@ const Profile = () => {
                             ID: {user.username || user.id}
                         </p>
 
-                        <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                        <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-6">
                             <div className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white/80 font-['Roboto_Mono']">
-                                RANK: <span className="text-white font-bold ml-1">{user.rank}</span>
+                                RANK: <span className="text-white font-bold ml-1 uppercase">{user.rank}</span>
                             </div>
                             <div className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white/80 font-['Roboto_Mono']">
                                 LEVEL: <span className="text-[#00D4FF] font-bold ml-1">{user.level}</span>
+                            </div>
+                        </div>
+
+                        {/* Readiness Quick View */}
+                        <div className="grid grid-cols-2 gap-3 max-w-sm">
+                            <div className="p-3 rounded-xl bg-black/20 border border-white/5">
+                                <div className="text-[9px] text-white/40 uppercase mb-1">Neural HRV</div>
+                                <div className="text-lg font-bold text-primary font-['Roboto_Mono']">{user.hrv || 75} <span className="text-[10px] font-normal">ms</span></div>
+                            </div>
+                            <div className="p-3 rounded-xl bg-black/20 border border-white/5">
+                                <div className="text-[9px] text-white/40 uppercase mb-1">Sleep Score</div>
+                                <div className="text-lg font-bold text-accent font-['Roboto_Mono']">{user.sleepScore || 82}%</div>
                             </div>
                         </div>
                     </div>
@@ -153,6 +173,11 @@ const Profile = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+
+            {/* Augmentations Section */}
+            <div className="glass-panel p-6 rounded-3xl bg-[#1A1A1A] border-white/5">
+                <Augmentations userLevel={user.level} />
             </div>
 
             {/* Biometrics */}

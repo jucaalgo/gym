@@ -100,7 +100,58 @@ const Dashboard = () => {
             {/* BENTO GRID */}
             <div className="grid grid-cols-12 gap-4 auto-rows-auto md:auto-rows-[140px]">
 
-                {/* ═══ TOTAL STATS (TOP) ═══ */}
+                {/* ═══ NEURAL READINESS (NEW) ═══ */}
+                <div className="col-span-12 md:col-span-8 row-span-1 glass-panel rounded-3xl p-5 border-white/10 relative overflow-hidden bg-[#0a0a0a]">
+                    <div className="absolute top-0 right-0 p-4">
+                        <motion.div
+                            animate={{ opacity: [0.2, 0.5, 0.2] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="text-[8px] font-['Roboto_Mono'] text-white/20 text-right"
+                        >
+                            BIOMETRIC_STREAM_CONNECTED<br />
+                            ENCRYPTED_V_SCAN_v1.2.4
+                        </motion.div>
+                    </div>
+
+                    <div className="flex flex-col md:flex-row items-center gap-6 h-full">
+                        <div className="relative w-24 h-24 flex items-center justify-center">
+                            <svg className="w-full h-full transform -rotate-90">
+                                <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="8" />
+                                <motion.circle
+                                    cx="48" cy="48" r="40" fill="none"
+                                    stroke={user.hrv > 70 ? "#00D4FF" : "#FF3B30"}
+                                    strokeWidth="8"
+                                    strokeDasharray="251.2"
+                                    initial={{ strokeDashoffset: 251.2 }}
+                                    animate={{ strokeDashoffset: 251.2 - (251.2 * (user.hrv / 100)) }}
+                                    transition={{ duration: 1.5, ease: "easeOut" }}
+                                />
+                            </svg>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                <span className="text-2xl font-black text-white">{user.hrv || 75}</span>
+                                <span className="text-[8px] text-white/40 uppercase">ms HRV</span>
+                            </div>
+                        </div>
+
+                        <div className="flex-1 space-y-2">
+                            <div className="flex items-center gap-2">
+                                <Brain className="w-4 h-4 text-primary" />
+                                <h3 className="text-sm font-bold text-white font-['Orbitron'] tracking-widest uppercase">Neural Readiness</h3>
+                            </div>
+                            <p className="text-sm text-white font-medium">
+                                {user.hrv > 80 ? "SISTEMA OPTIMIZADO: Potencial de Sobrecarga Máximo." :
+                                    user.hrv > 65 ? "SISTEMA ESTABLE: Mantener volumen programado." :
+                                        "FATIGA DETECTADA: Priorizar recuperación técnica."}
+                            </p>
+                            <div className="flex gap-4">
+                                <div className="text-[10px] text-white/40 font-['Roboto_Mono']">SLEEP: <span className="text-white">{user.sleepScore || 82}%</span></div>
+                                <div className="text-[10px] text-white/40 font-['Roboto_Mono']">RHR: <span className="text-white">{user.restingHR || 62} bpm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ═══ TOTAL STATS ═══ */}
                 <div className="col-span-12 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 border-white/10 bg-white/5">
                     <div className="flex items-center gap-2 text-white/40 mb-3">
                         <Dumbbell className="w-4 h-4" />

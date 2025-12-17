@@ -9,6 +9,8 @@ import { useExercises } from '../hooks/useExercises';
 import { getRoutineEngine } from '../services/routineEngine';
 import { getFatigueManager } from '../services/fatigueManager';
 import VisualAsset from '../components/ui/VisualAsset';
+import AROverlay from '../components/camera/AROverlay';
+import { Camera, Scan, X as CloseIcon, Brain, Activity } from 'lucide-react';
 
 export default function ActiveWorkoutView() {
     const navigate = useNavigate();
@@ -24,6 +26,7 @@ export default function ActiveWorkoutView() {
     const [showRPEInput, setShowRPEInput] = useState(false);
     const [fatigueStatus, setFatigueStatus] = useState(null);
     const [isFinished, setIsFinished] = useState(false);
+    const [showARScan, setShowARScan] = useState(false);
 
     useEffect(() => {
         loadCurrentExercise();
@@ -270,13 +273,57 @@ export default function ActiveWorkoutView() {
                         </div>
                     )}
 
-                    {/* Finish Set Button */}
-                    <button
-                        onClick={handleFinishSetAction}
-                        className="w-full py-5 bg-primary text-black rounded-xl font-black text-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(0,212,255,0.3)] uppercase tracking-widest font-['Orbitron'] mt-auto"
-                    >
-                        Finish Set
-                    </button>
+                    <div className="flex gap-3 mt-auto">
+                        <button
+                            onClick={() => setShowARScan(true)}
+                            className="flex-1 py-5 bg-white/5 border border-white/10 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition-all uppercase tracking-widest text-xs font-['Orbitron']"
+                        >
+                            <Scan className="w-4 h-4 text-primary" />
+                            Scan Form
+                        </button>
+                        <button
+                            onClick={handleFinishSetAction}
+                            className="flex-[2] py-5 bg-primary text-black rounded-xl font-black text-xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(0,212,255,0.3)] uppercase tracking-widest font-['Orbitron']"
+                        >
+                            Finish Set
+                        </button>
+                    </div>
+
+                    {/* AR SCAN OVERLAY MODAL */}
+                    {showARScan && (
+                        <div className="fixed inset-0 z-[100] bg-black">
+                            {/* Simulated Camera Feed */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
+                                <Activity className="w-24 h-24 text-white/5 animate-pulse" />
+                            </div>
+
+                            {/* AR Biomechanics Layer */}
+                            <AROverlay mode="biomechanics" videoElement={{ clientWidth: window.innerWidth, clientHeight: window.innerHeight }} />
+
+                            {/* HUD Controls */}
+                            <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start pointer-events-none">
+                                <div className="p-4 bg-black/60 backdrop-blur-md rounded-2xl border border-primary/30">
+                                    <div className="flex items-center gap-2 text-primary mb-1">
+                                        <Brain className="w-4 h-4" />
+                                        <span className="text-[10px] font-bold uppercase tracking-widest font-['Orbitron']">Neural Biomechanics Scan</span>
+                                    </div>
+                                    <div className="text-white text-xs font-['Roboto_Mono']">ENTITY: {user?.name || 'AGENT_UNK'}<br />SCAN_MODE: SKELETAL_PRECISION_v4</div>
+                                </div>
+                                <button
+                                    onClick={() => setShowARScan(false)}
+                                    className="p-4 bg-black/60 backdrop-blur-md rounded-2xl border border-white/10 text-white pointer-events-auto hover:bg-black/80 transition-all"
+                                >
+                                    <CloseIcon className="w-6 h-6" />
+                                </button>
+                            </div>
+
+                            <div className="absolute bottom-12 left-0 right-0 p-8 text-center pointer-events-none">
+                                <p className="text-primary font-bold font-['Orbitron'] text-sm tracking-[0.2em] animate-pulse">
+                                    KEEP FORM STEADY • ANALYZING JOINT ANGLES
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 

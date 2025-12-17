@@ -9,14 +9,15 @@ import {
     Settings,
     TrendingUp,
     Book,
-    Scan
+    Scan,
+    Shield
 } from 'lucide-react';
 
 const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Inicio' },
     { to: '/matrix', icon: Target, label: 'Matrix' },
     { to: '/routines', icon: Trophy, label: 'Gym' },
-    { to: '/encyclopedia', icon: BookOpen, label: 'Wiki' },
+    { to: '/leaderboard', icon: Shield, label: 'Matrix' },
     { to: '/profile', icon: Settings, label: 'Perfil' },
 ];
 

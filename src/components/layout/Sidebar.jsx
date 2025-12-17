@@ -25,6 +25,7 @@ const navItems = [
     { to: '/nutrition', icon: Camera, label: 'Nutrición' },
     { to: '/scan', icon: Scan, label: 'Híper-Visión' },
     { to: '/routines', icon: Trophy, label: 'Rutinas' },
+    { to: '/leaderboard', icon: Shield, label: 'The Matrix' },
     { to: '/profile', icon: Settings, label: 'Perfil' },
 ];
 

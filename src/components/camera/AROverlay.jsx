@@ -5,7 +5,7 @@
 
 import React, { useRef, useEffect } from 'react';
 
-export default function AROverlay({ detections = [], onHotspotClick, videoElement }) {
+export default function AROverlay({ detections = [], onHotspotClick, videoElement, mode = 'equipment' }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -40,11 +40,15 @@ export default function AROverlay({ detections = [], onHotspotClick, videoElemen
         // Draw scanning grid effect (Terminator style)
         drawScanningGrid(ctx, canvas.width, canvas.height);
 
-        // Draw hotspots for each detection
-        detections.forEach((detection, index) => {
-            drawHotspot(ctx, detection, index);
-        });
-    }, [detections]);
+        if (mode === 'biomechanics') {
+            drawBiomechanics(ctx, canvas.width, canvas.height);
+        } else {
+            // Draw hotspots for each detection
+            detections.forEach((detection, index) => {
+                drawHotspot(ctx, detection, index);
+            });
+        }
+    }, [detections, mode]);
 
     function drawScanningGrid(ctx, width, height) {
         ctx.strokeStyle = '#00D4FF33';
@@ -99,6 +103,73 @@ export default function AROverlay({ detections = [], onHotspotClick, videoElemen
         ctx.lineTo(width - 20, height - 20);
         ctx.lineTo(width - 20, height - 50);
         ctx.stroke();
+    }
+
+    function drawBiomechanics(ctx, width, height) {
+        // Draw Mock Skeletal Structure
+        const centerX = width / 2;
+        const centerY = height / 2;
+
+        ctx.strokeStyle = '#39FF14';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+
+        // "Joint" points
+        const joints = [
+            { x: centerX, y: centerY - 100, label: 'HEAD' },
+            { x: centerX - 50, y: centerY - 40, label: 'L_SHOULDER' },
+            { x: centerX + 50, y: centerY - 40, label: 'R_SHOULDER' },
+            { x: centerX - 60, y: centerY + 50, label: 'L_HIP' },
+            { x: centerX + 60, y: centerY + 50, label: 'R_HIP' },
+            { x: centerX - 70, y: centerY + 150, label: 'L_KNEE' },
+            { x: centerX + 70, y: centerY + 150, label: 'R_KNEE' }
+        ];
+
+        // Draw Connections
+        ctx.beginPath();
+        ctx.moveTo(joints[1].x, joints[1].y);
+        ctx.lineTo(joints[2].x, joints[2].y); // Shoulders
+        ctx.lineTo(joints[4].x, joints[4].y); // R_Shoulder to R_Hip
+        ctx.lineTo(joints[3].x, joints[3].y); // R_Hip to L_Hip
+        ctx.lineTo(joints[1].x, joints[1].y); // L_Hip to L_Shoulder
+        ctx.stroke();
+
+        // Draw Limbs
+        ctx.beginPath();
+        ctx.moveTo(joints[3].x, joints[3].y); ctx.lineTo(joints[5].x, joints[5].y);
+        ctx.moveTo(joints[4].x, joints[4].y); ctx.lineTo(joints[6].x, joints[6].y);
+        ctx.stroke();
+
+        ctx.setLineDash([]); // Reset dash
+
+        // Draw Angle Markers & Status HUD
+        joints.forEach(joint => {
+            ctx.fillStyle = '#39FF14';
+            ctx.beginPath();
+            ctx.arc(joint.x, joint.y, 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = 'rgba(57, 255, 20, 0.2)';
+            ctx.beginPath();
+            ctx.arc(joint.x, joint.y, 15, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#39FF14';
+            ctx.font = '9px "Roboto Mono"';
+            ctx.fillText(joint.label, joint.x + 10, joint.y - 10);
+            ctx.fillText('98.4%', joint.x + 10, joint.y);
+        });
+
+        // Rep Counter / Stability Meter
+        ctx.fillStyle = 'rgba(0,0,0,0.5)';
+        ctx.fillRect(20, height - 100, 150, 60);
+        ctx.strokeStyle = '#39FF14';
+        ctx.strokeRect(20, height - 100, 150, 60);
+
+        ctx.fillStyle = '#39FF14';
+        ctx.font = 'bold 12px Orbitron';
+        ctx.fillText('STABILITY: OPTIMAL', 30, height - 80);
+        ctx.fillText('FORM SCORE: 94', 30, height - 60);
     }
 
     function drawHotspot(ctx, detection, index) {

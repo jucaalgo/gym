@@ -64,6 +64,11 @@ const DEFAULT_USER_TEMPLATE = {
     todayCarbs: 0,
     todayFat: 0,
     calorieGoal: 2000,
+
+    // Neural Biometrics (Mock Data for Readiness)
+    hrv: 75, // ms
+    sleepScore: 82, // 0-100
+    restingHR: 62, // bpm
 };
 
 export const UserProvider = ({ children }) => {

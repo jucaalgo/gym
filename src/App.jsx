@@ -21,6 +21,7 @@ import DataTest from './pages/DataTest';
 import HyperVisionView from './pages/HyperVisionView';
 import ActiveWorkoutView from './pages/ActiveWorkoutView';
 import JCAAssistant from './components/ui/JCAAssistant';
+import LeaderboardMatrix from './pages/LeaderboardMatrix';
 
 // Layout Shell with Sidebar & Mobile Nav
 const Layout = ({ children }) => {
@@ -109,6 +110,7 @@ function App() {
                     <Route path="/profile" element={<RequireAuth><Layout><Profile /></Layout></RequireAuth>} />
                     <Route path="/analytics" element={<RequireAuth><Layout><Analytics /></Layout></RequireAuth>} />
                     <Route path="/journal" element={<RequireAuth><Layout><Journal /></Layout></RequireAuth>} />
+                    <Route path="/leaderboard" element={<RequireAuth><Layout><LeaderboardMatrix /></Layout></RequireAuth>} />
                     <Route path="/data-test" element={<RequireAuth><Layout><DataTest /></Layout></RequireAuth>} />
 
 

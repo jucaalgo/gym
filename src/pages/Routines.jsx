@@ -101,7 +101,7 @@ const Routines = () => {
             if (intensityFilter === 'medium') matchesIntensity = routine.exercises.length >= 5 && routine.exercises.length <= 8;
             if (intensityFilter === 'high') matchesIntensity = routine.exercises.length > 8;
 
-            // Focus (Improved matching with normalization)
+            // Focus (Improved matching with normalization and partial checking)
             let matchesFocus = true;
             if (focusFilter !== 'all') {
                 const normalizedFilter = focusFilter;
@@ -109,7 +109,17 @@ const Routines = () => {
                 // Check if any exercise in the routine matches the focusFilter
                 matchesFocus = routine.exercises.some(ex => {
                     const normExName = normalizeName(ex.name);
-                    const masterEx = exercises.find(m => normalizeName(m.name) === normExName);
+
+                    // Try exact name match first
+                    let masterEx = exercises.find(m => normalizeName(m.name) === normExName);
+
+                    // Fallback: Try partial inclusion (fuzzy) if normalization didn't find a direct hit
+                    if (!masterEx) {
+                        masterEx = exercises.find(m => {
+                            const masterNorm = normalizeName(m.name);
+                            return masterNorm.includes(normExName) || normExName.includes(masterNorm);
+                        });
+                    }
 
                     if (!masterEx) return false;
 
