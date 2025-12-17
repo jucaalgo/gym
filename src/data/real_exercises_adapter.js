@@ -42,16 +42,19 @@ const generateVariants = (exercises) => {
     return [...exercises, ...variants];
 };
 
-// Load data dynamically
+// Load data dynamically from Public Catalog
 const loadExercises = async () => {
     if (isLoaded) return rawExercises;
     if (loadPromise) return loadPromise;
 
     loadPromise = (async () => {
         try {
-            const module = await import('./real_exercises.json');
-            let baseExercises = module.default || module;
-            console.log(`📦 Loaded ${baseExercises.length} base exercises`);
+            // Updated to fetch from public directory
+            const response = await fetch('/free_exercise_catalog.json');
+            if (!response.ok) throw new Error('Failed to fetch catalog');
+
+            let baseExercises = await response.json();
+            console.log(`📦 Loaded ${baseExercises.length} base exercises from Catalog`);
 
             // Expand library
             rawExercises = generateVariants(baseExercises);
@@ -82,13 +85,14 @@ const initializeCaches = () => {
     rawExercises.forEach(ex => {
         exercisesMap.set(ex.id, ex);
 
-        // Group by primary muscles
+        // Group by primary muscles (Normalize to lowercase)
         if (ex.primaryMuscles) {
             ex.primaryMuscles.forEach(muscle => {
-                if (!exercisesByMuscle[muscle]) {
-                    exercisesByMuscle[muscle] = [];
+                const key = muscle.toLowerCase();
+                if (!exercisesByMuscle[key]) {
+                    exercisesByMuscle[key] = [];
                 }
-                exercisesByMuscle[muscle].push(ex);
+                exercisesByMuscle[key].push(ex);
             });
         }
 

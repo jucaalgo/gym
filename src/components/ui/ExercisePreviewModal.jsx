@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Play, Info } from 'lucide-react';
+import { X, Play, Info, Dumbbell } from 'lucide-react';
 
 const ExercisePreviewModal = ({ exercise, onClose }) => {
+    const [videoError, setVideoError] = useState(false);
+
     if (!exercise) return null;
 
     return (
@@ -22,18 +24,26 @@ const ExercisePreviewModal = ({ exercise, onClose }) => {
                     onClick={e => e.stopPropagation()}
                 >
                     {/* Header */}
-                    <div className="relative h-64 bg-black">
-                        <video
+                    <div className="relative h-64 bg-black flex items-center justify-center">
+                        <img
                             src={exercise.videoUrl}
                             className="w-full h-full object-contain"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
+                            alt={exercise.name}
+                            onError={(e) => {
+                                // Fallback if GIF fails to load
+                                e.target.style.display = 'none';
+                                e.target.nextSibling.style.display = 'flex';
+                            }}
                         />
+                        {/* Fallback overlay (hidden by default) */}
+                        <div className="hidden absolute inset-0 flex-col items-center justify-center bg-gradient-to-br from-indigo-600/30 via-purple-600/30 to-pink-600/30">
+                            <Dumbbell className="w-16 h-16 mb-3 text-white/40" />
+                            <span className="text-white/60 text-sm font-medium">{exercise.name}</span>
+                        </div>
+
                         <button
                             onClick={onClose}
-                            className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                            className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors z-20"
                         >
                             <X className="w-5 h-5" />
                         </button>

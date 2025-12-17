@@ -8,13 +8,15 @@ import {
     Trophy,
     Settings,
     TrendingUp,
-    Book
+    Book,
+    Scan
 } from 'lucide-react';
 
 const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Home' },
     { to: '/matrix', icon: Target, label: 'Matrix' },
-    { to: '/nutrition', icon: Camera, label: 'Scan' },
+    { to: '/nutrition', icon: Camera, label: 'Food' },
+    { to: '/scan', icon: Scan, label: 'Vision' },
     { to: '/routines', icon: Trophy, label: 'Gym' },
     { to: '/analytics', icon: TrendingUp, label: 'Stats' },
     { to: '/journal', icon: Book, label: 'Log' },

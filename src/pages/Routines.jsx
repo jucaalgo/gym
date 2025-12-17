@@ -1,187 +1,265 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Zap, Target, Flag, ChevronRight, Star, Dumbbell, Play, X, Loader2 } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
 import {
-    ALL_ROUTINES,
-    getFullRoutine,
-    getRoutinesByGender
-} from '../data/musclewiki_routines';
+    Zap,
+    Dumbbell,
+    Play,
+    X,
+    Loader2,
+    Filter,
+    Activity,
+    Timer,
+    Flame,
+    Clock,
+    Target
+} from 'lucide-react';
+import { useWorkoutData } from '../hooks/useWorkoutData';
 import { useNavigate } from 'react-router-dom';
-import RoutineHeaderCarousel from '../components/ui/RoutineHeaderCarousel';
+import { getRoutineEngine } from '../services/routineEngine';
 
 // ═══════════════════════════════════════════════════════════════
-// ROUTINES BROWSER - MUSCLEWIKI SPLIT PROGRAMS
-// Gender-optimized workout templates
+// ROUTINES BROWSER - SYSTEM PROGRAMS
+// 300+ Generated Workouts from Strategy CSV
 // ═══════════════════════════════════════════════════════════════
+
+const MUSCLE_GROUPS = {
+    'Chest': ['Chest', 'Pectoralis'],
+    'Back': ['Back', 'Latissimus', 'Trapezius', 'Lats'],
+    'Legs': ['Legs', 'Quadriceps', 'Hamstrings', 'Gluteus', 'Glutes', 'Calves'],
+    'Shoulders': ['Shoulders', 'Deltoid'],
+    'Arms': ['Arms', 'Biceps', 'Triceps'],
+    'Core': ['Core', 'Abs', 'Abdominis']
+};
+
+const getFocusCategory = (target) => {
+    if (!target) return 'All Types';
+    for (const [category, keywords] of Object.entries(MUSCLE_GROUPS)) {
+        if (keywords.some(k => target.includes(k))) return category;
+    }
+    return target; // Return original if no match (e.g. "Full Body")
+};
 
 const Routines = () => {
-    const [routines, setRoutines] = useState(ALL_ROUTINES);
-    const [loading, setLoading] = useState(false);
-    const [genderFilter, setGenderFilter] = useState('all');
-    const [difficultyFilter, setDifficultyFilter] = useState('all');
-    const [selectedRoutine, setSelectedRoutine] = useState(null);
+    const { routines, loading, error } = useWorkoutData();
     const navigate = useNavigate();
+    const [selectedRoutine, setSelectedRoutine] = useState(null);
+    const [showFilters, setShowFilters] = useState(false);
 
-    // Filter logic
-    const filteredRoutines = routines.filter(routine => {
-        const matchesGender = genderFilter === 'all' || routine.targetGender === genderFilter;
-        const matchesDifficulty = difficultyFilter === 'all' || routine.difficulty === difficultyFilter;
-        return matchesGender && matchesDifficulty;
-    });
+    // Filter States
+    const [genderFilter, setGenderFilter] = useState('all');
+    const [timeFilter, setTimeFilter] = useState('all'); // all, short, medium, long
+    const [intensityFilter, setIntensityFilter] = useState('all'); // all, low, medium, high
+    const [focusFilter, setFocusFilter] = useState('all');
 
+    // 1. Enrich Data (Infer metadata missing from CSV)
+    const enrichedRoutines = useMemo(() => {
+        return routines.map(routine => {
+            const totalSets = routine.exercises.reduce((acc, ex) => acc + ex.sets, 0);
+            const totalExercises = routine.exercises.length;
 
+            // Infer Difficulty/Intensity based on count
+            let difficulty = 'Intermediate';
+            if (totalExercises < 5) difficulty = 'Beginner';
+            if (totalExercises > 8) difficulty = 'Advanced';
 
-    const getGoalLabel = (goal) => {
-        const labels = {
-            'hypertrophy': '💪 Hypertrophy',
-            'strength': '🏋️ Strength',
-            'toning': '✨ Toning',
-            'fat-loss': '🔥 Fat Loss',
-            'general': '⚡ General',
-            'functional': '🎯 Functional',
-            'performance': '🚀 Performance'
-        };
-        return labels[goal] || goal;
+            // Infer Duration (approx 3 min per set + transition)
+            const duration = Math.round(totalSets * 2.5 + totalExercises);
+
+            // Infer Calories (approx)
+            const calories = Math.round(duration * 6.5);
+
+            return {
+                ...routine,
+                difficulty,
+                duration,
+                calories,
+                intensity: Math.min(10, Math.round(totalSets / 3)) // 1-10 scale
+            };
+        });
+    }, [routines]);
+
+    // 2. Filter Logic
+    const filteredRoutines = useMemo(() => {
+        return enrichedRoutines.filter(routine => {
+            // Gender
+            const matchesGender = genderFilter === 'all' || routine.gender === genderFilter;
+
+            // Time
+            let matchesTime = true;
+            if (timeFilter === 'short') matchesTime = routine.duration < 30;
+            if (timeFilter === 'medium') matchesTime = routine.duration >= 30 && routine.duration <= 60;
+            if (timeFilter === 'long') matchesTime = routine.duration > 60;
+
+            // Intensity (Count)
+            let matchesIntensity = true;
+            if (intensityFilter === 'low') matchesIntensity = routine.exercises.length < 5;
+            if (intensityFilter === 'medium') matchesIntensity = routine.exercises.length >= 5 && routine.exercises.length <= 8;
+            if (intensityFilter === 'high') matchesIntensity = routine.exercises.length > 8;
+
+            // Focus
+            let matchesFocus = true;
+            if (focusFilter !== 'all') {
+                const category = getFocusCategory(routine.target);
+                matchesFocus = category === focusFilter;
+            }
+
+            return matchesGender && matchesTime && matchesIntensity && matchesFocus;
+        });
+    }, [enrichedRoutines, genderFilter, timeFilter, intensityFilter, focusFilter]);
+
+    const focusCategories = ['all', ...Object.keys(MUSCLE_GROUPS), 'Full Body', 'Other'];
+
+    const handleStartRoutine = (routine) => {
+        const engine = getRoutineEngine();
+        engine.assignRoutine(routine);
+        localStorage.setItem('activeRoutine', JSON.stringify(routine));
+        navigate('/workout');
     };
-
-    const getGenderLabel = (gender) => {
-        const labels = {
-            'male': '♂️ Male Focus',
-            'female': '♀️ Female Focus',
-            'unisex': '👥 Unisex'
-        };
-        return labels[gender] || '👥 Unisex';
-    };
-
-    const getDifficultyColor = (difficulty) => {
-        const colors = {
-            'beginner': 'bg-green-500/20 text-green-400',
-            'intermediate': 'bg-yellow-500/20 text-yellow-400',
-            'advanced': 'bg-red-500/20 text-red-400'
-        };
-        return colors[difficulty] || colors.intermediate;
-    };
-
-    const getGradientColor = (goal) => {
-        const gradients = {
-            'hypertrophy': 'from-blue-600 to-purple-600',
-            'strength': 'from-red-600 to-orange-600',
-            'toning': 'from-pink-500 to-rose-500',
-            'fat-loss': 'from-orange-500 to-yellow-500',
-            'general': 'from-emerald-500 to-teal-500',
-            'functional': 'from-cyan-500 to-blue-500',
-            'performance': 'from-violet-500 to-purple-500'
-        };
-        return gradients[goal] || 'from-primary to-accent';
-    };
-
-    // Get unique goals from routines
-    const availableGoals = [...new Set(routines.map(r => r.goal))];
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a]">
                 <div className="text-center">
-                    <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-                    <p className="text-white/60">Loading workout programs...</p>
+                    <Loader2 className="w-16 h-16 text-[#00D4FF] animate-spin mx-auto mb-6" />
+                    <div className="text-white text-xl font-['Orbitron'] mb-2">LOADING PROTOCOLS</div>
+                    <p className="text-[#00D4FF]/60 font-['Roboto_Mono'] text-sm">Accessing 300+ strategy files...</p>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen p-6">
+        <div className="min-h-screen p-6 pb-24">
             {/* Header */}
             <header className="mb-8">
-                <div className="flex items-center gap-2 text-accent mb-2">
-                    <Flag className="w-5 h-5" />
-                    <span className="text-sm font-medium uppercase tracking-wider">Routines</span>
+                <div className="flex items-center gap-2 text-[#00D4FF] mb-2">
+                    <Activity className="w-5 h-5" />
+                    <span className="text-sm font-medium uppercase tracking-wider font-['Roboto_Mono']">System Protocols</span>
                 </div>
-                <div className="flex items-center justify-between">
-                    <div>
-                        <h1 className="text-3xl font-bold text-white">Workout Programs</h1>
-                        <p className="text-white/60 mt-1">{filteredRoutines.length} of {routines.length} programs</p>
-                    </div>
+                <div>
+                    <h1 className="text-4xl font-bold text-white font-['Orbitron'] tracking-wide">
+                        WORKOUT <span className="text-[#00D4FF]">MATRIX</span>
+                    </h1>
+                    <p className="text-white/60 mt-2 font-['Roboto_Mono'] flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#39FF14] animate-pulse" />
+                        {filteredRoutines.length} Programs Available
+                    </p>
                 </div>
             </header>
 
-            {/* Filters */}
-            <div className="glass-panel rounded-2xl p-4 mb-6 flex flex-col md:flex-row gap-4">
-                <div className="flex-1">
-                    <label className="text-sm text-white/50 mb-2 block">TARGET</label>
-                    <select
-                        value={genderFilter}
-                        onChange={(e) => setGenderFilter(e.target.value)}
-                        className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 cursor-pointer"
-                    >
-                        <option value="all" className="bg-gray-900">All</option>
-                        <option value="male" className="bg-gray-900">Male Focus</option>
-                        <option value="female" className="bg-gray-900">Female Focus</option>
-                        <option value="unisex" className="bg-gray-900">Unisex</option>
-                    </select>
-                </div>
-                <div className="flex-1">
-                    <label className="text-sm text-white/50 mb-2 block">GOAL</label>
-                    <select
-                        value={goalFilter}
-                        onChange={(e) => setGoalFilter(e.target.value)}
-                        className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 cursor-pointer"
-                    >
-                        <option value="all" className="bg-gray-900">All Goals</option>
-                        {availableGoals.map(goal => (
-                            <option key={goal} value={goal} className="bg-gray-900 capitalize">{goal}</option>
-                        ))}
-                    </select>
-                </div>
-            </div>
+            {/* Filter Toggle Button */}
+            <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`mb-6 flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${showFilters
+                        ? 'bg-[#00D4FF]/10 border-[#00D4FF] text-[#00D4FF]'
+                        : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
+                    }`}
+            >
+                <Filter className="w-4 h-4" />
+                <span className="font-['Roboto_Mono'] text-sm uppercase">Advanced Filters</span>
+                {showFilters ? <X className="w-4 h-4 ml-2" /> : null}
+            </button>
 
-            {/* Routines Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Expanded Filters Panel */}
+            {showFilters && (
+                <div className="glass-panel rounded-2xl p-6 mb-8 border border-white/5 bg-[#121212]/80 backdrop-blur-xl animate-in slide-in-from-top-4 fade-in duration-200">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {/* Gender */}
+                        <div className="space-y-2">
+                            <label className="text-xs text-white/40 uppercase font-bold tracking-wider">Class (Gender)</label>
+                            <select value={genderFilter} onChange={(e) => setGenderFilter(e.target.value)}
+                                className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white focus:border-[#00D4FF]/50 outline-none transition-all uppercase text-sm">
+                                <option value="all">Any Class</option>
+                                <option value="male">Male Protocol</option>
+                                <option value="female">Female Protocol</option>
+                                <option value="unisex">Universal</option>
+                            </select>
+                        </div>
+
+                        {/* Time */}
+                        <div className="space-y-2">
+                            <label className="text-xs text-white/40 uppercase font-bold tracking-wider">Duration</label>
+                            <select value={timeFilter} onChange={(e) => setTimeFilter(e.target.value)}
+                                className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white focus:border-[#00D4FF]/50 outline-none transition-all uppercase text-sm">
+                                <option value="all">Any Duration</option>
+                                <option value="short">Short (&lt; 30m)</option>
+                                <option value="medium">Standard (30-60m)</option>
+                                <option value="long">Extended (&gt; 60m)</option>
+                            </select>
+                        </div>
+
+                        {/* Intensity */}
+                        <div className="space-y-2">
+                            <label className="text-xs text-white/40 uppercase font-bold tracking-wider">Volume (Intensity)</label>
+                            <select value={intensityFilter} onChange={(e) => setIntensityFilter(e.target.value)}
+                                className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white focus:border-[#00D4FF]/50 outline-none transition-all uppercase text-sm">
+                                <option value="all">Any Volume</option>
+                                <option value="low">Low Volume (&lt; 5 Ex)</option>
+                                <option value="medium">Med Volume (5-8 Ex)</option>
+                                <option value="high">High Volume (&gt; 8 Ex)</option>
+                            </select>
+                        </div>
+
+                        {/* Focus */}
+                        <div className="space-y-2">
+                            <label className="text-xs text-white/40 uppercase font-bold tracking-wider">Target Focus</label>
+                            <select value={focusFilter} onChange={(e) => setFocusFilter(e.target.value)}
+                                className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white focus:border-[#00D4FF]/50 outline-none transition-all uppercase text-sm">
+                                <option value="all">All Targets</option>
+                                {focusCategories.slice(1).map(c => <option key={c} value={c}>{c}</option>)}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredRoutines.map((routine) => (
                     <div
                         key={routine.id}
                         onClick={() => setSelectedRoutine(routine)}
-                        className="glass-panel rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 cursor-pointer group"
+                        className="glass-panel rounded-2xl overflow-hidden hover:border-[#00D4FF]/50 transition-all duration-300 cursor-pointer group relative bg-[#1A1A1A] border-white/5 flex flex-col h-full"
                     >
-                        {/* Header with gradient */}
-                        <div className={`p-4 bg-gradient-to-r ${getGradientColor(routine.goal)}`}>
-                            <div className="flex items-center justify-between">
-                                <Dumbbell className="w-8 h-8 text-white/80" />
-                                <div className={`px-2 py-1 rounded-full text-xs font-bold ${getDifficultyColor(routine.difficulty)}`}>
+                        {/* Header Gradient */}
+                        <div className={`h-2 w-full bg-gradient-to-r ${routine.gender === 'female' ? 'from-pink-500 to-rose-500' :
+                                routine.gender === 'male' ? 'from-blue-500 to-cyan-500' :
+                                    'from-emerald-500 to-teal-500'
+                            }`} />
+
+                        <div className="p-6 flex-1 flex flex-col">
+                            <div className="flex justify-between items-start mb-4">
+                                <div className="bg-white/5 p-3 rounded-xl border border-white/5 group-hover:border-[#00D4FF]/30 transition-colors">
+                                    <Dumbbell className="w-6 h-6 text-white group-hover:text-[#00D4FF] transition-colors" />
+                                </div>
+                                <div className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border ${routine.difficulty === 'Advanced' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
+                                        routine.difficulty === 'Beginner' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                                            'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
+                                    }`}>
                                     {routine.difficulty}
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Content */}
-                        <div className="p-5">
-                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                {routine.name}
+                            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#00D4FF] transition-colors font-['Orbitron'] tracking-wide">
+                                {routine.id}
                             </h3>
-                            <p className="text-sm text-white/50 mb-4 line-clamp-2">{routine.description}</p>
-
-                            {/* Info Pills */}
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                <div className="px-2 py-1 rounded-lg bg-white/5 text-white/60 text-xs flex items-center gap-1">
-                                    <Calendar className="w-3 h-3" />
-                                    {routine.duration}
-                                </div>
-                                <div className="px-2 py-1 rounded-lg bg-white/5 text-white/60 text-xs flex items-center gap-1">
-                                    <Dumbbell className="w-3 h-3" />
-                                    {routine.exercises.length} exercises
-                                </div>
-                                <div className="px-2 py-1 rounded-lg bg-white/5 text-white/60 text-xs flex items-center gap-1">
-                                    <Zap className="w-3 h-3" />
-                                    ~{routine.calories} cal
-                                </div>
+                            <div className="text-sm text-white/40 font-['Roboto_Mono'] mb-6 uppercase">
+                                Target: <span className="text-white">{routine.target}</span>
                             </div>
 
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-1">
-                                {routine.tags?.slice(0, 3).map(tag => (
-                                    <span key={tag} className="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs capitalize">
-                                        {tag}
-                                    </span>
-                                ))}
+                            {/* Stats Grid */}
+                            <div className="grid grid-cols-3 gap-2 mt-auto">
+                                <div className="text-center p-2 rounded bg-black/40 border border-white/5">
+                                    <Timer className="w-4 h-4 mx-auto text-white/30 mb-1" />
+                                    <span className="text-xs text-white  font-['Roboto_Mono']">{routine.duration}m</span>
+                                </div>
+                                <div className="text-center p-2 rounded bg-black/40 border border-white/5">
+                                    <Zap className="w-4 h-4 mx-auto text-white/30 mb-1" />
+                                    <span className="text-xs text-white font-['Roboto_Mono']">{routine.exercises.length} Ex</span>
+                                </div>
+                                <div className="text-center p-2 rounded bg-black/40 border border-white/5">
+                                    <Flame className="w-4 h-4 mx-auto text-white/30 mb-1" />
+                                    <span className="text-xs text-white font-['Roboto_Mono']">{routine.calories}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,91 +268,89 @@ const Routines = () => {
 
             {/* Empty State */}
             {filteredRoutines.length === 0 && (
-                <div className="text-center py-12">
-                    <Flag className="w-12 h-12 text-white/20 mx-auto mb-4" />
-                    <p className="text-white/50">No programs found with these filters</p>
-                    <button
-                        onClick={() => { setGenderFilter('all'); setDifficultyFilter('all'); }}
-                        className="mt-4 px-4 py-2 rounded-xl bg-white/10 text-white/60 hover:bg-white/20 transition-colors"
-                    >
-                        Clear Filters
-                    </button>
+                <div className="text-center py-20">
+                    <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Filter className="w-10 h-10 text-white/20" />
+                    </div>
+                    <h3 className="text-white text-xl font-bold mb-2">No Protocols Matching Criteria</h3>
+                    <p className="text-white/50">Adjust filters to broaden search range.</p>
                 </div>
             )}
 
-            {/* Routine Detail Modal */}
+            {/* Detail Modal (Same as before) */}
             {selectedRoutine && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedRoutine(null)}>
-                    <div className="bg-zinc-900 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 shadow-2xl" onClick={e => e.stopPropagation()}>
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedRoutine(null)}>
+                    <div className="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[#00D4FF]/20 shadow-[0_0_50px_rgba(0,212,255,0.1)] bg-[#0f0f0f]" onClick={e => e.stopPropagation()}>
+
+                        {/* Header */}
+                        <div className="sticky top-0 z-10 p-6 border-b border-white/10 bg-[#0f0f0f]/95 backdrop-blur-xl flex justify-between items-center">
+                            <div>
+                                <div className="flex items-center gap-2 mb-1">
+                                    <span className={`w-2 h-2 rounded-full ${selectedRoutine.gender === 'female' ? 'bg-pink-500' :
+                                            selectedRoutine.gender === 'male' ? 'bg-blue-500' : 'bg-emerald-500'
+                                        } animate-pulse`} />
+                                    <span className="text-xs font-['Roboto_Mono'] text-white/40 uppercase tracking-widest">
+                                        PROTOCOL {selectedRoutine.id}
+                                    </span>
+                                </div>
+                                <h2 className="text-2xl font-bold text-white font-['Orbitron']">
+                                    TARGET: {selectedRoutine.target.toUpperCase()}
+                                </h2>
+                            </div>
+                            <button onClick={() => setSelectedRoutine(null)} className="p-2 rounded-xl hover:bg-white/10 text-white/50">
+                                <X className="w-6 h-6" />
+                            </button>
+                        </div>
+
                         <div className="p-6">
-                            {/* Header */}
-                            <div className="flex items-center justify-between mb-6">
-                                <div>
-                                    <h2 className="text-2xl font-bold italic text-white">{selectedRoutine.name}</h2>
-                                    <p className="text-white/60 text-sm">{selectedRoutine.description}</p>
+                            {/* Stats */}
+                            <div className="grid grid-cols-4 gap-4 mb-8">
+                                <div className="p-4 rounded-xl bg-[#00D4FF]/5 border border-[#00D4FF]/20 text-center">
+                                    <div className="text-2xl font-bold text-white font-['Orbitron']">{selectedRoutine.exercises.length}</div>
+                                    <div className="text-[10px] text-[#00D4FF] uppercase tracking-wider">Exercises</div>
                                 </div>
-                                <button onClick={() => setSelectedRoutine(null)} className="p-2 hover:bg-white/10 rounded-full text-white/60 hover:text-white transition-colors">
-                                    <X className="w-6 h-6" />
-                                </button>
-                            </div>
-
-                            {/* Dynamic Carousel Header */}
-                            {getFullRoutine(selectedRoutine.id)?.exercises && (
-                                <RoutineHeaderCarousel exercises={getFullRoutine(selectedRoutine.id).exercises} />
-                            )}
-
-                            {/* Quick Stats */}
-                            <div className="grid grid-cols-3 gap-4 mb-8">
-                                <div className="bg-white/5 rounded-xl p-4 text-center border border-white/5">
-                                    <Calendar className="w-5 h-5 text-primary mx-auto mb-2" />
-                                    <div className="font-bold text-white">{selectedRoutine.weeklyFrequency}x/wk</div>
-                                    <div className="text-xs text-white/40 uppercase">Frequency</div>
+                                <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20 text-center">
+                                    <div className="text-2xl font-bold text-white font-['Orbitron']">{selectedRoutine.duration}</div>
+                                    <div className="text-[10px] text-purple-400 uppercase tracking-wider">Minutes</div>
                                 </div>
-                                <div className="bg-white/5 rounded-xl p-4 text-center border border-white/5">
-                                    <Target className="w-5 h-5 text-primary mx-auto mb-2" />
-                                    <div className="font-bold text-white capitalize">{selectedRoutine.tags?.[0] || 'General'}</div>
-                                    <div className="text-xs text-white/40 uppercase">Focus</div>
+                                <div className="p-4 rounded-xl bg-orange-500/5 border border-orange-500/20 text-center">
+                                    <div className="text-2xl font-bold text-white font-['Orbitron']">{selectedRoutine.calories}</div>
+                                    <div className="text-[10px] text-orange-400 uppercase tracking-wider">Calories</div>
                                 </div>
-                                <div className="bg-white/5 rounded-xl p-4 text-center border border-white/5">
-                                    <Zap className="w-5 h-5 text-primary mx-auto mb-2" />
-                                    <div className="font-bold text-white capitalize">{selectedRoutine.difficulty}</div>
-                                    <div className="text-xs text-white/40 uppercase">Level</div>
+                                <div className="p-4 rounded-xl bg-red-500/5 border border-red-500/20 text-center">
+                                    <div className="text-2xl font-bold text-white font-['Orbitron']">{selectedRoutine.difficulty}</div>
+                                    <div className="text-[10px] text-red-400 uppercase tracking-wider">Level</div>
                                 </div>
                             </div>
 
-                            {/* Exercises List */}
-                            <div className="mb-8">
-                                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <Dumbbell className="w-5 h-5 text-primary" />
-                                    Workout Plan
-                                </h3>
-                                <div className="space-y-3">
-                                    {getFullRoutine(selectedRoutine.id)?.exercises.map((ex, idx) => (
-                                        <div key={idx} className="flex items-center gap-4 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
-                                            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm shrink-0">
-                                                {idx + 1}
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                                <div className="font-medium text-white truncate">{ex.name}</div>
-                                                <div className="text-xs text-white/50">{ex.sets} sets × {ex.reps}</div>
-                                            </div>
-                                            {ex.videoUrl && (
-                                                <div className="w-16 h-10 bg-black rounded overflow-hidden shrink-0">
-                                                    <video src={ex.videoUrl} className="w-full h-full object-cover opacity-60" muted />
-                                                </div>
-                                            )}
+                            {/* Exercise List */}
+                            <div className="space-y-3 mb-8">
+                                {selectedRoutine.exercises.map((ex, idx) => (
+                                    <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#00D4FF]/30 transition-colors">
+                                        <div className="w-8 h-8 rounded bg-black/50 border border-white/10 flex items-center justify-center text-[#00D4FF] font-['Orbitron'] text-xs">
+                                            {String(idx + 1).padStart(2, '0')}
                                         </div>
-                                    ))}
-                                </div>
+                                        <div className="flex-1">
+                                            <h4 className="text-white font-medium">{ex.name}</h4>
+                                            <div className="text-xs text-white/40 flex gap-3 mt-1 font-['Roboto_Mono']">
+                                                <span>{ex.sets} SETS</span>
+                                                <span className="text-[#00D4FF]">×</span>
+                                                <span>{ex.reps} REPS</span>
+                                                <span className="text-[#00D4FF]">×</span>
+                                                <span>{ex.rest}s REST</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
-                            {/* Start Button */}
+                            {/* Action Button */}
                             <button
-                                onClick={() => navigate('/matrix', { state: { routineId: selectedRoutine.id } })}
-                                className="w-full py-4 bg-primary hover:bg-primary-hover text-black font-bold text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-transform active:scale-95"
+                                onClick={() => handleStartRoutine(selectedRoutine)}
+                                className="w-full py-5 bg-[#00D4FF] hover:bg-[#00c4ec] text-black font-bold text-xl rounded-xl flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(0,212,255,0.3)] hover:shadow-[0_0_50px_rgba(0,212,255,0.5)] transition-all font-['Orbitron'] tracking-widest"
                             >
                                 <Play className="w-6 h-6 fill-current" />
-                                START WORKOUT
+                                INITIATE PROTOCOL
                             </button>
                         </div>
                     </div>

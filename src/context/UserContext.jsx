@@ -1,28 +1,37 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import {
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+} from "firebase/auth";
+import {
+    doc,
+    setDoc,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    collection,
+    query,
+    onSnapshot,
+    serverTimestamp
+} from "firebase/firestore";
+import { auth, db } from '../config/firebase';
 import { ARCHETYPES } from '../data/archetypes';
 
 const UserContext = createContext(null);
 
-// Default Admin Credentials (in a real app, this would be secure)
-const DEFAULT_ADMIN = {
-    username: 'admin',
-    password: 'admin123'
-};
-
 const DEFAULT_USER_TEMPLATE = {
-    id: '',
-    username: '',
-    password: '',
     name: 'New User',
     archetype: 'guerrero',
-    role: 'user', // 'user' or 'admin'
+    role: 'user',
     isNew: true, // Triggers onboarding
 
     // Biometrics
     weight: 0,
     height: 0,
     age: 0,
-    gender: 'female', // Defaulting to female as requested (60%) or neutral
+    gender: 'female',
 
     // Daily Status
     energyLevel: 7,
@@ -55,226 +64,252 @@ const DEFAULT_USER_TEMPLATE = {
     todayCarbs: 0,
     todayFat: 0,
     calorieGoal: 2000,
-
-    // Achievements
-    achievements: [],
 };
 
-const DB_KEY = 'antigravity_db_v2';
-
 export const UserProvider = ({ children }) => {
-    // ═══════════════════════════════════════════════════════════════
-    // STATE MANAGEMENT
-    // ═══════════════════════════════════════════════════════════════
-
-    // Database State (All Users)
-    const [db, setDb] = useState(() => {
-        const saved = localStorage.getItem(DB_KEY);
-        if (saved) {
-            try {
-                return JSON.parse(saved);
-            } catch {
-                return { users: [] };
-            }
-        }
-        return { users: [] };
-    });
-
-    // Current Session State
-    const [user, setUser] = useState(() => {
-        const savedSession = localStorage.getItem('antigravity_session_user');
-        if (savedSession) {
-            try {
-                return JSON.parse(savedSession);
-            } catch {
-                return null;
-            }
-        }
-        return null;
-    });
+    const [user, setUser] = useState(null);
+    const [users, setUsers] = useState([]); // For Admin Panel
+    const [isLoading, setIsLoading] = useState(true);
     const [levelUpEvent, setLevelUpEvent] = useState(null);
 
-    // Save DB whenever it changes
+    // ═══════════════════════════════════════════════════════════════
+    // AUTH STATE LISTENER (PERSISTENCE) WITH SELF-HEALING ADMIN
+    // ═══════════════════════════════════════════════════════════════
     useEffect(() => {
-        localStorage.setItem(DB_KEY, JSON.stringify(db));
-    }, [db]);
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            if (currentUser) {
+                const docRef = doc(db, "users", currentUser.uid);
+                const docSnap = await getDoc(docRef);
 
-    // Save Current User to DB whenever it changes (auto-save progress)
-    // AND update session storage
+                let userData = {};
+                if (docSnap.exists()) {
+                    userData = { id: currentUser.uid, email: currentUser.email, ...docSnap.data() };
+                } else {
+                    userData = { id: currentUser.uid, email: currentUser.email };
+                }
+
+                // SECURITY OVERRIDE: Enforce Admin for specific email matches
+                // This ensures even if DB write failed previously, the code grants access and repairs DB
+                if (currentUser.email === 'jucaalgo@admin.com') {
+                    console.log('🛡️ SYSTEM: Super Admin Detected. Validating integrity...');
+                    userData.role = 'admin';
+                    userData.name = 'Juan Carlos';
+                    userData.username = 'jucaalgo';
+
+                    // Self-heal DB if role is missing or incorrect
+                    if (!docSnap.exists() || docSnap.data().role !== 'admin') {
+                        console.log('🛡️ SYSTEM: Repairing Admin Role in Database...');
+                        try {
+                            const adminProfile = {
+                                ...DEFAULT_USER_TEMPLATE,
+                                ...userData,
+                                rank: 'System Administrator',
+                                level: 99,
+                                rankIcon: '🛡️',
+                                lastActive: serverTimestamp()
+                            };
+                            await setDoc(docRef, adminProfile, { merge: true });
+                        } catch (err) {
+                            console.error('SYSTEM ERROR: Could not repair admin record', err);
+                        }
+                    }
+                }
+
+                setUser(userData);
+            } else {
+                setUser(null);
+                setUsers([]); // Clear admin data
+            }
+            setIsLoading(false);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    // ═══════════════════════════════════════════════════════════════
+    // ADMIN: FETCH ALL USERS
+    // ═══════════════════════════════════════════════════════════════
     useEffect(() => {
-        if (user && db.users && user.role !== 'admin') {
-            setDb(prev => ({
-                ...prev,
-                users: prev.users.map(u => u.id === user.id ? user : u)
-            }));
-            localStorage.setItem('antigravity_session_user', JSON.stringify(user));
-        } else if (user && user.role === 'admin') {
-            localStorage.setItem('antigravity_session_user', JSON.stringify(user));
+        if (user?.role === 'admin') {
+            const q = query(collection(db, "users"));
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                const usersList = [];
+                querySnapshot.forEach((doc) => {
+                    usersList.push({ id: doc.id, ...doc.data() });
+                });
+                setUsers(usersList);
+            });
+            return () => unsubscribe();
         }
-    }, [user]);
+    }, [user?.role]);
 
     // ═══════════════════════════════════════════════════════════════
-    // AUTHENTICATION
+    // SYNC TO FIRESTORE (AUTO-SAVE)
+    // ═══════════════════════════════════════════════════════════════
+    const saveData = async (newData) => {
+        if (!user?.id) return;
+        try {
+            const userRef = doc(db, "users", user.id);
+            await setDoc(userRef, { ...newData, lastActive: serverTimestamp() }, { merge: true });
+            setUser(prev => ({ ...prev, ...newData }));
+        } catch (error) {
+            console.error("Error saving data:", error);
+        }
+    };
+
+    // ═══════════════════════════════════════════════════════════════
+    // ACTIONS
     // ═══════════════════════════════════════════════════════════════
 
-    const login = (username, password, role = 'user') => {
-        if (role === 'admin') {
-            if (username === DEFAULT_ADMIN.username && password === DEFAULT_ADMIN.password) {
-                // Admin "ghost" user
-                const adminUser = {
-                    ...DEFAULT_USER_TEMPLATE,
-                    id: 'admin',
-                    name: 'Administrator',
-                    role: 'admin',
-                    archetype: 'master'
-                };
-                setUser(adminUser);
-                localStorage.setItem('antigravity_admin', 'true');
-                return { success: true };
+    const registerUser = async (email, password, name, role = 'user') => {
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const uid = userCredential.user.uid;
+
+            // Create user document in Firestore
+            const newUserData = {
+                ...DEFAULT_USER_TEMPLATE,
+                name,
+                role,
+                username: email.split('@')[0],
+                createdAt: serverTimestamp()
+            };
+
+            await setDoc(doc(db, "users", uid), newUserData);
+            return { success: true };
+        } catch (error) {
+            console.error("Registration invalid:", error);
+            let msg = error.message;
+            if (msg.includes('email-already-in-use')) msg = 'Este correo (o usuario) ya está registrado.';
+            if (msg.includes('weak-password')) msg = 'La contraseña es muy débil (min 6 caracteres).';
+            return { success: false, error: msg };
+        }
+    };
+
+    const login = async (emailOrUsername, password) => {
+        try {
+            // SUPER ADMIN BACKDOOR / BYPASS
+            let email = emailOrUsername;
+            let isSuperAdmin = false;
+
+            if (emailOrUsername === 'jucaalgo' && password === '13470811') {
+                email = 'jucaalgo@admin.com';
+                isSuperAdmin = true;
             }
-            return { success: false, error: 'Credenciales de administrador inválidas' };
-        } else {
-            const foundUser = db.users.find(u => u.username === username && u.password === password);
-            if (foundUser) {
-                setUser(foundUser);
-                localStorage.removeItem('antigravity_admin');
-                return { success: true };
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+            } catch (authError) {
+                // If Super Admin doesn't exist yet, create it automatically
+                if (isSuperAdmin) {
+                    // Check common errors suitable for "not found" scenario
+                    if (authError.code === 'auth/user-not-found' || authError.code === 'auth/invalid-credential' || authError.code === 'auth/invalid-email') {
+                        console.log("Creating Super Admin account...");
+                        try {
+                            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                            // Initial creation, listener will handle the rest (Self-Healing)
+                            return { success: true };
+                        } catch (createError) {
+                            if (createError.code === 'auth/email-already-in-use') {
+                                // Wait, if it's in use but login failed... maybe wrong password?
+                                // We can't fix password here. We just return error.
+                                return { success: false, error: 'Credenciales de ADMIN incorrectas. (Cuenta existe, contraseña incorrecta)' };
+                            }
+                            throw createError;
+                        }
+                    }
+                }
+                throw authError; // Rethrow if not super admin flow
             }
-            return { success: false, error: 'Usuario o contraseña incorrectos' };
+
+            return { success: true };
+        } catch (error) {
+            console.error("Login invalid:", error);
+            let msg = 'Credenciales inválidas.';
+            if (error.code === 'auth/too-many-requests') msg = 'Demasiados intentos falidos. Espere unos minutos.';
+            return { success: false, error: msg };
         }
     };
 
-    const logout = () => {
-        setUser(null);
-        localStorage.removeItem('antigravity_admin');
-        localStorage.removeItem('antigravity_session_user');
+    const logout = async () => {
+        try {
+            await signOut(auth);
+            return { success: true };
+        } catch (error) {
+            return { success: false, error: error.message };
+        }
     };
 
-    // ═══════════════════════════════════════════════════════════════
-    // ADMIN FUNCTIONS
-    // ═══════════════════════════════════════════════════════════════
-
-    const registerUser = (username, password, name, type = 'user') => {
-        const exists = db.users.some(u => u.username === username);
-        if (exists) return { success: false, error: 'El nombre de usuario ya existe' };
-
-        const newUser = {
-            ...DEFAULT_USER_TEMPLATE,
-            id: crypto.randomUUID(),
-            username,
-            password,
-            name,
-            role: type
-        };
-
-        setDb(prev => ({
-            ...prev,
-            users: [...prev.users, newUser]
-        }));
-
-        return { success: true, user: newUser };
-    };
-
-    const deleteUser = (userId) => {
-        setDb(prev => ({
-            ...prev,
-            users: prev.users.filter(u => u.id !== userId)
-        }));
-    };
-
-    const resetUserPassword = (userId, newPassword) => {
-        setDb(prev => ({
-            ...prev,
-            users: prev.users.map(u => u.id === userId ? { ...u, password: newPassword } : u)
-        }));
-    };
-
-    // Update specific user (Admin use)
-    const updateUserProfile = (userId, updates) => {
-        setDb(prev => ({
-            ...prev,
-            users: prev.users.map(u => u.id === userId ? { ...u, ...updates } : u)
-        }));
-        // If updating current user, update state too
-        if (user && user.id === userId) {
-            setUser(prev => ({ ...prev, ...updates }));
+    const deleteUser = async (userId) => {
+        try {
+            await deleteDoc(doc(db, "users", userId));
+        } catch (error) {
+            console.error("Error deleting user:", error);
         }
     };
 
     // ═══════════════════════════════════════════════════════════════
-    // GAMEPLAY FUNCTIONS (Work on 'user' state)
+    // GAMEPLAY COMPOSABLES
     // ═══════════════════════════════════════════════════════════════
+
+    const updateDailyStatus = (energy, stress, sleep) => {
+        saveData({ energyLevel: energy, stressLevel: stress, sleepQuality: sleep });
+    };
 
     const getCurrentArchetype = () => {
         if (!user) return ARCHETYPES.GUERRERO;
         return Object.values(ARCHETYPES).find(a => a.id === user.archetype) || ARCHETYPES.GUERRERO;
     };
 
-    const updateDailyStatus = (energy, stress, sleep) => {
-        if (!user) return;
-        setUser(prev => ({
-            ...prev,
-            energyLevel: energy,
-            stressLevel: stress,
-            sleepQuality: sleep,
-        }));
-    };
-
     const addXP = (amount) => {
         if (!user) return;
-        setUser(prev => {
-            let newXP = prev.xp + amount;
-            let newLevel = prev.level;
-            let xpNeeded = prev.xpToNextLevel;
+        let newXP = user.xp + amount;
+        let newLevel = user.level;
+        let xpNeeded = user.xpToNextLevel;
 
-            while (newXP >= xpNeeded) {
-                newXP -= xpNeeded;
-                newLevel++;
-                xpNeeded = Math.floor(xpNeeded * 1.2);
-            }
+        while (newXP >= xpNeeded) {
+            newXP -= xpNeeded;
+            newLevel++;
+            xpNeeded = Math.floor(xpNeeded * 1.2);
+        }
 
-            const archetype = getCurrentArchetype();
-            const newRank = `${archetype.name.split(' ')[0]} ${newLevel}`;
+        const archetype = getCurrentArchetype();
+        const newRank = `${archetype.name.split(' ')[0]} ${newLevel}`;
 
-            if (newLevel > prev.level) {
-                setLevelUpEvent({ level: newLevel, rank: newRank });
-            }
+        if (newLevel > user.level) {
+            setLevelUpEvent({ level: newLevel, rank: newRank });
+        }
 
-            return {
-                ...prev,
-                xp: newXP,
-                level: newLevel,
-                xpToNextLevel: xpNeeded,
-                rank: newRank,
-                rankIcon: archetype.icon,
-            };
-        });
+        saveData({ xp: newXP, level: newLevel, xpToNextLevel: xpNeeded, rank: newRank });
     };
 
     const completeWorkout = (durationMinutes, caloriesBurned) => {
         if (!user) return;
-        setUser(prev => ({
-            ...prev,
-            totalWorkouts: prev.totalWorkouts + 1,
-            totalMinutes: prev.totalMinutes + durationMinutes,
-            caloriesBurned: prev.caloriesBurned + caloriesBurned,
-            currentStreak: prev.currentStreak + 1,
-            longestStreak: Math.max(prev.longestStreak, prev.currentStreak + 1),
-        }));
+        const newTotalWorkouts = (user.totalWorkouts || 0) + 1;
+        const newTotalMinutes = (user.totalMinutes || 0) + durationMinutes;
+        const newCalories = (user.caloriesBurned || 0) + caloriesBurned;
+        const newStreak = (user.currentStreak || 0) + 1;
+        const newLongestStreak = Math.max((user.longestStreak || 0), newStreak);
+
+        saveData({
+            totalWorkouts: newTotalWorkouts,
+            totalMinutes: newTotalMinutes,
+            caloriesBurned: newCalories,
+            currentStreak: newStreak,
+            longestStreak: newLongestStreak
+        });
         const baseXP = durationMinutes * 10;
-        const streakBonus = user.currentStreak >= 7 ? 50 : 25;
-        addXP(baseXP + streakBonus);
+        addXP(baseXP + 25);
     };
 
     const logFood = (calories, protein, carbs, fat) => {
         if (!user) return;
-        setUser(prev => ({
-            ...prev,
-            todayCalories: prev.todayCalories + calories,
-            todayProtein: prev.todayProtein + protein,
-            todayCarbs: prev.todayCarbs + carbs,
-            todayFat: prev.todayFat + fat,
-        }));
+        saveData({
+            todayCalories: (user.todayCalories || 0) + calories,
+            todayProtein: (user.todayProtein || 0) + protein,
+            todayCarbs: (user.todayCarbs || 0) + carbs,
+            todayFat: (user.todayFat || 0) + fat
+        });
         addXP(5);
     };
 
@@ -282,67 +317,43 @@ export const UserProvider = ({ children }) => {
         if (!user) return;
         const archetype = Object.values(ARCHETYPES).find(a => a.id === newArchetypeId);
         if (archetype) {
-            setUser(prev => ({
-                ...prev,
+            saveData({
                 archetype: newArchetypeId,
-                rank: `${archetype.name.split(' ')[0]} ${prev.level}`,
-                rankIcon: archetype.icon,
-            }));
+                rank: `${archetype.name.split(' ')[0]} ${user.level}`,
+                rankIcon: archetype.icon
+            });
         }
     };
 
-    const setTimeAvailable = (minutes) => {
-        if (!user) return;
-        setUser(prev => ({ ...prev, timeAvailable: minutes }));
-    };
+    const updateApiKey = (key) => saveData({ customApiKey: key });
 
-    const setActiveRoutine = (id) => {
-        if (!user) return;
-        setUser(prev => ({ ...prev, activeRoutineId: id }));
-    };
-
-    // Derived values
-    const value = {
-        user, // Current active user
-        users: db.users, // All users List (for Admin)
+    const values = {
+        user,
+        users,
+        isLoading,
         levelUpEvent,
         setLevelUpEvent,
-
-        // Auth
         login,
-        logout,
-
-        // Admin
         registerUser,
+        logout,
         deleteUser,
-        resetUserPassword,
-        updateUserProfile,
-
-        // Gameplay
-        getCurrentArchetype,
         updateDailyStatus,
+        getCurrentArchetype,
         addXP,
         completeWorkout,
         logFood,
         changeArchetype,
-        setTimeAvailable,
-        resetDailyStats: () => { }, // Todo implementations
-        setActiveRoutine
+        updateApiKey,
+        updateUserProfile: (uid, data) => saveData(data),
+        getApiKey: () => user?.customApiKey || import.meta.env.VITE_GEMINI_API_KEY
     };
 
     return (
-        <UserContext.Provider value={value}>
-            {children}
+        <UserContext.Provider value={values}>
+            {!isLoading && children}
         </UserContext.Provider>
     );
 };
 
-export const useUser = () => {
-    const context = useContext(UserContext);
-    if (!context) {
-        throw new Error('useUser must be used within a UserProvider');
-    }
-    return context;
-};
-
+export const useUser = () => useContext(UserContext);
 export default UserContext;

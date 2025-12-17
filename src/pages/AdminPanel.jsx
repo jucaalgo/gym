@@ -13,6 +13,16 @@ const AdminPanel = () => {
     const [newRole, setNewRole] = useState('user');
     const [message, setMessage] = useState(null);
 
+    // Settings State
+    const { customApiKey, updateApiKey } = useUser();
+    const [apiKey, setApiKey] = useState(customApiKey);
+
+    const handleSaveKey = () => {
+        updateApiKey(apiKey);
+        setMessage({ type: 'success', text: 'API Key Saved Successfully' });
+        setTimeout(() => setMessage(null), 3000);
+    };
+
     const handleRegister = (e) => {
         e.preventDefault();
         setMessage(null);
@@ -98,16 +108,44 @@ const AdminPanel = () => {
                         <Users className="w-5 h-5 text-white/40" />
                         Directorio de Personal
                     </h3>
-                    <button
-                        onClick={() => setIsAdding(!isAdding)}
-                        className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${isAdding
-                                ? 'bg-red-500/10 text-red-400 hover:bg-red-500/20'
-                                : 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20'
-                            }`}
-                    >
-                        {isAdding ? <X className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
-                        {isAdding ? 'Cancelar' : 'Nuevo Usuario'}
-                    </button>
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() => setIsAdding(!isAdding)}
+                            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors"
+                        >
+                            {isAdding ? <X className="w-5 h-5" /> : <UserPlus className="w-5 h-5" />}
+                        </button>
+                    </div>
+                </div>
+
+                {/* API Key Settings Section */}
+                <div className="p-6 border-b border-white/10 bg-white/5">
+                    <h3 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        System Configuration
+                    </h3>
+                    <div className="bg-black/40 rounded-xl p-4 border border-white/10 flex flex-col md:flex-row gap-4 items-end">
+                        <div className="flex-1 w-full">
+                            <label className="block text-xs text-white/40 mb-1">Google Gemini API Key</label>
+                            <div className="relative">
+                                <input
+                                    type="password"
+                                    value={apiKey}
+                                    onChange={(e) => setApiKey(e.target.value)}
+                                    placeholder="Enter AI API Key..."
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:border-amber-500"
+                                />
+                                <Lock className="w-4 h-4 text-white/20 absolute left-3 top-2.5" />
+                            </div>
+                        </div>
+                        <button
+                            onClick={handleSaveKey}
+                            className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-lg transition-colors flex items-center gap-2"
+                        >
+                            <Save className="w-4 h-4" />
+                            Save Key
+                        </button>
+                    </div>
                 </div>
 
                 {/* Add User Form */}

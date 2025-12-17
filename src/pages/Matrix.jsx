@@ -190,7 +190,7 @@ const Matrix = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                         <div className="glass-panel rounded-2xl p-4 text-center">
                             <Clock className="w-6 h-6 text-primary mx-auto mb-2" />
-                            <div className="text-2xl font-bold text-white">{routine.metadata.estimatedDuration}</div>
+                            <div className="text-2xl font-bold text-white">{routine.metadata?.estimatedDuration || 45}</div>
                             <div className="text-sm text-white/50">minutos</div>
                         </div>
                         <div className="glass-panel rounded-2xl p-4 text-center">
@@ -200,12 +200,12 @@ const Matrix = () => {
                         </div>
                         <div className="glass-panel rounded-2xl p-4 text-center">
                             <Flame className="w-6 h-6 text-warning mx-auto mb-2" />
-                            <div className="text-2xl font-bold text-white">{routine.metadata.estimatedCalories}</div>
+                            <div className="text-2xl font-bold text-white">{routine.metadata?.estimatedCalories || 300}</div>
                             <div className="text-sm text-white/50">kcal</div>
                         </div>
                         <div className="glass-panel rounded-2xl p-4 text-center">
                             <Zap className="w-6 h-6 text-secondary mx-auto mb-2" />
-                            <div className="text-2xl font-bold text-white">{routine.metadata.difficulty}/10</div>
+                            <div className="text-2xl font-bold text-white">{routine.metadata?.difficulty || 5}/10</div>
                             <div className="text-sm text-white/50">dificultad</div>
                         </div>
                     </div>

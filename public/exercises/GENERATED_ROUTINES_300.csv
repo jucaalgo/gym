@@ -1,0 +1,1801 @@
+Routine_ID;Target;Order;Exercise;Sets;Reps;Rest;RPE
+F-001;Female;1;Cable Kickback (Gluteus Medius Focus, Side-Angled);3;12-15;60s;RPE 9
+F-001;Female;2;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-001;Female;3;Banded Hip Thrust;3;12-15;60s;RPE 9
+F-001;Female;4;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-001;Female;5;Anderson Squat;3-4;6-8;120s;RPE 8-9
+F-001;Female;6;Cable Row (Single-Arm, Supinated Grip);3;12-15;60s;RPE 9
+F-002;Female;1;Banded Hip Thrust;3;12-15;60s;RPE 9
+F-002;Female;2;Trap Bar Deadlift;3-4;6-8;120s;RPE 8-9
+F-002;Female;3;Dumbbell Goblet Squat (Tempo Training, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-002;Female;4;Cable Kickback (Gluteus Medius Focus, Side-Angled, Pause at Peak);3;12-15;60s;RPE 9
+F-002;Female;5;Heel Elevated Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-002;Female;6;Incline Push-Up;3;12-15;60s;RPE 9
+F-003;Female;1;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-003;Female;2;Hyperextension (Weighted, Glute Focus, High Rep);3;12-15;60s;RPE 9
+F-003;Female;3;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-003;Female;4;Dumbbell Walking Lunge;3;12-15;60s;RPE 9
+F-003;Female;5;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-003;Female;6;Weighted Cable Crunch (High Rep, Max Contraction);3;12-15;60s;RPE 9
+F-004;Female;1;Single-Leg Hip Abduction (Cable, Standing, High Rep);3;12-15;60s;RPE 9
+F-004;Female;2;Deficit Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-004;Female;3;Cable Donkey Kick;3;12-15;60s;RPE 9
+F-004;Female;4;Cable Hyperextension (Rope Attachment, Glute Focus, Pause at Peak);3;12-15;60s;RPE 9
+F-004;Female;5;Dumbbell Split Squat (Rear Foot Elevated, Close Stance, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-004;Female;6;Decline Barbell Bench Press;3-4;6-8;120s;RPE 8-9
+F-005;Female;1;Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-005;Female;2;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+F-005;Female;3;Dumbbell Lunge;3;12-15;60s;RPE 9
+F-005;Female;4;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-005;Female;5;Frog Pump;3;12-15;60s;RPE 9
+F-005;Female;6;Swiss Ball Leg Curl;3;12-15;60s;RPE 9
+F-006;Female;1;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-006;Female;2;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-006;Female;3;Glute Bridge March;3;12-15;60s;RPE 9
+F-006;Female;4;Dumbbell Sumo Squat (High Volume, Pulse Reps at Bottom);3-4;6-8;120s;RPE 8-9
+F-006;Female;5;Single-Leg RDL (Dumbbell, Deficit, Glute Focus);3;12-15;60s;RPE 9
+F-006;Female;6;Dumbbell Shrug;3;12-15;60s;RPE 9
+F-007;Female;1;Landmine Hack Squat;3-4;6-8;120s;RPE 8-9
+F-007;Female;2;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-007;Female;3;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-007;Female;4;Single-Leg RDL (Dumbbell, Torso Supported, High Rep);3;12-15;60s;RPE 9
+F-007;Female;5;Zercher Lunge;3;12-15;60s;RPE 9
+F-007;Female;6;Chin to Chest Stretch;3;12-15;60s;RPE 9
+F-008;Female;1;Stiff-Leg Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-008;Female;2;Cable Glute Kickback (Standing, Extended Range);3;12-15;60s;RPE 9
+F-008;Female;3;Glute Bridge (Banded, Heels Elevated);3;12-15;60s;RPE 9
+F-008;Female;4;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-008;Female;5;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-008;Female;6;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+F-009;Female;1;Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-009;Female;2;Machine Hack Squat (Narrow Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-009;Female;3;Kneeling Jump Squat;3-4;6-8;120s;RPE 8-9
+F-009;Female;4;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-009;Female;5;Barbell Side Split Squat;3-4;6-8;120s;RPE 8-9
+F-009;Female;6;Wrist Roller;3;12-15;60s;RPE 9
+F-010;Female;1;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-010;Female;2;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+F-010;Female;3;Hack Squat Machine (Medium Stance, Low Depth);3-4;6-8;120s;RPE 8-9
+F-010;Female;4;Heel Elevated Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-010;Female;5;Dumbbell Bulgarian Split Squat;3-4;6-8;120s;RPE 8-9
+F-010;Female;6;Cable Curl (Low Pulley, Straight Bar, Wide Grip);3;12-15;60s;RPE 9
+F-011;Female;1;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-011;Female;2;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+F-011;Female;3;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-011;Female;4;Hack Squat Machine (Wide Stance, High Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-011;Female;5;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-011;Female;6;Cable Triceps Kickback (Standing, Pause at Peak);3;12-15;60s;RPE 9
+F-012;Female;1;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-012;Female;2;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-012;Female;3;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-012;Female;4;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported);3-4;6-8;120s;RPE 8-9
+F-012;Female;5;Single-Leg Box Squat;3-4;6-8;120s;RPE 8-9
+F-012;Female;6;Smith Machine Bench Press (High Rep, Close Grip);3-4;6-8;120s;RPE 8-9
+F-013;Female;1;Single-Leg Romanian Deadlift (Dumbbell, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-013;Female;2;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-013;Female;3;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-013;Female;4;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-013;Female;5;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-013;Female;6;Bent Over Barbell Row;3;12-15;60s;RPE 9
+F-014;Female;1;Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-014;Female;2;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-014;Female;3;Walking Lunges (Dumbbells, Long Stride);3;12-15;60s;RPE 9
+F-014;Female;4;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-014;Female;5;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-014;Female;6;Cable Rear Delt Row (Underhand Grip, Low Pulley);3;12-15;60s;RPE 9
+F-015;Female;1;Cable Glute Kickback (Standing, Extended Range);3;12-15;60s;RPE 9
+F-015;Female;2;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-015;Female;3;Machine Seated Curl (Wide Stance, High Rep);3;12-15;60s;RPE 9
+F-015;Female;4;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-015;Female;5;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-015;Female;6;Seated Machine Row (Underhand Grip);3;12-15;60s;RPE 9
+F-016;Female;1;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-016;Female;2;Pin Squat;3-4;6-8;120s;RPE 8-9
+F-016;Female;3;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-016;Female;4;Machine Seated Curl (Wide Stance, Slow Negative);3;12-15;60s;RPE 9
+F-016;Female;5;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-016;Female;6;Cocoons;3;12-15;60s;RPE 9
+F-017;Female;1;Barbell Reverse Lunge (Deficit, Pause at Bottom);3;12-15;60s;RPE 9
+F-017;Female;2;Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-017;Female;3;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-017;Female;4;Barbell Reverse Lunge (Glute Focus, Forward Lean);3;12-15;60s;RPE 9
+F-017;Female;5;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-017;Female;6;Dumbbell Press (Incline, Supinated Grip);3-4;6-8;120s;RPE 8-9
+F-018;Female;1;Dumbbell Reverse Lunge (Front Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+F-018;Female;2;Cable Hyperextension (Rope Attachment, Glute Focus, Pause at Peak);3;12-15;60s;RPE 9
+F-018;Female;3;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-018;Female;4;Cable Adduction (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+F-018;Female;5;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-018;Female;6;EZ Bar Skullcrusher;3;12-15;60s;RPE 9
+F-019;Female;1;Cable Side Kick (Standing, Flexed Foot);3;12-15;60s;RPE 9
+F-019;Female;2;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-019;Female;3;Single-Leg RDL (Dumbbell, Torso Supported, High Rep);3;12-15;60s;RPE 9
+F-019;Female;4;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-019;Female;5;Dumbbell Goblet Squat (Elevated Heels, High Rep);3-4;6-8;120s;RPE 8-9
+F-019;Female;6;Cocoons;3;12-15;60s;RPE 9
+F-020;Female;1;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-020;Female;2;Barbell Step-Ups;3;12-15;60s;RPE 9
+F-020;Female;3;Barbell Lunge;3;12-15;60s;RPE 9
+F-020;Female;4;Landmine Squat;3-4;6-8;120s;RPE 8-9
+F-020;Female;5;Cable Adduction (Standing, Heavy Load, Low Rep);3;12-15;60s;RPE 9
+F-020;Female;6;Arnold Press (Seated, Dumbbell);3-4;6-8;120s;RPE 8-9
+F-021;Female;1;Glute Bridge (Banded, Heels Elevated);3;12-15;60s;RPE 9
+F-021;Female;2;Single-Leg RDL (Dumbbell, Balance Focus, Eyes Closed);3;12-15;60s;RPE 9
+F-021;Female;3;Hack Squat Machine (Wide Stance, High Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-021;Female;4;Dumbbell Reverse Lunge (Rear Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+F-021;Female;5;Pause Squat;3-4;6-8;120s;RPE 8-9
+F-021;Female;6;Cable Crossover (Low-to-High, Single-Arm);3;12-15;60s;RPE 9
+F-022;Female;1;Barbell Sumo Deadlift (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-022;Female;2;B-Stance RDL;3;12-15;60s;RPE 9
+F-022;Female;3;Barbell Side Split Squat;3-4;6-8;120s;RPE 8-9
+F-022;Female;4;Axle Deadlift;3-4;6-8;120s;RPE 8-9
+F-022;Female;5;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-022;Female;6;Weighted Pull-Up;3;12-15;60s;RPE 9
+F-023;Female;1;Dumbbell Goblet Squat (Elevated Heels, High Rep);3-4;6-8;120s;RPE 8-9
+F-023;Female;2;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-023;Female;3;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-023;Female;4;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-023;Female;5;Pause Squat;3-4;6-8;120s;RPE 8-9
+F-023;Female;6;Glute Ham Raise (GHR);3;12-15;60s;RPE 9
+F-024;Female;1;Single-Leg RDL (Kettlebell, Contralateral Hold);3;12-15;60s;RPE 9
+F-024;Female;2;Dumbbell Walking Lunge;3;12-15;60s;RPE 9
+F-024;Female;3;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+F-024;Female;4;Barbell Glute Bridge (Banded, Slow Eccentric);3;12-15;60s;RPE 9
+F-024;Female;5;Landmine Squat;3-4;6-8;120s;RPE 8-9
+F-024;Female;6;Close-Grip Push-Up;3;12-15;60s;RPE 9
+F-025;Female;1;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-025;Female;2;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-025;Female;3;Machine Hack Squat (Narrow Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-025;Female;4;Machine Hip Abduction (Torso Erect, Pause at Peak);3;12-15;60s;RPE 9
+F-025;Female;5;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-025;Female;6;Machine Chest Press (Neutral Grip, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-026;Female;1;Trap Bar Deadlift;3-4;6-8;120s;RPE 8-9
+F-026;Female;2;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-026;Female;3;Machine Seated Curl (Wide Stance, High Rep);3;12-15;60s;RPE 9
+F-026;Female;4;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+F-026;Female;5;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-026;Female;6;Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-027;Female;1;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-027;Female;2;Reverse Hyperextension;3;12-15;60s;RPE 9
+F-027;Female;3;Single-Leg Split Squat (Deficit, Dumbbells);3-4;6-8;120s;RPE 8-9
+F-027;Female;4;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-027;Female;5;Heel Elevated Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-027;Female;6;Dynamic Chest Stretch;3;12-15;60s;RPE 9
+F-028;Female;1;Narrow Stance Hack Squat;3-4;6-8;120s;RPE 8-9
+F-028;Female;2;Barbell Step-Ups;3;12-15;60s;RPE 9
+F-028;Female;3;Barbell Lunge;3;12-15;60s;RPE 9
+F-028;Female;4;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+F-028;Female;5;Dumbbell One-Arm Triceps Extension;3;12-15;60s;RPE 9
+F-028;Female;6;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-029;Female;1;Cable Kickback (Gluteus Medius Focus, Side-Angled);3;12-15;60s;RPE 9
+F-029;Female;2;Barbell Sumo Deadlift (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-029;Female;3;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-029;Female;4;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-029;Female;5;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-029;Female;6;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-030;Female;1;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-030;Female;2;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-030;Female;3;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-030;Female;4;Deficit Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-030;Female;5;Landmine Lateral Lunge;3;12-15;60s;RPE 9
+F-030;Female;6;Landmine Press;3-4;6-8;120s;RPE 8-9
+F-031;Female;1;Kang Squat;3-4;6-8;120s;RPE 8-9
+F-031;Female;2;Hip Abduction Machine (Heavy Weight, Short Range);3;12-15;60s;RPE 9
+F-031;Female;3;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-031;Female;4;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+F-031;Female;5;Hip Abduction Machine (Heavy Weight, Short Range);3;12-15;60s;RPE 9
+F-031;Female;6;French Press;3-4;6-8;120s;RPE 8-9
+F-032;Female;1;Cable Adduction (Standing, Heavy Load, Low Rep);3;12-15;60s;RPE 9
+F-032;Female;2;Anderson Squat;3-4;6-8;120s;RPE 8-9
+F-032;Female;3;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-032;Female;4;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-032;Female;5;Smith Machine Split Squat (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-032;Female;6;Cable Crossover (Low-to-High);3;12-15;60s;RPE 9
+F-033;Female;1;Dumbbell Walking Lunge;3;12-15;60s;RPE 9
+F-033;Female;2;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-033;Female;3;Banded Clamshells;3;12-15;60s;RPE 9
+F-033;Female;4;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-033;Female;5;Cable Kickback (Gluteus Medius Focus, Side-Angled);3;12-15;60s;RPE 9
+F-033;Female;6;Cable Front Raise;3;12-15;60s;RPE 9
+F-034;Female;1;Single-Leg Split Squat (Deficit, Dumbbells);3-4;6-8;120s;RPE 8-9
+F-034;Female;2;Barbell Lunge;3;12-15;60s;RPE 9
+F-034;Female;3;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-034;Female;4;Frog Pump;3;12-15;60s;RPE 9
+F-034;Female;5;Curtsy Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-034;Female;6;Dumbbell Hammer Curl (Seated, High Rep);3;12-15;60s;RPE 9
+F-035;Female;1;Seated Abduction Machine (Forward Lean);3;12-15;60s;RPE 9
+F-035;Female;2;Box Squat;3-4;6-8;120s;RPE 8-9
+F-035;Female;3;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-035;Female;4;Banded Hip Thrust;3;12-15;60s;RPE 9
+F-035;Female;5;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-035;Female;6;Cable Face Pull with External Rotation;3;12-15;60s;RPE 9
+F-036;Female;1;Reverse Hyperextension;3;12-15;60s;RPE 9
+F-036;Female;2;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-036;Female;3;Barbell Front Squat (High Bar, Deep Depth);3-4;6-8;120s;RPE 8-9
+F-036;Female;4;Barbell Lunge;3;12-15;60s;RPE 9
+F-036;Female;5;Barbell Sumo Deadlift (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-036;Female;6;Rocket Jump;3;12-15;60s;RPE 9
+F-037;Female;1;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-037;Female;2;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-037;Female;3;Reverse Nordic Curl;3;12-15;60s;RPE 9
+F-037;Female;4;Dumbbell Bulgarian Split Squat;3-4;6-8;120s;RPE 8-9
+F-037;Female;5;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-037;Female;6;Box Jump (Multiple Response);3;12-15;60s;RPE 9
+F-038;Female;1;Barbell Sumo Deadlift (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-038;Female;2;Curtsy Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-038;Female;3;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-038;Female;4;Plie Squat;3-4;6-8;120s;RPE 8-9
+F-038;Female;5;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-038;Female;6;Z Press;3-4;6-8;120s;RPE 8-9
+F-039;Female;1;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-039;Female;2;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-039;Female;3;Dumbbell Reverse Lunge (Rear Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+F-039;Female;4;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-039;Female;5;Landmine Lateral Lunge;3;12-15;60s;RPE 9
+F-039;Female;6;Preacher Curl (EZ Bar);3;12-15;60s;RPE 9
+F-040;Female;1;Dumbbell Deadlift (Stiff-Legged, Heavy Load, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-040;Female;2;Reverse Hyperextension (Stability Ball);3;12-15;60s;RPE 9
+F-040;Female;3;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-040;Female;4;Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-040;Female;5;Dumbbell Split Squat (Rear Foot Elevated, Close Stance, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-040;Female;6;Wrist Roller;3;12-15;60s;RPE 9
+F-041;Female;1;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-041;Female;2;Single-Leg RDL (Dumbbell, Balance Focus, Eyes Closed);3;12-15;60s;RPE 9
+F-041;Female;3;Heel Elevated Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-041;Female;4;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+F-041;Female;5;Cable Adduction (Standing, Contralateral Hold);3;12-15;60s;RPE 9
+F-041;Female;6;Dumbbell Bench Press (Heavy Load, Wide Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-042;Female;1;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-042;Female;2;Weighted Sissy Squat;3-4;6-8;120s;RPE 8-9
+F-042;Female;3;Barbell Reverse Lunge (Deficit, Pause at Bottom);3;12-15;60s;RPE 9
+F-042;Female;4;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-042;Female;5;Single-Leg RDL (Kettlebell, Pause at Bottom, Tempo Negative);3;12-15;60s;RPE 9
+F-042;Female;6;Alternate Heel Touchers;3;12-15;60s;RPE 9
+F-043;Female;1;Hack Squat Machine (Medium Stance, Low Depth);3-4;6-8;120s;RPE 8-9
+F-043;Female;2;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-043;Female;3;Hyperextensions;3;12-15;60s;RPE 9
+F-043;Female;4;Cable Adduction (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+F-043;Female;5;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-043;Female;6;Hex Press;3-4;6-8;120s;RPE 8-9
+F-044;Female;1;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+F-044;Female;2;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-044;Female;3;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-044;Female;4;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-044;Female;5;Pin Squat;3-4;6-8;120s;RPE 8-9
+F-044;Female;6;Cable Rear Delt Row (Underhand Grip, Low Pulley, Pause at Peak);3;12-15;60s;RPE 9
+F-045;Female;1;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-045;Female;2;B-Stance RDL;3;12-15;60s;RPE 9
+F-045;Female;3;Cable Donkey Kick;3;12-15;60s;RPE 9
+F-045;Female;4;Machine Hip Abduction (Torso Erect, Pause at Peak);3;12-15;60s;RPE 9
+F-045;Female;5;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+F-045;Female;6;Dumbbell Shrug;3;12-15;60s;RPE 9
+F-046;Female;1;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-046;Female;2;Glute Bridge March;3;12-15;60s;RPE 9
+F-046;Female;3;Cable Step-Up;3;12-15;60s;RPE 9
+F-046;Female;4;Machine Hack Squat (Medium Stance, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-046;Female;5;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-046;Female;6;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+F-047;Female;1;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-047;Female;2;Stiff-Leg Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-047;Female;3;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-047;Female;4;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-047;Female;5;Anderson Squat;3-4;6-8;120s;RPE 8-9
+F-047;Female;6;Running (Treadmill);3;12-15;60s;RPE 9
+F-048;Female;1;Barbell Sumo Deadlift (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-048;Female;2;Reverse Hyperextension;3;12-15;60s;RPE 9
+F-048;Female;3;Safety Bar Squat;3-4;6-8;120s;RPE 8-9
+F-048;Female;4;Barbell Reverse Lunge (Glute Focus, Forward Lean);3;12-15;60s;RPE 9
+F-048;Female;5;Single-Leg Split Squat (Deficit, Dumbbells);3-4;6-8;120s;RPE 8-9
+F-048;Female;6;Cable Wrist Curl;3;12-15;60s;RPE 9
+F-049;Female;1;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-049;Female;2;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-049;Female;3;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+F-049;Female;4;Frog Pump;3;12-15;60s;RPE 9
+F-049;Female;5;Sumo Deadlift;3-4;6-8;120s;RPE 8-9
+F-049;Female;6;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+F-050;Female;1;Single-Leg RDL (Kettlebell, Contralateral Hold);3;12-15;60s;RPE 9
+F-050;Female;2;Single-Leg Split Squat (Deficit, Dumbbells);3-4;6-8;120s;RPE 8-9
+F-050;Female;3;Machine Seated Curl (Wide Stance, Slow Negative);3;12-15;60s;RPE 9
+F-050;Female;4;Zercher Lunge;3;12-15;60s;RPE 9
+F-050;Female;5;Barbell Front Squat (High Bar, Deep Depth);3-4;6-8;120s;RPE 8-9
+F-050;Female;6;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+F-051;Female;1;Trap Bar Deadlift;3-4;6-8;120s;RPE 8-9
+F-051;Female;2;Cable Kickback (Gluteus Medius Focus, Side-Angled, Pause at Peak);3;12-15;60s;RPE 9
+F-051;Female;3;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-051;Female;4;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-051;Female;5;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+F-051;Female;6;Cable Rear Delt Row (High Pulley, Single-Arm, Overhand, Tempo Negative);3;12-15;60s;RPE 9
+F-052;Female;1;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-052;Female;2;Kneeling Jump Squat;3-4;6-8;120s;RPE 8-9
+F-052;Female;3;Single-Leg RDL (Dumbbell, Deficit, Glute Focus);3;12-15;60s;RPE 9
+F-052;Female;4;Curtsy Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-052;Female;5;Zercher Lunge;3;12-15;60s;RPE 9
+F-052;Female;6;Cross Body Hammer Curl;3;12-15;60s;RPE 9
+F-053;Female;1;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-053;Female;2;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-053;Female;3;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-053;Female;4;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+F-053;Female;5;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-053;Female;6;Stride Jump Crossover;3;12-15;60s;RPE 9
+F-054;Female;1;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-054;Female;2;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+F-054;Female;3;Machine Hack Squat (Narrow Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-054;Female;4;Kang Squat;3-4;6-8;120s;RPE 8-9
+F-054;Female;5;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-054;Female;6;Dumbbell Bench Press (Heavy Load, Decline, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-055;Female;1;Landmine Hack Squat;3-4;6-8;120s;RPE 8-9
+F-055;Female;2;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-055;Female;3;Curtsy Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-055;Female;4;Dumbbell Sumo Squat (High Volume, Pulse Reps at Bottom);3-4;6-8;120s;RPE 8-9
+F-055;Female;5;Deficit Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-055;Female;6;Cable Lateral Raise (Behind the Body);3;12-15;60s;RPE 9
+F-056;Female;1;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-056;Female;2;Barbell Glute Bridge (Banded, Slow Eccentric);3;12-15;60s;RPE 9
+F-056;Female;3;Dumbbell Goblet Squat (Tempo Training, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-056;Female;4;Dumbbell Overhead Extension (Seated);3;12-15;60s;RPE 9
+F-056;Female;5;Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-056;Female;6;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+F-057;Female;1;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-057;Female;2;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-057;Female;3;Hyperextensions;3;12-15;60s;RPE 9
+F-057;Female;4;Banded Clamshells;3;12-15;60s;RPE 9
+F-057;Female;5;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-057;Female;6;Smith Machine Overhead Press (Front Rack, Seated);3-4;6-8;120s;RPE 8-9
+F-058;Female;1;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-058;Female;2;Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-058;Female;3;Kang Squat;3-4;6-8;120s;RPE 8-9
+F-058;Female;4;Seated Abduction Machine (Forward Lean);3;12-15;60s;RPE 9
+F-058;Female;5;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-058;Female;6;Deep Sissy Squat (Bodyweight, Fixed Foot Position);3-4;6-8;120s;RPE 8-9
+F-059;Female;1;Cable Glute Kickback (Standing, Extended Range);3;12-15;60s;RPE 9
+F-059;Female;2;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-059;Female;3;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-059;Female;4;Machine Hip Abduction (Torso Erect, Pause at Peak);3;12-15;60s;RPE 9
+F-059;Female;5;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-059;Female;6;Dumbbell Lateral Raise (Lying Incline, Pause at Peak);3;12-15;60s;RPE 9
+F-060;Female;1;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-060;Female;2;Reverse Nordic Curl;3;12-15;60s;RPE 9
+F-060;Female;3;Cable Adduction (Standing, Contralateral Hold);3;12-15;60s;RPE 9
+F-060;Female;4;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-060;Female;5;Single-Leg Hip Abduction (Cable, Standing, High Rep);3;12-15;60s;RPE 9
+F-060;Female;6;Seated Machine Row (Underhand Grip);3;12-15;60s;RPE 9
+F-061;Female;1;Dumbbell Reverse Lunge (Front Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+F-061;Female;2;Hack Squat Machine (Medium Stance, Low Depth);3-4;6-8;120s;RPE 8-9
+F-061;Female;3;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-061;Female;4;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+F-061;Female;5;Single-Leg RDL (Dumbbell, Torso Supported, High Rep);3;12-15;60s;RPE 9
+F-061;Female;6;Dumbbell Clean and Press;3-4;6-8;120s;RPE 8-9
+F-062;Female;1;Cable Adduction (Standing, Heavy Load, Low Rep);3;12-15;60s;RPE 9
+F-062;Female;2;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+F-062;Female;3;Stiff-Leg Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-062;Female;4;Seated Abduction Machine (Forward Lean);3;12-15;60s;RPE 9
+F-062;Female;5;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-062;Female;6;Cable Curl (Low Pulley, D-Handle, Single-Arm);3;12-15;60s;RPE 9
+F-063;Female;1;Dumbbell Goblet Squat (Tempo Training, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-063;Female;2;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-063;Female;3;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-063;Female;4;Zercher Lunge;3;12-15;60s;RPE 9
+F-063;Female;5;Smith Machine Split Squat (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-063;Female;6;Zottman Curl (Standing);3;12-15;60s;RPE 9
+F-064;Female;1;Banded Hip Thrust;3;12-15;60s;RPE 9
+F-064;Female;2;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-064;Female;3;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-064;Female;4;Narrow Stance Hack Squat;3-4;6-8;120s;RPE 8-9
+F-064;Female;5;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-064;Female;6;Cable Crossover;3;12-15;60s;RPE 9
+F-065;Female;1;Pin Squat;3-4;6-8;120s;RPE 8-9
+F-065;Female;2;Sumo Deadlift (Barbell, Pause Below Knee);3-4;6-8;120s;RPE 8-9
+F-065;Female;3;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-065;Female;4;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-065;Female;5;Hack Squat Machine (Medium Stance, Low Depth);3-4;6-8;120s;RPE 8-9
+F-065;Female;6;Glute Ham Raise (GHR);3;12-15;60s;RPE 9
+F-066;Female;1;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-066;Female;2;Smith Machine Split Squat (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-066;Female;3;Plie Squat;3-4;6-8;120s;RPE 8-9
+F-066;Female;4;Machine Seated Curl (Wide Stance, Pause at Peak);3;12-15;60s;RPE 9
+F-066;Female;5;Dumbbell Overhead Extension (Seated);3;12-15;60s;RPE 9
+F-066;Female;6;Rocket Jump;3;12-15;60s;RPE 9
+F-067;Female;1;Safety Bar Squat;3-4;6-8;120s;RPE 8-9
+F-067;Female;2;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-067;Female;3;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-067;Female;4;Weighted Sissy Squat;3-4;6-8;120s;RPE 8-9
+F-067;Female;5;Reverse Hyperextension;3;12-15;60s;RPE 9
+F-067;Female;6;Cable Curl (Low Pulley, D-Handle, Single-Arm);3;12-15;60s;RPE 9
+F-068;Female;1;Pause Squat;3-4;6-8;120s;RPE 8-9
+F-068;Female;2;Cable Adduction (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+F-068;Female;3;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-068;Female;4;Landmine Curtsy Lunge;3;12-15;60s;RPE 9
+F-068;Female;5;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+F-068;Female;6;Cable Triceps Kickback (Kneeling, Rope Attachment);3;12-15;60s;RPE 9
+F-069;Female;1;Stiff-Leg Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-069;Female;2;Glute Bridge March;3;12-15;60s;RPE 9
+F-069;Female;3;Smith Machine Lunge (Rear Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-069;Female;4;Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-069;Female;5;Barbell Reverse Lunge (Deficit, Pause at Bottom);3;12-15;60s;RPE 9
+F-069;Female;6;Chest and Front Shoulder Stretch;3;12-15;60s;RPE 9
+F-070;Female;1;Single-Leg RDL (Dumbbell, Torso Supported, High Rep);3;12-15;60s;RPE 9
+F-070;Female;2;Step-Up (Dumbbell);3;12-15;60s;RPE 9
+F-070;Female;3;Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-070;Female;4;Heel Elevated Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-070;Female;5;Seated Abduction Machine (Forward Lean);3;12-15;60s;RPE 9
+F-070;Female;6;EZ-Bar Curl (Standing, Reverse Grip, Tempo Training);3;12-15;60s;RPE 9
+F-071;Female;1;Barbell Hack Squat;3-4;6-8;120s;RPE 8-9
+F-071;Female;2;Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-071;Female;3;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-071;Female;4;Zercher Lunge;3;12-15;60s;RPE 9
+F-071;Female;5;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-071;Female;6;Cable Rear Delt Row (Rope Attachment, Face-Pull Height);3;12-15;60s;RPE 9
+F-072;Female;1;Barbell Step-Ups (Explosive, High Box, Tempo Negative);3;12-15;60s;RPE 9
+F-072;Female;2;Walking Lunges (Dumbbells, Long Stride);3;12-15;60s;RPE 9
+F-072;Female;3;Landmine Curtsy Lunge;3;12-15;60s;RPE 9
+F-072;Female;4;Single-Leg RDL (Dumbbell, Balance Focus, Eyes Closed);3;12-15;60s;RPE 9
+F-072;Female;5;Hyperextension (Weighted, Glute Focus, High Rep);3;12-15;60s;RPE 9
+F-072;Female;6;Single-Arm Dumbbell Row (Kneeling, Rotation Focus);3;12-15;60s;RPE 9
+F-073;Female;1;Dumbbell Reverse Lunge (Rear Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+F-073;Female;2;Banded Clamshells;3;12-15;60s;RPE 9
+F-073;Female;3;Leg Extension (Banded, Pulse Reps);3;12-15;60s;RPE 9
+F-073;Female;4;Single-Leg Box Squat;3-4;6-8;120s;RPE 8-9
+F-073;Female;5;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-073;Female;6;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+F-074;Female;1;Dumbbell Sumo Deadlift (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-074;Female;2;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-074;Female;3;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+F-074;Female;4;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-074;Female;5;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-074;Female;6;Finger Curls;3;12-15;60s;RPE 9
+F-075;Female;1;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-075;Female;2;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-075;Female;3;Sumo Deadlift;3-4;6-8;120s;RPE 8-9
+F-075;Female;4;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-075;Female;5;Deficit Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-075;Female;6;Barbell Curl (Standing, Tempo Training);3;12-15;60s;RPE 9
+F-076;Female;1;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-076;Female;2;Barbell Hack Squat;3-4;6-8;120s;RPE 8-9
+F-076;Female;3;Cable Hyperextension (Rope Attachment, Glute Focus, Pause at Peak);3;12-15;60s;RPE 9
+F-076;Female;4;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-076;Female;5;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-076;Female;6;Dumbbell Bench Press (Neutral Grip);3-4;6-8;120s;RPE 8-9
+F-077;Female;1;Fire Hydrant (Weighted);3;12-15;60s;RPE 9
+F-077;Female;2;Barbell Side Split Squat;3-4;6-8;120s;RPE 8-9
+F-077;Female;3;Walking Lunges (Dumbbells, Long Stride);3;12-15;60s;RPE 9
+F-077;Female;4;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+F-077;Female;5;Single-Leg RDL (Dumbbell, Balance Focus, Unstable Surface);3;12-15;60s;RPE 9
+F-077;Female;6;Atlas Stones;3;12-15;60s;RPE 9
+F-078;Female;1;Cable Side Kick (Standing, Flexed Foot);3;12-15;60s;RPE 9
+F-078;Female;2;Cable Kickback (Gluteus Medius Focus, Side-Angled);3;12-15;60s;RPE 9
+F-078;Female;3;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-078;Female;4;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-078;Female;5;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+F-078;Female;6;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+F-079;Female;1;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-079;Female;2;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-079;Female;3;Banded Hip Thrust;3;12-15;60s;RPE 9
+F-079;Female;4;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+F-079;Female;5;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-079;Female;6;Incline Barbell Bench Press;3-4;6-8;120s;RPE 8-9
+F-080;Female;1;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-080;Female;2;Dumbbell Deadlift (Stiff-Legged, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-080;Female;3;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+F-080;Female;4;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-080;Female;5;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-080;Female;6;Barbell Bent-Over Row (Underhand Grip, Mid Stance);3;12-15;60s;RPE 9
+F-081;Female;1;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-081;Female;2;Dumbbell Sumo Squat (High Volume, Pulse Reps at Bottom);3-4;6-8;120s;RPE 8-9
+F-081;Female;3;B-Stance RDL;3;12-15;60s;RPE 9
+F-081;Female;4;Stiff-Leg Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-081;Female;5;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-081;Female;6;Barbell Curl;3;12-15;60s;RPE 9
+F-082;Female;1;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-082;Female;2;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-082;Female;3;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-082;Female;4;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-082;Female;5;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-082;Female;6;Lat Pulldown (V-Bar, Close Stance, Pause at Peak);3;12-15;60s;RPE 9
+F-083;Female;1;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-083;Female;2;Single-Leg Hip Abduction (Cable, Standing, High Rep);3;12-15;60s;RPE 9
+F-083;Female;3;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-083;Female;4;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-083;Female;5;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-083;Female;6;Single-Arm Cable Extension (Overhead, Kneeling);3;12-15;60s;RPE 9
+F-084;Female;1;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-084;Female;2;Reverse Hyperextension (Stability Ball);3;12-15;60s;RPE 9
+F-084;Female;3;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-084;Female;4;Machine Seated Curl (Wide Stance, Pause at Peak);3;12-15;60s;RPE 9
+F-084;Female;5;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-084;Female;6;Anterior Tibialis SMR;3;12-15;60s;RPE 9
+F-085;Female;1;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-085;Female;2;Machine Hack Squat (Narrow Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-085;Female;3;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-085;Female;4;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-085;Female;5;Barbell Front Squat (High Bar, Deep Depth);3-4;6-8;120s;RPE 8-9
+F-085;Female;6;Barbell Bent-Over Row (Wide Grip, Reverse Grip);3;12-15;60s;RPE 9
+F-086;Female;1;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+F-086;Female;2;Smith Machine Split Squat (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-086;Female;3;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-086;Female;4;Cable Step-Up;3;12-15;60s;RPE 9
+F-086;Female;5;Cable Adduction (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+F-086;Female;6;Barbell Reverse Curl (Standing, Close Grip);3;12-15;60s;RPE 9
+F-087;Female;1;Cable Adduction (Standing, Contralateral Hold);3;12-15;60s;RPE 9
+F-087;Female;2;Barbell Hack Squat;3-4;6-8;120s;RPE 8-9
+F-087;Female;3;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-087;Female;4;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-087;Female;5;Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-087;Female;6;Decline Dumbbell Bench Press;3-4;6-8;120s;RPE 8-9
+F-088;Female;1;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-088;Female;2;Cable Pull-Through (Deep Hip Hinge, Pause at Peak);3;12-15;60s;RPE 9
+F-088;Female;3;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-088;Female;4;Machine Seated Curl (Wide Stance, High Rep);3;12-15;60s;RPE 9
+F-088;Female;5;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-088;Female;6;Incline Pronated-Grip Dumbbell Press;3-4;6-8;120s;RPE 8-9
+F-089;Female;1;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-089;Female;2;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-089;Female;3;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-089;Female;4;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-089;Female;5;Banded Clamshells;3;12-15;60s;RPE 9
+F-089;Female;6;Glute Ham Raise (GHR);3;12-15;60s;RPE 9
+F-090;Female;1;Sumo Deadlift (Barbell, Pause Below Knee);3-4;6-8;120s;RPE 8-9
+F-090;Female;2;Kneeling Jump Squat;3-4;6-8;120s;RPE 8-9
+F-090;Female;3;Single-Leg RDL (Dumbbell, Deficit, Glute Focus);3;12-15;60s;RPE 9
+F-090;Female;4;Machine Seated Curl (Wide Stance, Slow Negative);3;12-15;60s;RPE 9
+F-090;Female;5;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-090;Female;6;Reverse Wrist Curl;3;12-15;60s;RPE 9
+F-091;Female;1;Safety Bar Squat;3-4;6-8;120s;RPE 8-9
+F-091;Female;2;Banded Hip Thrust;3;12-15;60s;RPE 9
+F-091;Female;3;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-091;Female;4;Landmine Squat;3-4;6-8;120s;RPE 8-9
+F-091;Female;5;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-091;Female;6;Bayesian Curl;3;12-15;60s;RPE 9
+F-092;Female;1;Safety Bar Squat;3-4;6-8;120s;RPE 8-9
+F-092;Female;2;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-092;Female;3;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-092;Female;4;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-092;Female;5;Cable Side Kick (Standing, Flexed Foot);3;12-15;60s;RPE 9
+F-092;Female;6;Box Jump (Multiple Response);3;12-15;60s;RPE 9
+F-093;Female;1;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-093;Female;2;Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-093;Female;3;Frog Pump;3;12-15;60s;RPE 9
+F-093;Female;4;Single-Leg RDL (Dumbbell, Torso Supported, High Rep);3;12-15;60s;RPE 9
+F-093;Female;5;Anderson Squat;3-4;6-8;120s;RPE 8-9
+F-093;Female;6;Serratus Punch;3;12-15;60s;RPE 9
+F-094;Female;1;Single-Leg RDL (Dumbbell, Balance Focus, Unstable Surface);3;12-15;60s;RPE 9
+F-094;Female;2;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-094;Female;3;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-094;Female;4;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+F-094;Female;5;Dumbbell Split Squat (Rear Foot Elevated, Close Stance, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-094;Female;6;Single-Arm Cable Curl (Pronated Grip, High Pulley);3;12-15;60s;RPE 9
+F-095;Female;1;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-095;Female;2;Heel Elevated Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-095;Female;3;Smith Machine Split Squat (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-095;Female;4;Machine Hack Squat (Medium Stance, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-095;Female;5;Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-095;Female;6;Dumbbell Incline Press (Neutral Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-096;Female;1;Machine Hack Squat (Narrow Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-096;Female;2;Frog Pump;3;12-15;60s;RPE 9
+F-096;Female;3;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-096;Female;4;B-Stance RDL;3;12-15;60s;RPE 9
+F-096;Female;5;Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-096;Female;6;Dumbbell Incline Press (Neutral Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-097;Female;1;Zercher Lunge;3;12-15;60s;RPE 9
+F-097;Female;2;Dumbbell Lunge;3;12-15;60s;RPE 9
+F-097;Female;3;Pin Squat;3-4;6-8;120s;RPE 8-9
+F-097;Female;4;Dumbbell One-Arm Triceps Extension;3;12-15;60s;RPE 9
+F-097;Female;5;Cable Adduction (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+F-097;Female;6;EZ-Bar Biceps Curl (Preacher Curl, Wide Grip);3;12-15;60s;RPE 9
+F-098;Female;1;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-098;Female;2;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-098;Female;3;Cable Hyperextension (Rope Attachment, Glute Focus, Pause at Peak);3;12-15;60s;RPE 9
+F-098;Female;4;Landmine RDL;3;12-15;60s;RPE 9
+F-098;Female;5;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-098;Female;6;Lat Pulldown (Neutral Grip, Close Bar, Pause at Peak);3;12-15;60s;RPE 9
+F-099;Female;1;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-099;Female;2;Walking Lunges (Dumbbells, Long Stride);3;12-15;60s;RPE 9
+F-099;Female;3;Barbell Front Squat (Paused Reps, High Bar);3-4;6-8;120s;RPE 8-9
+F-099;Female;4;B-Stance RDL;3;12-15;60s;RPE 9
+F-099;Female;5;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-099;Female;6;Weighted Parallel Bar Dips (Leaning Forward);3;12-15;60s;RPE 9
+F-100;Female;1;Narrow Stance Hack Squat;3-4;6-8;120s;RPE 8-9
+F-100;Female;2;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-100;Female;3;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-100;Female;4;Barbell Side Split Squat;3-4;6-8;120s;RPE 8-9
+F-100;Female;5;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-100;Female;6;Chest-Supported Dumbbell Row;3;12-15;60s;RPE 9
+F-101;Female;1;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-101;Female;2;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-101;Female;3;Hack Squat Machine (Medium Stance, Low Depth);3-4;6-8;120s;RPE 8-9
+F-101;Female;4;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-101;Female;5;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-101;Female;6;Dumbbell Hammer Curl (Seated, High Rep);3;12-15;60s;RPE 9
+F-102;Female;1;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-102;Female;2;Hack Squat Machine (Wide Stance, High Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-102;Female;3;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+F-102;Female;4;Cable Adduction (Standing, Contralateral Hold);3;12-15;60s;RPE 9
+F-102;Female;5;Cable Kickback (Gluteus Medius Focus, Side-Angled, Pause at Peak);3;12-15;60s;RPE 9
+F-102;Female;6;Anterior Tibialis SMR;3;12-15;60s;RPE 9
+F-103;Female;1;B-Stance RDL;3;12-15;60s;RPE 9
+F-103;Female;2;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-103;Female;3;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-103;Female;4;Barbell Sumo Deadlift (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-103;Female;5;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-103;Female;6;Weighted Decline Sit-Up (High Rep, Max Pump);3;12-15;60s;RPE 9
+F-104;Female;1;Dumbbell Goblet Squat (Elevated Heels, High Rep);3-4;6-8;120s;RPE 8-9
+F-104;Female;2;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-104;Female;3;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-104;Female;4;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-104;Female;5;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-104;Female;6;Cable Curl (Low Pulley, D-Handle, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+F-105;Female;1;Static Lunge (Barbell);3;12-15;60s;RPE 9
+F-105;Female;2;Hip Abduction Machine (Heavy Weight, Short Range);3;12-15;60s;RPE 9
+F-105;Female;3;Reverse Hyperextension (Stability Ball);3;12-15;60s;RPE 9
+F-105;Female;4;Glute Bridge (Banded, Heels Elevated);3;12-15;60s;RPE 9
+F-105;Female;5;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-105;Female;6;Hammer Strength Chest Press;3-4;6-8;120s;RPE 8-9
+F-106;Female;1;Landmine RDL;3;12-15;60s;RPE 9
+F-106;Female;2;Single-Leg RDL (Dumbbell, Deficit, Glute Focus);3;12-15;60s;RPE 9
+F-106;Female;3;Machine Seated Curl (Wide Stance, Pause at Peak);3;12-15;60s;RPE 9
+F-106;Female;4;Reverse Lunge to Knee Drive;3;12-15;60s;RPE 9
+F-106;Female;5;Sumo Deadlift (Barbell, Pause Below Knee);3-4;6-8;120s;RPE 8-9
+F-106;Female;6;Barbell Incline Shoulder Raise;3;12-15;60s;RPE 9
+F-107;Female;1;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-107;Female;2;Landmine Squat;3-4;6-8;120s;RPE 8-9
+F-107;Female;3;Cable Step-Up;3;12-15;60s;RPE 9
+F-107;Female;4;Stiff-Leg Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-107;Female;5;Box Squat;3-4;6-8;120s;RPE 8-9
+F-107;Female;6;Cable Rear Delt Row (High Pulley, Single-Arm, Neutral Grip);3;12-15;60s;RPE 9
+F-108;Female;1;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+F-108;Female;2;Single-Leg Romanian Deadlift (Dumbbell, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-108;Female;3;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-108;Female;4;Cable Kickback (Gluteus Medius Focus, Side-Angled, Pause at Peak);3;12-15;60s;RPE 9
+F-108;Female;5;Dumbbell Lunge;3;12-15;60s;RPE 9
+F-108;Female;6;Smith Machine Shrug (Behind the Back);3;12-15;60s;RPE 9
+F-109;Female;1;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-109;Female;2;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-109;Female;3;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-109;Female;4;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-109;Female;5;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-109;Female;6;Lat Pulldown (Single-Arm, Neutral Grip, Kneeling);3;12-15;60s;RPE 9
+F-110;Female;1;Weighted Sissy Squat;3-4;6-8;120s;RPE 8-9
+F-110;Female;2;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-110;Female;3;Dumbbell Split Squat (Rear Foot Elevated, Close Stance, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-110;Female;4;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-110;Female;5;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-110;Female;6;Machine Chest Fly (Leaning Forward);3;12-15;60s;RPE 9
+F-111;Female;1;Slider Lateral Lunge;3;12-15;60s;RPE 9
+F-111;Female;2;Barbell Reverse Lunge (Glute Focus, Forward Lean);3;12-15;60s;RPE 9
+F-111;Female;3;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported);3-4;6-8;120s;RPE 8-9
+F-111;Female;4;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-111;Female;5;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+F-111;Female;6;Dumbbell Shoulder Press;3-4;6-8;120s;RPE 8-9
+F-112;Female;1;Frog Pump;3;12-15;60s;RPE 9
+F-112;Female;2;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-112;Female;3;Slider Lateral Lunge;3;12-15;60s;RPE 9
+F-112;Female;4;Step-Up (Dumbbell);3;12-15;60s;RPE 9
+F-112;Female;5;Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-112;Female;6;Dumbbell Front Raise (Incline Bench, Prone, Tempo Negative);3;12-15;60s;RPE 9
+F-113;Female;1;Machine Seated Curl (Wide Stance, Slow Negative);3;12-15;60s;RPE 9
+F-113;Female;2;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-113;Female;3;Dumbbell Bulgarian Split Squat (Front Foot Elevated);3-4;6-8;120s;RPE 8-9
+F-113;Female;4;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported);3-4;6-8;120s;RPE 8-9
+F-113;Female;5;Single-Leg RDL (Dumbbell, Torso Supported, High Rep);3;12-15;60s;RPE 9
+F-113;Female;6;Face Pull;3;12-15;60s;RPE 9
+F-114;Female;1;Dumbbell Deadlift (Stiff-Legged, Heavy Load, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-114;Female;2;Pause Squat;3-4;6-8;120s;RPE 8-9
+F-114;Female;3;Single-Leg RDL (Kettlebell, Pause at Bottom, Tempo Negative);3;12-15;60s;RPE 9
+F-114;Female;4;Glute Bridge March;3;12-15;60s;RPE 9
+F-114;Female;5;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+F-114;Female;6;Anterior Tibialis SMR;3;12-15;60s;RPE 9
+F-115;Female;1;Single-Leg RDL (Kettlebell, Contralateral Hold);3;12-15;60s;RPE 9
+F-115;Female;2;Kneeling Jump Squat;3-4;6-8;120s;RPE 8-9
+F-115;Female;3;Hip Abduction Machine (Heavy Weight, Short Range);3;12-15;60s;RPE 9
+F-115;Female;4;Curtsy Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-115;Female;5;Hack Squat Machine (Medium Stance, Low Depth);3-4;6-8;120s;RPE 8-9
+F-115;Female;6;Running (Treadmill);3;12-15;60s;RPE 9
+F-116;Female;1;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-116;Female;2;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-116;Female;3;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-116;Female;4;Weighted Sissy Squat;3-4;6-8;120s;RPE 8-9
+F-116;Female;5;Cable Kickback (Gluteus Medius Focus, Side-Angled);3;12-15;60s;RPE 9
+F-116;Female;6;Heavy Bag Thrust;3;12-15;60s;RPE 9
+F-117;Female;1;Glute Bridge March;3;12-15;60s;RPE 9
+F-117;Female;2;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-117;Female;3;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+F-117;Female;4;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+F-117;Female;5;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-117;Female;6;Cable Curl (Low Pulley, Rope Attachment, Hammer Grip);3;12-15;60s;RPE 9
+F-118;Female;1;Dumbbell Deadlift (Stiff-Legged, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-118;Female;2;Dumbbell One-Arm Triceps Extension;3;12-15;60s;RPE 9
+F-118;Female;3;Dumbbell Sumo Deadlift (Deficit, Pause Reps);3-4;6-8;120s;RPE 8-9
+F-118;Female;4;Safety Bar Squat;3-4;6-8;120s;RPE 8-9
+F-118;Female;5;Trap Bar Deadlift;3-4;6-8;120s;RPE 8-9
+F-118;Female;6;Front Box Jump;3;12-15;60s;RPE 9
+F-119;Female;1;Hack Squat Machine (Wide Stance, High Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-119;Female;2;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-119;Female;3;Weighted Sissy Squat;3-4;6-8;120s;RPE 8-9
+F-119;Female;4;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-119;Female;5;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-119;Female;6;Dumbbell Incline Press (Light Weight, High Rep);3-4;6-8;120s;RPE 8-9
+F-120;Female;1;Machine Seated Curl (Wide Stance, High Rep);3;12-15;60s;RPE 9
+F-120;Female;2;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-120;Female;3;Dumbbell Bulgarian Split Squat;3-4;6-8;120s;RPE 8-9
+F-120;Female;4;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-120;Female;5;Single-Leg Hip Abduction (Cable, Standing, High Rep);3;12-15;60s;RPE 9
+F-120;Female;6;Barbell Reverse Curl (Standing, Wide Grip);3;12-15;60s;RPE 9
+F-121;Female;1;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-121;Female;2;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-121;Female;3;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+F-121;Female;4;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-121;Female;5;Single-Leg RDL (Kettlebell, Pause at Bottom, Tempo Negative);3;12-15;60s;RPE 9
+F-121;Female;6;Lat Pulldown (Neutral Grip);3;12-15;60s;RPE 9
+F-122;Female;1;Machine Hip Abduction (Torso Erect, Pause at Peak);3;12-15;60s;RPE 9
+F-122;Female;2;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-122;Female;3;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-122;Female;4;Smith Machine Lunge (Rear Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-122;Female;5;Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-122;Female;6;Barbell Curl;3;12-15;60s;RPE 9
+F-123;Female;1;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-123;Female;2;Machine Seated Curl (Wide Stance, High Rep);3;12-15;60s;RPE 9
+F-123;Female;3;Leg Extension (Single-Leg, Pause at Top);3;12-15;60s;RPE 9
+F-123;Female;4;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+F-123;Female;5;Kang Squat;3-4;6-8;120s;RPE 8-9
+F-123;Female;6;Dumbbell Floor Press (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+F-124;Female;1;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-124;Female;2;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-124;Female;3;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-124;Female;4;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-124;Female;5;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-124;Female;6;Rope Hammer Curl;3;12-15;60s;RPE 9
+F-125;Female;1;Single-Leg RDL (Kettlebell, Contralateral Hold);3;12-15;60s;RPE 9
+F-125;Female;2;Machine Hack Squat (Medium Stance, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-125;Female;3;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-125;Female;4;Barbell Glute Bridge (Wide Stance, Banded, Peak Contraction);3;12-15;60s;RPE 9
+F-125;Female;5;Cable Romanian Deadlift (V-Bar, Wide Stance);3-4;6-8;120s;RPE 8-9
+F-125;Female;6;Dumbbell Bench Press (Heavy Load, Decline, Low Rep);3-4;6-8;120s;RPE 8-9
+F-126;Female;1;Plie Squat;3-4;6-8;120s;RPE 8-9
+F-126;Female;2;Cable Step-Up;3;12-15;60s;RPE 9
+F-126;Female;3;Barbell Front Squat (High Bar, Deep Depth);3-4;6-8;120s;RPE 8-9
+F-126;Female;4;Landmine Lateral Lunge;3;12-15;60s;RPE 9
+F-126;Female;5;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-126;Female;6;Cable Lateral Raise (Behind the Body);3;12-15;60s;RPE 9
+F-127;Female;1;Kneeling Jump Squat;3-4;6-8;120s;RPE 8-9
+F-127;Female;2;Step-Up (Dumbbell);3;12-15;60s;RPE 9
+F-127;Female;3;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-127;Female;4;Pause Squat;3-4;6-8;120s;RPE 8-9
+F-127;Female;5;Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-127;Female;6;Single-Arm Cable Row (Overhand Grip, Mid-Width);3;12-15;60s;RPE 9
+F-128;Female;1;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+F-128;Female;2;Zercher Deadlift;3-4;6-8;120s;RPE 8-9
+F-128;Female;3;Glute Bridge (Banded, Heels Elevated, Pause at Peak);3;12-15;60s;RPE 9
+F-128;Female;4;Dumbbell Sumo Squat (High Volume, Pulse Reps at Bottom);3-4;6-8;120s;RPE 8-9
+F-128;Female;5;Glute Bridge (Banded, Heels Elevated, Pause at Peak);3;12-15;60s;RPE 9
+F-128;Female;6;Air Bike;3;12-15;60s;RPE 9
+F-129;Female;1;Single-Leg Romanian Deadlift (Dumbbell, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-129;Female;2;Dumbbell Overhead Extension (Seated);3;12-15;60s;RPE 9
+F-129;Female;3;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+F-129;Female;4;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+F-129;Female;5;Machine Hack Squat (Narrow Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-129;Female;6;Straight-Arm Pulldown;3;12-15;60s;RPE 9
+F-130;Female;1;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-130;Female;2;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+F-130;Female;3;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-130;Female;4;Leg Extension (Banded, Pulse Reps);3;12-15;60s;RPE 9
+F-130;Female;5;Frog Pump;3;12-15;60s;RPE 9
+F-130;Female;6;Dumbbell Bench Press (Decline, High Rep);3-4;6-8;120s;RPE 8-9
+F-131;Female;1;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-131;Female;2;Weighted Sissy Squat;3-4;6-8;120s;RPE 8-9
+F-131;Female;3;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-131;Female;4;Narrow Stance Hack Squat;3-4;6-8;120s;RPE 8-9
+F-131;Female;5;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-131;Female;6;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+F-132;Female;1;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-132;Female;2;Landmine RDL;3;12-15;60s;RPE 9
+F-132;Female;3;Landmine Lateral Lunge;3;12-15;60s;RPE 9
+F-132;Female;4;Box Squat;3-4;6-8;120s;RPE 8-9
+F-132;Female;5;Cable Donkey Kick;3;12-15;60s;RPE 9
+F-132;Female;6;Cable Triceps Pushdown (Straight Bar, Band-Resisted);3;12-15;60s;RPE 9
+F-133;Female;1;Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-133;Female;2;Dumbbell Sumo Squat;3-4;6-8;120s;RPE 8-9
+F-133;Female;3;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-133;Female;4;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-133;Female;5;Sumo Deadlift;3-4;6-8;120s;RPE 8-9
+F-133;Female;6;EZ-Bar Curl (Preacher Curl, Close Grip);3;12-15;60s;RPE 9
+F-134;Female;1;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+F-134;Female;2;Landmine Squat;3-4;6-8;120s;RPE 8-9
+F-134;Female;3;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+F-134;Female;4;Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-134;Female;5;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+F-134;Female;6;Dumbbell Bench Press (Heavy Load, Decline, Low Rep);3-4;6-8;120s;RPE 8-9
+F-135;Female;1;Hurdle Hops;3;12-15;60s;RPE 9
+F-135;Female;2;Goblet Squat;3-4;6-8;120s;RPE 8-9
+F-135;Female;3;Sumo Deadlift (Barbell, Pause Below Knee);3-4;6-8;120s;RPE 8-9
+F-135;Female;4;Slider Lateral Lunge;3;12-15;60s;RPE 9
+F-135;Female;5;Dumbbell One-Arm Triceps Extension;3;12-15;60s;RPE 9
+F-135;Female;6;EZ Bar Skullcrusher;3;12-15;60s;RPE 9
+F-136;Female;1;Single-Leg Box Squat;3-4;6-8;120s;RPE 8-9
+F-136;Female;2;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+F-136;Female;3;Barbell Lunge;3;12-15;60s;RPE 9
+F-136;Female;4;Pin Squat;3-4;6-8;120s;RPE 8-9
+F-136;Female;5;Poliquin Step-Up;3;12-15;60s;RPE 9
+F-136;Female;6;Single-Arm Cable Row (Overhand Grip, Mid-Width);3;12-15;60s;RPE 9
+F-137;Female;1;Pin Squat;3-4;6-8;120s;RPE 8-9
+F-137;Female;2;Barbell Reverse Lunge (Glute Focus, Forward Lean);3;12-15;60s;RPE 9
+F-137;Female;3;Zercher Lunge;3;12-15;60s;RPE 9
+F-137;Female;4;Landmine Hack Squat;3-4;6-8;120s;RPE 8-9
+F-137;Female;5;Slider Lateral Lunge;3;12-15;60s;RPE 9
+F-137;Female;6;Face Pull (Neutral Grip, Low Pulley);3;12-15;60s;RPE 9
+F-138;Female;1;Landmine RDL;3;12-15;60s;RPE 9
+F-138;Female;2;Single-Leg RDL (Dumbbell, Pulse Reps);3;12-15;60s;RPE 9
+F-138;Female;3;Glute Bridge (Banded, Heels Elevated);3;12-15;60s;RPE 9
+F-138;Female;4;Kneeling Jump Squat;3-4;6-8;120s;RPE 8-9
+F-138;Female;5;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-138;Female;6;High Pull;3;12-15;60s;RPE 9
+F-139;Female;1;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported);3-4;6-8;120s;RPE 8-9
+F-139;Female;2;Landmine Curtsy Lunge;3;12-15;60s;RPE 9
+F-139;Female;3;Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load);3-4;6-8;120s;RPE 8-9
+F-139;Female;4;Machine Hip Abduction (Torso Erect, Pause at Peak);3;12-15;60s;RPE 9
+F-139;Female;5;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-139;Female;6;Alternate Heel Touchers;3;12-15;60s;RPE 9
+F-140;Female;1;Cable Step-Up;3;12-15;60s;RPE 9
+F-140;Female;2;Cable Adduction (Standing, Contralateral Hold);3;12-15;60s;RPE 9
+F-140;Female;3;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-140;Female;4;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-140;Female;5;Reverse Hyperextension;3;12-15;60s;RPE 9
+F-140;Female;6;Frog Hops;3;12-15;60s;RPE 9
+F-141;Female;1;Kas Glute Bridge;3;12-15;60s;RPE 9
+F-141;Female;2;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+F-141;Female;3;Machine Hack Squat (Wide Stance, High Rep);3-4;6-8;120s;RPE 8-9
+F-141;Female;4;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+F-141;Female;5;Hip Abduction Machine (Heavy Weight, Short Range);3;12-15;60s;RPE 9
+F-141;Female;6;Face Pull (Neutral Grip, Low Pulley);3;12-15;60s;RPE 9
+F-142;Female;1;Landmine RDL;3;12-15;60s;RPE 9
+F-142;Female;2;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-142;Female;3;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-142;Female;4;Machine Hack Squat (Medium Stance, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-142;Female;5;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-142;Female;6;Cable Curl (Low Pulley, D-Handle, Single-Arm);3;12-15;60s;RPE 9
+F-143;Female;1;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+F-143;Female;2;Hyperextension (Weighted, Glute Focus, High Rep);3;12-15;60s;RPE 9
+F-143;Female;3;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+F-143;Female;4;Hack Squat Machine (Wide Stance, High Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-143;Female;5;Dumbbell Lunge;3;12-15;60s;RPE 9
+F-143;Female;6;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+F-144;Female;1;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-144;Female;2;Dumbbell Goblet Squat (Banded, Feet Turned Out);3-4;6-8;120s;RPE 8-9
+F-144;Female;3;Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-144;Female;4;Fire Hydrant (Weighted);3;12-15;60s;RPE 9
+F-144;Female;5;Barbell Glute Bridge (Banded, Slow Eccentric);3;12-15;60s;RPE 9
+F-144;Female;6;Cable Curl (Low Pulley, D-Handle, Single-Arm);3;12-15;60s;RPE 9
+F-145;Female;1;Glute Bridge March;3;12-15;60s;RPE 9
+F-145;Female;2;Single-Leg RDL (Kettlebell, Pause at Bottom, Tempo Negative);3;12-15;60s;RPE 9
+F-145;Female;3;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+F-145;Female;4;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-145;Female;5;Reverse Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-145;Female;6;Cable Curl (Low Pulley, Straight Bar, Wide Grip);3;12-15;60s;RPE 9
+F-146;Female;1;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-146;Female;2;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+F-146;Female;3;Dumbbell Goblet Squat (Elevated Heels);3-4;6-8;120s;RPE 8-9
+F-146;Female;4;Step-Up (Dumbbell);3;12-15;60s;RPE 9
+F-146;Female;5;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-146;Female;6;Dead Bug;3;12-15;60s;RPE 9
+F-147;Female;1;Barbell Step-Ups (Explosive, High Box, Tempo Negative);3;12-15;60s;RPE 9
+F-147;Female;2;Single-Leg RDL (Kettlebell, Contralateral Hold);3;12-15;60s;RPE 9
+F-147;Female;3;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+F-147;Female;4;Barbell Reverse Lunge (Deficit, Pause at Bottom);3;12-15;60s;RPE 9
+F-147;Female;5;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+F-147;Female;6;Glute Ham Raise (GHR);3;12-15;60s;RPE 9
+F-148;Female;1;Smith Machine Lunge (Rear Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-148;Female;2;Seated Abduction Machine (Forward Lean);3;12-15;60s;RPE 9
+F-148;Female;3;Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-148;Female;4;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+F-148;Female;5;Dumbbell Bulgarian Split Squat (Front Foot Elevated);3-4;6-8;120s;RPE 8-9
+F-148;Female;6;Barbell Bent-Over Row (Wide Grip, Pause at Peak);3;12-15;60s;RPE 9
+F-149;Female;1;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+F-149;Female;2;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+F-149;Female;3;Dumbbell Goblet Squat (Elevated Heels, High Rep);3-4;6-8;120s;RPE 8-9
+F-149;Female;4;Barbell Hack Squat;3-4;6-8;120s;RPE 8-9
+F-149;Female;5;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+F-149;Female;6;Dynamic Back Stretch;3;12-15;60s;RPE 9
+F-150;Female;1;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+F-150;Female;2;Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+F-150;Female;3;Hip Abduction Machine (Heavy Weight, Short Range);3;12-15;60s;RPE 9
+F-150;Female;4;Smith Machine Lunge (Rear Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+F-150;Female;5;Machine Hip Abduction (Torso Erect, Pause at Peak);3;12-15;60s;RPE 9
+F-150;Female;6;Prone Manual Hamstring Stretch;3;12-15;60s;RPE 9
+M-001;Male;1;Seated Dumbbell Overhead Triceps Extension;3;12-15;60s;RPE 9
+M-001;Male;2;EZ-Bar Curl (Preacher Curl, Wide Grip, Tempo Negative);3;12-15;60s;RPE 9
+M-001;Male;3;Dumbbell Press (Incline, Supinated Grip);3-4;6-8;120s;RPE 8-9
+M-001;Male;4;Ahrens Press;3-4;6-8;120s;RPE 8-9
+M-001;Male;5;Iron Cross Stretch;3;12-15;60s;RPE 9
+M-001;Male;6;Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep);3-4;6-8;120s;RPE 8-9
+M-002;Male;1;Cable Triceps Kickback (Standing, Pause at Peak);3;12-15;60s;RPE 9
+M-002;Male;2;Seated Cable Reverse Fly (Low Pulley, Seated);3;12-15;60s;RPE 9
+M-002;Male;3;Alternating Floor Press;3-4;6-8;120s;RPE 8-9
+M-002;Male;4;Svend Press;3-4;6-8;120s;RPE 8-9
+M-002;Male;5;EZ-Bar Curl (Reverse Grip, Standing, Pause at Peak);3;12-15;60s;RPE 9
+M-002;Male;6;Cable Donkey Kick;3;12-15;60s;RPE 9
+M-003;Male;1;Lat Pulldown (Wide Grip, Behind the Neck);3;12-15;60s;RPE 9
+M-003;Male;2;Lat Pulldown (Wide Grip);3;12-15;60s;RPE 9
+M-003;Male;3;Overhead Press (Dumbbell, Standing, Alternating, Low Rep);3-4;6-8;120s;RPE 8-9
+M-003;Male;4;Cable Triceps Kickback (Standing, Pause at Peak);3;12-15;60s;RPE 9
+M-003;Male;5;Kroc Row;3;12-15;60s;RPE 9
+M-003;Male;6;Landmine Lateral Lunge;3;12-15;60s;RPE 9
+M-004;Male;1;Calf Stretch (Elbows Against Wall);3;12-15;60s;RPE 9
+M-004;Male;2;Cable Rear Delt Row (Underhand Grip, Low Pulley);3;12-15;60s;RPE 9
+M-004;Male;3;Weighted Cable Crunch (High Pulley, Heavy Load);3;12-15;60s;RPE 9
+M-004;Male;4;EZ Bar Skullcrusher;3;12-15;60s;RPE 9
+M-004;Male;5;Decline Barbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-004;Male;6;Landmine RDL;3;12-15;60s;RPE 9
+M-005;Male;1;Dumbbell Flyes;3;12-15;60s;RPE 9
+M-005;Male;2;Iron Cross Stretch;3;12-15;60s;RPE 9
+M-005;Male;3;Cable Triceps Kickback (Kneeling, Rope Attachment);3;12-15;60s;RPE 9
+M-005;Male;4;Single-Arm Dumbbell Row (Kneeling, Rotation Focus);3;12-15;60s;RPE 9
+M-005;Male;5;Machine Bench Press;3-4;6-8;120s;RPE 8-9
+M-005;Male;6;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-006;Male;1;Standing Military Press;3-4;6-8;120s;RPE 8-9
+M-006;Male;2;Overhead Press (Dumbbell, Seated, Alternating);3-4;6-8;120s;RPE 8-9
+M-006;Male;3;Reverse Grip Triceps Pushdown;3;12-15;60s;RPE 9
+M-006;Male;4;Seated Cable Reverse Fly (High Pulley);3;12-15;60s;RPE 9
+M-006;Male;5;Dumbbell Shoulder Press (Seated, Neutral Grip, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-006;Male;6;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+M-007;Male;1;Kettlebell Swing (Vertical Swing);3;12-15;60s;RPE 9
+M-007;Male;2;Preacher Curl (EZ Bar);3;12-15;60s;RPE 9
+M-007;Male;3;Ankle on the Knee;3;12-15;60s;RPE 9
+M-007;Male;4;Cable Curl (Low Pulley, D-Handle, Single-Arm);3;12-15;60s;RPE 9
+M-007;Male;5;Triceps Extension (Overhead, Cable, Rope, Pause at Peak);3;12-15;60s;RPE 9
+M-007;Male;6;Dumbbell Deadlift (Stiff-Legged, Heavy Load, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-008;Male;1;Cable Rear Delt Row (Rope Attachment, Face-Pull Height, Tempo Negative);3;12-15;60s;RPE 9
+M-008;Male;2;Z Press;3-4;6-8;120s;RPE 8-9
+M-008;Male;3;Swiss Ball Leg Curl;3;12-15;60s;RPE 9
+M-008;Male;4;Kettlebell Upright Row (Narrow Grip);3;12-15;60s;RPE 9
+M-008;Male;5;Weighted Plank (Long Hold);3;12-15;60s;RPE 9
+M-008;Male;6;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+M-009;Male;1;Zottman Curl;3;12-15;60s;RPE 9
+M-009;Male;2;Cable Crossover (High Pulley, Single-Arm, Pause);3;12-15;60s;RPE 9
+M-009;Male;3;French Press;3-4;6-8;120s;RPE 8-9
+M-009;Male;4;Lat Pulldown (Single-Arm, Neutral Grip, Kneeling);3;12-15;60s;RPE 9
+M-009;Male;5;Cable Crossover (Low-to-High, High Rep, Max Pump);3;12-15;60s;RPE 9
+M-009;Male;6;Hyperextension (Weighted, Glute Focus, High Rep);3;12-15;60s;RPE 9
+M-010;Male;1;Air Bike;3;12-15;60s;RPE 9
+M-010;Male;2;Deep Sissy Squat (Bodyweight, Fixed Foot Position);3-4;6-8;120s;RPE 8-9
+M-010;Male;3;Dumbbell Shoulder Press (Seated, Alternating, High Rep);3-4;6-8;120s;RPE 8-9
+M-010;Male;4;Single-Arm Dumbbell Row (Kneeling, Rotation Focus);3;12-15;60s;RPE 9
+M-010;Male;5;Farmer's Carry;3;12-15;60s;RPE 9
+M-010;Male;6;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+M-011;Male;1;Cable Triceps Pushdown (V-Bar, Heavy Load);3;12-15;60s;RPE 9
+M-011;Male;2;Child’s Pose;3;12-15;60s;RPE 9
+M-011;Male;3;Bradford Press;3-4;6-8;120s;RPE 8-9
+M-011;Male;4;Kettlebell Upright Row (Narrow Grip);3;12-15;60s;RPE 9
+M-011;Male;5;Barbell Incline Shoulder Raise;3;12-15;60s;RPE 9
+M-011;Male;6;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+M-012;Male;1;Dumbbell Floor Press (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+M-012;Male;2;Seated Cable Reverse Fly (Low Pulley, Seated);3;12-15;60s;RPE 9
+M-012;Male;3;Dumbbell Bench Press (Decline, High Rep);3-4;6-8;120s;RPE 8-9
+M-012;Male;4;Single-Arm Dumbbell Row (Chest Supported);3;12-15;60s;RPE 9
+M-012;Male;5;Reverse Pec Deck;3;12-15;60s;RPE 9
+M-012;Male;6;Single-Leg Box Squat;3-4;6-8;120s;RPE 8-9
+M-013;Male;1;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-013;Male;2;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-013;Male;3;Close-Grip Push-Up;3;12-15;60s;RPE 9
+M-013;Male;4;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-013;Male;5;Butterfly Stretch;3;12-15;60s;RPE 9
+M-013;Male;6;Single-Leg RDL (Dumbbell, Pulse Reps);3;12-15;60s;RPE 9
+M-014;Male;1;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-014;Male;2;Single-Arm Push-Up;3;12-15;60s;RPE 9
+M-014;Male;3;Chin to Chest Stretch;3;12-15;60s;RPE 9
+M-014;Male;4;Deep Sissy Squat (Bodyweight, Fixed Foot Position);3-4;6-8;120s;RPE 8-9
+M-014;Male;5;Rocket Jump;3;12-15;60s;RPE 9
+M-014;Male;6;Hyperextensions;3;12-15;60s;RPE 9
+M-015;Male;1;Dumbbell Lateral Raise (Lying Incline, Low Rep);3;12-15;60s;RPE 9
+M-015;Male;2;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+M-015;Male;3;Cable Crossover (High Pulley, Single-Arm, Pause);3;12-15;60s;RPE 9
+M-015;Male;4;Groiners;3;12-15;60s;RPE 9
+M-015;Male;5;Heavy Bag Thrust;3;12-15;60s;RPE 9
+M-015;Male;6;Single-Leg Box Squat;3-4;6-8;120s;RPE 8-9
+M-016;Male;1;Preacher Curl (Single-Arm, Cable, Low Pulley, Pause at Peak);3;12-15;60s;RPE 9
+M-016;Male;2;Zottman Curl (Standing);3;12-15;60s;RPE 9
+M-016;Male;3;Kelso Shrug;3;12-15;60s;RPE 9
+M-016;Male;4;Cable Face Pull with External Rotation;3;12-15;60s;RPE 9
+M-016;Male;5;Brachialis SMR;3;12-15;60s;RPE 9
+M-016;Male;6;Cable Side Kick (Standing, Flexed Foot);3;12-15;60s;RPE 9
+M-017;Male;1;Hamstring SMR;3;12-15;60s;RPE 9
+M-017;Male;2;Landmine Press;3-4;6-8;120s;RPE 8-9
+M-017;Male;3;Barbell Reverse Curl (Standing, Wide Grip);3;12-15;60s;RPE 9
+M-017;Male;4;Machine Chest Fly (Leaning Forward);3;12-15;60s;RPE 9
+M-017;Male;5;Backward Medicine Ball Throw;3;12-15;60s;RPE 9
+M-017;Male;6;Sumo Deadlift;3-4;6-8;120s;RPE 8-9
+M-018;Male;1;EZ-Bar Curl (Standing, Reverse Grip, Tempo Training);3;12-15;60s;RPE 9
+M-018;Male;2;Dumbbell Front Raise (Seated, Heavy Load);3;12-15;60s;RPE 9
+M-018;Male;3;Posterior Tibialis Stretch;3;12-15;60s;RPE 9
+M-018;Male;4;Smith Machine Overhead Press (Behind the Neck);3-4;6-8;120s;RPE 8-9
+M-018;Male;5;Barbell Reverse Curl (Standing, Wide Grip);3;12-15;60s;RPE 9
+M-018;Male;6;Step-Up (Dumbbell);3;12-15;60s;RPE 9
+M-019;Male;1;Bicycling;3;12-15;60s;RPE 9
+M-019;Male;2;Plyo Kettlebell Push-Up;3;12-15;60s;RPE 9
+M-019;Male;3;Running (Treadmill);3;12-15;60s;RPE 9
+M-019;Male;4;Single-Arm Cable Curl (Supinated Grip, High Pulley);3;12-15;60s;RPE 9
+M-019;Male;5;Lat Pulldown (V-Bar, Close Stance, Tempo Negative);3;12-15;60s;RPE 9
+M-019;Male;6;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+M-020;Male;1;Chest and Front Shoulder Stretch;3;12-15;60s;RPE 9
+M-020;Male;2;Overhead Press (Dumbbell, Standing, Strict, Pause at Peak);3-4;6-8;120s;RPE 8-9
+M-020;Male;3;Dumbbell Shoulder Press (Seated, Alternating, High Rep);3-4;6-8;120s;RPE 8-9
+M-020;Male;4;Yates Row;3;12-15;60s;RPE 9
+M-020;Male;5;Lat Pulldown (Neutral Grip);3;12-15;60s;RPE 9
+M-020;Male;6;Slider Lateral Lunge;3;12-15;60s;RPE 9
+M-021;Male;1;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-021;Male;2;Foot SMR;3;12-15;60s;RPE 9
+M-021;Male;3;Dumbbell Concentration Curl (Seated, Inner Thigh);3;12-15;60s;RPE 9
+M-021;Male;4;Dumbbell Front Raise (Standing, Tempo Training);3;12-15;60s;RPE 9
+M-021;Male;5;Dynamic Back Stretch;3;12-15;60s;RPE 9
+M-021;Male;6;Barbell Reverse Lunge (Glute Focus, Forward Lean);3;12-15;60s;RPE 9
+M-022;Male;1;Single-Arm Lat Pulldown;3;12-15;60s;RPE 9
+M-022;Male;2;Deep Sissy Squat (Bodyweight, Fixed Foot Position);3-4;6-8;120s;RPE 8-9
+M-022;Male;3;EZ-Bar Curl (Standing, Reverse Grip, Tempo Training);3;12-15;60s;RPE 9
+M-022;Male;4;Cable Lateral Raise (Behind the Body);3;12-15;60s;RPE 9
+M-022;Male;5;Cable Crossover (Low-to-High);3;12-15;60s;RPE 9
+M-022;Male;6;Cable Adduction (Standing, Contralateral Hold);3;12-15;60s;RPE 9
+M-023;Male;1;Finger Curls;3;12-15;60s;RPE 9
+M-023;Male;2;Chest Supported Rear Delt Row;3;12-15;60s;RPE 9
+M-023;Male;3;Preacher Curl (Single-Arm, Dumbbell);3;12-15;60s;RPE 9
+M-023;Male;4;Incline Hammer Curl (Cable, Rope Attachment);3;12-15;60s;RPE 9
+M-023;Male;5;Dumbbell Reverse Fly (Lying Incline, High Rep);3;12-15;60s;RPE 9
+M-023;Male;6;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+M-024;Male;1;Running (Treadmill);3;12-15;60s;RPE 9
+M-024;Male;2;Chair Lower Back Stretch;3;12-15;60s;RPE 9
+M-024;Male;3;Ankle Circles;3;12-15;60s;RPE 9
+M-024;Male;4;Barbell Bent-Over Row (Wide Grip, Pause at Peak);3;12-15;60s;RPE 9
+M-024;Male;5;Plyo Kettlebell Push-Up;3;12-15;60s;RPE 9
+M-024;Male;6;Barbell Side Split Squat;3-4;6-8;120s;RPE 8-9
+M-025;Male;1;Ankle on the Knee;3;12-15;60s;RPE 9
+M-025;Male;2;Frog Hops;3;12-15;60s;RPE 9
+M-025;Male;3;Bayesian Curl;3;12-15;60s;RPE 9
+M-025;Male;4;Dumbbell Shrug (Trap Bar Style, Neutral Grip);3;12-15;60s;RPE 9
+M-025;Male;5;Dumbbell Bench Press (Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-025;Male;6;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-026;Male;1;Wrist Roller;3;12-15;60s;RPE 9
+M-026;Male;2;Overhead Press (Dumbbell, Standing, Strict, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-026;Male;3;Running (Treadmill);3;12-15;60s;RPE 9
+M-026;Male;4;Triceps Extension (Overhead, Cable, Rope, Pause at Peak);3;12-15;60s;RPE 9
+M-026;Male;5;Cable Crossover;3;12-15;60s;RPE 9
+M-026;Male;6;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+M-027;Male;1;Cocoons;3;12-15;60s;RPE 9
+M-027;Male;2;Overhead Press (Dumbbell, Standing, Strict, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-027;Male;3;Seated Dumbbell Overhead Triceps Extension;3;12-15;60s;RPE 9
+M-027;Male;4;Cross Body Hammer Curl;3;12-15;60s;RPE 9
+M-027;Male;5;Cable Rear Delt Row (High Pulley, Single-Arm, Overhand, Tempo Negative);3;12-15;60s;RPE 9
+M-027;Male;6;Landmine Hack Squat;3-4;6-8;120s;RPE 8-9
+M-028;Male;1;Smith Machine Overhead Press (Behind the Neck);3-4;6-8;120s;RPE 8-9
+M-028;Male;2;Weighted Cable Crunch (High Pulley, Heavy Load);3;12-15;60s;RPE 9
+M-028;Male;3;Lat Pulldown (Neutral Grip, Close Bar, Pause at Peak);3;12-15;60s;RPE 9
+M-028;Male;4;Machine Chest Press (Neutral Grip, Heavy Load);3-4;6-8;120s;RPE 8-9
+M-028;Male;5;Preacher Curl (EZ Bar);3;12-15;60s;RPE 9
+M-028;Male;6;Lateral Lunge (Dumbbell);3;12-15;60s;RPE 9
+M-029;Male;1;Cable Crossover (High-to-Low, Low Rep Focus);3;12-15;60s;RPE 9
+M-029;Male;2;Dumbbell Bench Press (Heavy Load, Decline, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-029;Male;3;Butterfly Stretch;3;12-15;60s;RPE 9
+M-029;Male;4;Cable Lateral Raise (Behind the Body);3;12-15;60s;RPE 9
+M-029;Male;5;Mixed Grip Chin-Up;3;12-15;60s;RPE 9
+M-029;Male;6;Dumbbell Deadlift (Stiff-Legged, Heavy Load, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-030;Male;1;Dead Bug;3;12-15;60s;RPE 9
+M-030;Male;2;Barbell Guillotine Bench Press;3-4;6-8;120s;RPE 8-9
+M-030;Male;3;Intermediate Groin Stretch;3;12-15;60s;RPE 9
+M-030;Male;4;Single-Arm Cable Curl (Pronated Grip, High Pulley);3;12-15;60s;RPE 9
+M-030;Male;5;Cable Crossover (Low-to-High, High Rep, Max Pump);3;12-15;60s;RPE 9
+M-030;Male;6;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-031;Male;1;Dumbbell Shoulder Press;3-4;6-8;120s;RPE 8-9
+M-031;Male;2;French Press;3-4;6-8;120s;RPE 8-9
+M-031;Male;3;Dumbbell Pullover;3;12-15;60s;RPE 9
+M-031;Male;4;Incline Dumbbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-031;Male;5;Weighted Chin-Up (Overhand Grip, Wide Stance);3;12-15;60s;RPE 9
+M-031;Male;6;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-032;Male;1;Dumbbell Shoulder Press;3-4;6-8;120s;RPE 8-9
+M-032;Male;2;Renegade Row;3;12-15;60s;RPE 9
+M-032;Male;3;Kneeling Hip Flexor Stretch;3;12-15;60s;RPE 9
+M-032;Male;4;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+M-032;Male;5;Dumbbell Floor Press (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+M-032;Male;6;Single-Leg RDL (Dumbbell, Pulse Reps);3;12-15;60s;RPE 9
+M-033;Male;1;Guillotine Press (Dumbbell Variation);3-4;6-8;120s;RPE 8-9
+M-033;Male;2;EZ Bar Skullcrusher;3;12-15;60s;RPE 9
+M-033;Male;3;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+M-033;Male;4;Barbell Curl (Standing, Wide Grip, High Rep);3;12-15;60s;RPE 9
+M-033;Male;5;Cable Crossover (High-to-Low, Low Rep Focus);3;12-15;60s;RPE 9
+M-033;Male;6;Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load);3-4;6-8;120s;RPE 8-9
+M-034;Male;1;Scott Press;3-4;6-8;120s;RPE 8-9
+M-034;Male;2;Single-Arm Cable Extension (Overhead, Kneeling);3;12-15;60s;RPE 9
+M-034;Male;3;Weighted Cable Crunch (High Rep, Max Contraction);3;12-15;60s;RPE 9
+M-034;Male;4;Preacher Curl (Single-Arm, Cable, Low Pulley, Tempo);3;12-15;60s;RPE 9
+M-034;Male;5;Face Pull (Neutral Grip, Low Pulley);3;12-15;60s;RPE 9
+M-034;Male;6;Deficit Deadlift;3-4;6-8;120s;RPE 8-9
+M-035;Male;1;Incline Dumbbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-035;Male;2;Dumbbell Bench Press (Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-035;Male;3;Barbell Curl;3;12-15;60s;RPE 9
+M-035;Male;4;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-035;Male;5;Hammer Strength Chest Press;3-4;6-8;120s;RPE 8-9
+M-035;Male;6;Plie Squat;3-4;6-8;120s;RPE 8-9
+M-036;Male;1;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-036;Male;2;Incline Hammer Curl (Dumbbell);3;12-15;60s;RPE 9
+M-036;Male;3;Cable Rear Delt Row (High Pulley, Single-Arm, Neutral Grip);3;12-15;60s;RPE 9
+M-036;Male;4;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-036;Male;5;Dumbbell Dead Stop Row (Prone Bench);3;12-15;60s;RPE 9
+M-036;Male;6;Banded Clamshells;3;12-15;60s;RPE 9
+M-037;Male;1;Reverse Wrist Curl;3;12-15;60s;RPE 9
+M-037;Male;2;Dumbbell Pullover (Straight Arm, Across Bench);3;12-15;60s;RPE 9
+M-037;Male;3;Band Pull Apart;3;12-15;60s;RPE 9
+M-037;Male;4;Arnold Press (Seated, Dumbbell);3-4;6-8;120s;RPE 8-9
+M-037;Male;5;Dumbbell Pullover (Straight Arm, Across Bench);3;12-15;60s;RPE 9
+M-037;Male;6;Barbell Front Squat (High Bar, Deep Depth);3-4;6-8;120s;RPE 8-9
+M-038;Male;1;Machine Chest Press (Neutral Grip, Pause Reps);3-4;6-8;120s;RPE 8-9
+M-038;Male;2;EZ-Bar Curl (Standing, Reverse Grip, Pause at Peak);3;12-15;60s;RPE 9
+M-038;Male;3;Wide Grip Pull-Up;3;12-15;60s;RPE 9
+M-038;Male;4;Seated Dumbbell Overhead Triceps Extension;3;12-15;60s;RPE 9
+M-038;Male;5;Wide Grip Seated Cable Row;3;12-15;60s;RPE 9
+M-038;Male;6;Dumbbell Reverse Lunge (Rear Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+M-039;Male;1;Running (Treadmill);3;12-15;60s;RPE 9
+M-039;Male;2;Face Pull (Neutral Grip, Low Pulley);3;12-15;60s;RPE 9
+M-039;Male;3;Close-Grip Push-Up;3;12-15;60s;RPE 9
+M-039;Male;4;Cable Curl (Low Pulley, D-Handle, Single-Arm, Pause at Top);3;12-15;60s;RPE 9
+M-039;Male;5;EZ-Bar Curl (Preacher Curl, Reverse Grip, High Rep);3;12-15;60s;RPE 9
+M-039;Male;6;Dumbbell Bulgarian Split Squat;3-4;6-8;120s;RPE 8-9
+M-040;Male;1;Cable Crossover (Low-to-High);3;12-15;60s;RPE 9
+M-040;Male;2;Hamstring SMR;3;12-15;60s;RPE 9
+M-040;Male;3;Weighted Pull-Up;3;12-15;60s;RPE 9
+M-040;Male;4;Cable Row (Single-Arm, Supinated Grip);3;12-15;60s;RPE 9
+M-040;Male;5;Dumbbell Lateral Raise (Lying Incline, Pause at Peak);3;12-15;60s;RPE 9
+M-040;Male;6;Hyperextension (Weighted, Glute Focus, Tempo Negative);3;12-15;60s;RPE 9
+M-041;Male;1;Dumbbell Incline Press (Light Weight, High Rep);3-4;6-8;120s;RPE 8-9
+M-041;Male;2;Seated Cable Reverse Fly (High Pulley);3;12-15;60s;RPE 9
+M-041;Male;3;Overhead Press (Barbell, Standing, Strict Form);3-4;6-8;120s;RPE 8-9
+M-041;Male;4;Renegade Row;3;12-15;60s;RPE 9
+M-041;Male;5;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-041;Male;6;Dumbbell Deadlift (Stiff-Legged, Heavy Load);3-4;6-8;120s;RPE 8-9
+M-042;Male;1;Cable Row (Single-Arm, Supinated Grip);3;12-15;60s;RPE 9
+M-042;Male;2;Barbell Bench Press (Medium Grip);3-4;6-8;120s;RPE 8-9
+M-042;Male;3;Cable Rear Delt Row (Underhand Grip, Low Pulley);3;12-15;60s;RPE 9
+M-042;Male;4;Chair Upper Body Stretch;3;12-15;60s;RPE 9
+M-042;Male;5;Alternate Hammer Curl;3;12-15;60s;RPE 9
+M-042;Male;6;Dumbbell Goblet Squat (Tempo Training, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-043;Male;1;Barbell Bench Press (Medium Grip);3-4;6-8;120s;RPE 8-9
+M-043;Male;2;Single-Arm Push-Up;3;12-15;60s;RPE 9
+M-043;Male;3;French Press;3-4;6-8;120s;RPE 8-9
+M-043;Male;4;Cable Crossover (Low-to-High, High Rep, Max Pump);3;12-15;60s;RPE 9
+M-043;Male;5;Barbell Incline Shoulder Raise;3;12-15;60s;RPE 9
+M-043;Male;6;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+M-044;Male;1;Reverse Wrist Curl;3;12-15;60s;RPE 9
+M-044;Male;2;Hug Knees to Chest;3;12-15;60s;RPE 9
+M-044;Male;3;Svend Press;3-4;6-8;120s;RPE 8-9
+M-044;Male;4;Seated Cable Reverse Fly (Low Pulley, Seated);3;12-15;60s;RPE 9
+M-044;Male;5;Barbell Curl (Standing, Wide Grip, High Rep);3;12-15;60s;RPE 9
+M-044;Male;6;Single-Leg RDL (Dumbbell, Balance Focus, Eyes Closed);3;12-15;60s;RPE 9
+M-045;Male;1;Cross Body Hammer Curl;3;12-15;60s;RPE 9
+M-045;Male;2;French Press;3-4;6-8;120s;RPE 8-9
+M-045;Male;3;Weighted Pull-Up;3;12-15;60s;RPE 9
+M-045;Male;4;Dumbbell Reverse Fly (Lying Incline, High Rep);3;12-15;60s;RPE 9
+M-045;Male;5;Zottman Curl (Standing);3;12-15;60s;RPE 9
+M-045;Male;6;Barbell Deadlift;3-4;6-8;120s;RPE 8-9
+M-046;Male;1;Dumbbell Bench Press (Heavy Load, Wide Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-046;Male;2;Wide Grip Pull-Up;3;12-15;60s;RPE 9
+M-046;Male;3;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-046;Male;4;Cable Triceps Pushdown (Rope Attachment, Overhead, Kneeling);3;12-15;60s;RPE 9
+M-046;Male;5;Overhead Press (Dumbbell, Seated, High Rep);3-4;6-8;120s;RPE 8-9
+M-046;Male;6;Landmine RDL;3;12-15;60s;RPE 9
+M-047;Male;1;Dumbbell Dead Stop Row (Prone Bench);3;12-15;60s;RPE 9
+M-047;Male;2;Dumbbell Incline Press (Neutral Grip, High Rep);3-4;6-8;120s;RPE 8-9
+M-047;Male;3;Cable Crossover (Low Pulley, Wide Grip);3;12-15;60s;RPE 9
+M-047;Male;4;Incline Hammer Curl (Dumbbell);3;12-15;60s;RPE 9
+M-047;Male;5;Dumbbell Skullcrusher;3;12-15;60s;RPE 9
+M-047;Male;6;Poliquin Step-Up;3;12-15;60s;RPE 9
+M-048;Male;1;Cable Crossover (High Pulley, Single-Arm, Pause);3;12-15;60s;RPE 9
+M-048;Male;2;Dumbbell Front Raise (Incline Bench, Prone);3;12-15;60s;RPE 9
+M-048;Male;3;Face Pull;3;12-15;60s;RPE 9
+M-048;Male;4;Frog Hops;3;12-15;60s;RPE 9
+M-048;Male;5;Dumbbell Floor Press (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+M-048;Male;6;Axle Deadlift;3-4;6-8;120s;RPE 8-9
+M-049;Male;1;Kneeling Hip Flexor Stretch;3;12-15;60s;RPE 9
+M-049;Male;2;Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-049;Male;3;Chin to Chest Stretch;3;12-15;60s;RPE 9
+M-049;Male;4;Dumbbell Incline Press (Light Weight, High Rep);3-4;6-8;120s;RPE 8-9
+M-049;Male;5;Clean;3;12-15;60s;RPE 9
+M-049;Male;6;Dumbbell Deadlift (Stiff-Legged, Heavy Load, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-050;Male;1;Lat Pulldown (Wide Grip);3;12-15;60s;RPE 9
+M-050;Male;2;Swiss Ball Leg Curl;3;12-15;60s;RPE 9
+M-050;Male;3;Butterfly Stretch;3;12-15;60s;RPE 9
+M-050;Male;4;Running (Treadmill);3;12-15;60s;RPE 9
+M-050;Male;5;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+M-050;Male;6;Smith Machine Lunge (Rear Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+M-051;Male;1;Single-Arm Cable Curl (Pronated Grip, High Pulley);3;12-15;60s;RPE 9
+M-051;Male;2;Single-Arm Cable Curl (Supinated Grip, High Pulley);3;12-15;60s;RPE 9
+M-051;Male;3;Svend Press;3-4;6-8;120s;RPE 8-9
+M-051;Male;4;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-051;Male;5;Cable Pull-Through (Kneeling);3;12-15;60s;RPE 9
+M-051;Male;6;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+M-052;Male;1;Overhead Press (Dumbbell, Standing, Alternating, Low Rep);3-4;6-8;120s;RPE 8-9
+M-052;Male;2;Barbell Bent-Over Row (Wide Grip, Overhand, Tempo Negative);3;12-15;60s;RPE 9
+M-052;Male;3;EZ-Bar Curl (Preacher Curl, Close Grip);3;12-15;60s;RPE 9
+M-052;Male;4;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+M-052;Male;5;Stride Jump Crossover;3;12-15;60s;RPE 9
+M-052;Male;6;Dumbbell Bulgarian Split Squat;3-4;6-8;120s;RPE 8-9
+M-053;Male;1;Dumbbell Pullover;3;12-15;60s;RPE 9
+M-053;Male;2;Single-Arm Lat Pulldown;3;12-15;60s;RPE 9
+M-053;Male;3;Barbell Reverse Curl (Standing, Wide Grip);3;12-15;60s;RPE 9
+M-053;Male;4;EZ-Bar Curl (Reverse Grip, Standing, Pause at Peak);3;12-15;60s;RPE 9
+M-053;Male;5;Cable Pull-Over (Standing, Rope Attachment);3;12-15;60s;RPE 9
+M-053;Male;6;Cable Hyperextension (Rope Attachment, Glute Focus);3;12-15;60s;RPE 9
+M-054;Male;1;Alternating Floor Press;3-4;6-8;120s;RPE 8-9
+M-054;Male;2;Dumbbell Front Raise (Incline Bench, Prone, Tempo Negative);3;12-15;60s;RPE 9
+M-054;Male;3;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+M-054;Male;4;Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-054;Male;5;Machine Seated Row (Overhand Grip, Wide Handle);3;12-15;60s;RPE 9
+M-054;Male;6;Machine Seated Curl (Wide Stance, Slow Negative);3;12-15;60s;RPE 9
+M-055;Male;1;Cable Upright Row (Rope Attachment, Wide Pull);3;12-15;60s;RPE 9
+M-055;Male;2;Push Press;3-4;6-8;120s;RPE 8-9
+M-055;Male;3;Kneeling Hip Flexor Stretch;3;12-15;60s;RPE 9
+M-055;Male;4;Calf Stretch (Elbows Against Wall);3;12-15;60s;RPE 9
+M-055;Male;5;Face Pull;3;12-15;60s;RPE 9
+M-055;Male;6;Banded Hip Thrust;3;12-15;60s;RPE 9
+M-056;Male;1;Cable Crossover (Middle);3;12-15;60s;RPE 9
+M-056;Male;2;Cable Triceps Pushdown (V-Bar, Heavy Load);3;12-15;60s;RPE 9
+M-056;Male;3;Battling Ropes;3;12-15;60s;RPE 9
+M-056;Male;4;Chin to Chest Stretch;3;12-15;60s;RPE 9
+M-056;Male;5;Chin to Chest Stretch;3;12-15;60s;RPE 9
+M-056;Male;6;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+M-057;Male;1;Dumbbell Shoulder Press (Seated, Alternating, High Rep);3-4;6-8;120s;RPE 8-9
+M-057;Male;2;Hex Press;3-4;6-8;120s;RPE 8-9
+M-057;Male;3;EZ-Bar Curl (Preacher Curl, Wide Grip, Tempo Negative);3;12-15;60s;RPE 9
+M-057;Male;4;One-Arm Dumbbell Row;3;12-15;60s;RPE 9
+M-057;Male;5;Single-Arm Dumbbell Row (Chest Supported);3;12-15;60s;RPE 9
+M-057;Male;6;Machine Hip Abduction (Torso Erect, High Rep);3;12-15;60s;RPE 9
+M-058;Male;1;Wide Grip Seated Cable Row;3;12-15;60s;RPE 9
+M-058;Male;2;Cable Rear Delt Row (Neutral Grip, High Pulley);3;12-15;60s;RPE 9
+M-058;Male;3;Chest-Supported Dumbbell Row;3;12-15;60s;RPE 9
+M-058;Male;4;Cross Body Hammer Curl;3;12-15;60s;RPE 9
+M-058;Male;5;Anterior Tibialis SMR;3;12-15;60s;RPE 9
+M-058;Male;6;Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+M-059;Male;1;Cable Rear Delt Row (Neutral Grip, High Pulley);3;12-15;60s;RPE 9
+M-059;Male;2;Dynamic Back Stretch;3;12-15;60s;RPE 9
+M-059;Male;3;Lat Pulldown (V-Bar, Close Stance, Pause at Peak);3;12-15;60s;RPE 9
+M-059;Male;4;Reverse Grip Triceps Pushdown;3;12-15;60s;RPE 9
+M-059;Male;5;Dumbbell Front Raise (Incline Bench, Prone);3;12-15;60s;RPE 9
+M-059;Male;6;Cable Step-Up;3;12-15;60s;RPE 9
+M-060;Male;1;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+M-060;Male;2;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-060;Male;3;Dumbbell Bench Press (Heavy Load, Decline, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-060;Male;4;Box Jump (Multiple Response);3;12-15;60s;RPE 9
+M-060;Male;5;Seated Dumbbell Overhead Triceps Extension;3;12-15;60s;RPE 9
+M-060;Male;6;Dumbbell One-Arm Triceps Extension;3;12-15;60s;RPE 9
+M-061;Male;1;Rack Pull (Above Knee);3;12-15;60s;RPE 9
+M-061;Male;2;Single-Arm Cable Row (Overhand Grip, Mid-Width, Pause at Peak);3;12-15;60s;RPE 9
+M-061;Male;3;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+M-061;Male;4;Alternating Floor Press;3-4;6-8;120s;RPE 8-9
+M-061;Male;5;Smith Machine Bench Press (High Rep, Close Grip);3-4;6-8;120s;RPE 8-9
+M-061;Male;6;Cable Pull-Through (Rope, High Rep, Max Pump);3;12-15;60s;RPE 9
+M-062;Male;1;Chair Upper Body Stretch;3;12-15;60s;RPE 9
+M-062;Male;2;Single-Arm Dumbbell Row (Kneeling, Rotation Focus);3;12-15;60s;RPE 9
+M-062;Male;3;Hamstring SMR;3;12-15;60s;RPE 9
+M-062;Male;4;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-062;Male;5;Hex Press;3-4;6-8;120s;RPE 8-9
+M-062;Male;6;Cable Hyperextension (Rope Attachment, Glute Focus);3;12-15;60s;RPE 9
+M-063;Male;1;Single-Arm Dumbbell Row (Chest Supported);3;12-15;60s;RPE 9
+M-063;Male;2;Barbell Bench Press (Reverse Grip, Close Stance);3-4;6-8;120s;RPE 8-9
+M-063;Male;3;Barbell Curl (Standing, Wide Grip, High Rep);3;12-15;60s;RPE 9
+M-063;Male;4;Running (Treadmill);3;12-15;60s;RPE 9
+M-063;Male;5;Push Press;3-4;6-8;120s;RPE 8-9
+M-063;Male;6;Landmine RDL;3;12-15;60s;RPE 9
+M-064;Male;1;Atlas Stones;3;12-15;60s;RPE 9
+M-064;Male;2;Dumbbell Front Raise (Neutral Grip);3;12-15;60s;RPE 9
+M-064;Male;3;Brachialis SMR;3;12-15;60s;RPE 9
+M-064;Male;4;Dumbbell Shoulder Press (Seated, Alternating, High Rep);3-4;6-8;120s;RPE 8-9
+M-064;Male;5;Chest Supported Rear Delt Row;3;12-15;60s;RPE 9
+M-064;Male;6;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+M-065;Male;1;Dumbbell Front Raise (Seated, Heavy Load);3;12-15;60s;RPE 9
+M-065;Male;2;Chin to Chest Stretch;3;12-15;60s;RPE 9
+M-065;Male;3;Cable Cross Body Lateral Raise;3;12-15;60s;RPE 9
+M-065;Male;4;Dumbbell Press (Incline, Supinated Grip);3-4;6-8;120s;RPE 8-9
+M-065;Male;5;Iliotibial Tract SMR;3;12-15;60s;RPE 9
+M-065;Male;6;Single-Leg Romanian Deadlift (Dumbbell, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-066;Male;1;Hammer Strength Chest Press;3-4;6-8;120s;RPE 8-9
+M-066;Male;2;Cable Crossover (High Pulley, Single-Arm, Pause);3;12-15;60s;RPE 9
+M-066;Male;3;Hex Press;3-4;6-8;120s;RPE 8-9
+M-066;Male;4;Cable Rear Delt Row (High Pulley, Single-Arm, Neutral Grip);3;12-15;60s;RPE 9
+M-066;Male;5;EZ-Bar Curl (Reverse Grip, Standing, Pause at Peak);3;12-15;60s;RPE 9
+M-066;Male;6;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+M-067;Male;1;Single-Arm Cable Row (Overhand Grip, Mid-Width, Pause at Peak);3;12-15;60s;RPE 9
+M-067;Male;2;Two-Arm Kettlebell Row;3;12-15;60s;RPE 9
+M-067;Male;3;Zottman Curl;3;12-15;60s;RPE 9
+M-067;Male;4;Lat Pulldown (Wide Grip);3;12-15;60s;RPE 9
+M-067;Male;5;Weighted Chin-Up (Overhand Grip, Wide Stance);3;12-15;60s;RPE 9
+M-067;Male;6;Machine Hack Squat (Medium Stance, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-068;Male;1;Weighted Cable Crunch (High Pulley, Heavy Load);3;12-15;60s;RPE 9
+M-068;Male;2;Dumbbell Incline Press (Neutral Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-068;Male;3;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-068;Male;4;Svend Press;3-4;6-8;120s;RPE 8-9
+M-068;Male;5;Dumbbell Floor Press;3-4;6-8;120s;RPE 8-9
+M-068;Male;6;Zercher Lunge;3;12-15;60s;RPE 9
+M-069;Male;1;Floor Press (Dumbbell, Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-069;Male;2;Finger Curls;3;12-15;60s;RPE 9
+M-069;Male;3;High Pull;3;12-15;60s;RPE 9
+M-069;Male;4;Dumbbell Reverse Fly (Lying Incline, High Rep);3;12-15;60s;RPE 9
+M-069;Male;5;Chest-Supported Dumbbell Row;3;12-15;60s;RPE 9
+M-069;Male;6;Barbell Front Squat (High Bar, Deep Depth);3-4;6-8;120s;RPE 8-9
+M-070;Male;1;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-070;Male;2;Incline Barbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-070;Male;3;One-Arm Dumbbell Row;3;12-15;60s;RPE 9
+M-070;Male;4;Renegade Row;3;12-15;60s;RPE 9
+M-070;Male;5;Overhead Press (Dumbbell, Standing, Alternating, Low Rep);3-4;6-8;120s;RPE 8-9
+M-070;Male;6;Barbell Side Split Squat;3-4;6-8;120s;RPE 8-9
+M-071;Male;1;Wide Grip Pull-Up;3;12-15;60s;RPE 9
+M-071;Male;2;Dumbbell Bench Press (Heavy Load, Wide Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-071;Male;3;Dynamic Back Stretch;3;12-15;60s;RPE 9
+M-071;Male;4;Carioca Quick Step;3;12-15;60s;RPE 9
+M-071;Male;5;Intermediate Groin Stretch;3;12-15;60s;RPE 9
+M-071;Male;6;Cable Hyperextension (Rope Attachment, Glute Focus);3;12-15;60s;RPE 9
+M-072;Male;1;Ankle on the Knee;3;12-15;60s;RPE 9
+M-072;Male;2;Incline Pronated-Grip Dumbbell Press;3-4;6-8;120s;RPE 8-9
+M-072;Male;3;High Pull;3;12-15;60s;RPE 9
+M-072;Male;4;Dumbbell Bench Press (Decline, High Rep);3-4;6-8;120s;RPE 8-9
+M-072;Male;5;Renegade Row;3;12-15;60s;RPE 9
+M-072;Male;6;Kettlebell Pistol Squat;3-4;6-8;120s;RPE 8-9
+M-073;Male;1;Kelso Shrug;3;12-15;60s;RPE 9
+M-073;Male;2;Cable Crossover (Low-to-High);3;12-15;60s;RPE 9
+M-073;Male;3;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-073;Male;4;Lat Pulldown (Single-Arm, Kneeling);3;12-15;60s;RPE 9
+M-073;Male;5;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-073;Male;6;Dumbbell Overhead Extension (Seated);3;12-15;60s;RPE 9
+M-074;Male;1;Box Jump (Multiple Response);3;12-15;60s;RPE 9
+M-074;Male;2;Anterior Tibialis SMR;3;12-15;60s;RPE 9
+M-074;Male;3;Cable Rear Delt Row (Rope Attachment, Face-Pull Height, Tempo Negative);3;12-15;60s;RPE 9
+M-074;Male;4;Triceps Extension (Overhead, Dumbbell, Single-Arm);3;12-15;60s;RPE 9
+M-074;Male;5;Swiss Ball Leg Curl;3;12-15;60s;RPE 9
+M-074;Male;6;Static Lunge (Barbell);3;12-15;60s;RPE 9
+M-075;Male;1;Smith Machine Overhead Press (Front Rack, Seated);3-4;6-8;120s;RPE 8-9
+M-075;Male;2;Hamstring SMR;3;12-15;60s;RPE 9
+M-075;Male;3;Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-075;Male;4;Cable Pull-Through (Kneeling);3;12-15;60s;RPE 9
+M-075;Male;5;EZ-Bar Curl (Standing, Reverse Grip, Tempo Training);3;12-15;60s;RPE 9
+M-075;Male;6;Goblet Squat;3-4;6-8;120s;RPE 8-9
+M-076;Male;1;Bicycling;3;12-15;60s;RPE 9
+M-076;Male;2;Dumbbell Front Raise (Incline Bench, Prone);3;12-15;60s;RPE 9
+M-076;Male;3;Russian Twist;3;12-15;60s;RPE 9
+M-076;Male;4;Dumbbell Shoulder Press (Seated, Alternating, High Rep);3-4;6-8;120s;RPE 8-9
+M-076;Male;5;Dumbbell Lateral Raise (Lying Incline, High Rep);3;12-15;60s;RPE 9
+M-076;Male;6;Barbell Glute Bridge (Wide Stance, Banded, Peak Contraction);3;12-15;60s;RPE 9
+M-077;Male;1;Dumbbell Lateral Raise (Lying Incline, High Rep);3;12-15;60s;RPE 9
+M-077;Male;2;Running (Treadmill);3;12-15;60s;RPE 9
+M-077;Male;3;Posterior Tibialis Stretch;3;12-15;60s;RPE 9
+M-077;Male;4;Rack Pull;3;12-15;60s;RPE 9
+M-077;Male;5;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-077;Male;6;Cable Side Kick (Standing, Flexed Foot);3;12-15;60s;RPE 9
+M-078;Male;1;Groiners;3;12-15;60s;RPE 9
+M-078;Male;2;Cable Triceps Pushdown (Rope Attachment, Overhead, Kneeling);3;12-15;60s;RPE 9
+M-078;Male;3;Seated Cable Reverse Fly (High Pulley);3;12-15;60s;RPE 9
+M-078;Male;4;Incline Hammer Curl (Dumbbell);3;12-15;60s;RPE 9
+M-078;Male;5;Plyo Kettlebell Push-Up;3;12-15;60s;RPE 9
+M-078;Male;6;Machine Seated Curl (Wide Stance, Pause at Peak);3;12-15;60s;RPE 9
+M-079;Male;1;Rope Hammer Curl;3;12-15;60s;RPE 9
+M-079;Male;2;EZ-Bar Curl (Preacher Curl, Close Grip);3;12-15;60s;RPE 9
+M-079;Male;3;Cable Rear Delt Row (Rope Attachment, Face-Pull Height);3;12-15;60s;RPE 9
+M-079;Male;4;Single Cone Sprint Drill;3;12-15;60s;RPE 9
+M-079;Male;5;Lat Pulldown (V-Bar, Wide Stance);3;12-15;60s;RPE 9
+M-079;Male;6;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+M-080;Male;1;Dynamic Chest Stretch;3;12-15;60s;RPE 9
+M-080;Male;2;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-080;Male;3;Barbell Incline Shoulder Raise;3;12-15;60s;RPE 9
+M-080;Male;4;Rocket Jump;3;12-15;60s;RPE 9
+M-080;Male;5;Smith Machine Bench Press (High Rep, Close Grip);3-4;6-8;120s;RPE 8-9
+M-080;Male;6;Landmine Squat;3-4;6-8;120s;RPE 8-9
+M-081;Male;1;Cable Pull-Over (Standing, Rope Attachment);3;12-15;60s;RPE 9
+M-081;Male;2;Face Pull (Neutral Grip, Low Pulley);3;12-15;60s;RPE 9
+M-081;Male;3;Zottman Curl;3;12-15;60s;RPE 9
+M-081;Male;4;Seated Overhead Dumbbell Press;3-4;6-8;120s;RPE 8-9
+M-081;Male;5;Cable Curl (Low Pulley, Straight Bar, Wide Grip);3;12-15;60s;RPE 9
+M-081;Male;6;Cable Glute Kickback (Standing, Extended Range);3;12-15;60s;RPE 9
+M-082;Male;1;Cable Cross Body Lateral Raise;3;12-15;60s;RPE 9
+M-082;Male;2;Dumbbell Hammer Curl (Seated, High Rep);3;12-15;60s;RPE 9
+M-082;Male;3;Mixed Grip Chin-Up;3;12-15;60s;RPE 9
+M-082;Male;4;Bicycling;3;12-15;60s;RPE 9
+M-082;Male;5;EZ-Bar Curl (Preacher Curl, Close Grip);3;12-15;60s;RPE 9
+M-082;Male;6;Dumbbell Squat;3-4;6-8;120s;RPE 8-9
+M-083;Male;1;Barbell Guillotine Bench Press;3-4;6-8;120s;RPE 8-9
+M-083;Male;2;Atlas Stones;3;12-15;60s;RPE 9
+M-083;Male;3;Band Pull Apart;3;12-15;60s;RPE 9
+M-083;Male;4;Hug a Ball;3;12-15;60s;RPE 9
+M-083;Male;5;Dumbbell Front Raise (Incline Bench, Prone);3;12-15;60s;RPE 9
+M-083;Male;6;Reverse Hack Squat;3-4;6-8;120s;RPE 8-9
+M-084;Male;1;Lat Pulldown (V-Bar, Wide Stance);3;12-15;60s;RPE 9
+M-084;Male;2;Overhead Press (Dumbbell, Standing, Strict, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-084;Male;3;Cable Crossover (Low-to-High, Single-Arm);3;12-15;60s;RPE 9
+M-084;Male;4;Dumbbell Lateral Raise (Standing, Heavy, Low Rep);3;12-15;60s;RPE 9
+M-084;Male;5;Wide Grip Seated Cable Row;3;12-15;60s;RPE 9
+M-084;Male;6;Front Foot Elevated Split Squat;3-4;6-8;120s;RPE 8-9
+M-085;Male;1;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-085;Male;2;Egyptian Lateral Raise;3;12-15;60s;RPE 9
+M-085;Male;3;Cable Rear Delt Fly;3;12-15;60s;RPE 9
+M-085;Male;4;Bayesian Curl;3;12-15;60s;RPE 9
+M-085;Male;5;Machine Chest Press (Neutral Grip, Pause Reps);3-4;6-8;120s;RPE 8-9
+M-085;Male;6;Dumbbell Reverse Lunge (Rear Foot Elevated, Pause at Bottom);3;12-15;60s;RPE 9
+M-086;Male;1;Dumbbell Pullover (Straight Arm, Across Bench);3;12-15;60s;RPE 9
+M-086;Male;2;Lat Pulldown (Neutral Grip);3;12-15;60s;RPE 9
+M-086;Male;3;Smith Machine Shrug (Behind the Back);3;12-15;60s;RPE 9
+M-086;Male;4;Lat Pulldown (Neutral Grip, Close Bar, Pause at Peak);3;12-15;60s;RPE 9
+M-086;Male;5;Cable Cross Body Lateral Raise;3;12-15;60s;RPE 9
+M-086;Male;6;Barbell Full Squat;3-4;6-8;120s;RPE 8-9
+M-087;Male;1;Cable Crossover (Low Pulley, Wide Grip);3;12-15;60s;RPE 9
+M-087;Male;2;Cable Rear Delt Row (Single-Arm, High Pulley, Overhand);3;12-15;60s;RPE 9
+M-087;Male;3;Dumbbell Skullcrusher;3;12-15;60s;RPE 9
+M-087;Male;4;Decline Barbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-087;Male;5;EZ-Bar Curl (Preacher Curl, Reverse Grip, High Rep);3;12-15;60s;RPE 9
+M-087;Male;6;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+M-088;Male;1;Z Press;3-4;6-8;120s;RPE 8-9
+M-088;Male;2;Seated Cable Reverse Fly (High Pulley);3;12-15;60s;RPE 9
+M-088;Male;3;Dumbbell Lateral Raise (Lying Incline, Low Rep);3;12-15;60s;RPE 9
+M-088;Male;4;Incline Hammer Curl (Dumbbell);3;12-15;60s;RPE 9
+M-088;Male;5;Barbell Bent-Over Row (Wide Grip, Reverse Grip);3;12-15;60s;RPE 9
+M-088;Male;6;Glute Bridge (Banded, Heels Elevated);3;12-15;60s;RPE 9
+M-089;Male;1;Dumbbell Shoulder Press (Seated, Neutral Grip, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-089;Male;2;Cable Curl (Low Pulley, D-Handle, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-089;Male;3;Seated Cable Reverse Fly (High Pulley);3;12-15;60s;RPE 9
+M-089;Male;4;EZ-Bar Biceps Curl (Preacher Curl, Wide Grip);3;12-15;60s;RPE 9
+M-089;Male;5;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-089;Male;6;Fire Hydrant (Weighted);3;12-15;60s;RPE 9
+M-090;Male;1;Cable Pull-Over (Standing, Rope Attachment);3;12-15;60s;RPE 9
+M-090;Male;2;Hug a Ball;3;12-15;60s;RPE 9
+M-090;Male;3;Smith Machine Bench Press (Incline, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-090;Male;4;Dumbbell Incline Press (Neutral Grip, High Rep);3-4;6-8;120s;RPE 8-9
+M-090;Male;5;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-090;Male;6;Pause Squat;3-4;6-8;120s;RPE 8-9
+M-091;Male;1;Posterior Tibialis Stretch;3;12-15;60s;RPE 9
+M-091;Male;2;Cable Rear Delt Row (High Pulley, Single-Arm, Neutral Grip);3;12-15;60s;RPE 9
+M-091;Male;3;Barbell Curl (Standing, Wide Grip, High Rep);3;12-15;60s;RPE 9
+M-091;Male;4;Dumbbell Bench Press (Decline, High Rep);3-4;6-8;120s;RPE 8-9
+M-091;Male;5;Floor Press (Dumbbell, Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-091;Male;6;Zercher Lunge;3;12-15;60s;RPE 9
+M-092;Male;1;Chair Upper Body Stretch;3;12-15;60s;RPE 9
+M-092;Male;2;Stride Jump Crossover;3;12-15;60s;RPE 9
+M-092;Male;3;Cable Curl (Low Pulley, D-Handle, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-092;Male;4;Barbell Curl (Standing, Tempo Training);3;12-15;60s;RPE 9
+M-092;Male;5;Dumbbell Lateral Raise (Standing, Heavy, Low Rep);3;12-15;60s;RPE 9
+M-092;Male;6;Single-Leg RDL (Dumbbell, Deficit, Glute Focus);3;12-15;60s;RPE 9
+M-093;Male;1;Incline Pronated-Grip Dumbbell Press;3-4;6-8;120s;RPE 8-9
+M-093;Male;2;Mixed Grip Chin-Up;3;12-15;60s;RPE 9
+M-093;Male;3;Cable Rear Delt Row (Rope Attachment, Face-Pull Height);3;12-15;60s;RPE 9
+M-093;Male;4;Atlas Stones;3;12-15;60s;RPE 9
+M-093;Male;5;Overhead Press (Barbell, Standing, Strict Form);3-4;6-8;120s;RPE 8-9
+M-093;Male;6;Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+M-094;Male;1;Cable Rear Delt Row (Underhand Grip, Low Pulley, Pause at Peak);3;12-15;60s;RPE 9
+M-094;Male;2;Incline Hammer Curl (Cable, Rope Attachment);3;12-15;60s;RPE 9
+M-094;Male;3;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-094;Male;4;Chest Stretch on Stability Ball;3;12-15;60s;RPE 9
+M-094;Male;5;One-Arm Dumbbell Row;3;12-15;60s;RPE 9
+M-094;Male;6;Poliquin Step-Up;3;12-15;60s;RPE 9
+M-095;Male;1;Cable Crossover (High Pulley, Single-Arm, Pause);3;12-15;60s;RPE 9
+M-095;Male;2;Iron Cross Stretch;3;12-15;60s;RPE 9
+M-095;Male;3;Cable Row (Single-Arm, Supinated Grip);3;12-15;60s;RPE 9
+M-095;Male;4;EZ-Bar Curl (Preacher Curl, Reverse Grip, High Rep);3;12-15;60s;RPE 9
+M-095;Male;5;Barbell Bench Press (Reverse Grip, Close Stance);3-4;6-8;120s;RPE 8-9
+M-095;Male;6;Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative);3;12-15;60s;RPE 9
+M-096;Male;1;Dumbbell Pullover (Incline Bench, Straight Arm);3;12-15;60s;RPE 9
+M-096;Male;2;Preacher Curl (Single-Arm, Cable, Low Pulley, Pause at Peak);3;12-15;60s;RPE 9
+M-096;Male;3;Machine Chest Press (Neutral Grip, Pause Reps);3-4;6-8;120s;RPE 8-9
+M-096;Male;4;One-Arm Dumbbell Row;3;12-15;60s;RPE 9
+M-096;Male;5;Lat Pulldown (Single-Arm, Neutral Grip, Kneeling);3;12-15;60s;RPE 9
+M-096;Male;6;Cable Side Kick (Standing, Flexed Foot);3;12-15;60s;RPE 9
+M-097;Male;1;Dumbbell Shoulder Press;3-4;6-8;120s;RPE 8-9
+M-097;Male;2;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+M-097;Male;3;Anterior Tibialis SMR;3;12-15;60s;RPE 9
+M-097;Male;4;Preacher Curl (Single-Arm, Cable, Low Pulley, Tempo);3;12-15;60s;RPE 9
+M-097;Male;5;Preacher Curl (Single-Arm, Dumbbell, Pause at Peak);3;12-15;60s;RPE 9
+M-097;Male;6;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+M-098;Male;1;Dumbbell Shrug;3;12-15;60s;RPE 9
+M-098;Male;2;Hammer Strength Chest Press;3-4;6-8;120s;RPE 8-9
+M-098;Male;3;Dumbbell Clean and Press;3-4;6-8;120s;RPE 8-9
+M-098;Male;4;Dumbbell Bench Press (Heavy Load, Decline, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-098;Male;5;Clean;3;12-15;60s;RPE 9
+M-098;Male;6;Dumbbell Romanian Deadlift (RDL);3-4;6-8;120s;RPE 8-9
+M-099;Male;1;Lat Pulldown (V-Bar, Close Stance, Pause at Peak);3;12-15;60s;RPE 9
+M-099;Male;2;Cable Face Pull with External Rotation;3;12-15;60s;RPE 9
+M-099;Male;3;Side Lying Lateral Raise;3;12-15;60s;RPE 9
+M-099;Male;4;Single-Arm Cable Curl (Supinated Grip, High Pulley);3;12-15;60s;RPE 9
+M-099;Male;5;Cable Triceps Pushdown (V-Bar, Heavy Load);3;12-15;60s;RPE 9
+M-099;Male;6;Landmine Hack Squat;3-4;6-8;120s;RPE 8-9
+M-100;Male;1;Barbell Reverse Curl (Standing, Wide Grip);3;12-15;60s;RPE 9
+M-100;Male;2;Cable Cross Body Lateral Raise;3;12-15;60s;RPE 9
+M-100;Male;3;Single-Arm Cable Curl (High Pulley, Supinated Grip, Tempo);3;12-15;60s;RPE 9
+M-100;Male;4;Cable Triceps Kickback (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+M-100;Male;5;Single-Arm Cable Curl (Pronated Grip, High Pulley);3;12-15;60s;RPE 9
+M-100;Male;6;Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-101;Male;1;Cable Hip Adduction;3;12-15;60s;RPE 9
+M-101;Male;2;Cable Rear Delt Row (Underhand Grip, Low Pulley);3;12-15;60s;RPE 9
+M-101;Male;3;Dumbbell Hammer Curl (Seated, High Rep);3;12-15;60s;RPE 9
+M-101;Male;4;Battling Ropes;3;12-15;60s;RPE 9
+M-101;Male;5;Hamstring SMR;3;12-15;60s;RPE 9
+M-101;Male;6;Dumbbell Split Squat (Rear Foot Elevated, Close Stance, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-102;Male;1;Ab Roller;3;12-15;60s;RPE 9
+M-102;Male;2;Seated Machine Row (Underhand Grip);3;12-15;60s;RPE 9
+M-102;Male;3;Smith Machine Bench Press (High Rep, Close Grip);3-4;6-8;120s;RPE 8-9
+M-102;Male;4;Reverse Wrist Curl;3;12-15;60s;RPE 9
+M-102;Male;5;Machine Chest Fly (Leaning Forward);3;12-15;60s;RPE 9
+M-102;Male;6;Trap Bar Deadlift;3-4;6-8;120s;RPE 8-9
+M-103;Male;1;Foot SMR;3;12-15;60s;RPE 9
+M-103;Male;2;Alternating Floor Press;3-4;6-8;120s;RPE 8-9
+M-103;Male;3;Seal Row (Dumbbell, Prone Bench);3;12-15;60s;RPE 9
+M-103;Male;4;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-103;Male;5;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-103;Male;6;Cable Adduction (Standing, Heavy Load, Low Rep);3;12-15;60s;RPE 9
+M-104;Male;1;Arnold Press (Seated, Dumbbell);3-4;6-8;120s;RPE 8-9
+M-104;Male;2;High Pull;3;12-15;60s;RPE 9
+M-104;Male;3;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-104;Male;4;Z Press;3-4;6-8;120s;RPE 8-9
+M-104;Male;5;Dumbbell Bench Press (Decline, High Rep);3-4;6-8;120s;RPE 8-9
+M-104;Male;6;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported);3-4;6-8;120s;RPE 8-9
+M-105;Male;1;Arnold Press (Seated, Dumbbell);3-4;6-8;120s;RPE 8-9
+M-105;Male;2;Rear Delt Dumbbell Fly;3;12-15;60s;RPE 9
+M-105;Male;3;Dumbbell Dead Stop Row (Prone Bench);3;12-15;60s;RPE 9
+M-105;Male;4;Single-Arm Cable Curl (Supinated Grip, High Pulley);3;12-15;60s;RPE 9
+M-105;Male;5;Guillotine Press (Dumbbell Variation);3-4;6-8;120s;RPE 8-9
+M-105;Male;6;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+M-106;Male;1;Rack Pull (Above Knee);3;12-15;60s;RPE 9
+M-106;Male;2;EZ-Bar Curl (Preacher Curl, Close Grip);3;12-15;60s;RPE 9
+M-106;Male;3;Cable Pull-Over (Standing, Rope Attachment);3;12-15;60s;RPE 9
+M-106;Male;4;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-106;Male;5;Barbell Curl (Standing, Wide Grip, High Rep);3;12-15;60s;RPE 9
+M-106;Male;6;Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-107;Male;1;EZ Bar Skullcrusher;3;12-15;60s;RPE 9
+M-107;Male;2;EZ-Bar Curl (Preacher Curl, Wide Grip, Tempo Negative);3;12-15;60s;RPE 9
+M-107;Male;3;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-107;Male;4;One-Arm Dumbbell Row;3;12-15;60s;RPE 9
+M-107;Male;5;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-107;Male;6;Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep);3-4;6-8;120s;RPE 8-9
+M-108;Male;1;EZ-Bar Curl (Preacher Curl, Reverse Grip, High Rep);3;12-15;60s;RPE 9
+M-108;Male;2;Kettlebell Upright Row (Narrow Grip);3;12-15;60s;RPE 9
+M-108;Male;3;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+M-108;Male;4;Dumbbell Bench Press (Decline, High Rep);3-4;6-8;120s;RPE 8-9
+M-108;Male;5;Machine Seated Row (Overhand Grip, Wide Handle);3;12-15;60s;RPE 9
+M-108;Male;6;Hack Squat Machine (Wide Stance, High Foot, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-109;Male;1;Dumbbell Skullcrusher;3;12-15;60s;RPE 9
+M-109;Male;2;Cable Crossover (Low-to-High, High Rep, Max Pump);3;12-15;60s;RPE 9
+M-109;Male;3;Incline Pronated-Grip Dumbbell Press;3-4;6-8;120s;RPE 8-9
+M-109;Male;4;Cable Curl (Low Pulley, Straight Bar, Wide Grip);3;12-15;60s;RPE 9
+M-109;Male;5;Weighted Plank (Long Hold);3;12-15;60s;RPE 9
+M-109;Male;6;Pause Squat;3-4;6-8;120s;RPE 8-9
+M-110;Male;1;Cable Rear Delt Row (Rope Attachment, Face-Pull Height);3;12-15;60s;RPE 9
+M-110;Male;2;Zottman Curl (Standing);3;12-15;60s;RPE 9
+M-110;Male;3;Weighted Pull-Up;3;12-15;60s;RPE 9
+M-110;Male;4;Dumbbell Incline Press (Neutral Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-110;Male;5;Bicycling;3;12-15;60s;RPE 9
+M-110;Male;6;Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-111;Male;1;Glute Ham Raise (GHR);3;12-15;60s;RPE 9
+M-111;Male;2;Cable Hip Adduction;3;12-15;60s;RPE 9
+M-111;Male;3;Weighted Decline Sit-Up (High Rep, Max Pump);3;12-15;60s;RPE 9
+M-111;Male;4;Barbell Bent-Over Row (Wide Grip, Overhand, Tempo Negative);3;12-15;60s;RPE 9
+M-111;Male;5;Cable Triceps Kickback (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+M-111;Male;6;Donkey Kicks (Smith Machine);3;12-15;60s;RPE 9
+M-112;Male;1;Hug a Ball;3;12-15;60s;RPE 9
+M-112;Male;2;Neutral-Grip Pull-Up (Narrow Grip);3;12-15;60s;RPE 9
+M-112;Male;3;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+M-112;Male;4;Ankle Circles;3;12-15;60s;RPE 9
+M-112;Male;5;Weighted Decline Sit-Up (High Rep, Max Pump);3;12-15;60s;RPE 9
+M-112;Male;6;Dumbbell Goblet Squat (Elevated Heels, High Rep);3-4;6-8;120s;RPE 8-9
+M-113;Male;1;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-113;Male;2;Weighted Chin-Up (Overhand Grip, Wide Stance);3;12-15;60s;RPE 9
+M-113;Male;3;Weighted Pull-Up;3;12-15;60s;RPE 9
+M-113;Male;4;Cable Lateral Raise (Behind the Body);3;12-15;60s;RPE 9
+M-113;Male;5;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-113;Male;6;Hack Squat Machine (Narrow Stance, Low Rep Focus);3-4;6-8;120s;RPE 8-9
+M-114;Male;1;Weighted Chin-Up (Overhand Grip, Wide Stance);3;12-15;60s;RPE 9
+M-114;Male;2;Egyptian Lateral Raise;3;12-15;60s;RPE 9
+M-114;Male;3;Smith Machine Shrug (Front, Pause at Peak);3;12-15;60s;RPE 9
+M-114;Male;4;Underhand Cable Pulldown;3;12-15;60s;RPE 9
+M-114;Male;5;Lat Pulldown (Single-Arm, Neutral Grip, Kneeling);3;12-15;60s;RPE 9
+M-114;Male;6;Kas Glute Bridge;3;12-15;60s;RPE 9
+M-115;Male;1;Overhead Press (Dumbbell, Standing, Alternating, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-115;Male;2;Seated Overhead Dumbbell Press;3-4;6-8;120s;RPE 8-9
+M-115;Male;3;Dumbbell Lateral Raise (Lying Incline, Pause at Peak);3;12-15;60s;RPE 9
+M-115;Male;4;Kettlebell Upright Row (Narrow Grip);3;12-15;60s;RPE 9
+M-115;Male;5;Cable Row (Single-Arm, Supinated Grip);3;12-15;60s;RPE 9
+M-115;Male;6;Sumo Deadlift (Barbell, High Rep, Light Weight);3-4;6-8;120s;RPE 8-9
+M-116;Male;1;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-116;Male;2;Dumbbell Pullover;3;12-15;60s;RPE 9
+M-116;Male;3;Dumbbell Front Raise (Neutral Grip);3;12-15;60s;RPE 9
+M-116;Male;4;Machine Seated Row (Overhand Grip, Wide Handle);3;12-15;60s;RPE 9
+M-116;Male;5;Dynamic Back Stretch;3;12-15;60s;RPE 9
+M-116;Male;6;Cable Glute Kickback (Standing, Extended Range);3;12-15;60s;RPE 9
+M-117;Male;1;Front Cone Hops;3;12-15;60s;RPE 9
+M-117;Male;2;Smith Machine Overhead Press (Front Rack, Seated);3-4;6-8;120s;RPE 8-9
+M-117;Male;3;Calf Stretch (Hands Against Wall);3;12-15;60s;RPE 9
+M-117;Male;4;Dumbbell Shrug (Trap Bar Style, Neutral Grip);3;12-15;60s;RPE 9
+M-117;Male;5;Cable Rear Delt Row (Underhand Grip, Low Pulley);3;12-15;60s;RPE 9
+M-117;Male;6;Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep);3;12-15;60s;RPE 9
+M-118;Male;1;French Press;3-4;6-8;120s;RPE 8-9
+M-118;Male;2;Dumbbell Front Raise (Standing, Tempo Training);3;12-15;60s;RPE 9
+M-118;Male;3;Dumbbell Concentration Curl (Seated, High Rep, Long Head);3;12-15;60s;RPE 9
+M-118;Male;4;Rear Delt Dumbbell Fly;3;12-15;60s;RPE 9
+M-118;Male;5;French Press;3-4;6-8;120s;RPE 8-9
+M-118;Male;6;Cable Donkey Kick;3;12-15;60s;RPE 9
+M-119;Male;1;Cable Rear Delt Row (Underhand Grip, Low Pulley);3;12-15;60s;RPE 9
+M-119;Male;2;Ahrens Press;3-4;6-8;120s;RPE 8-9
+M-119;Male;3;Dumbbell Front Raise (Standing, Tempo Training);3;12-15;60s;RPE 9
+M-119;Male;4;Dumbbell Skullcrusher;3;12-15;60s;RPE 9
+M-119;Male;5;Calf Stretch (Elbows Against Wall);3;12-15;60s;RPE 9
+M-119;Male;6;Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-120;Male;1;Bicycling;3;12-15;60s;RPE 9
+M-120;Male;2;Dynamic Back Stretch;3;12-15;60s;RPE 9
+M-120;Male;3;Standing Military Press;3-4;6-8;120s;RPE 8-9
+M-120;Male;4;Barbell Bent-Over Row (Underhand Grip, Mid Stance);3;12-15;60s;RPE 9
+M-120;Male;5;Single-Arm Cable Extension (Overhead, Kneeling);3;12-15;60s;RPE 9
+M-120;Male;6;Cable Adduction (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+M-121;Male;1;Overhead Press (Barbell, Standing, Strict Form);3-4;6-8;120s;RPE 8-9
+M-121;Male;2;Farmer's Carry;3;12-15;60s;RPE 9
+M-121;Male;3;Dumbbell Floor Press (Heavy Load, Low Rep);3-4;6-8;120s;RPE 8-9
+M-121;Male;4;Side Lying Lateral Raise;3;12-15;60s;RPE 9
+M-121;Male;5;Cable Crossover (Low-to-High, Single-Arm);3;12-15;60s;RPE 9
+M-121;Male;6;Smith Machine Lunge (Rear Foot Elevated, Glute Focus);3;12-15;60s;RPE 9
+M-122;Male;1;Alternate Hammer Curl;3;12-15;60s;RPE 9
+M-122;Male;2;Dumbbell Bench Press (Heavy Load, Decline, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-122;Male;3;Smith Machine Shrug (Behind the Back);3;12-15;60s;RPE 9
+M-122;Male;4;Chest Supported Rear Delt Row;3;12-15;60s;RPE 9
+M-122;Male;5;Chin to Chest Stretch;3;12-15;60s;RPE 9
+M-122;Male;6;Cable Hyperextension (Rope Attachment, Glute Focus, Pause at Peak);3;12-15;60s;RPE 9
+M-123;Male;1;Face Pull;3;12-15;60s;RPE 9
+M-123;Male;2;Machine Seated Row (Overhand Grip, Wide Handle);3;12-15;60s;RPE 9
+M-123;Male;3;Lat Pulldown (Neutral Grip);3;12-15;60s;RPE 9
+M-123;Male;4;Cable Face Pull with External Rotation;3;12-15;60s;RPE 9
+M-123;Male;5;Smith Machine Overhead Press (Front Rack, Seated);3-4;6-8;120s;RPE 8-9
+M-123;Male;6;Sumo Deadlift;3-4;6-8;120s;RPE 8-9
+M-124;Male;1;Dumbbell Incline Press (Light Weight, High Rep);3-4;6-8;120s;RPE 8-9
+M-124;Male;2;Egyptian Lateral Raise;3;12-15;60s;RPE 9
+M-124;Male;3;Dumbbell Pullover (Straight Arm, Across Bench);3;12-15;60s;RPE 9
+M-124;Male;4;Rocket Jump;3;12-15;60s;RPE 9
+M-124;Male;5;Ankle on the Knee;3;12-15;60s;RPE 9
+M-124;Male;6;Dumbbell Overhead Extension (Seated);3;12-15;60s;RPE 9
+M-125;Male;1;Dumbbell Lateral Raise (Standing, Heavy, Low Rep);3;12-15;60s;RPE 9
+M-125;Male;2;Dumbbell Hammer Curl (Seated, High Rep);3;12-15;60s;RPE 9
+M-125;Male;3;Bayesian Curl;3;12-15;60s;RPE 9
+M-125;Male;4;Cable Curl (Low Pulley, Straight Bar, Close Grip, Pause at Peak);3;12-15;60s;RPE 9
+M-125;Male;5;Wide Grip Seated Cable Row;3;12-15;60s;RPE 9
+M-125;Male;6;Pin Squat;3-4;6-8;120s;RPE 8-9
+M-126;Male;1;Seal Row (Dumbbell, Prone Bench);3;12-15;60s;RPE 9
+M-126;Male;2;Barbell Bench Press (Reverse Grip, Close Stance);3-4;6-8;120s;RPE 8-9
+M-126;Male;3;Barbell Curl (Standing, Wide Grip, High Rep);3;12-15;60s;RPE 9
+M-126;Male;4;Prone Manual Hamstring Stretch;3;12-15;60s;RPE 9
+M-126;Male;5;Ankle Circles;3;12-15;60s;RPE 9
+M-126;Male;6;Single-Leg RDL (Kettlebell, Contralateral Hold);3;12-15;60s;RPE 9
+M-127;Male;1;Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-127;Male;2;Air Bike;3;12-15;60s;RPE 9
+M-127;Male;3;Dumbbell Front Raise (Incline Bench, Prone, Tempo Negative);3;12-15;60s;RPE 9
+M-127;Male;4;Prone Manual Hamstring Stretch;3;12-15;60s;RPE 9
+M-127;Male;5;Cable Rear Delt Row (Rope Attachment, Face-Pull Height, Tempo Negative);3;12-15;60s;RPE 9
+M-127;Male;6;Hack Squat Machine (Wide Stance, Pause at Top);3-4;6-8;120s;RPE 8-9
+M-128;Male;1;Dumbbell Shoulder Press (Seated, Alternating, High Rep);3-4;6-8;120s;RPE 8-9
+M-128;Male;2;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-128;Male;3;EZ-Bar Curl (Standing, Reverse Grip, Tempo Training);3;12-15;60s;RPE 9
+M-128;Male;4;Barbell Guillotine Bench Press;3-4;6-8;120s;RPE 8-9
+M-128;Male;5;Straddle Lift;3;12-15;60s;RPE 9
+M-128;Male;6;Cable Pull-Through (Deep Hip Hinge, High Rep);3;12-15;60s;RPE 9
+M-129;Male;1;Incline Hammer Curl (Dumbbell);3;12-15;60s;RPE 9
+M-129;Male;2;Decline Dumbbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-129;Male;3;Single-Arm Dumbbell Row (Chest Supported);3;12-15;60s;RPE 9
+M-129;Male;4;Face Pull (Neutral Grip, Low Pulley);3;12-15;60s;RPE 9
+M-129;Male;5;Cable Rear Delt Row (Neutral Grip, High Pulley);3;12-15;60s;RPE 9
+M-129;Male;6;Kas Glute Bridge;3;12-15;60s;RPE 9
+M-130;Male;1;Kettlebell Upright Row (Narrow Grip);3;12-15;60s;RPE 9
+M-130;Male;2;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-130;Male;3;Behind the Head Chest Stretch;3;12-15;60s;RPE 9
+M-130;Male;4;Rack Pull (Above Knee);3;12-15;60s;RPE 9
+M-130;Male;5;Dumbbell Concentration Curl (Seated, Inner Thigh);3;12-15;60s;RPE 9
+M-130;Male;6;Cable Kickback (Gluteus Medius Focus, Side-Angled, Pause at Peak);3;12-15;60s;RPE 9
+M-131;Male;1;Chest Stretch on Stability Ball;3;12-15;60s;RPE 9
+M-131;Male;2;Serratus Punch;3;12-15;60s;RPE 9
+M-131;Male;3;Overhead Press (Dumbbell, Seated, Alternating, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-131;Male;4;Smith Machine Overhead Press (Behind the Neck);3-4;6-8;120s;RPE 8-9
+M-131;Male;5;Single-Arm Push-Up;3;12-15;60s;RPE 9
+M-131;Male;6;Cable Step-Up;3;12-15;60s;RPE 9
+M-132;Male;1;Child’s Pose;3;12-15;60s;RPE 9
+M-132;Male;2;Svend Press;3-4;6-8;120s;RPE 8-9
+M-132;Male;3;Brachialis SMR;3;12-15;60s;RPE 9
+M-132;Male;4;Groin and Back Stretch;3;12-15;60s;RPE 9
+M-132;Male;5;Cable Pull-Through (Kneeling);3;12-15;60s;RPE 9
+M-132;Male;6;Cable Adduction (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-133;Male;1;Seated Dumbbell Overhead Triceps Extension;3;12-15;60s;RPE 9
+M-133;Male;2;Dumbbell Shoulder Press (Seated, Neutral Grip, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-133;Male;3;Dynamic Back Stretch;3;12-15;60s;RPE 9
+M-133;Male;4;Bradford Press;3-4;6-8;120s;RPE 8-9
+M-133;Male;5;Plyo Kettlebell Push-Up;3;12-15;60s;RPE 9
+M-133;Male;6;Barbell Reverse Lunge (Deficit, Pause at Bottom);3;12-15;60s;RPE 9
+M-134;Male;1;Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-134;Male;2;Atlas Stones;3;12-15;60s;RPE 9
+M-134;Male;3;Chair Upper Body Stretch;3;12-15;60s;RPE 9
+M-134;Male;4;Cable Crossover (High Pulley, Single-Arm, Pause);3;12-15;60s;RPE 9
+M-134;Male;5;Cable Cross Body Lateral Raise;3;12-15;60s;RPE 9
+M-134;Male;6;Barbell Glute Bridge (Wide Stance, Banded, Peak Contraction);3;12-15;60s;RPE 9
+M-135;Male;1;Weighted Decline Sit-Up (High Rep, Max Pump);3;12-15;60s;RPE 9
+M-135;Male;2;Decline Barbell Bench Press;3-4;6-8;120s;RPE 8-9
+M-135;Male;3;Overhead Press (Dumbbell, Seated, High Rep);3-4;6-8;120s;RPE 8-9
+M-135;Male;4;Reverse Grip Triceps Pushdown;3;12-15;60s;RPE 9
+M-135;Male;5;EZ-Bar Curl (Preacher Curl, Reverse Grip, High Rep);3;12-15;60s;RPE 9
+M-135;Male;6;Reverse Hyperextension;3;12-15;60s;RPE 9
+M-136;Male;1;Backward Medicine Ball Throw;3;12-15;60s;RPE 9
+M-136;Male;2;Side Lying Lateral Raise;3;12-15;60s;RPE 9
+M-136;Male;3;Plyo Kettlebell Push-Up;3;12-15;60s;RPE 9
+M-136;Male;4;Floor Press (Dumbbell, Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-136;Male;5;Triceps Extension (Overhead, Dumbbell, Single-Arm);3;12-15;60s;RPE 9
+M-136;Male;6;Hack Squat Machine (Medium Stance, Low Depth, High Rep);3-4;6-8;120s;RPE 8-9
+M-137;Male;1;Rocket Jump;3;12-15;60s;RPE 9
+M-137;Male;2;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-137;Male;3;Child’s Pose;3;12-15;60s;RPE 9
+M-137;Male;4;Smith Machine Overhead Press (Front Rack, Seated);3-4;6-8;120s;RPE 8-9
+M-137;Male;5;Serratus Punch;3;12-15;60s;RPE 9
+M-137;Male;6;Single-Leg RDL (Kettlebell, Pause at Bottom);3;12-15;60s;RPE 9
+M-138;Male;1;Alternate Heel Touchers;3;12-15;60s;RPE 9
+M-138;Male;2;Cable Triceps Pushdown (Rope Attachment, Overhead, Kneeling);3;12-15;60s;RPE 9
+M-138;Male;3;Cable Triceps Kickback (Standing, Pause at Peak);3;12-15;60s;RPE 9
+M-138;Male;4;Preacher Curl (Single-Arm, Cable, Low Pulley, Pause at Peak);3;12-15;60s;RPE 9
+M-138;Male;5;Single-Arm Cable Row (Overhand Grip, Mid-Width, Pause at Peak);3;12-15;60s;RPE 9
+M-138;Male;6;Frog Pump;3;12-15;60s;RPE 9
+M-139;Male;1;Face Pull;3;12-15;60s;RPE 9
+M-139;Male;2;Machine Chest Press (Neutral Grip, Heavy Load);3-4;6-8;120s;RPE 8-9
+M-139;Male;3;Dumbbell Bench Press (Heavy Load, Decline, Low Rep);3-4;6-8;120s;RPE 8-9
+M-139;Male;4;Floor Press (Dumbbell, Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-139;Male;5;Rack Pull;3;12-15;60s;RPE 9
+M-139;Male;6;Dumbbell Sumo Squat (High Volume, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-140;Male;1;Single-Arm Dumbbell Row (Chest Supported);3;12-15;60s;RPE 9
+M-140;Male;2;Kettlebell Swing (Vertical Swing);3;12-15;60s;RPE 9
+M-140;Male;3;Preacher Curl (Single-Arm, Cable, High Pulley);3;12-15;60s;RPE 9
+M-140;Male;4;Russian Twist;3;12-15;60s;RPE 9
+M-140;Male;5;Cable Rear Delt Row (High Pulley, Single-Arm, Neutral Grip);3;12-15;60s;RPE 9
+M-140;Male;6;Barbell Step-Ups (Box, Low Rep, Pause at Peak);3;12-15;60s;RPE 9
+M-141;Male;1;Single-Arm Cable Extension (Overhead, Kneeling);3;12-15;60s;RPE 9
+M-141;Male;2;Two-Arm Kettlebell Row;3;12-15;60s;RPE 9
+M-141;Male;3;Barbell Shoulder Press;3-4;6-8;120s;RPE 8-9
+M-141;Male;4;Zottman Curl (Standing);3;12-15;60s;RPE 9
+M-141;Male;5;Dumbbell Shoulder Press (Seated, Neutral Grip, Tempo Negative);3-4;6-8;120s;RPE 8-9
+M-141;Male;6;Machine Seated Curl (Wide Stance, High Rep);3;12-15;60s;RPE 9
+M-142;Male;1;Reverse Wrist Curl;3;12-15;60s;RPE 9
+M-142;Male;2;Cable Rear Delt Row (Underhand Grip, Low Pulley, Pause at Peak);3;12-15;60s;RPE 9
+M-142;Male;3;Bayesian Curl;3;12-15;60s;RPE 9
+M-142;Male;4;Cable Triceps Kickback (Standing, Heavy Load, Tempo Negative);3;12-15;60s;RPE 9
+M-142;Male;5;Iron Cross Stretch;3;12-15;60s;RPE 9
+M-142;Male;6;Cable Pull-Through (Deep Hip Hinge, Pause at Peak);3;12-15;60s;RPE 9
+M-143;Male;1;Barbell Bent-Over Row (Wide Grip, Overhand, Tempo Negative);3;12-15;60s;RPE 9
+M-143;Male;2;Single-Arm Cable Curl (Supinated Grip, High Pulley);3;12-15;60s;RPE 9
+M-143;Male;3;Cable Curl (Low Pulley, D-Handle, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-143;Male;4;Smith Machine Shrug (Front, Pause at Peak);3;12-15;60s;RPE 9
+M-143;Male;5;Kelso Shrug;3;12-15;60s;RPE 9
+M-143;Male;6;Sumo Deadlift;3-4;6-8;120s;RPE 8-9
+M-144;Male;1;Weighted Decline Sit-Up (Heavy Load, Pause at Peak);3;12-15;60s;RPE 9
+M-144;Male;2;Dynamic Chest Stretch;3;12-15;60s;RPE 9
+M-144;Male;3;Kneeling Hip Flexor Stretch;3;12-15;60s;RPE 9
+M-144;Male;4;Guillotine Press (Dumbbell Variation);3-4;6-8;120s;RPE 8-9
+M-144;Male;5;Cable Rear Delt Row (High Pulley, Single-Arm, Overhand, Tempo Negative);3;12-15;60s;RPE 9
+M-144;Male;6;Dumbbell Bulgarian Split Squat (Front Foot Elevated);3-4;6-8;120s;RPE 8-9
+M-145;Male;1;Band Pull Apart;3;12-15;60s;RPE 9
+M-145;Male;2;Cable Curl (Low Pulley, D-Handle, Single-Arm);3;12-15;60s;RPE 9
+M-145;Male;3;Dumbbell Incline Press (Neutral Grip, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-145;Male;4;Machine Bench Press;3-4;6-8;120s;RPE 8-9
+M-145;Male;5;Finger Curls;3;12-15;60s;RPE 9
+M-145;Male;6;Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom);3-4;6-8;120s;RPE 8-9
+M-146;Male;1;Deep Sissy Squat (Bodyweight, Fixed Foot Position);3-4;6-8;120s;RPE 8-9
+M-146;Male;2;Smith Machine Overhead Press (Behind the Neck);3-4;6-8;120s;RPE 8-9
+M-146;Male;3;Lat Pulldown (Neutral Grip, Medium Width);3;12-15;60s;RPE 9
+M-146;Male;4;Seated Cable Reverse Fly (Low Pulley, Seated);3;12-15;60s;RPE 9
+M-146;Male;5;Fast Skipping;3;12-15;60s;RPE 9
+M-146;Male;6;Pause Squat;3-4;6-8;120s;RPE 8-9
+M-147;Male;1;Smith Machine Bench Press (High Rep, Close Grip);3-4;6-8;120s;RPE 8-9
+M-147;Male;2;Face Pull;3;12-15;60s;RPE 9
+M-147;Male;3;Cable Curl (Low Pulley, Straight Bar, Close Grip);3;12-15;60s;RPE 9
+M-147;Male;4;Barbell Reverse Curl (Standing, Close Grip);3;12-15;60s;RPE 9
+M-147;Male;5;Dumbbell Front Raise (Seated, Heavy Load);3;12-15;60s;RPE 9
+M-147;Male;6;Barbell Front Squat (Paused Reps, High Bar);3-4;6-8;120s;RPE 8-9
+M-148;Male;1;Incline Pronated-Grip Dumbbell Press;3-4;6-8;120s;RPE 8-9
+M-148;Male;2;Overhead Press (Dumbbell, Standing, Strict, Pause at Peak);3-4;6-8;120s;RPE 8-9
+M-148;Male;3;Frog Hops;3;12-15;60s;RPE 9
+M-148;Male;4;Mixed Grip Chin-Up;3;12-15;60s;RPE 9
+M-148;Male;5;Front Cone Hops;3;12-15;60s;RPE 9
+M-148;Male;6;Landmine Hack Squat;3-4;6-8;120s;RPE 8-9
+M-149;Male;1;Russian Twist;3;12-15;60s;RPE 9
+M-149;Male;2;Running (Treadmill);3;12-15;60s;RPE 9
+M-149;Male;3;Intermediate Groin Stretch;3;12-15;60s;RPE 9
+M-149;Male;4;Dumbbell Pullover (Incline Bench, Straight Arm);3;12-15;60s;RPE 9
+M-149;Male;5;Straight-Arm Pulldown;3;12-15;60s;RPE 9
+M-149;Male;6;Dumbbell Goblet Squat (Elevated Heels, High Rep);3-4;6-8;120s;RPE 8-9
+M-150;Male;1;Cable Crossover (Low-to-High, Single-Arm, Tempo Negative);3;12-15;60s;RPE 9
+M-150;Male;2;Dumbbell Bench Press (Neutral Grip);3-4;6-8;120s;RPE 8-9
+M-150;Male;3;Barbell Bent-Over Row (Wide Grip, Reverse Grip);3;12-15;60s;RPE 9
+M-150;Male;4;Barbell Reverse Curl (Standing, Wide Grip);3;12-15;60s;RPE 9
+M-150;Male;5;Cable Rear Delt Row (Single-Arm, High Pulley, Overhand);3;12-15;60s;RPE 9
+M-150;Male;6;Barbell Reverse Lunge (Glute Focus, Forward Lean);3;12-15;60s;RPE 9

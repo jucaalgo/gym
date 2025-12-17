@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENV Debug</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #0a0a0a;
+            color: white;
+            padding: 20px;
+        }
+
+        .result {
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .success {
+            border-left: 4px solid #10b981;
+        }
+
+        .error {
+            border-left: 4px solid #ef4444;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Environment Variable Debug</h1>
+    <div id="results"></div>
+
+    <script type="module">
+        const results = document.getElementById('results');
+
+        // Test 1: Check if env var exists
+        const apiKey = import.meta.env.VITE_RAPIDAPI_KEY;
+        results.innerHTML += `
+            <div class="result ${apiKey ? 'success' : 'error'}">
+                <h3>Test 1: API Key Environment Variable</h3>
+                <p><strong>Exists:</strong> ${!!apiKey}</p>
+                <p><strong>Value:</strong> ${apiKey || 'MISSING'}</p>
+                <p><strong>First 20 chars:</strong> ${apiKey ? apiKey.substring(0, 20) + '...' : 'N/A'}</p>
+            </div>
+        `;
+
+        // Test 2: Check all env vars
+        const allEnvKeys = Object.keys(import.meta.env);
+        results.innerHTML += `
+            <div class="result">
+                <h3>Test 2: All Environment Variables</h3>
+                <p><strong>Total vars:</strong> ${allEnvKeys.length}</p>
+                <pre>${allEnvKeys.join('\n')}</pre>
+            </div>
+        `;
+
+        // Test 3: Try direct API call
+        if (apiKey) {
+            results.innerHTML += `<div class="result"><h3>Test 3: Direct API Call</h3><p>Testing...</p></div>`;
+
+            try {
+                const response = await fetch('https://exercisedb.p.rapidapi.com/exercises?limit=1', {
+                    headers: {
+                        'X-RapidAPI-Key': apiKey,
+                        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                    }
+                });
+
+                const data = await response.json();
+
+                results.innerHTML += `
+                    <div class="result ${response.ok ? 'success' : 'error'}">
+                        <h3>Test 3: API Response</h3>
+                        <p><strong>Status:</strong> ${response.status}</p>
+                        <p><strong>Data:</strong></p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                `;
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="result error">
+                        <h3>Test 3: API Error</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+
+</html>

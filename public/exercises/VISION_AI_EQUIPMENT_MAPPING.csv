@@ -1,0 +1,27 @@
+Technical_Name;Vision_AI_Label;Category
+EZ-Bar;ez_bar;Free Weight
+Dumbbell;dumbbell;Free Weight
+Dumbbells;dumbbell;Free Weight
+Weight Plate;weight_plate;Accessory
+Preacher Curl Bench;preacher_bench;Machine/Bench
+Decline Bench;weight_bench;Bench
+Hyperextension Bench;hyperextension_bench;Machine/Bench
+Cable Machine;cable_machine;Machine
+Rope Attachment;cable_attachment_rope;Accessory
+D-Handle;cable_attachment_handle;Accessory
+Low Pulley;cable_low_pulley;Machine
+High Pulley;cable_high_pulley;Machine
+Hack Squat Machine;hack_squat;Machine
+Kettlebell;kettlebell;Free Weight
+Barbell;barbell;Free Weight
+Trap Bar;trap_bar;Free Weight
+Smith Machine;smith_machine;Machine
+Leg Press Machine;leg_press;Machine
+T-Bar Row Machine;t_bar_row;Machine
+Leg Extension Machine;leg_extension;Machine
+Leg Curl Machine;leg_curl;Machine
+Lat Pulldown Machine;lat_pulldown;Machine
+Pec Deck Machine;pec_deck;Machine
+Plyo Box;plyo_box;Accessory
+Pull-up Bar;pull_up_bar;Static
+Dip Station;dip_station;Static

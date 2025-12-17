@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Mapper Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: white;
+        }
+
+        .exercise-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .exercise-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #2a2a2a;
+        }
+
+        .exercise-info h3 {
+            margin: 0 0 10px 0;
+            color: #3b82f6;
+        }
+
+        .exercise-info p {
+            margin: 5px 0;
+            color: #888;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+        }
+
+        .status {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .error {
+            border-color: #ef4444;
+            background: #7f1d1d;
+        }
+
+        .success {
+            border-color: #10b981;
+            background: #064e3b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔍 Image Mapper Test</h1>
+    <div id="status" class="status loading">Loading catalog...</div>
+    <div id="exercises"></div>
+
+    <script type="module">
+        // Load catalog
+        const loadCatalog = async () => {
+            const statusEl = document.getElementById('status');
+            try {
+                const response = await fetch('/free_exercise_catalog.json');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const catalog = await response.json();
+                statusEl.className = 'status success';
+                statusEl.innerHTML = `✅ Loaded ${catalog.length} exercises from catalog`;
+
+                return catalog;
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `❌ Failed to load catalog: ${error.message}`;
+                return null;
+            }
+        };
+
+        // Normalize function
+        const normalizeName = (name) => {
+            return name
+                .toLowerCase()
+                .replace(/\(.*?\)/g, '')
+                .replace(/[^a-z0-9\s]/g, '')
+                .replace(/\s+/g, '')
+                .trim();
+        };
+
+        // Find match
+        const findMatch = (catalog, exerciseName, equipment, muscle) => {
+            const normalized = normalizeName(exerciseName);
+            const words = exerciseName.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+
+            // Tier 1: Exact
+            let match = catalog.find(ex => normalizeName(ex.name) === normalized);
+            if (match) return { match, tier: 1 };
+
+            // Tier 3: Keywords
+            match = catalog.find(ex => {
+                const exNorm = normalizeName(ex.name);
+                return words.every(word => exNorm.includes(word.replace(/[^a-z0-9]/g, '')));
+            });
+            if (match) return { match, tier: 3 };
+
+            // Tier 4: Equipment + movement
+            if (equipment) {
+                const baseMovement = exerciseName.toLowerCase().replace(equipment.toLowerCase(), '').trim();
+                match = catalog.find(ex => {
+                    const matchesEquip = ex.equipment?.toLowerCase() === equipment.toLowerCase();
+                    const matchesMove = normalizeName(ex.name).includes(normalizeName(baseMovement));
+                    return matchesEquip && matchesMove;
+                });
+                if (match) return { match, tier: 4 };
+            }
+
+            // Tier 5: Muscle + keyword
+            if (muscle) {
+                match = catalog.find(ex => {
+                    const matchesMuscle = ex.primaryMuscles?.some(m =>
+                        m.toLowerCase().includes(muscle.toLowerCase())
+                    );
+                    const anyKeyword = words.some(word =>
+                        normalizeName(ex.name).includes(word.replace(/[^a-z0-9]/g, ''))
+                    );
+                    return matchesMuscle && anyKeyword;
+                });
+                if (match) return { match, tier: 5 };
+            }
+
+            return null;
+        };
+
+        // Test exercises
+        const testExercises = [
+            { name: 'Barbell Hip Thrust', equipment: 'Barbell', muscle: 'glutes' },
+            { name: 'Barbell Squat', equipment: 'Barbell', muscle: 'quadriceps' },
+            { name: 'Dumbbell Bench Press', equipment: 'Dumbbell', muscle: 'chest' },
+            { name: 'Cable Row', equipment: 'Cable', muscle: 'back' },
+            { name: 'Barbell Curl', equipment: 'Barbell', muscle: 'biceps' },
+            { name: 'Dumbbell Hip Thrust (Unilateral)', equipment: 'Dumbbell', muscle: 'glutes' },
+            { name: 'Smith Machine Squat (Pause)', equipment: 'Machine', muscle: 'quadriceps' },
+        ];
+
+        // Main
+        const main = async () => {
+            const catalog = await loadCatalog();
+            if (!catalog) return;
+
+            const exercisesEl = document.getElementById('exercises');
+
+            testExercises.forEach(test => {
+                const result = findMatch(catalog, test.name, test.equipment, test.muscle);
+
+                const card = document.createElement('div');
+                card.className = 'exercise-card';
+
+                if (result && result.match) {
+                    const imgPath = result.match.images[0];
+                    const imgUrl = `https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/${imgPath}`;
+
+                    card.innerHTML = `
+                        <img src="${imgUrl}" alt="${result.match.name}" />
+                        <div class="exercise-info">
+                            <h3>${test.name}</h3>
+                            <p><strong>Match:</strong> ${result.match.name} (Tier ${result.tier})</p>
+                            <p><strong>Equipment:</strong> ${test.equipment}</p>
+                            <p><strong>Muscle:</strong> ${test.muscle}</p>
+                            <p><strong>Image:</strong> ${imgPath}</p>
+                        </div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <div style="width: 200px; height: 200px; background: #ef4444; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            ❌
+                        </div>
+                        <div class="exercise-info">
+                            <h3>${test.name}</h3>
+                            <p style="color: #ef4444;"><strong>NO MATCH FOUND</strong></p>
+                            <p><strong>Equipment:</strong> ${test.equipment}</p>
+                            <p><strong>Muscle:</strong> ${test.muscle}</p>
+                        </div>
+                    `;
+                }
+
+                exercisesEl.appendChild(card);
+            });
+        };
+
+        main();
+    </script>
+</body>
+
+</html>

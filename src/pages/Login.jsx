@@ -1,37 +1,63 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-import { Lock, User, Shield, ArrowRight, Zap, Target } from 'lucide-react';
+import { Lock, Mail, User, ArrowRight, Target } from 'lucide-react';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login } = useUser();
+    const { login, registerUser } = useUser();
 
-    const [mode, setMode] = useState('user'); // 'user' or 'admin'
-    const [username, setUsername] = useState('');
+    const [isRegistering, setIsRegistering] = useState(false);
+    const [email, setEmail] = useState(''); // Stores email OR username
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState('');
 
-    const handleLogin = async (e) => {
+    const handleAuth = async (e) => {
         e.preventDefault();
         setError('');
+        setSuccessMsg('');
         setIsLoading(true);
 
-        // Simulate network delay for effect
-        await new Promise(resolve => setTimeout(resolve, 800));
+        if (isRegistering) {
+            // Registration strictly requires Email
+            if (!email || !password || !name) {
+                setError('All fields are required');
+                setIsLoading(false);
+                return;
+            }
+            if (!email.includes('@')) {
+                setError('Please provide a valid email for registration');
+                setIsLoading(false);
+                return;
+            }
 
-        const result = login(username, password, mode);
-
-        if (result.success) {
-            if (mode === 'admin') {
-                navigate('/admin');
+            const result = await registerUser(email, password, name);
+            if (result.success) {
+                setSuccessMsg('Account created! Logging in...');
+                setTimeout(() => {
+                    navigate('/onboarding');
+                }, 1000);
             } else {
-                navigate('/');
+                setError(result.error);
+                setIsLoading(false);
             }
         } else {
-            setError(result.error);
-            setIsLoading(false);
+            // Login accepts Username OR Email
+            if (!email || !password) {
+                setError('Identity and Password required');
+                setIsLoading(false);
+                return;
+            }
+            const result = await login(email, password);
+            if (result.success) {
+                navigate('/');
+            } else {
+                setError(result.error);
+                setIsLoading(false);
+            }
         }
     };
 
@@ -48,49 +74,53 @@ const Login = () => {
                         <img src="/jca-logo.png" alt="JCA Logo" className="w-full h-full object-contain p-2" />
                     </div>
                     <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-secondary drop-shadow-[0_0_10px_rgba(0,242,255,0.5)] tracking-tighter">JCA GYM</h1>
-                    <p className="text-primary/60 text-sm uppercase tracking-[0.3em] mt-2 font-medium">System v2.1</p>
+                    <p className="text-primary/60 text-sm uppercase tracking-[0.3em] mt-2 font-medium">Cloud System v3.2 (Fix)</p>
                 </div>
 
                 {/* Login Card */}
                 <div className="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl relative overflow-hidden group">
-                    {/* Access Mode Toggle */}
-                    <div className="flex p-1 bg-black/40 rounded-xl mb-8 relative">
-                        <div
-                            className={`absolute inset-y-1 w-[calc(50%-4px)] bg-primary/20 rounded-lg transition-all duration-300 ${mode === 'admin' ? 'translate-x-[100%] ml-1' : 'left-1'}`}
-                        />
-                        <button
-                            onClick={() => { setMode('user'); setError(''); }}
-                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-colors relative z-10 ${mode === 'user' ? 'text-white' : 'text-white/40 hover:text-white/60'}`}
-                        >
-                            <User className="w-4 h-4" />
-                            Agent
-                        </button>
-                        <button
-                            onClick={() => { setMode('admin'); setError(''); }}
-                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-colors relative z-10 ${mode === 'admin' ? 'text-white' : 'text-white/40 hover:text-white/60'}`}
-                        >
-                            <Shield className="w-4 h-4" />
-                            Admin
-                        </button>
+
+                    <div className="mb-6 text-center">
+                        <h2 className="text-xl text-white font-medium tracking-wide">
+                            {isRegistering ? 'Create Agent Profile' : 'System Access'}
+                        </h2>
                     </div>
 
-                    <form onSubmit={handleLogin} className="space-y-4">
+                    <form onSubmit={handleAuth} className="space-y-4">
+                        {isRegistering && (
+                            <div className="space-y-1 animate-in slide-in-from-left-4 fade-in duration-300">
+                                <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Agent Name</label>
+                                <div className="relative group/input">
+                                    <Target className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="w-full bg-black/40 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                            </div>
+                        )}
+
                         <div className="space-y-1">
-                            <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Identifier</label>
+                            <label className="text-xs text-white/40 uppercase tracking-wider ml-1">
+                                {isRegistering ? 'Email Address' : 'Identity (Email or Username)'}
+                            </label>
                             <div className="relative group/input">
-                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
+                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
                                 <input
-                                    type="text"
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
+                                    type={isRegistering ? "email" : "text"}
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className="w-full bg-black/40 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-mono"
-                                    placeholder={mode === 'admin' ? 'admin' : 'agent-001'}
+                                    placeholder={isRegistering ? "agent@jcagym.com" : "agent@jcagym.com OR agent_id"}
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-1">
-                            <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Password</label>
+                            <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Secure Token (Password)</label>
                             <div className="relative group/input">
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20 group-focus-within/input:text-primary transition-colors" />
                                 <input
@@ -108,46 +138,57 @@ const Login = () => {
                                 {error}
                             </div>
                         )}
+                        {successMsg && (
+                            <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center animate-pulse">
+                                {successMsg}
+                            </div>
+                        )}
 
                         <button
                             type="submit"
                             disabled={isLoading}
                             className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 mt-4 transition-all ${isLoading
                                 ? 'bg-white/5 text-white/20 cursor-wait'
-                                : `bg-gradient-to-r ${mode === 'admin' ? 'from-amber-600 to-orange-600 shadow-amber-900/20' : 'from-primary via-accent to-secondary shadow-[0_0_20px_rgba(59,130,246,0.3)]'} text-white hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]`
+                                : 'bg-gradient-to-r from-primary via-accent to-secondary shadow-[0_0_20px_rgba(59,130,246,0.3)] text-white hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]'
                                 }`}
                         >
                             {isLoading ? (
                                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                             ) : (
                                 <>
-                                    <span>ACCESS SYSTEM</span>
+                                    <span>{isRegistering ? 'INITIALIZE NEW AGENT' : 'AUTHENTICATE'}</span>
                                     <ArrowRight className="w-5 h-5" />
                                 </>
                             )}
                         </button>
                     </form>
 
-                    {/* Footer decoration */}
-                    <div className="mt-8 pt-6 border-t border-white/5 flex justify-between items-center text-xs text-white/20">
-                        <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]" />
-                            <span>SYSTEM ONLINE</span>
-                        </div>
-                        <span className="font-mono">SECURE CONNECTION</span>
+                    {/* Toggle Registration */}
+                    <div className="mt-6 text-center">
+                        {isRegistering ? (
+                            <button
+                                onClick={() => { setIsRegistering(false); setError(''); }}
+                                className="text-sm text-white/40 hover:text-white transition-colors"
+                            >
+                                Already active? <span className="text-primary underline">Login Here</span>
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => { setIsRegistering(true); setError(''); }}
+                                className="text-sm text-white/40 hover:text-white transition-colors"
+                            >
+                                First time access? <span className="text-primary underline">Create Agent Profile</span>
+                            </button>
+                        )}
                     </div>
                 </div>
 
-                {/* Environment Info */}
                 <div className="text-center mt-8 space-y-2">
-                    <p className="text-white/20 text-xs">
-                        {mode === 'admin'
-                            ? '⚠ RESTRICTED ACCESS: AUTHORIZED PERSONNEL ONLY'
-                            : 'By accessing you accept the JCA Training Protocol.'}
+                    <p className="text-white/20 text-xs text-shadow-glow">
+                        CLOUD SYNC ACTIVE • FIREBASE SECURED
                     </p>
                 </div>
             </div>
-            {/* Footer */}
             <div className="absolute bottom-4 left-0 right-0 text-center z-10">
                 <p className="text-white/20 text-xs font-mono uppercase tracking-widest">
                     Created By Juan Carlos Alvarado

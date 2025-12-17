@@ -30,15 +30,16 @@ const RoutineHeaderCarousel = ({ exercises }) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute inset-0 w-full h-full bg-black"
                 >
-                    <video
+                    <img
                         src={currentExercise.videoUrl}
-                        className="w-full h-full object-cover opacity-80"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
+                        className="w-full h-full object-cover"
+                        alt={currentExercise.name}
+                        onError={(e) => {
+                            e.target.style.opacity = '0.3';
+                            e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23333" width="400" height="300"/%3E%3C/svg%3E';
+                        }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 </motion.div>

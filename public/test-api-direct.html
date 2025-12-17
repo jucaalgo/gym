@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Direct Test</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #0a0a0a;
+            color: white;
+            padding: 20px;
+        }
+
+        pre {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+
+        .error {
+            color: #ef4444;
+        }
+
+        .success {
+            color: #10b981;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ExerciseDB Direct API Test</h1>
+    <button onclick="testAPI()">Test API Call</button>
+    <button onclick="testWithCORS()">Test with CORS Proxy</button>
+    <pre id="output">Click button to test...</pre>
+
+    <script>
+        const API_KEY = '9209f66f2bmsh248ed806697d269p19d56fjsn9d0bd3a1902e';
+        const output = document.getElementById('output');
+
+        async function testAPI() {
+            output.innerHTML = '⏳ Testing direct API call...\n\n';
+
+            try {
+                const response = await fetch('https://exercisedb.p.rapidapi.com/exercises?limit=1', {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': API_KEY,
+                        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                    }
+                });
+
+                output.innerHTML += `Status: ${response.status} ${response.statusText}\n\n`;
+                output.innerHTML += 'Headers:\n';
+                for (let [key, value] of response.headers.entries()) {
+                    output.innerHTML += `  ${key}: ${value}\n`;
+                }
+
+                const text = await response.text();
+                output.innerHTML += `\nResponse:\n${text}`;
+
+                if (response.ok) {
+                    output.className = 'success';
+                } else {
+                    output.className = 'error';
+                }
+            } catch (error) {
+                output.innerHTML += `\n❌ Error: ${error.message}`;
+                output.className = 'error';
+            }
+        }
+
+        async function testWithCORS() {
+            output.innerHTML = '⏳ Testing with CORS proxy...\n\n';
+
+            try {
+                // Test if CORS is the issue
+                const response = await fetch('https://corsproxy.io/?https://exercisedb.p.rapidapi.com/exercises?limit=1', {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': API_KEY,
+                        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                    }
+                });
+
+                output.innerHTML += `Status: ${response.status}\n`;
+                const text = await response.text();
+                output.innerHTML += `Response:\n${text}`;
+            } catch (error) {
+                output.innerHTML += `❌ Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

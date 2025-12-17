@@ -12,6 +12,48 @@
         "health",
         "lifestyle"
     ],
+    "screenshots": [
+        {
+            "src": "/screenshots/dashboard.png",
+            "sizes": "1170x2532",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Command Dashboard"
+        },
+        {
+            "src": "/screenshots/scan.png",
+            "sizes": "1170x2532",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Hyper-Vision Scanner"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Quick Scan",
+            "short_name": "Scan",
+            "description": "Start Hyper-Vision Scanner",
+            "url": "/scan",
+            "icons": [
+                {
+                    "src": "/icons/scan.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Start Workout",
+            "short_name": "Workout",
+            "description": "Resume Active Mission",
+            "url": "/workout",
+            "icons": [
+                {
+                    "src": "/icons/dumbbell.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ],
     "icons": [
         {
             "src": "favicon.svg",

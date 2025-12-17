@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
+console.log('[Main] Application starting...');
+
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -43,10 +45,15 @@ class ErrorBoundary extends React.Component {
     }
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <ErrorBoundary>
-            <App />
-        </ErrorBoundary>
-    </React.StrictMode>,
-)
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+    console.error('[Main] FATAL: Root element not found!');
+} else {
+    ReactDOM.createRoot(rootElement).render(
+        <React.StrictMode>
+            <ErrorBoundary>
+                <App />
+            </ErrorBoundary>
+        </React.StrictMode>
+    );
+}

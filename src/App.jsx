@@ -17,6 +17,10 @@ import AICamera from './pages/AICamera';
 import InstallPrompt from './components/ui/InstallPrompt';
 import Analytics from './pages/Analytics';
 import Journal from './pages/Journal';
+import DataTest from './pages/DataTest';
+import HyperVisionView from './pages/HyperVisionView';
+import ActiveWorkoutView from './pages/ActiveWorkoutView';
+import JCAAssistant from './components/ui/JCAAssistant';
 
 // Layout Shell with Sidebar & Mobile Nav
 const Layout = ({ children }) => {
@@ -91,9 +95,10 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/admin-login" element={<Navigate to="/login" replace />} />
 
-                    {/* Onboarding & AI Camera - Full Screen (No Sidebar) */}
+                    {/* Onboarding, AI Camera, Hyper-Vision & Workout - Full Screen (No Sidebar) */}
                     <Route path="/onboarding" element={<RequireAuth><Onboarding /></RequireAuth>} />
-                    <Route path="/scan" element={<RequireAuth><AICamera /></RequireAuth>} />
+                    <Route path="/scan" element={<RequireAuth><HyperVisionView /></RequireAuth>} />
+                    <Route path="/workout" element={<RequireAuth><ActiveWorkoutView /></RequireAuth>} />
 
                     {/* Protected User Routes (Wrapped in Layout) */}
                     <Route path="/" element={<RequireAuth><Layout><Dashboard /></Layout></RequireAuth>} />
@@ -104,6 +109,7 @@ function App() {
                     <Route path="/profile" element={<RequireAuth><Layout><Profile /></Layout></RequireAuth>} />
                     <Route path="/analytics" element={<RequireAuth><Layout><Analytics /></Layout></RequireAuth>} />
                     <Route path="/journal" element={<RequireAuth><Layout><Journal /></Layout></RequireAuth>} />
+                    <Route path="/data-test" element={<RequireAuth><Layout><DataTest /></Layout></RequireAuth>} />
 
 
                     {/* Protected Admin Routes */}
@@ -123,6 +129,7 @@ function App() {
                 {/* Global Overlays */}
                 <LevelUpOverlay />
                 <InstallPrompt />
+                <JCAAssistant />
             </Router>
         </UserProvider>
     );

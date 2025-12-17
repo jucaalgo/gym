@@ -1,21 +1,22 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Ensure you have VITE_GEMINI_API_KEY in your .env file
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-
-let genAI = null;
-if (API_KEY) {
-    genAI = new GoogleGenerativeAI(API_KEY);
-}
+// Helper to get key dynamically
+const getDynamicKey = () => {
+    return localStorage.getItem('CUSTOM_GEMINI_API_KEY') || import.meta.env.VITE_GEMINI_API_KEY;
+};
 
 // UPDATED: Now supports both Gym Machine and Food analysis
 export const analyzeGymMachine = async (imageFile, mode = 'gym') => {
-    if (!genAI) {
+    const API_KEY = getDynamicKey();
+
+    if (!API_KEY) {
         return {
             success: false,
-            error: "API Key Missing. Please configure VITE_GEMINI_API_KEY."
+            error: "API Key Missing. Please add it in Admin Panel or .env"
         };
     }
+
+    const genAI = new GoogleGenerativeAI(API_KEY);
 
     try {
         // Convert file to base64

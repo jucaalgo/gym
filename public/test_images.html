@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Access Test</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #222;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Local Image Test</h1>
+    <div class="grid">
+        <div class="card">
+            <img src="/exercises/barbell-squat.png" onerror="this.src='https://via.placeholder.com/300?text=Not+Found'">
+            <p>/exercises/barbell-squat.png</p>
+        </div>
+        <div class="card">
+            <img src="/exercises/barbell-bench-press.png"
+                onerror="this.src='https://via.placeholder.com/300?text=Not+Found'">
+            <p>/exercises/barbell-bench-press.png</p>
+        </div>
+        <div class="card">
+            <img src="/exercises/barbell-deadlift.png"
+                onerror="this.src='https://via.placeholder.com/300?text=Not+Found'">
+            <p>/exercises/barbell-deadlift.png</p>
+        </div>
+        <div class="card">
+            <img src="/exercises/dumbbell-lunge.png"
+                onerror="this.src='https://via.placeholder.com/300?text=Not+Found'">
+            <p>/exercises/dumbbell-lunge.png</p>
+        </div>
+        <div class="card">
+            <img src="/exercises/bench-press.png" onerror="this.src='https://via.placeholder.com/300?text=Not+Found'">
+            <p>/exercises/bench-press.png (Old Name)</p>
+        </div>
+    </div>
+</body>
+
+</html>

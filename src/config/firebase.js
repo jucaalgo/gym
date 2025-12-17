@@ -1,20 +1,34 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID
+    apiKey: "AIzaSyDVxYcBV9Lx3h0ZIGnfG3P7CGoSkGX9iGY",
+    authDomain: "jca-gym-app.firebaseapp.com",
+    projectId: "jca-gym-app",
+    storageBucket: "jca-gym-app.firebasestorage.app",
+    messagingSenderId: "449165119408",
+    appId: "1:449165119408:web:99531cc1328e34f7361075"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase with a unique name to bypass HMR stale state
+const appName = "ANTIGRAVITY_APP_V2";
+let app;
+
+// Robust initialization logic for HMR environments
+if (getApps().length === 0) {
+    app = initializeApp(firebaseConfig, appName);
+} else {
+    try {
+        // Try to retrieve existing app
+        app = getApp(appName);
+    } catch (e) {
+        // If not found (or if default app exists but ours doesn't), create it
+        app = initializeApp(firebaseConfig, appName);
+    }
+}
+
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();

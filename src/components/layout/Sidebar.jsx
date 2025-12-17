@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 import {
     LayoutGrid,
     BookOpen,
@@ -11,13 +12,9 @@ import {
     Shield,
     Zap,
     TrendingUp,
-    Book
+    Book,
+    Scan
 } from 'lucide-react';
-
-// ═══════════════════════════════════════════════════════════════
-// JCA GYM - PREMIUM SIDEBAR
-// Glassmorphism Navigation with Neon Accents
-// ═══════════════════════════════════════════════════════════════
 
 const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Dashboard' },
@@ -26,17 +23,21 @@ const navItems = [
     { to: '/analytics', icon: TrendingUp, label: 'Analytics' },
     { to: '/journal', icon: Book, label: 'Journal' },
     { to: '/nutrition', icon: Camera, label: 'Snap & Track' },
+    { to: '/scan', icon: Scan, label: 'Hyper-Vision' },
     { to: '/routines', icon: Trophy, label: 'Routines' },
     { to: '/profile', icon: Settings, label: 'Profile' },
 ];
 
 const Sidebar = () => {
     const navigate = useNavigate();
-    const isAdmin = localStorage.getItem('antigravity_admin') === 'true';
+    const { user, logout } = useUser();
 
-    const handleLogout = () => {
-        localStorage.removeItem('antigravity_admin');
-        navigate('/');
+    // Check role directly from context source of truth
+    const isAdmin = user?.role === 'admin';
+
+    const handleLogout = async () => {
+        await logout();
+        navigate('/login');
     };
 
     return (
@@ -73,47 +74,37 @@ const Sidebar = () => {
                     </NavLink>
                 ))}
 
-                {/* Admin Link (if logged in) */}
+                {/* Admin Link (Dynamic) */}
                 {isAdmin && (
                     <NavLink
                         to="/admin"
                         className={({ isActive }) =>
-                            `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
+                            `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 mt-4
               ${isActive
-                                ? 'bg-warning/20 text-warning border border-warning/30'
-                                : 'text-white/60 hover:text-white hover:bg-white/5'
+                                ? 'bg-amber-500/20 text-amber-500 border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.2)]'
+                                : 'text-amber-500/60 hover:text-amber-500 hover:bg-amber-500/10 border border-transparent'
                             }`
                         }
                     >
                         <Shield className="w-5 h-5" />
-                        <span className="font-medium">Admin Panel</span>
+                        <span className="font-medium tracking-wide">ADMIN PANEL</span>
                     </NavLink>
                 )}
             </nav>
 
             {/* Footer */}
             <div className="p-4 border-t border-white/10 space-y-2">
-                {!isAdmin ? (
-                    <NavLink
-                        to="/admin-login"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/40 hover:text-white hover:bg-white/5 transition-all"
-                    >
-                        <Settings className="w-5 h-5" />
-                        <span className="font-medium">Admin Login</span>
-                    </NavLink>
-                ) : (
-                    <button
-                        onClick={handleLogout}
-                        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-error/60 hover:text-error hover:bg-error/10 transition-all"
-                    >
-                        <LogOut className="w-5 h-5" />
-                        <span className="font-medium">Logout</span>
-                    </button>
-                )}
+                <button
+                    onClick={handleLogout}
+                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500/60 hover:text-red-500 hover:bg-red-500/10 transition-all group"
+                >
+                    <LogOut className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <span className="font-medium">Logout</span>
+                </button>
 
                 {/* Version */}
-                <div className="text-center text-xs text-white/20 pt-2 font-mono">
-                    JCA Systems v2.1
+                <div className="text-center text-[10px] text-white/20 pt-2 font-mono uppercase tracking-widest">
+                    JCA Systems v3.2 (Fix)
                 </div>
             </div>
         </aside>

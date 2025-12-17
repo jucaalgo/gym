@@ -1,0 +1,450 @@
+EZ-Bar Curl (Preacher Curl, Reverse Grip, Tempo Negative)
+Dumbbell Bench Press (Heavy Load, Decline, Pause at Bottom)
+Hyperextension (Weighted, Glute Focus, Tempo Negative)
+Triceps Extension (Overhead, Cable, Rope, Pause at Peak)
+Cable Curl (Low Pulley, D-Handle, Single-Arm, Tempo Negative)
+Overhead Press (Dumbbell, Standing, Alternating, Pause at Bottom)
+Cable Rear Delt Row (High Pulley, Single-Arm, Overhand, Tempo Negative)
+Hack Squat Machine (Medium Stance, Low Depth, Tempo Negative)
+Single-Leg RDL (Kettlebell, Pause at Bottom, Tempo Negative)
+Cable Hyperextension (Rope Attachment, Glute Focus, Pause at Peak)
+Glute Bridge (Banded, Heels Elevated, Pause at Peak)
+Cable Adduction (Standing, Heavy Load, Pause at Peak)
+Barbell Step-Ups (Explosive, High Box, Tempo Negative)
+Dumbbell Reverse Lunge (Front Foot Elevated, Tempo Negative)
+Dumbbell Sumo Squat (High Volume, Pulse Reps at Bottom)
+Machine Hip Abduction (Torso Erect, Pause at Peak)
+Single-Leg Romanian Deadlift (Dumbbell, Torso Supported, Pause at Bottom)
+Cable Pull-Through (Deep Hip Hinge, Pause at Peak)
+Dumbbell Split Squat (Rear Foot Elevated, Close Stance, Tempo Negative)
+Weighted Decline Sit-Up (Heavy Load, Pause at Peak)
+Cable Triceps Kickback (Standing, Heavy Load, Tempo Negative)
+Preacher Curl (Single-Arm, Cable, Low Pulley, Pause at Peak)
+Single-Arm Cable Row (Overhand Grip, Mid-Width, Pause at Peak)
+Lat Pulldown (V-Bar, Close Stance, Tempo Negative)
+Dumbbell Incline Press (Neutral Grip, High Rep)
+Smith Machine Overhead Press (Front Rack, Seated, Pause at Bottom)
+Dumbbell Lateral Raise (Lying Incline, Pause at Peak)
+EZ-Bar Curl (Standing, Reverse Grip, Pause at Peak)
+Cable Crossover (Low-to-High, Single-Arm, Tempo Negative)
+Dumbbell Front Raise (Standing, Heavy Load, Pause at Peak)
+Barbell Bent-Over Row (Wide Grip, Overhand, Tempo Negative)
+Cable Curl (Low Pulley, Straight Bar, Close Grip, Pause at Peak)
+Overhead Press (Dumbbell, Standing, Strict, Pause at Peak)
+Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep)
+Dumbbell Deadlift (Stiff-Legged, Narrow Stance, High Rep)
+Hack Squat Machine (Medium Stance, Low Depth, High Rep)
+Hack Squat Machine (Medium Stance, Low Depth, High Rep)
+Machine Seated Curl (Wide Stance, Pause at Peak)
+Machine Seated Curl (Wide Stance, Pause at Peak)
+Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep)
+Single-Leg RDL (Kettlebell, Contralateral Hold, High Rep)
+Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak)
+Barbell Step-Ups (Reverse, Heavy Load, Pause at Peak)
+Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative)
+Dumbbell Bulgarian Split Squat (Front Foot Elevated, Tempo Negative)
+Sumo Deadlift (Trap Bar, Elevated Stance, Heavy Load)
+Barbell Reverse Lunge (Rear Foot Elevated, Tempo Negative)
+Preacher Curl (Single-Arm, Dumbbell, Pause at Peak)
+Cable Rear Delt Row (Rope Attachment, Face-Pull Height, Tempo Negative)
+Dumbbell Shoulder Press (Seated, Neutral Grip, Tempo Negative)
+EZ-Bar Curl (Reverse Grip, Standing, Pause at Peak)
+Dumbbell Lateral Raise (Standing, Heavy, Pause at Bottom)
+Dumbbell Deadlift (Stiff-Legged, Heavy Load, Pause at Bottom)
+Lat Pulldown (Neutral Grip, Close Bar, Pause at Peak)
+Smith Machine Bench Press (Incline, Pause at Bottom)
+Dumbbell Goblet Squat (Elevated Heels, High Rep)
+Hack Squat Machine (Wide Stance, High Foot, Tempo Negative)
+Dumbbell Split Squat (Rear Foot Elevated, Feet Close, High Rep)
+Single-Leg RDL (Dumbbell, Torso Supported, High Rep)
+Cable Pull-Through (Deep Hip Hinge, High Rep)
+Single-Leg Hip Abduction (Cable, Standing, High Rep)
+Dumbbell Front Raise (Incline Bench, Prone, Tempo Negative)
+Cable Crossover (Low Pulley, Wide Grip)
+Smith Machine Shrug (Front, Pause at Peak)
+Cable Rear Delt Row (Underhand Grip, Low Pulley, Pause at Peak)
+EZ-Bar Curl (Preacher Curl, Wide Grip, Tempo Negative)
+Dumbbell Bench Press (Heavy Load, Wide Grip, Pause at Bottom)
+Hyperextension (Weighted, Glute Focus, High Rep)
+Cable Curl (Low Pulley, D-Handle, Single-Arm, Pause at Top)
+Overhead Press (Dumbbell, Seated, Alternating, Tempo Negative)
+Dumbbell Reverse Fly (Lying Incline, High Rep)
+Hack Squat Machine (Narrow Stance, Low Foot, Tempo Negative)
+Cable Adduction (Standing, Heavy Load, Tempo Negative)
+Barbell Step-Ups (Box, Low Rep, Pause at Peak)
+Dumbbell Reverse Lunge (Front Foot Elevated, Pause at Bottom)
+Cable Kickback (Gluteus Medius Focus, Side-Angled, Pause at Peak)
+Dumbbell Sumo Squat (High Volume, Tempo Negative)
+Machine Hip Abduction (Torso Erect, High Rep)
+Single-Leg Romanian Deadlift (Dumbbell, Pause at Bottom)
+Cable Pull-Through (Rope, High Rep, Max Pump)
+Dumbbell Split Squat (Rear Foot Elevated, Pause at Bottom)
+Weighted Decline Sit-Up (High Rep, Max Pump)
+Cable Triceps Kickback (Standing, Pause at Peak)
+Preacher Curl (Single-Arm, Cable, Low Pulley, Tempo)
+Single-Arm Cable Row (Overhand Grip, Mid-Width)
+Barbell Curl (Standing, Wide Grip, High Rep)
+Lat Pulldown (V-Bar, Close Stance, Pause at Peak)
+Dumbbell Incline Press (Neutral Grip, Pause at Bottom)
+Smith Machine Overhead Press (Front Rack, Seated)
+Dumbbell Lateral Raise (Lying Incline, High Rep)
+EZ-Bar Curl (Standing, Reverse Grip, Tempo Training)
+Cable Crossover (Low-to-High, High Rep, Max Pump)
+Dumbbell Front Raise (Standing, Tempo Training)
+Barbell Bent-Over Row (Wide Grip, Pause at Peak)
+Cable Curl (Low Pulley, Straight Bar, Close Grip)
+Overhead Press (Dumbbell, Standing, Strict, Pause at Bottom)
+Machine Seated Curl (Wide Stance, Slow Negative)
+Single-Leg RDL (Kettlebell, Pause at Bottom)
+Cable Hyperextension (Rope Attachment, Glute Focus)
+Smith Machine Lunge (Rear Foot Elevated, Glute Focus)
+Glute Bridge (Banded, Heels Elevated)
+Cable Adduction (Standing, Heavy Load, Low Rep)
+Single-Leg RDL (Dumbbell, Deficit, Glute Focus)
+Leg Extension (Banded, Pulse Reps)
+Dumbbell Reverse Lunge (Front Foot Elevated, Glute Focus)
+Machine Hack Squat (Medium Stance, Pause at Bottom)
+Sumo Deadlift (Barbell, High Rep, Light Weight)
+Barbell Glute Bridge (Wide Stance, Banded, Peak Contraction)
+Barbell Front Squat (Paused Reps, High Bar)
+Barbell Reverse Curl (Standing, Close Grip)
+Overhead Press (Dumbbell, Standing, Alternating, Low Rep)
+Cable Rear Delt Row (Single-Arm, High Pulley, Overhand)
+Machine Chest Press (Neutral Grip, Pause Reps)
+Dumbbell Concentration Curl (Seated, High Rep, Long Head)
+Cable Crossover (Low-to-High, Single-Arm)
+EZ-Bar Curl (Preacher Curl, Reverse Grip, High Rep)
+Dumbbell Shoulder Press (Seated, Alternating, High Rep)
+Barbell Bent-Over Row (Wide Grip, Reverse Grip)
+Dumbbell Lateral Raise (Standing, Heavy, Low Rep)
+Cable Crossover (High Pulley, Single-Arm, Pause)
+Incline Hammer Curl (Cable, Rope Attachment)
+Triceps Extension (Overhead, Dumbbell, Single-Arm)
+Lat Pulldown (Single-Arm, Neutral Grip, Kneeling)
+Single-Arm Cable Curl (High Pulley, Supinated Grip, Tempo)
+Dumbbell Floor Press (Heavy Load, Low Rep)
+Hack Squat Machine (Wide Stance, Pause at Top)
+Machine Seated Curl (Wide Stance, High Rep)
+Single-Leg RDL (Dumbbell, Balance Focus, Unstable Surface)
+Barbell Reverse Lunge (Deficit, Pause at Bottom)
+Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom)
+Dumbbell Bulgarian Split Squat (Front Foot Elevated, Pause at Bottom)
+Machine Hack Squat (Narrow Stance, Pause at Top)
+Barbell Sumo Deadlift (Heavy Load, Low Rep)
+Dumbbell Reverse Lunge (Rear Foot Elevated, Pause at Bottom)
+Dumbbell Bench Press (Heavy Load, Decline, Low Rep)
+Smith Machine Bench Press (High Rep, Close Grip)
+Weighted Cable Crunch (High Pulley, Heavy Load)
+Barbell Reverse Curl (Standing, Wide Grip)
+Weighted Chin-Up (Overhand Grip, Wide Stance)
+Preacher Curl (Single-Arm, Cable, High Pulley)
+Cable Rear Delt Row (High Pulley, Single-Arm, Neutral Grip)
+Dumbbell Front Raise (Seated, Heavy Load)
+Cable Triceps Pushdown (Rope Attachment, Overhead, Kneeling)
+Dumbbell Bench Press (Decline, High Rep)
+Cable Curl (Low Pulley, D-Handle, Single-Arm)
+Overhead Press (Dumbbell, Seated, High Rep)
+Dumbbell Lateral Raise (Lying Incline, Low Rep)
+Dumbbell Deadlift (Stiff-Legged, Heavy Load)
+Barbell Curl (Standing, Tempo Training)
+Seated Cable Reverse Fly (Low Pulley, Seated)
+Dumbbell Goblet Squat (Banded, Feet Turned Out)
+Cable Side Kick (Standing, Flexed Foot)
+Hack Squat Machine (Narrow Stance, Low Rep Focus)
+Single-Leg RDL (Dumbbell, Pulse Reps)
+Cable Adduction (Standing, Contralateral Hold)
+Dumbbell Bulgarian Split Squat (Front Foot Elevated)
+Machine Hack Squat (Wide Stance, High Rep)
+Sumo Deadlift (Barbell, Pause Below Knee)
+Weighted Plank (Long Hold)
+Dumbbell Hammer Curl (Seated, High Rep)
+Machine Chest Press (Neutral Grip, Heavy Load)
+Cable Rear Delt Row (Rope Attachment, Face-Pull Height)
+EZ-Bar Curl (Preacher Curl, Close Grip)
+Dumbbell Incline Press (Light Weight, High Rep)
+Weighted Cable Crunch (High Rep, Max Contraction)
+Cable Curl (Low Pulley, Rope Attachment, Hammer Grip)
+Overhead Press (Barbell, Standing, Strict Form)
+Single-Arm Dumbbell Row (Kneeling, Rotation Focus)
+Cable Upright Row (Rope Attachment, Wide Pull)
+Lat Pulldown (Wide Grip, Behind the Neck)
+Single-Arm Cable Curl (Pronated Grip, High Pulley)
+Dumbbell Pullover (Incline Bench, Straight Arm)
+Cable Triceps Pushdown (V-Bar, Heavy Load)
+Seal Row (Dumbbell, Prone Bench)
+Arnold Press (Seated, Dumbbell)
+Dumbbell Goblet Squat (Tempo Training, Pause at Bottom)
+Single-Leg RDL (Dumbbell, Balance Focus, Eyes Closed)
+Smith Machine Split Squat (Deficit, Pause Reps)
+Barbell Front Squat (High Bar, Deep Depth)
+Single-Leg RDL (Kettlebell, Contralateral Hold)
+Leg Extension (Single-Leg, Pause at Top)
+Walking Lunges (Dumbbells, Long Stride)
+Barbell Reverse Lunge (Glute Focus, Forward Lean)
+Hip Abduction Machine (Heavy Weight, Short Range)
+Cable Kickback (Gluteus Medius Focus, Side-Angled)
+Dumbbell Sumo Deadlift (Deficit, Pause Reps)
+Hack Squat Machine (Medium Stance, Low Depth)
+Cable Romanian Deadlift (V-Bar, Wide Stance)
+Barbell Glute Bridge (Banded, Slow Eccentric)
+Single-Leg Split Squat (Deficit, Dumbbells)
+Dumbbell Pullover (Bent Arm, Triceps Focus)
+Barbell Bench Press (Reverse Grip, Close Stance)
+Cable Curl (Low Pulley, Straight Bar, Wide Grip)
+Dumbbell Shrug (Trap Bar Style, Neutral Grip)
+Cable Pull-Over (Standing, Rope Attachment)
+Single-Arm Cable Curl (Supinated Grip, High Pulley)
+Overhead Press (Dumbbell, Seated, Alternating)
+Cable Rear Delt Row (Underhand Grip, Low Pulley)
+Preacher Curl (Single-Arm, Dumbbell)
+Machine Seated Row (Overhand Grip, Wide Handle)
+Cable Triceps Pushdown (Straight Bar, Band-Resisted)
+Dumbbell Press (Incline, Supinated Grip)
+Cable Crossover (High-to-Low, Low Rep Focus)
+Lat Pulldown (Neutral Grip, Medium Width)
+Incline Hammer Curl (Dumbbell)
+Cable Triceps Kickback (Kneeling, Rope Attachment)
+Dumbbell Dead Stop Row (Prone Bench)
+Zottman Curl (Standing)
+Floor Press (Dumbbell, Neutral Grip)
+Dumbbell Front Raise (Incline Bench, Prone)
+Lat Pulldown (Single-Arm, Kneeling)
+Cable Rear Delt Row (Neutral Grip, High Pulley)
+Dumbbell Concentration Curl (Seated, Inner Thigh)
+Dumbbell Front Raise (Neutral Grip)
+Barbell Bent-Over Row (Underhand Grip, Mid Stance)
+Kettlebell Upright Row (Narrow Grip)
+Cable Row (Single-Arm, Supinated Grip)
+Machine Chest Fly (Leaning Forward)
+Lat Pulldown (V-Bar, Wide Stance)
+Single-Arm Cable Extension (Overhead, Kneeling)
+Face Pull (Neutral Grip, Low Pulley)
+Cable Lateral Raise (Behind the Body)
+Dumbbell Pullover (Straight Arm, Across Bench)
+Neutral-Grip Pull-Up (Narrow Grip)
+Smith Machine Shrug (Behind the Back)
+Single-Arm Dumbbell Row (Chest Supported)
+Seated Cable Reverse Fly (High Pulley)
+Dumbbell Goblet Squat (Elevated Heels)
+Cable Glute Kickback (Standing, Extended Range)
+Seated Abduction Machine (Forward Lean)
+Single-Leg Romanian Deadlift (Dumbbell, Torso Supported)
+Deep Sissy Squat (Bodyweight, Fixed Foot Position)
+EZ-Bar Biceps Curl (Preacher Curl, Wide Grip)
+Cable Crossover (Low-to-High)
+Smith Machine Overhead Press (Behind the Neck)
+Seated Machine Row (Underhand Grip)
+Weighted Parallel Bar Dips (Leaning Forward)
+Cable Face Pull with External Rotation
+Incline Pronated-Grip Dumbbell Press
+Seated Dumbbell Overhead Triceps Extension
+Cable Donkey Kick
+Pin Squat
+Pause Squat
+Landmine Squat
+Landmine RDL
+Landmine Press
+Iron Cross Stretch
+Chest-Supported Dumbbell Row
+Chest and Front Shoulder Stretch
+Barbell Bench Press (Medium Grip)
+Ankle on the Knee
+Zottman Curl
+Zercher Lunge
+Zercher Deadlift
+Z Press
+Yates Row
+Wrist Roller
+Wide Grip Seated Cable Row
+Wide Grip Pull-Up
+Trap Bar Deadlift
+Swiss Ball Leg Curl
+Svend Press
+Stride Jump Crossover
+Straight-Arm Pulldown
+Straddle Lift
+Step-Up (Dumbbell)
+Static Lunge (Barbell)
+Slider Lateral Lunge
+Single-Leg Box Squat
+Single-Arm Push-Up
+Single-Arm Lat Pulldown
+Single Cone Sprint Drill
+Side Lying Lateral Raise
+Serratus Punch
+Seated Overhead Dumbbell Press
+Scott Press
+Safety Bar Squat
+Russian Twist
+Running (Treadmill)
+Rope Hammer Curl
+Rocket Jump
+Reverse Wrist Curl
+Reverse Pec Deck
+Reverse Nordic Curl
+Reverse Lunge to Knee Drive
+Reverse Lunge (Dumbbell)
+Reverse Hyperextension (Stability Ball)
+Reverse Hyperextension
+Reverse Hack Squat
+Reverse Grip Triceps Pushdown
+Reverse Curl (EZ Bar)
+Renegade Row
+Rear Delt Dumbbell Fly
+Rack Pull (Above Knee)
+Push Press
+Prone Manual Hamstring Stretch
+Preacher Curl (EZ Bar)
+Posterior Tibialis Stretch
+Poliquin Step-Up
+Plyo Kettlebell Push-Up
+Plie Squat
+Lateral Lunge (Dumbbell)
+Lat Pulldown (Wide Grip)
+Lat Pulldown (Neutral Grip)
+Landmine Squat
+Landmine Lateral Lunge
+Landmine Hack Squat
+Landmine Curtsy Lunge
+Kroc Row
+Kneeling Jump Squat
+Kneeling Hip Flexor Stretch
+Kelso Shrug
+Kas Glute Bridge
+Kang Squat
+Intermediate Groin Stretch
+Incline Dumbbell Bench Press
+Incline Barbell Bench Press
+Iliotibial Tract SMR
+Hurdle Hops
+Hug Knees to Chest
+Hug a Ball
+High Pull
+Hex Press
+Heel Elevated Goblet Squat
+Hang Snatch
+Hamstring Stretch
+Hamstring SMR
+Hammer Strength Chest Press
+Guillotine Press (Dumbbell Variation)
+Groin and Back Stretch
+Glute Ham Raise (GHR)
+Glute Bridge March
+Front Foot Elevated Split Squat
+Front Cone Hops
+Front Box Jump
+Frog Pump
+Frog Hops
+French Press
+Foot SMR
+Fire Hydrant (Weighted)
+Fast Skipping
+Farmer's Carry
+Egyptian Lateral Raise
+Dynamic Chest Stretch
+Dynamic Back Stretch
+Dumbbell Walking Lunge
+Dumbbell Sumo Squat
+Dumbbell Skullcrusher
+Dumbbell Shrug
+Dumbbell Romanian Deadlift (RDL)
+Dumbbell Pullover
+Dumbbell Overhead Extension (Seated)
+Dumbbell Floor Press
+Dumbbell Clean and Press
+Dumbbell Bulgarian Split Squat
+Dumbbell Bench Press (Neutral Grip)
+Donkey Kicks (Smith Machine)
+Donkey Calf Raises
+Deficit Reverse Lunge (Dumbbell)
+Deficit Deadlift
+Decline Barbell Bench Press
+Curtsy Lunge (Dumbbell)
+Cross Body Hammer Curl
+Chin to Chest Stretch
+Child’s Pose
+Chest Supported Rear Delt Row
+Chest Stretch on Stability Ball
+Chest and Front Shoulder Stretch
+Chair Upper Body Stretch
+Chair Lower Back Stretch
+Carioca Quick Step
+Calf Stretch (Hands Against Wall)
+Calf Stretch (Elbows Against Wall)
+Cable Step-Up
+Cable Pull-Through (Kneeling)
+Cable Pull-Through
+Cable Hip Adduction
+Cable Front Raise
+Cable Crossover (Middle)
+Cable Cross Body Lateral Raise
+Butterfly Stretch
+B-Stance RDL
+Bradford Press
+Brachialis SMR
+Box Jump (Multiple Response)
+Behind the Head Chest Stretch
+Bayesian Curl
+Battling Ropes
+Barbell Step-Ups
+Banded Hip Thrust
+Banded Clamshells
+Backward Medicine Ball Throw
+Arnold Press
+Anterior Tibialis SMR
+Ankle Circles
+Anderson Squat
+Air Bike
+Ahrens Press
+Ab Roller
+Finger Curls
+EZ Bar Skullcrusher
+Dumbbell One-Arm Triceps Extension
+Concentration Curl
+Cable Wrist Curl
+Barbell Curl
+Alternate Hammer Curl
+Weighted Pull-Up
+Underhand Cable Pulldown
+Two-Arm Kettlebell Row
+One-Arm Dumbbell Row
+Mixed Grip Chin-Up
+Face Pull
+Cable Rear Delt Fly
+Bent Over Barbell Row
+Band Pull Apart
+Standing Military Press
+Machine Bench Press
+Incline Push-Up
+Heavy Bag Thrust
+Dumbbell Shoulder Press
+Dumbbell Flyes
+Dumbbell Bench Press (Neutral Grip)
+Decline Dumbbell Bench Press
+Close-Grip Push-Up
+Cable Crossover
+Barbell Shoulder Press
+Barbell Incline Shoulder Raise
+Barbell Guillotine Bench Press
+Alternating Floor Press
+Sumo Deadlift
+Stiff-Leg Barbell Deadlift
+Rack Pull
+Kettlebell Swing (Vertical Swing)
+Barbell Deadlift
+Axle Deadlift
+Atlas Stones
+Russian Twist
+Dead Bug
+Alternate Heel Touchers
+Weighted Sissy Squat
+Narrow Stance Hack Squat
+Kettlebell Pistol Squat
+Goblet Squat
+Dumbbell Squat
+Dumbbell Lunge
+Box Squat
+Barbell Side Split Squat
+Barbell Lunge
+Barbell Hack Squat
+Barbell Full Squat

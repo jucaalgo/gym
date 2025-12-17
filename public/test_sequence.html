@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sequence Test</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            gap: 20px;
+        }
+
+        .player {
+            border: 2px solid #444;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+            width: 640px;
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .player img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .strip {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: #222;
+            border-radius: 8px;
+        }
+
+        .strip img {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            border: 1px solid #555;
+            opacity: 0.6;
+        }
+
+        .strip img.active {
+            border-color: #00ff00;
+            opacity: 1;
+            border-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>"Flipbook" Style Test (5 Frames)</h1>
+
+    <div class="player">
+        <img id="mainImage" src="/exercises/sequence_test/barbell-squat_1.png" alt="Animation">
+    </div>
+
+    <div class="strip">
+        <img src="/exercises/sequence_test/barbell-squat_1.png" id="thumb1">
+        <img src="/exercises/sequence_test/barbell-squat_2.png" id="thumb2">
+        <img src="/exercises/sequence_test/barbell-squat_3.png" id="thumb3">
+        <img src="/exercises/sequence_test/barbell-squat_4.png" id="thumb4">
+        <img src="/exercises/sequence_test/barbell-squat_5.png" id="thumb5">
+    </div>
+
+    <script>
+        const PATH = '/exercises/sequence_test/barbell-squat_';
+        let currentFrame = 1;
+        const totalFrames = 5;
+        const img = document.getElementById('mainImage');
+
+        function update() {
+            // Update Main Image
+            img.src = `${PATH}${currentFrame}.png`;
+
+            // Update Thumbs
+            document.querySelectorAll('.strip img').forEach((thumb, i) => {
+                thumb.classList.toggle('active', (i + 1) === currentFrame);
+            });
+
+            // Loop
+            currentFrame++;
+            if (currentFrame > totalFrames) currentFrame = 1;
+        }
+
+        // 600ms per frame = ~1.5 FPS (Slow deliberate motion)
+        // 300ms per frame = ~3 FPS (Faster)
+        setInterval(update, 500); 
+    </script>
+</body>
+
+</html>
