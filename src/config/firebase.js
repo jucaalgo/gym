@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDVxYcBV9Lx3h0ZIGnfG3P7CGoSkGX9iGY",
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: "jca-gym-app.firebaseapp.com",
     projectId: "jca-gym-app",
     storageBucket: "jca-gym-app.firebasestorage.app",
