@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/gym/',
+  //   base: '/gym/',
   plugins: [
     react(),
     VitePWA({
@@ -13,8 +13,8 @@ export default defineConfig({
         name: 'JCA GYM',
         short_name: 'JCA GYM',
         description: 'Advanced Gym Training Companion',
-        start_url: '/gym/',
-        scope: '/gym/',
+        start_url: '/',
+        scope: '/',
         theme_color: '#000000',
         background_color: '#000000',
         display: 'standalone',
