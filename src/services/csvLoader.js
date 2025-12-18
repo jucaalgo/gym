@@ -65,10 +65,25 @@ export async function loadExercises() {
     }
 }
 
+// Helper to hydrate exercise with image data
+function hydrateExerciseData(exerciseName, catalog) {
+    if (!catalog || !catalog.length) return {};
+    const match = findBestExerciseMatch(catalog, exerciseName);
+    if (match) {
+        return {
+            imagePath: match.imagePath || match.thumbnailUrl || match.gifUrl,
+            thumbnailUrl: match.thumbnailUrl || match.imagePath,
+            videoUrl: match.videoUrl,
+            catalogMatch: true
+        };
+    }
+    return {};
+}
+
 /**
  * Parse GENERATED_ROUTINES_300.csv
  */
-export async function loadRoutines() {
+export async function loadRoutines(exerciseCatalog = []) {
     try {
         const response = await fetch(getAssetPath('exercises/GENERATED_ROUTINES_300.csv'));
         const text = await response.text();
@@ -98,13 +113,17 @@ export async function loadRoutines() {
                 });
             }
 
+            const cleanName = exercise.trim();
+            const visualData = hydrateExerciseData(cleanName, exerciseCatalog);
+
             routinesMap.get(id).exercises.push({
                 order: parseInt(order) || 0,
-                name: exercise.trim(),
+                name: cleanName,
                 sets: parseInt(sets) || 3,
                 reps: parseInt(reps) || 10,
                 rest: parseInt(rest) || 60,
-                targetRPE: rpe ? rpe.trim() : '7'
+                targetRPE: rpe ? rpe.trim() : '7',
+                ...visualData
             });
         }
 
@@ -113,7 +132,7 @@ export async function loadRoutines() {
             exercises: routine.exercises.sort((a, b) => a.order - b.order)
         }));
 
-        console.log(`✅ Loaded ${routines.length} routines`);
+        console.log(`✅ Loaded ${routines.length} routines (Hydrated: ${exerciseCatalog.length > 0})`);
         return routines;
     } catch (error) {
         console.error('❌ Error loading routines:', error);
@@ -160,17 +179,27 @@ export async function loadEquipmentMapping() {
 }
 
 export async function loadAllData() {
-    const [exercises, routines, equipment] = await Promise.all([
-        loadExercises(),
-        loadRoutines(),
-        loadEquipmentMapping()
-    ]);
+    try {
+        // 1. Load Exercises first to serve as catalog for hydration
+        const exercises = await loadExercises();
 
-    return {
-        exercises,
-        routines,
-        equipment
-    };
+        // 2. Load Equipment concurrently
+        const equipmentPromise = loadEquipmentMapping();
+
+        // 3. Load Routines, passing the exercises catalog for hydration
+        const routines = await loadRoutines(exercises);
+
+        const equipment = await equipmentPromise;
+
+        return {
+            exercises,
+            routines,
+            equipment
+        };
+    } catch (error) {
+        console.error('Sequential Data Load Failed:', error);
+        return { exercises: [], routines: [], equipment: [] };
+    }
 }
 
 export function findExerciseBySlug(exercises, slug) {
