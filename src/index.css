@@ -13,12 +13,12 @@
   /* Cyber Teal */
   --color-secondary: #B026FF;
   /* Deep Purple */
-  --color-accent: #FFD700;
-  /* Cyber Gold */
+  --color-accent: #94a3b8;
+  /* Cyber Steel (High Contrast Gray) */
   --color-success: #39FF14;
   /* Neon Green */
-  --color-warning: #475569;
-  /* Deep Space Gray */
+  --color-warning: #f59e0b;
+  /* Keep Warning as Amber/Orange for system alerts if needed, but UI buttons will use gray */
   --color-error: #FF3131;
 
   /* Typography */

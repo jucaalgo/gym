@@ -20,12 +20,7 @@ const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Tablero' },
     { to: '/encyclopedia', icon: BookOpen, label: 'Enciclopedia' },
     { to: '/matrix', icon: Target, label: 'La Matrix' },
-    { to: '/analytics', icon: TrendingUp, label: 'Analíticas' },
-    { to: '/journal', icon: Book, label: 'Diario' },
-    { to: '/nutrition', icon: Camera, label: 'Nutrición' },
-    { to: '/scan', icon: Scan, label: 'Híper-Visión' },
     { to: '/routines', icon: Trophy, label: 'Rutinas' },
-    { to: '/leaderboard', icon: Shield, label: 'The Matrix' },
     { to: '/profile', icon: Settings, label: 'Perfil' },
 ];
 
@@ -82,8 +77,8 @@ const Sidebar = () => {
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 mt-4
               ${isActive
-                                ? 'bg-amber-500/20 text-amber-500 border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.2)]'
-                                : 'text-amber-500/60 hover:text-amber-500 hover:bg-amber-500/10 border border-transparent'
+                                ? 'bg-slate-800 text-white border border-slate-600 shadow-[0_0_15px_rgba(255,255,255,0.1)]'
+                                : 'text-white/60 hover:text-white hover:bg-white/5 border border-transparent'
                             }`
                         }
                     >

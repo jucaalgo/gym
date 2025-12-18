@@ -103,7 +103,7 @@ const Profile = () => {
                         <div className="flex flex-col md:flex-row items-center gap-2 mb-2">
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-['Orbitron'] tracking-wide">{displayName}</h2>
                             {user.role === 'admin' && (
-                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center gap-1 uppercase tracking-wider font-['Roboto_Mono']">
+                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-white border border-slate-500 flex items-center gap-1 uppercase tracking-wider font-['Roboto_Mono']">
                                     <Shield className="w-3 h-3" /> ADMIN
                                 </span>
                             )}
@@ -323,16 +323,16 @@ const Profile = () => {
                 )}
 
                 {user.role === 'admin' && (
-                    <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between">
+                    <div className="mb-6 p-4 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-between">
                         <div>
-                            <h4 className="text-amber-500 font-bold font-['Orbitron'] text-sm tracking-wide flex items-center gap-2">
+                            <h4 className="text-slate-300 font-bold font-['Orbitron'] text-sm tracking-wide flex items-center gap-2">
                                 <Shield className="w-4 h-4" /> SYSTEM ADMIN
                             </h4>
                             <p className="text-white/40 text-[10px] font-['Roboto_Mono']">Manage Users & Credentials</p>
                         </div>
                         <button
                             onClick={() => window.location.href = '/admin'}
-                            className="px-4 py-2 bg-amber-500 text-black font-bold rounded-lg text-xs hover:bg-amber-400 transition-colors font-['Orbitron'] tracking-wider"
+                            className="px-4 py-2 bg-slate-700 text-white font-bold rounded-lg text-xs hover:bg-slate-600 transition-colors font-['Orbitron'] tracking-wider"
                         >
                             OPEN PANEL
                         </button>

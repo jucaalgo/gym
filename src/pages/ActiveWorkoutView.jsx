@@ -152,7 +152,7 @@ export default function ActiveWorkoutView() {
         );
     }
 
-    const exerciseDetail = exercises.findByName(currentExercise.name);
+    const exerciseDetail = exercises.findByName(currentExercise.name) || currentExercise;
     const progress = routineEngine.current.getProgress();
     const fatigueSummary = fatigueManager.current.getSessionSummary();
 

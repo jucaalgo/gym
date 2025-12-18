@@ -55,7 +55,7 @@ const AdminPanel = () => {
             {/* Header */}
             <header className="flex justify-between items-end border-b border-white/10 pb-6">
                 <div>
-                    <h1 className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">
+                    <h1 className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
                         PANEL DE CONTROL
                     </h1>
                     <div className="flex items-center gap-2 mt-2">
@@ -63,7 +63,7 @@ const AdminPanel = () => {
                         <p className="text-white/40 text-sm">Gestión de identidad y accesos</p>
                     </div>
                 </div>
-                <div className="px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg text-amber-500 text-xs font-mono font-bold flex items-center gap-2 animate-pulse">
+                <div className="px-4 py-2 bg-slate-800 border border-slate-600 rounded-lg text-slate-300 text-xs font-mono font-bold flex items-center gap-2 animate-pulse">
                     <Shield className="w-4 h-4" />
                     SECURE CONNECTION
                 </div>
@@ -90,7 +90,7 @@ const AdminPanel = () => {
                     </div>
                 </div>
                 <div className="glass-panel p-4 rounded-xl flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-amber-500/20 text-amber-400">
+                    <div className="p-3 rounded-lg bg-slate-700 text-white">
                         <Shield className="w-6 h-6" />
                     </div>
                     <div>
@@ -133,14 +133,14 @@ const AdminPanel = () => {
                                     value={apiKey}
                                     onChange={(e) => setApiKey(e.target.value)}
                                     placeholder="Enter AI API Key..."
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:border-amber-500"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:border-slate-500"
                                 />
                                 <Lock className="w-4 h-4 text-white/20 absolute left-3 top-2.5" />
                             </div>
                         </div>
                         <button
                             onClick={handleSaveKey}
-                            className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-lg transition-colors flex items-center gap-2"
+                            className="px-4 py-2 bg-slate-200 hover:bg-white text-black font-bold rounded-lg transition-colors flex items-center gap-2"
                         >
                             <Save className="w-4 h-4" />
                             Save Key
@@ -246,7 +246,7 @@ const AdminPanel = () => {
                                     </td>
                                     <td className="px-6 py-4">
                                         {user.role === 'admin' ? (
-                                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-amber-500/10 text-amber-500 text-xs font-bold border border-amber-500/20">
+                                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-slate-700 text-white text-xs font-bold border border-slate-500">
                                                 <Shield className="w-3 h-3" /> ADMIN
                                             </span>
                                         ) : (

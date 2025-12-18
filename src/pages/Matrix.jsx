@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
+import voiceManager from '../utils/voiceManager';
+import { getFatigueManager } from '../services/fatigueManager';
 import {
     Play,
     Pause,
@@ -22,11 +24,12 @@ import soundManager from '../utils/sounds';
 import { triggerHaptic } from '../utils/haptics';
 import {
     generateRoutine,
-    loadSuggestedRoutine,
     generateWarmup,
     generateCooldown,
-    calculateWorkoutXP
+    calculateWorkoutXP,
+    loadSuggestedRoutine
 } from '../modules/matrix/generator';
+import { getRoutineById } from '../data/musclewiki_routines';
 import RestTimer from '../components/ui/RestTimer';
 
 // ═══════════════════════════════════════════════════════════════
@@ -42,6 +45,7 @@ const Matrix = () => {
     const [phase, setPhase] = useState('preview'); // preview, warmup, workout, cooldown, complete
     const [completedExercises, setCompletedExercises] = useState([]);
     const [isResting, setIsResting] = useState(false);
+    const fatigueManager = React.useRef(getFatigueManager());
 
     const location = useLocation(); // Hook to get logic
     const navigate = useNavigate();
@@ -54,12 +58,13 @@ const Matrix = () => {
         const loadRoutine = async () => {
             // Check if we have a specific routine requested via navigation state
             if (location.state && location.state.routineId) {
-                // Import async function
+                // EXPLICIT: Load from the "Routines" file (src/data/routines.js)
                 const { getSuggestedRoutinesAsync } = await import('../data/routines');
-                // Wait for routines to load
-                await getSuggestedRoutinesAsync();
-                // Now load the specific routine
-                const suggested = loadSuggestedRoutine(location.state.routineId, user);
+                await getSuggestedRoutinesAsync(); // Wait for data
+
+                // Get specific routine
+                const { getRoutineById } = await import('../data/routines');
+                const suggested = getRoutineById(location.state.routineId);
                 if (suggested) {
                     setRoutine(suggested);
                 } else {
@@ -68,9 +73,18 @@ const Matrix = () => {
                     setRoutine(newRoutine);
                 }
             } else {
-                // Default generation
-                const newRoutine = generateRoutine(user);
-                setRoutine(newRoutine);
+                // Default: Try to get a random one from the "Routines" file first
+                const { getSuggestedRoutinesAsync, getSuggestedRoutines } = await import('../data/routines');
+                await getSuggestedRoutinesAsync();
+
+                const all = getSuggestedRoutines();
+                if (all.length > 0) {
+                    setRoutine(all[0]); // Just pick first for now, or randomize
+                } else {
+                    // Ultimate fallback
+                    const newRoutine = generateRoutine(user);
+                    setRoutine(newRoutine);
+                }
             }
         };
         loadRoutine();
@@ -94,6 +108,12 @@ const Matrix = () => {
     };
 
     const handleStartWorkout = () => {
+        try {
+            voiceManager.startWorkshop();
+        } catch (e) {
+            console.warn("Voice AI failed to start:", e);
+        }
+        // State updates guaranteed to run
         setPhase('workout');
         setIsPlaying(true);
         setCurrentExerciseIndex(0);
@@ -103,11 +123,29 @@ const Matrix = () => {
     const handleCompleteExercise = () => {
         const currentEx = routine.exercises[currentExerciseIndex];
         setCompletedExercises(prev => [...prev, currentEx.id]);
+
+        // Record Fatigue (Neutral RPE 7 for now, adjusted at end)
+        if (fatigueManager.current) {
+            fatigueManager.current.recordSet(7, currentExerciseIndex + 1, 1, currentEx.name);
+        }
+
         soundManager.play('success');
         triggerHaptic('success');
 
+        try {
+            voiceManager.finishSet();
+        } catch (e) {
+            console.warn(e);
+        }
+
         if (currentExerciseIndex < routine.exercises.length - 1) {
             setIsResting(true); // Start rest
+            // Speak rest time
+            try {
+                voiceManager.restTimer(currentEx.rest || 60);
+            } catch (e) {
+                console.warn(e);
+            }
         } else {
             // Workout complete!
             handleWorkoutComplete();
@@ -129,6 +167,13 @@ const Matrix = () => {
 
         completeWorkout(durationMinutes, caloriesBurned);
         addXP(earnedXP);
+
+        // Update fatigue user/context if needed (requires context update, for now local)
+        try {
+            voiceManager.speak("Systems disengaged. Recovery mode active.");
+        } catch (e) {
+            console.warn(e);
+        }
     };
 
     const handleCloseWorkout = () => {
@@ -138,6 +183,26 @@ const Matrix = () => {
         setTimer(0);
         setCompletedExercises([]);
     };
+
+    const currentExercise = routine?.exercises[currentExerciseIndex];
+
+    // Move Swipe Handler to Top Level (Fix Hook Violation)
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => {
+            if (phase === 'workout' && routine && currentExerciseIndex < routine.exercises.length - 1) {
+                setCurrentExerciseIndex(prev => prev + 1);
+                triggerHaptic('light');
+            }
+        },
+        onSwipedRight: () => {
+            if (phase === 'workout' && currentExerciseIndex > 0) {
+                setCurrentExerciseIndex(prev => prev - 1);
+                triggerHaptic('light');
+            }
+        },
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: false
+    });
 
     if (!routine) {
         return (
@@ -150,10 +215,9 @@ const Matrix = () => {
         );
     }
 
-    const currentExercise = routine.exercises[currentExerciseIndex];
 
     return (
-        <div className="min-h-screen p-6">
+        <div className="min-h-screen p-4 md:p-6 pb-24">
             {/* Header */}
             <header className="flex items-center justify-between mb-8">
                 <div>
@@ -219,8 +283,12 @@ const Matrix = () => {
                                     key={ex.id}
                                     className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors"
                                 >
-                                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${routine.archetype?.color || 'from-primary to-accent'} flex items-center justify-center text-white font-bold`}>
-                                        {idx + 1}
+                                    <div className={`w-16 h-16 rounded-xl overflow-hidden bg-black/50 border border-white/10 flex-shrink-0`}>
+                                        <VisualAsset
+                                            exercise={ex._rawData || ex}
+                                            type="image"
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                     <div className="flex-1">
                                         <div className="font-semibold text-white">{ex.name}</div>
@@ -231,7 +299,7 @@ const Matrix = () => {
                                         <div className="text-xs text-white/40">{ex.rest}s descanso</div>
                                     </div>
                                     {/* Visual Level Badge */}
-                                    <div className={`px-2 py-1 rounded-lg text-xs font-medium ${ex.visualLevel === 1 ? 'bg-amber-500/20 text-amber-400' :
+                                    <div className={`px-2 py-1 rounded-lg text-xs font-medium ${ex.visualLevel === 1 ? 'bg-slate-700 text-slate-200' :
                                         ex.visualLevel === 2 ? 'bg-blue-500/20 text-blue-400' :
                                             'bg-white/10 text-white/60'
                                         }`}>
@@ -257,137 +325,117 @@ const Matrix = () => {
             {/* ═══════════════════════════════════════════════════════════════
           WORKOUT PHASE (Active Player)
           ═══════════════════════════════════════════════════════════════ */}
-            {phase === 'workout' && currentExercise && (() => {
-                // Swipe handlers
-                const swipeHandlers = useSwipeable({
-                    onSwipedLeft: () => {
-                        if (currentExerciseIndex < routine.exercises.length - 1) {
-                            setCurrentExerciseIndex(prev => prev + 1);
-                            triggerHaptic('light');
-                        }
-                    },
-                    onSwipedRight: () => {
-                        if (currentExerciseIndex > 0) {
-                            setCurrentExerciseIndex(prev => prev - 1);
-                            triggerHaptic('light');
-                        }
-                    },
-                    preventDefaultTouchmoveEvent: true,
-                    trackMouse: false
-                });
+            {phase === 'workout' && currentExercise && (
+                <div className="fixed inset-0 bg-background/95 backdrop-blur-xl z-50 flex flex-col">
+                    {/* Top Bar */}
+                    <div className="flex items-center justify-between p-4 border-b border-white/10">
+                        <button
+                            onClick={handleCloseWorkout}
+                            className="p-2 rounded-xl hover:bg-white/10 transition-colors"
+                        >
+                            <X className="w-6 h-6 text-white/60" />
+                        </button>
 
-                return (
-                    <div className="fixed inset-0 bg-background/95 backdrop-blur-xl z-50 flex flex-col">
-                        {/* Top Bar */}
-                        <div className="flex items-center justify-between p-4 border-b border-white/10">
-                            <button
-                                onClick={handleCloseWorkout}
-                                className="p-2 rounded-xl hover:bg-white/10 transition-colors"
-                            >
-                                <X className="w-6 h-6 text-white/60" />
-                            </button>
-
-                            <div className="text-center">
-                                <div className="text-sm text-white/50">Exercise {currentExerciseIndex + 1} of {routine.exercises.length}</div>
-                                <div className="text-2xl font-bold text-white font-mono">{formatTime(timer)}</div>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                                {routine.exercises.map((_, idx) => (
-                                    <div
-                                        key={idx}
-                                        className={`w-2 h-2 rounded-full transition-colors ${idx < currentExerciseIndex ? 'bg-success' :
-                                            idx === currentExerciseIndex ? 'bg-primary' :
-                                                'bg-white/20'
-                                            }`}
-                                    />
-                                ))}
-                            </div>
+                        <div className="text-center">
+                            <div className="text-sm text-white/50">Exercise {currentExerciseIndex + 1} of {routine.exercises.length}</div>
+                            <div className="text-2xl font-bold text-white font-mono">{formatTime(timer)}</div>
                         </div>
 
-                        {/* Main Content - WITH SWIPE */}
-                        <div {...swipeHandlers} className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
-                            {/* Exercise Visual - INTEGRATED */}
-                            <div className="w-full max-w-sm md:max-w-md aspect-square md:aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
-                                <VisualAsset
-                                    exercise={currentExercise}
-                                    type="3d_viewer"
-                                    className="w-full h-full object-contain md:object-cover"
+                        <div className="flex items-center gap-2">
+                            {routine.exercises.map((_, idx) => (
+                                <div
+                                    key={idx}
+                                    className={`w-2 h-2 rounded-full transition-colors ${idx < currentExerciseIndex ? 'bg-success' :
+                                        idx === currentExerciseIndex ? 'bg-primary' :
+                                            'bg-white/20'
+                                        }`}
                                 />
-                            </div>
-
-                            {/* REST TIMER OVERLAY */}
-                            {isResting && (
-                                <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 backdrop-blur-md p-6 animate-in fade-in duration-300">
-                                    <RestTimer
-                                        initialSeconds={currentExercise.rest || 60}
-                                        onComplete={handleFinishRest}
-                                        onSkip={handleFinishRest}
-                                    />
-                                </div>
-                            )}
-
-                            {/* Exercise Info */}
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-1 text-center">{currentExercise.name}</h2>
-                            <p className="text-white/50 mb-6 text-center">{currentExercise.muscleGroup}</p>
-
-                            {/* Sets & Reps */}
-                            <div className="flex items-center justify-center gap-8 mb-6">
-                                <div className="text-center">
-                                    <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.sets}</div>
-                                    <div className="text-white/50 text-sm">sets</div>
-                                </div>
-                                <div className="text-3xl text-white/30">×</div>
-                                <div className="text-center">
-                                    <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.reps}</div>
-                                    <div className="text-white/50 text-sm">reps</div>
-                                </div>
-                            </div>
-
-                            {/* Rest Indicator */}
-                            <div className="text-sm text-white/40 mb-4 text-center">
-                                Rest: {currentExercise.rest} seconds
-                            </div>
-
-                            {/* Swipe Hint */}
-                            <div className="text-xs text-white/30 mb-2 text-center md:hidden">
-                                ← Swipe to navigate →
-                            </div>
-                        </div>
-
-                        {/* Bottom Controls */}
-                        <div className="p-4 md:p-6 border-t border-white/10 bg-black/60 backdrop-blur-lg pb-safe">
-                            <div className="flex items-center justify-between gap-4">
-                                {/* Prev Button */}
-                                <button
-                                    onClick={() => setCurrentExerciseIndex(prev => Math.max(0, prev - 1))}
-                                    disabled={currentExerciseIndex === 0}
-                                    className={`p-4 rounded-xl bg-white/10 flex items-center justify-center transition-colors ${currentExerciseIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20'}`}
-                                >
-                                    <ChevronRight className="w-6 h-6 text-white rotate-180" />
-                                </button>
-
-                                {/* Play/Pause */}
-                                <button
-                                    onClick={() => setIsPlaying(!isPlaying)}
-                                    className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors shrink-0"
-                                >
-                                    {isPlaying ? <Pause className="w-8 h-8 text-white" /> : <Play className="w-8 h-8 text-white" />}
-                                </button>
-
-                                {/* Complete/Next */}
-                                <button
-                                    onClick={handleCompleteExercise}
-                                    className={`flex-1 py-4 md:py-5 rounded-2xl bg-gradient-to-r ${routine.archetype?.color || 'from-primary to-accent'} text-white font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg whitespace-nowrap`}
-                                >
-                                    <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
-                                    <span>{currentExerciseIndex === routine.exercises.length - 1 ? 'FINISH' : 'NEXT'}</span>
-                                </button>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                );
-            })()}
+
+                    {/* Main Content - WITH SWIPE */}
+                    <div {...swipeHandlers} className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
+                        {/* Exercise Visual - INTEGRATED */}
+                        <div className="w-full max-w-sm md:max-w-md aspect-square md:aspect-video rounded-3xl overflow-hidden mb-6 border border-white/10 shadow-2xl bg-black shrink-0 relative">
+                            <VisualAsset
+                                exercise={currentExercise}
+                                type="3d_viewer"
+                                className="w-full h-full object-contain md:object-cover"
+                            />
+                        </div>
+
+                        {/* REST TIMER OVERLAY */}
+                        {isResting && (
+                            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 backdrop-blur-md p-6 animate-in fade-in duration-300">
+                                <RestTimer
+                                    initialSeconds={currentExercise.rest || 60}
+                                    onComplete={handleFinishRest}
+                                    onSkip={handleFinishRest}
+                                />
+                            </div>
+                        )}
+
+                        {/* Exercise Info */}
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-1 text-center">{currentExercise.name}</h2>
+                        <p className="text-white/50 mb-6 text-center">{currentExercise.muscleGroup}</p>
+
+                        {/* Sets & Reps */}
+                        <div className="flex items-center justify-center gap-8 mb-6">
+                            <div className="text-center">
+                                <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.sets}</div>
+                                <div className="text-white/50 text-sm">sets</div>
+                            </div>
+                            <div className="text-3xl text-white/30">×</div>
+                            <div className="text-center">
+                                <div className="text-4xl md:text-5xl font-bold text-white">{currentExercise.reps}</div>
+                                <div className="text-white/50 text-sm">reps</div>
+                            </div>
+                        </div>
+
+                        {/* Rest Indicator */}
+                        <div className="text-sm text-white/40 mb-4 text-center">
+                            Rest: {currentExercise.rest} seconds
+                        </div>
+
+                        {/* Swipe Hint */}
+                        <div className="text-xs text-white/30 mb-2 text-center md:hidden">
+                            ← Swipe to navigate →
+                        </div>
+                    </div>
+
+                    {/* Bottom Controls */}
+                    <div className="p-4 md:p-6 border-t border-white/10 bg-black/60 backdrop-blur-lg pb-safe">
+                        <div className="flex items-center justify-between gap-4">
+                            {/* Prev Button */}
+                            <button
+                                onClick={() => setCurrentExerciseIndex(prev => Math.max(0, prev - 1))}
+                                disabled={currentExerciseIndex === 0}
+                                className={`p-4 rounded-xl bg-white/10 flex items-center justify-center transition-colors ${currentExerciseIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20'}`}
+                            >
+                                <ChevronRight className="w-6 h-6 text-white rotate-180" />
+                            </button>
+
+                            {/* Play/Pause */}
+                            <button
+                                onClick={() => setIsPlaying(!isPlaying)}
+                                className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors shrink-0"
+                            >
+                                {isPlaying ? <Pause className="w-8 h-8 text-white" /> : <Play className="w-8 h-8 text-white" />}
+                            </button>
+
+                            {/* Complete/Next */}
+                            <button
+                                onClick={handleCompleteExercise}
+                                className={`flex-1 py-4 md:py-5 rounded-2xl bg-gradient-to-r ${routine.archetype?.color || 'from-primary to-accent'} text-white font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg whitespace-nowrap`}
+                            >
+                                <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
+                                <span>{currentExerciseIndex === routine.exercises.length - 1 ? 'FINISH' : 'NEXT'}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* ═══════════════════════════════════════════════════════════════
           COMPLETE PHASE
@@ -413,6 +461,26 @@ const Matrix = () => {
                         <div className="glass-panel rounded-2xl p-3 md:p-4">
                             <div className="text-2xl md:text-3xl font-bold text-accent">+{calculateWorkoutXP(routine, completedExercises.length, Math.round(timer / 60))}</div>
                             <div className="text-xs md:text-sm text-white/50">XP Earned</div>
+                        </div>
+                    </div>
+
+                    {/* RPE Selector (Added for Post-Workout Evaluation) */}
+                    <div className="max-w-md mx-auto mb-8">
+                        <p className="text-white/40 text-xs mb-3 uppercase tracking-widest">Rate Effort (RPE)</p>
+                        <div className="grid grid-cols-5 gap-2">
+                            {[6, 7, 8, 9, 10].map(rpe => (
+                                <button
+                                    key={rpe}
+                                    className="h-10 rounded-lg bg-white/5 hover:bg-primary/20 hover:border-primary border border-white/5 transition-all text-white font-bold"
+                                    onClick={() => {
+                                        triggerHaptic('selection');
+                                        soundManager.play('select');
+                                        // Here we would save RPE
+                                    }}
+                                >
+                                    {rpe}
+                                </button>
+                            ))}
                         </div>
                     </div>
 

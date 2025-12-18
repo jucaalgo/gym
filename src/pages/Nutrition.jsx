@@ -360,7 +360,7 @@ const Nutrition = () => {
                                     <div className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">
                                         P: {item.totalProtein}g
                                     </div>
-                                    <div className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-medium">
+                                    <div className="px-3 py-1 rounded-full bg-slate-700 text-slate-200 text-xs font-medium">
                                         C: {item.totalCarbs}g
                                     </div>
                                     <div className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 text-xs font-medium">
@@ -384,7 +384,7 @@ const Nutrition = () => {
                                 <div className="text-xs text-white/40">proteína</div>
                             </div>
                             <div>
-                                <div className="text-2xl font-bold text-amber-400">{getTotalMacros().carbs.toFixed(1)}</div>
+                                <div className="text-2xl font-bold text-slate-200">{getTotalMacros().carbs.toFixed(1)}</div>
                                 <div className="text-xs text-white/40">carbos</div>
                             </div>
                             <div>

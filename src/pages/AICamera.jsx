@@ -119,6 +119,11 @@ const AICamera = () => {
                                 screenshotFormat="image/jpeg"
                                 videoConstraints={videoConstraints}
                                 className="w-full h-full object-cover"
+                                onUserMediaError={(err) => {
+                                    console.error("Camera denied/error:", err);
+                                    setError("Camera access blocked. Check browser permissions or use HTTPS.");
+                                    soundManager.play('error');
+                                }}
                             />
                             {/* Scanning Overlay */}
                             <div className="absolute inset-0 border-2 border-secondary/50 rounded-3xl animate-pulse opacity-50 pointer-events-none"></div>

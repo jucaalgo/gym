@@ -21,6 +21,7 @@ import { useUser } from '../context/UserContext';
 import { ALL_ROUTINES } from '../data/musclewiki_routines';
 import CountUp from '../components/ui/CountUp';
 import soundManager from '../utils/sounds';
+import voiceManager from '../utils/voiceManager';
 import { triggerHaptic } from '../utils/haptics';
 
 // ═══════════════════════════════════════════════════════════════
@@ -81,26 +82,6 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
-                    <button
-                        onClick={toggleVoice}
-                        className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all flex items-center gap-2 ${voiceEnabled
-                                ? 'bg-primary/20 border-primary text-primary shadow-[0_0_10px_rgba(0,212,255,0.3)]'
-                                : 'bg-white/5 border-white/10 text-white/40'
-                            }`}
-                    >
-                        {voiceEnabled ? (
-                            <>
-                                <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                                </span>
-                                VOICE AI: ON
-                            </>
-                        ) : (
-                            'VOICE AI: OFF'
-                        )}
-                    </button>
-
                     <div className="flex flex-col items-end">
                         <div className="text-[10px] text-white/30 font-bold uppercase tracking-widest mb-1">System Load</div>
                         <div className="flex gap-1">
@@ -112,21 +93,41 @@ const Dashboard = () => {
                 </div>
             </header >
 
-            {/* ═══ SMART ACTION HUB (NEW) ═══ */}
-            < div className="grid grid-cols-2 gap-4" >
-                <Link to="/scan" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group transition-all hover:border-primary/40 active:scale-95">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all">
+            {/* ═══ AI CONTROL CENTER (NEW TOP ROW) ═══ */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {/* Voice AI Toggle */}
+                <button
+                    onClick={toggleVoice}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 ${voiceEnabled
+                        ? 'bg-primary/20 border-primary shadow-[0_0_15px_rgba(0,212,255,0.3)]'
+                        : 'bg-white/5 border-white/10 hover:bg-white/10'
+                        }`}
+                >
+                    <div className={`p-3 rounded-full ${voiceEnabled ? 'bg-primary/20 text-primary' : 'bg-white/10 text-white/40'}`}>
+                        {voiceEnabled ? <Sparkles className="w-6 h-6 animate-pulse" /> : <Sparkles className="w-6 h-6" />}
+                    </div>
+                    <span className={`text-xs font-bold uppercase tracking-wider ${voiceEnabled ? 'text-white' : 'text-white/40'}`}>
+                        {voiceEnabled ? 'Voice AI: ACTIVO' : 'Voice AI: PAUSADO'}
+                    </span>
+                </button>
+
+                {/* Hyper-Vision Camera */}
+                <Link to="/scan" className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all flex flex-col items-center justify-center gap-2 group">
+                    <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:scale-110 transition-transform">
                         <Scan className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-tighter text-white/80">Escanear Gym</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60 group-hover:text-white">Hyper-Vision</span>
                 </Link>
-                <Link to="/nutrition" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group transition-all hover:border-accent/40 active:scale-95">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-black transition-all">
+
+                {/* Nutrition Camera (Moved from Grid) */}
+                <Link to="/nutrition" className="col-span-2 md:col-span-1 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all flex flex-col items-center justify-center gap-2 group">
+                    <div className="p-3 rounded-full bg-green-500/10 text-green-500 group-hover:scale-110 transition-transform">
                         <Camera className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-tighter text-white/80">Control Dieta</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60 group-hover:text-white">Control Dieta</span>
                 </Link>
-            </div >
+            </div>
+
 
             {/* BENTO GRID */}
             < div className="grid grid-cols-12 gap-4 auto-rows-auto md:auto-rows-[140px]" >
@@ -364,7 +365,7 @@ const Dashboard = () => {
                             <div className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">
                                 P: {user.todayProtein}g
                             </div>
-                            <div className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-medium">
+                            <div className="px-3 py-1 rounded-full bg-slate-700 text-slate-200 text-xs font-medium">
                                 C: {user.todayCarbs}g
                             </div>
                             <div className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 text-xs font-medium">
@@ -382,7 +383,66 @@ const Dashboard = () => {
                     </div>
                 </div >
 
+                {/* ═══ SLEEP ANALYSIS (NEW) ═══ */}
+                <div className="col-span-12 md:col-span-4 glass-panel rounded-3xl p-5 flex flex-col justify-between">
+                    <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider">Sueño / Recuperación</h3>
+                        <div className="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 text-[10px] font-bold">
+                            BETA
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        <div className="relative w-16 h-16 flex items-center justify-center">
+                            <svg className="w-full h-full -rotate-90">
+                                <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="4" fill="transparent" className="text-white/5" />
+                                <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="4" fill="transparent" className="text-indigo-500" strokeDasharray="175.9" strokeDashoffset={175.9 - (175.9 * (user.sleepScore || 85)) / 100} />
+                            </svg>
+                            <span className="absolute text-sm font-bold text-white">{user.sleepScore || 85}%</span>
+                        </div>
+                        <div>
+                            <div className="text-white font-bold text-lg">Calidad Óptima</div>
+                            <div className="text-xs text-white/40">Basado en HRV y última sesión</div>
+                        </div>
+                    </div>
+                </div>
+
             </div >
+
+            {/* ═══ NAVIGATION HUB (NEW BOTTOM ROW) ═══ */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-24">
+                {/* Journal */}
+                <Link to="/journal" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
+                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-primary/20 group-hover:text-primary transition-colors">
+                        <div className="w-6 h-6">📖</div>
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">Diario</span>
+                </Link>
+
+                {/* Analytics */}
+                <Link to="/analytics" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
+                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
+                        <TrendingUp className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">Analíticas</span>
+                </Link>
+
+                {/* Nutrition */}
+                <Link to="/nutrition" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
+                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-accent/20 group-hover:text-accent transition-colors">
+                        <div className="w-6 h-6">🍎</div>
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">Nutrición</span>
+                </Link>
+
+                {/* Leaderboard */}
+                <Link to="/leaderboard" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
+                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-warning/20 group-hover:text-warning transition-colors">
+                        <Trophy className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">The Matrix</span>
+                </Link>
+            </div>
 
             {/* ═══ ROUTINE SELECTOR MODAL ═══ */}
             {
