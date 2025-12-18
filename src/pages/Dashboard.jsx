@@ -36,6 +36,15 @@ const Dashboard = () => {
     const [availableRoutines, setAvailableRoutines] = useState([]);
     const [selectedRoutineId, setSelectedRoutineId] = useState(null);
     const [loadingRoutines, setLoadingRoutines] = useState(false);
+    const [voiceEnabled, setVoiceEnabled] = useState(voiceManager.isEnabled());
+
+    const toggleVoice = () => {
+        const newState = voiceManager.toggle();
+        setVoiceEnabled(newState);
+        if (newState) {
+            voiceManager.greet();
+        }
+    };
 
     // Load routines when selector opens
     useEffect(() => {
@@ -71,18 +80,40 @@ const Dashboard = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-col items-end">
-                    <div className="text-[10px] text-white/30 font-bold uppercase tracking-widest mb-1">System Load</div>
-                    <div className="flex gap-1">
-                        {[1, 2, 3, 4, 5].map(i => (
-                            <div key={i} className={`w-3 h-1 rounded-full ${i <= 3 ? 'bg-primary' : 'bg-white/10'}`} />
-                        ))}
+                <div className="flex flex-col items-end gap-2">
+                    <button
+                        onClick={toggleVoice}
+                        className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all flex items-center gap-2 ${voiceEnabled
+                                ? 'bg-primary/20 border-primary text-primary shadow-[0_0_10px_rgba(0,212,255,0.3)]'
+                                : 'bg-white/5 border-white/10 text-white/40'
+                            }`}
+                    >
+                        {voiceEnabled ? (
+                            <>
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                </span>
+                                VOICE AI: ON
+                            </>
+                        ) : (
+                            'VOICE AI: OFF'
+                        )}
+                    </button>
+
+                    <div className="flex flex-col items-end">
+                        <div className="text-[10px] text-white/30 font-bold uppercase tracking-widest mb-1">System Load</div>
+                        <div className="flex gap-1">
+                            {[1, 2, 3, 4, 5].map(i => (
+                                <div key={i} className={`w-3 h-1 rounded-full ${i <= 3 ? 'bg-primary' : 'bg-white/10'}`} />
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </header>
+            </header >
 
             {/* ═══ SMART ACTION HUB (NEW) ═══ */}
-            <div className="grid grid-cols-2 gap-4">
+            < div className="grid grid-cols-2 gap-4" >
                 <Link to="/scan" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 group transition-all hover:border-primary/40 active:scale-95">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all">
                         <Scan className="w-6 h-6" />
@@ -95,13 +126,13 @@ const Dashboard = () => {
                     </div>
                     <span className="text-xs font-bold uppercase tracking-tighter text-white/80">Control Dieta</span>
                 </Link>
-            </div>
+            </div >
 
             {/* BENTO GRID */}
-            <div className="grid grid-cols-12 gap-4 auto-rows-auto md:auto-rows-[140px]">
+            < div className="grid grid-cols-12 gap-4 auto-rows-auto md:auto-rows-[140px]" >
 
                 {/* ═══ NEURAL READINESS (NEW) ═══ */}
-                <div className="col-span-12 md:col-span-8 row-span-1 glass-panel rounded-3xl p-5 border-white/10 relative overflow-hidden bg-[#0a0a0a]">
+                < div className="col-span-12 md:col-span-8 row-span-1 glass-panel rounded-3xl p-5 border-white/10 relative overflow-hidden bg-[#0a0a0a]" >
                     <div className="absolute top-0 right-0 p-4">
                         <motion.div
                             animate={{ opacity: [0.2, 0.5, 0.2] }}
@@ -149,10 +180,10 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div >
 
                 {/* ═══ TOTAL STATS ═══ */}
-                <div className="col-span-12 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 border-white/10 bg-white/5">
+                < div className="col-span-12 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 border-white/10 bg-white/5" >
                     <div className="flex items-center gap-2 text-white/40 mb-3">
                         <Dumbbell className="w-4 h-4" />
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Resumen de Actividad</span>
@@ -172,12 +203,12 @@ const Dashboard = () => {
                             <div className="text-[9px] text-white/30 uppercase mt-1">Kcal</div>
                         </div>
                     </div>
-                </div>
+                </div >
 
                 {/* ═══ MAIN MISSION CARD (Large) ═══ */}
-                <div className="col-span-12 md:col-span-8 row-span-2 glass-panel rounded-3xl p-6 hover:border-primary/50 transition-all duration-300 relative overflow-hidden border-primary/20 bg-primary/5">
+                < div className="col-span-12 md:col-span-8 row-span-2 glass-panel rounded-3xl p-6 hover:border-primary/50 transition-all duration-300 relative overflow-hidden border-primary/20 bg-primary/5" >
                     {/* HUD Scanline Effect */}
-                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-primary/20 animate-scan pointer-events-none" />
+                    < div className="absolute top-0 left-0 right-0 h-[1px] bg-primary/20 animate-scan pointer-events-none" />
 
                     <div className="relative z-10 h-full flex flex-col justify-between">
                         <div>
@@ -227,10 +258,10 @@ const Dashboard = () => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div >
 
                 {/* ═══ LEVEL & XP CARD ═══ */}
-                <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 flex flex-col justify-between">
+                < div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 flex flex-col justify-between" >
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2 text-accent">
                             <Trophy className="w-5 h-5" />
@@ -253,10 +284,10 @@ const Dashboard = () => {
                             {user.xp} / {user.xpToNextLevel} XP
                         </div>
                     </div>
-                </div>
+                </div >
 
                 {/* ═══ STREAK CARD ═══ */}
-                <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 flex flex-col justify-between">
+                < div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5 flex flex-col justify-between" >
                     <div className="flex items-center gap-2 text-warning">
                         <Flame className="w-5 h-5" />
                         <span className="text-sm font-medium uppercase tracking-wider">Streak</span>
@@ -274,11 +305,11 @@ const Dashboard = () => {
                             <div className="text-xs text-white/40">Record: {user.longestStreak}</div>
                         </div>
                     </div>
-                </div>
+                </div >
 
 
                 {/* ═══ BIOMETRICS / ENERGY ═══ */}
-                <div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5">
+                < div className="col-span-6 md:col-span-4 row-span-1 glass-panel rounded-3xl p-5" >
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2 text-success">
                             <Zap className="w-5 h-5" />
@@ -310,10 +341,10 @@ const Dashboard = () => {
                             <div className="text-xs text-white/40">Stress</div>
                         </div>
                     </div>
-                </div>
+                </div >
 
                 {/* ═══ TODAY'S NUTRITION ═══ */}
-                <div className="col-span-12 md:col-span-8 row-span-1 glass-panel rounded-3xl p-5">
+                < div className="col-span-12 md:col-span-8 row-span-1 glass-panel rounded-3xl p-5" >
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2 text-primary">
                             <TrendingUp className="w-5 h-5" />
@@ -349,88 +380,90 @@ const Dashboard = () => {
                             style={{ width: `${Math.min((user.todayCalories / user.calorieGoal) * 100, 100)}%` }}
                         />
                     </div>
-                </div>
+                </div >
 
-            </div>
+            </div >
 
             {/* ═══ ROUTINE SELECTOR MODAL ═══ */}
-            {showRoutineSelector && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-                    <div className="w-full max-w-4xl max-h-[80vh] glass-panel rounded-3xl overflow-hidden flex flex-col">
+            {
+                showRoutineSelector && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+                        <div className="w-full max-w-4xl max-h-[80vh] glass-panel rounded-3xl overflow-hidden flex flex-col">
 
-                        {/* Modal Header */}
-                        <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                            <div>
-                                <h2 className="text-2xl font-bold text-white">Select Routine</h2>
-                                <p className="text-white/60">Choose your mission for today</p>
-                            </div>
-                            <button
-                                onClick={() => setShowRoutineSelector(false)}
-                                className="p-2 hover:bg-white/10 rounded-full transition-colors"
-                            >
-                                <X className="w-6 h-6 text-white" />
-                            </button>
-                        </div>
-
-                        {/* Modal Content */}
-                        <div className="flex-1 overflow-y-auto p-6">
-                            {loadingRoutines ? (
-                                <div className="flex flex-col items-center justify-center h-64 text-white/50">
-                                    <RefreshCw className="w-8 h-8 animate-spin mb-2" />
-                                    Loading routines...
+                            {/* Modal Header */}
+                            <div className="p-6 border-b border-white/10 flex items-center justify-between">
+                                <div>
+                                    <h2 className="text-2xl font-bold text-white">Select Routine</h2>
+                                    <p className="text-white/60">Choose your mission for today</p>
                                 </div>
-                            ) : (
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    {/* Default Archetype Option */}
-                                    <button
-                                        onClick={() => {
-                                            setSelectedRoutineId(null);
-                                            setShowRoutineSelector(false);
-                                        }}
-                                        className={`p-4 rounded-xl border text-left transition-all ${!selectedRoutineId ? 'bg-primary/20 border-primary' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
-                                    >
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="text-2xl">{archetype.icon}</span>
-                                            <span className="font-bold text-white">Protocol {archetype.name}</span>
-                                        </div>
-                                        <p className="text-sm text-white/60 line-clamp-2">
-                                            {archetype.description}
-                                        </p>
-                                    </button>
+                                <button
+                                    onClick={() => setShowRoutineSelector(false)}
+                                    className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                                >
+                                    <X className="w-6 h-6 text-white" />
+                                </button>
+                            </div>
 
-                                    {/* Available Routines */}
-                                    {availableRoutines.map(routine => (
+                            {/* Modal Content */}
+                            <div className="flex-1 overflow-y-auto p-6">
+                                {loadingRoutines ? (
+                                    <div className="flex flex-col items-center justify-center h-64 text-white/50">
+                                        <RefreshCw className="w-8 h-8 animate-spin mb-2" />
+                                        Loading routines...
+                                    </div>
+                                ) : (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        {/* Default Archetype Option */}
                                         <button
-                                            key={routine.id}
                                             onClick={() => {
-                                                setSelectedRoutineId(routine.id);
+                                                setSelectedRoutineId(null);
                                                 setShowRoutineSelector(false);
                                             }}
-                                            className={`p-4 rounded-xl border text-left transition-all ${selectedRoutineId === routine.id ? 'bg-primary/20 border-primary' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-4 rounded-xl border text-left transition-all ${!selectedRoutineId ? 'bg-primary/20 border-primary' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
                                         >
-                                            <div className="flex items-center justify-between mb-2">
-                                                <h3 className="font-bold text-white truncate pr-2">{routine.name}</h3>
-                                                <div className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white/60">
-                                                    {routine.difficulty}
-                                                </div>
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="text-2xl">{archetype.icon}</span>
+                                                <span className="font-bold text-white">Protocol {archetype.name}</span>
                                             </div>
-                                            <p className="text-sm text-white/60 line-clamp-2 mb-3">
-                                                {routine.description}
+                                            <p className="text-sm text-white/60 line-clamp-2">
+                                                {archetype.description}
                                             </p>
-                                            <div className="flex gap-2 text-xs text-white/40">
-                                                <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {routine.duration}</span>
-                                                <span className="flex items-center gap-1"><Dumbbell className="w-3 h-3" /> {routine.exercises.length} Ex</span>
-                                            </div>
                                         </button>
-                                    ))}
-                                </div>
-                            )}
+
+                                        {/* Available Routines */}
+                                        {availableRoutines.map(routine => (
+                                            <button
+                                                key={routine.id}
+                                                onClick={() => {
+                                                    setSelectedRoutineId(routine.id);
+                                                    setShowRoutineSelector(false);
+                                                }}
+                                                className={`p-4 rounded-xl border text-left transition-all ${selectedRoutineId === routine.id ? 'bg-primary/20 border-primary' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            >
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <h3 className="font-bold text-white truncate pr-2">{routine.name}</h3>
+                                                    <div className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white/60">
+                                                        {routine.difficulty}
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-white/60 line-clamp-2 mb-3">
+                                                    {routine.description}
+                                                </p>
+                                                <div className="flex gap-2 text-xs text-white/40">
+                                                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {routine.duration}</span>
+                                                    <span className="flex items-center gap-1"><Dumbbell className="w-3 h-3" /> {routine.exercises.length} Ex</span>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
-        </div>
+        </div >
     );
 };
 

@@ -69,6 +69,16 @@ const DEFAULT_USER_TEMPLATE = {
     hrv: 75, // ms
     sleepScore: 82, // 0-100
     restingHR: 62, // bpm
+
+    // Bio-Hologram Data
+    muscleFatigue: {
+        chest: 0,
+        back: 0,
+        legs: 0,
+        arms: 0,
+        shoulders: 0,
+        abs: 0
+    },
 };
 
 export const UserProvider = ({ children }) => {

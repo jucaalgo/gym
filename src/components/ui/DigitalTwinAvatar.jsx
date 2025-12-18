@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const DigitalTwinAvatar = ({ level = 1, focus = 'all', archetype = {}, biometrics = {} }) => {
+const DigitalTwinAvatar = ({ level = 1, focus = 'all', archetype = {}, biometrics = {}, muscleFatigue = {} }) => {
     // Colors based on archetype
     const primaryColor = archetype.color?.includes('from-')
         ? archetype.color.split(' ')[1].replace('to-', '')
@@ -10,6 +10,20 @@ const DigitalTwinAvatar = ({ level = 1, focus = 'all', archetype = {}, biometric
     // Scale glow based on level
     const glowIntensity = Math.min(20, 5 + level / 10);
     const auraOpacity = Math.min(0.4, 0.1 + level / 200);
+
+    // Heatmap Helper
+    const getFatigueColor = (muscle) => {
+        const fatigue = muscleFatigue[muscle] || 0;
+        if (fatigue > 80) return '#FF0000'; // Critical Red
+        if (fatigue > 50) return '#FF4500'; // High Orange
+        if (fatigue > 20) return '#FFA500'; // Moderate Yellow
+        return primaryColor; // Normal
+    };
+
+    const getFatigueOpacity = (muscle) => {
+        const fatigue = muscleFatigue[muscle] || 0;
+        return fatigue > 0 ? (fatigue / 100) * 0.8 : 0;
+    };
 
     return (
         <div className="relative w-full aspect-[2/3] flex items-center justify-center p-4">
@@ -40,18 +54,59 @@ const DigitalTwinAvatar = ({ level = 1, focus = 'all', archetype = {}, biometric
                     </linearGradient>
 
                     <filter id="neonGlow">
-                        <feGaussianBlur stdDeviation="1.5" result="blur" />
+                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+
+                    <filter id="heatGlow">
+                        <feGaussianBlur stdDeviation="4" result="blur" />
                         <feComposite in="SourceGraphic" in2="blur" operator="over" />
                     </filter>
                 </defs>
 
-                {/* Main Body Outline */}
+                {/* Main Body Outline (Base) */}
                 <path
                     d="M50,20 L55,25 L55,40 L65,50 L65,80 L55,100 L55,140 L45,140 L45,100 L35,80 L35,50 L45,40 L45,25 Z"
                     fill="url(#bodyGradient)"
                     stroke="white"
                     strokeWidth="0.5"
                     strokeOpacity="0.2"
+                />
+
+                {/* --- HEATMAP LAYERS --- */}
+
+                {/* Chest Heatmap */}
+                <motion.path
+                    d="M45,45 Q50,42 55,45 L55,55 Q50,58 45,55 Z"
+                    fill={getFatigueColor('chest')}
+                    opacity={getFatigueOpacity('chest')}
+                    filter="url(#heatGlow)"
+                    animate={{ opacity: [getFatigueOpacity('chest') * 0.8, getFatigueOpacity('chest'), getFatigueOpacity('chest') * 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                />
+
+                {/* Arms Heatmap */}
+                <motion.path
+                    d="M35,50 L30,65 M65,50 L70,65"
+                    stroke={getFatigueColor('arms')}
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    opacity={getFatigueOpacity('arms')}
+                    filter="url(#heatGlow)"
+                    animate={{ opacity: [getFatigueOpacity('arms') * 0.8, getFatigueOpacity('arms'), getFatigueOpacity('arms') * 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                />
+
+                {/* Legs Heatmap */}
+                <motion.path
+                    d="M45,110 L45,130 M55,110 L55,130"
+                    stroke={getFatigueColor('legs')}
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    opacity={getFatigueOpacity('legs')}
+                    filter="url(#heatGlow)"
+                    animate={{ opacity: [getFatigueOpacity('legs') * 0.8, getFatigueOpacity('legs'), getFatigueOpacity('legs') * 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
                 />
 
                 {/* Head */}
@@ -81,48 +136,17 @@ const DigitalTwinAvatar = ({ level = 1, focus = 'all', archetype = {}, biometric
                     />
                 ))}
 
-                {/* Focus Highlights */}
-                {/* Chest Focus */}
-                <motion.path
-                    d="M45,45 Q50,42 55,45 L55,55 Q50,58 45,55 Z"
-                    fill={focus === 'Pecho' ? primaryColor : 'transparent'}
-                    opacity={focus === 'Pecho' ? 0.6 : 0}
-                    stroke={primaryColor}
-                    strokeWidth={focus === 'Pecho' ? 0.5 : 0}
-                    animate={focus === 'Pecho' ? { opacity: [0.3, 0.6, 0.3] } : {}}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                />
-
-                {/* Arms Focus */}
-                <motion.path
-                    d="M35,50 L30,65 M65,50 L70,65"
-                    stroke={primaryColor}
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    opacity={focus === 'Brazos' ? 0.8 : 0}
-                    animate={focus === 'Brazos' ? { opacity: [0.4, 0.8, 0.4] } : {}}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                />
-
-                {/* Legs Focus */}
-                <motion.path
-                    d="M45,110 L45,140 M55,110 L55,140"
-                    stroke={primaryColor}
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    opacity={focus === 'Piernas' ? 0.8 : 0}
-                    animate={focus === 'Piernas' ? { opacity: [0.4, 0.8, 0.4] } : {}}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                />
-
-                {/* Core Overlay (Data lines) */}
-                <motion.path
-                    d="M40,70 L60,70 M40,75 L60,75"
-                    stroke="white"
-                    strokeWidth="0.2"
-                    strokeDasharray="2 1"
-                    opacity="0.3"
-                />
+                {/* Focus Highlights (Legacy / Overridden by Heatmap if high fatigue) */}
+                {focus === 'Pecho' && (
+                    <motion.path
+                        d="M45,45 Q50,42 55,45 L55,55 Q50,58 45,55 Z"
+                        fill="transparent"
+                        stroke={primaryColor}
+                        strokeWidth="0.5"
+                        animate={{ opacity: [0.3, 1, 0.3] }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                    />
+                )}
             </svg>
 
             {/* Neural Data HUD Overlay */}
@@ -132,12 +156,9 @@ const DigitalTwinAvatar = ({ level = 1, focus = 'all', archetype = {}, biometric
                         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: primaryColor }} />
                         <span>SYNAPSE: {level * 12}ms</span>
                     </div>
-                    <span>READINESS: {biometrics.hrv ? Math.round(biometrics.hrv * 1.2) : 85}%</span>
                 </div>
                 <div className="text-right">
-                    <span>UNIT_ID: JCA_{level > 9 ? level : '0' + level}</span>
-                    <br />
-                    <span>STATUS: ACTIVE</span>
+                    <span>BIO_GLOW: {Object.values(muscleFatigue).some(v => v > 0) ? 'ACTIVE' : 'STANDBY'}</span>
                 </div>
             </div>
         </div>

@@ -95,6 +95,7 @@ const Profile = () => {
                             level={user.level}
                             archetype={Object.values(ARCHETYPES).find(a => a.id === user.archetype) || ARCHETYPES.GUERRERO}
                             biometrics={{ hrv: user.hrv, sleep: user.sleepScore }}
+                            muscleFatigue={user.muscleFatigue}
                         />
                     </div>
 
