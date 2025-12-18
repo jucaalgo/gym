@@ -11,26 +11,27 @@ import { initializeCatalog } from './image_mapper.js';
 // ══════════════════════════════════════════════════════════════════
 // EXERCISE GENERATOR (CATALOG DRIVEN)
 // ══════════════════════════════════════════════════════════════════
+import { getImageUrl } from './image_mapper.js';
 
 export const generateExercises = async () => {
     console.log('[Engine] 🏋️ Starting UNIFIED exercise generation...');
 
     // 1. Load the Master Catalog (Source of Truth) AND the Image Map
     let catalog = [];
-    let imageMap = {};
+    // let imageMap = {}; // DEPRECATED: We use getImageUrl now
 
     try {
-        const [catalogRes, mapRes] = await Promise.all([
+        const [catalogRes] = await Promise.all([
             fetch('/free_exercise_catalog.json'),
-            fetch('/exercise_image_map.json') // Guaranteed map
+            // fetch('/exercise_image_map.json') // No longer needed directly
         ]);
 
-        if (catalogRes.ok && mapRes.ok) {
+        if (catalogRes.ok) {
             catalog = await catalogRes.json();
-            imageMap = await mapRes.json();
-            console.log(`[Engine] ✅ Loaded Master Catalog: ${catalog.length} entries & Image Map`);
+            // imageMap = await mapRes.json();
+            console.log(`[Engine] ✅ Loaded Master Catalog: ${catalog.length} entries`);
         } else {
-            console.error('[Engine] ❌ Failed to load catalog or image map');
+            console.error('[Engine] ❌ Failed to load catalog');
             return [];
         }
     } catch (e) {
@@ -48,16 +49,18 @@ export const generateExercises = async () => {
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '');
 
-        // Determine Image Source (Deterministic Map)
-        const filename = imageMap[item.name];
-        let imageUrl = null;
+        // Determine Image Source (Deterministic Map via Image Mapper)
+        // const filename = imageMap[item.name];
+        // let imageUrl = null;
 
-        if (filename) {
-            imageUrl = `/exercises/${filename}`;
-        } else {
-            // Fallback (Should be 0 based on our audit)
-            console.warn(`[Engine] Missing image for: ${item.name}`);
-        }
+        const imageUrl = getImageUrl(item.name, item.equipment, item.primaryMuscles?.[0]);
+
+        // if (filename) {
+        //     imageUrl = `/exercises/${filename}`;
+        // } else {
+        //     // Fallback (Should be 0 based on our audit)
+        //     // console.warn(`[Engine] Missing image for: ${item.name}`);
+        // }
 
         // Improve Gender/Muscle Metadata mapping
         const primaryMuscle = item.primaryMuscles[0] || 'Full Body';
@@ -73,9 +76,10 @@ export const generateExercises = async () => {
             targetGender: 'unisex',
             category: item.category || 'Strength',
             difficulty: item.level || 'Intermediate',
+            difficulty: item.level || 'Intermediate',
             videoUrl: imageUrl,
             thumbnailUrl: imageUrl,
-            images: filename ? [filename] : [], // For consistency
+            images: imageUrl ? [imageUrl] : [], // For consistency
             instructions: item.instructions || ['Perform with good form.'],
             tags: [formattedMuscle.toLowerCase(), item.equipment?.toLowerCase() || ''],
             sets: 3,

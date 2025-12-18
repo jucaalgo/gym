@@ -143,3 +143,6 @@ export const getImageUrl = (exerciseName, equipment, targetMuscle) => {
     // 3. Fallback to default
     return `https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Hip_Thrust/0.jpg`;
 };
+
+// Export the catalog for direct access if needed
+export const getCatalog = () => EXERCISE_CATALOG;
