@@ -15,9 +15,8 @@ import {
 
 const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Inicio' },
-    { to: '/matrix', icon: Target, label: 'Matrix' },
+    { to: '/matrix', icon: Target, label: 'Entrenamiento' },
     { to: '/routines', icon: Trophy, label: 'Rutinas' },
-    { to: '/leaderboard', icon: Shield, label: 'Matrix' },
     { to: '/profile', icon: Settings, label: 'Perfil' },
 ];
 

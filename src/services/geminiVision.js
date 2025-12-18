@@ -28,50 +28,50 @@ export const analyzeGymMachine = async (imageFile, mode = 'gym') => {
 
         if (mode === 'food') {
             prompt = `
-            You are an expert nutritionist AI. Analyze this food image.
-            1. Identify the food items present.
-            2. Estimate the total calories and macros for the visible portion.
-            3. Return ONLY valid JSON in this format:
+            Actúa como un nutricionista deportivo de élite. Analiza esta imagen con alta precisión.
+            1. Identifica los alimentos visibles. Si es un plato complejo, deconstruye sus ingredientes principales.
+            2. Estima las calorías totales y los macronutrientes (Proteína, Carbohidratos, Grasas) basándote en el volumen visual.
+            3. Devuelve SOLO un JSON válido con este formato exacta:
              {
                "isFood": true,
-               "name": "Dish Name",
-               "description": "Brief nutritional breakdown (e.g. 'Rich in protein, moderate carbs')",
+               "name": "Nombre del Plato",
+               "description": "Breve desglose nutricional (ej. 'Alto en proteínas, carbohidratos complejos').",
                "calories": 500,
                "protein": 30,
                "carbs": 45,
                "fat": 15,
                "confidence": 0.95
              }
-            4. If NO food is detected:
-               Return JSON: { "isFood": false, "message": "No recognizable food found." }
+            4. Si NO detectas comida claramente:
+               Devuelve JSON: { "isFood": false, "message": "No se detectó comida reconocible." }
             
-            Return STRICTLY JSON. No markdown formatting.
+            IMPORTANTE: Responde siempre en JSON puro sin formato markdown.
             `;
         } else {
             // GYM MODE (Default)
             prompt = `
-            You are an elite gym coach AI. Analyze this image.
-            1. Identify if this is a gym machine.
-            2. If YES:
-               - Name the machine.
-               - Give a brief 1-sentence description of its function.
-               - List 3 specific exercises that can be performed on it.
-               - Return ONLY valid JSON in this format:
+            Actúa como un entrenador experto en biomecánica. Analiza esta imagen de equipamiento de gimnasio.
+            1. Identifica qué máquina o equipo es, analizando su estructura, levas, poleas y asientos.
+            2. Si es una máquina de gimnasio:
+               - Nómbrala con su nombre técnico en Español.
+               - Describe brevemente su función principal.
+               - Lista 3 ejercicios clave que se pueden realizar en ella.
+               - Devuelve SOLO un JSON válido con este formato:
                  {
                    "isMachine": true,
-                   "name": "Machine Name",
-                   "description": "Brief description",
-                   "primaryMuscle": "Chest", // Must be one of: Chest, Back, Shoulders, Biceps, Triceps, Quadriceps, Hamstrings, Glutes, Calves, Abs
+                   "name": "Nombre de la Máquina",
+                   "description": "Descripción técnica breve",
+                   "primaryMuscle": "Pecho", // Debe ser uno de: Pecho, Espalda, Hombros, Bíceps, Tríceps, Cuádriceps, Isquios, Glúteos, Gemelos, Abdominales
                    "exercises": [
-                     { "name": "Exercise 1", "difficulty": "Beginner" },
-                     { "name": "Exercise 2", "difficulty": "Intermediate" },
-                     { "name": "Exercise 3", "difficulty": "Advanced" }
+                     { "name": "Ejercicio 1", "difficulty": "Principiante" },
+                     { "name": "Ejercicio 2", "difficulty": "Intermedio" },
+                     { "name": "Ejercicio 3", "difficulty": "Avanzado" }
                    ]
                  }
-            3. If NO (it's not a gym machine):
-               Return JSON: { "isMachine": false, "message": "No recognized gym machine found." }
+            3. Si NO es una máquina de gimnasio:
+               Devuelve JSON: { "isMachine": false, "message": "No se reconoció ninguna máquina de gimnasio." }
             
-            Return STRICTLY JSON. No markdown formatting.
+            IMPORTANTE: Analiza con cuidado incluso si la imagen es parcial. Responde en JSON puro sin markdown.
             `;
         }
 

@@ -185,6 +185,59 @@ export function findExerciseByName(exercises, name) {
     );
 }
 
+// NEW: Fuzzy Matcher to fix "Legacy Feed" issues
+export function findBestExerciseMatch(exercises, routineExerciseName) {
+    if (!routineExerciseName) return null;
+
+    const normalizedInput = routineExerciseName.toLowerCase().trim();
+
+    // 1. Exact Match (Fastest)
+    const exactMatch = exercises.find(ex => ex.name.toLowerCase() === normalizedInput || ex.slug === normalizedInput);
+    if (exactMatch) return exactMatch;
+
+    // 2. Token Overlap Score (Jaccard-like)
+    // "Barbell Squat" (routine) vs "Squat (Barbell)" (encyclopedia)
+    const inputTokens = normalizedInput.replace(/[()]/g, '').split(' ').filter(t => t.length > 2);
+
+    let bestMatch = null;
+    let maxScore = 0;
+
+    for (const ex of exercises) {
+        const exName = ex.name.toLowerCase();
+
+        // Direct inclusion check (High confidence)
+        if (exName.includes(normalizedInput) || normalizedInput.includes(exName)) {
+            // Favor the one with closer length ratio to avoid "Squat" matching "Split Squat Jump" too easily
+            const lengthRatio = Math.min(exName.length, normalizedInput.length) / Math.max(exName.length, normalizedInput.length);
+            if (lengthRatio > 0.6) return ex;
+        }
+
+        // Token matching
+        const exTokens = exName.replace(/[()]/g, '').split(' ').filter(t => t.length > 2);
+        let intersection = 0;
+
+        inputTokens.forEach(token => {
+            if (exTokens.some(t => t.includes(token) || token.includes(t))) {
+                intersection++;
+            }
+        });
+
+        const score = intersection / (inputTokens.length + exTokens.length - intersection); // Jaccard Index
+
+        if (score > maxScore) {
+            maxScore = score;
+            bestMatch = ex;
+        }
+    }
+
+    // Threshold: Only return if at least 30% similarity or decent score
+    if (maxScore > 0.3) {
+        return bestMatch;
+    }
+
+    return null;
+}
+
 export function filterRoutinesByGender(routines, gender) {
     if (gender === 'all') return routines;
     return routines.filter(r => r.gender === gender);

@@ -20,10 +20,12 @@ class VoiceManager {
 
     setVoice() {
         const voices = this.synth.getVoices();
-        // Priority: Google US English -> Microsoft Zira -> Default
-        this.voice = voices.find(v => v.name.includes('Google US English')) ||
-            voices.find(v => v.name.includes('Zira')) ||
-            voices.find(v => v.lang.includes('en-US')) ||
+        // Priority: Google Spanish -> Microsoft Helena/Sabina -> Any Spanish -> Default
+        this.voice = voices.find(v => v.name.includes('Google español')) ||
+            voices.find(v => v.name.includes('Microsoft Helena')) ||
+            voices.find(v => v.name.includes('Microsoft Sabina')) ||
+            voices.find(v => v.lang.includes('es-ES')) ||
+            voices.find(v => v.lang.includes('es')) ||
             voices[0];
     }
 
@@ -58,19 +60,19 @@ class VoiceManager {
 
     // Preset phrases
     greet() {
-        this.speak("System Online. Welcome back, Agent.");
+        this.speak("Sistema en Línea. Bienvenido de nuevo, Agente.");
     }
 
     startWorkshop() {
-        this.speak("Workshop Protocol Initiated. Focus on form.");
+        this.speak("Protocolo de Taller Iniciado. Concéntrate en la técnica.");
     }
 
     restTimer(seconds) {
-        this.speak(`Recovery phase. ${seconds} seconds.`);
+        this.speak(`Fase de recuperación. ${seconds} segundos.`);
     }
 
     finishSet() {
-        this.speak("Set complete. Data logged.");
+        this.speak("Serie completada. Datos registrados.");
     }
 }
 

@@ -13,14 +13,24 @@ import { ALL_EXERCISES } from '../../data/musclewiki_exercises';
 /**
  * Generate a personalized routine based on user profile
  */
-export const generateRoutine = (user) => {
+export const generateRoutine = async (user) => {
     // 1. Determine Target Gender
     const gender = user?.gender || 'female'; // Default to female focus if unknown
 
-    // 2. Get Routines for Gender
+    // 2. Ensure Routines are Loaded
+    // We import the async getter to ensure the promise is resolved
+    const { getRoutines } = await import('../../data/musclewiki_routines');
+    await getRoutines(); // Wait for initialization
+
+    // 3. Get Routines for Gender
     const availableRoutines = getRoutinesByGender(gender);
 
-    // 3. Select Routine (Random for now, or based on history)
+    if (!availableRoutines || availableRoutines.length === 0) {
+        console.warn('No routines found for gender:', gender);
+        return null;
+    }
+
+    // 4. Select Routine (Random for now, or based on history)
     // TODO: Implement history tracking to cycle split days
     const randomIndex = Math.floor(Math.random() * availableRoutines.length);
     const selectedRoutine = availableRoutines[randomIndex];

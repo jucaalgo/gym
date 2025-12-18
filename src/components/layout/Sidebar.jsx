@@ -19,7 +19,7 @@ import {
 const navItems = [
     { to: '/', icon: LayoutGrid, label: 'Tablero' },
     { to: '/encyclopedia', icon: BookOpen, label: 'Enciclopedia' },
-    { to: '/matrix', icon: Target, label: 'La Matrix' },
+    { to: '/matrix', icon: Target, label: 'Ejercicios del Día' },
     { to: '/routines', icon: Trophy, label: 'Rutinas' },
     { to: '/profile', icon: Settings, label: 'Perfil' },
 ];

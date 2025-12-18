@@ -426,22 +426,6 @@ const Dashboard = () => {
                     </div>
                     <span className="text-xs font-bold uppercase tracking-wider text-white/60">Analíticas</span>
                 </Link>
-
-                {/* Nutrition */}
-                <Link to="/nutrition" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
-                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-accent/20 group-hover:text-accent transition-colors">
-                        <div className="w-6 h-6">🍎</div>
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">Nutrición</span>
-                </Link>
-
-                {/* Leaderboard */}
-                <Link to="/leaderboard" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
-                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-warning/20 group-hover:text-warning transition-colors">
-                        <Trophy className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">The Matrix</span>
-                </Link>
             </div>
 
             {/* ═══ ROUTINE SELECTOR MODAL ═══ */}

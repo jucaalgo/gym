@@ -54,37 +54,28 @@ const Matrix = () => {
 
 
     // Generate routine on mount
+    // Generate routine on mount
     useEffect(() => {
         const loadRoutine = async () => {
             // Check if we have a specific routine requested via navigation state
             if (location.state && location.state.routineId) {
-                // EXPLICIT: Load from the "Routines" file (src/data/routines.js)
-                const { getSuggestedRoutinesAsync } = await import('../data/routines');
-                await getSuggestedRoutinesAsync(); // Wait for data
+                // Get from our unified routine source
+                const { getRoutineById, getRoutines } = await import('../data/musclewiki_routines');
+                await getRoutines(); // Ensure loaded
 
-                // Get specific routine
-                const { getRoutineById } = await import('../data/routines');
                 const suggested = getRoutineById(location.state.routineId);
                 if (suggested) {
                     setRoutine(suggested);
                 } else {
-                    // Fallback if routine not found
-                    const newRoutine = generateRoutine(user);
+                    // Fallback
+                    console.warn(`Routine ${location.state.routineId} not found, generating new one.`);
+                    const newRoutine = await generateRoutine(user);
                     setRoutine(newRoutine);
                 }
             } else {
-                // Default: Try to get a random one from the "Routines" file first
-                const { getSuggestedRoutinesAsync, getSuggestedRoutines } = await import('../data/routines');
-                await getSuggestedRoutinesAsync();
-
-                const all = getSuggestedRoutines();
-                if (all.length > 0) {
-                    setRoutine(all[0]); // Just pick first for now, or randomize
-                } else {
-                    // Ultimate fallback
-                    const newRoutine = generateRoutine(user);
-                    setRoutine(newRoutine);
-                }
+                // Default: Generate based on user profile
+                const newRoutine = await generateRoutine(user);
+                setRoutine(newRoutine);
             }
         };
         loadRoutine();

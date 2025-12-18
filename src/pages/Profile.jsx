@@ -121,15 +121,44 @@ const Profile = () => {
                             </div>
                         </div>
 
-                        {/* Readiness Quick View */}
-                        <div className="grid grid-cols-2 gap-3 max-w-sm">
-                            <div className="p-3 rounded-xl bg-black/20 border border-white/5">
-                                <div className="text-[9px] text-white/40 uppercase mb-1">Neural HRV</div>
-                                <div className="text-lg font-bold text-primary font-['Roboto_Mono']">{user.hrv || 75} <span className="text-[10px] font-normal">ms</span></div>
+                        {/* Professional Sleep & Recovery Tracker */}
+                        <div className="w-full glass-panel p-4 rounded-xl bg-black/40 border border-white/5 mt-4">
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-xs font-bold text-[#00D4FF] font-['Orbitron'] flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse"></div>
+                                    ANÁLISIS DE SUEÑO
+                                </h3>
+                                <span className="text-[10px] text-white/40 font-['Roboto_Mono']">Última sesión</span>
                             </div>
-                            <div className="p-3 rounded-xl bg-black/20 border border-white/5">
-                                <div className="text-[9px] text-white/40 uppercase mb-1">Sleep Score</div>
-                                <div className="text-lg font-bold text-accent font-['Roboto_Mono']">{user.sleepScore || 82}%</div>
+
+                            <div className="flex items-center gap-6 mb-4">
+                                <div>
+                                    <div className="text-3xl font-bold text-white font-['Orbitron'] tracking-wider">
+                                        7<span className="text-sm text-white/40">h</span> 42<span className="text-sm text-white/40">m</span>
+                                    </div>
+                                    <div className="text-[10px] text-white/40 uppercase tracking-widest mt-1">Tiempo Total</div>
+                                </div>
+                                <div className="h-8 w-[1px] bg-white/10"></div>
+                                <div>
+                                    <div className="text-3xl font-bold text-[#39FF14] font-['Orbitron'] tracking-wider">
+                                        {user.sleepScore || 85}%
+                                    </div>
+                                    <div className="text-[10px] text-white/40 uppercase tracking-widest mt-1">Calidad</div>
+                                </div>
+                            </div>
+
+                            {/* Sleep Stages Graph */}
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-[9px] text-white/30 uppercase font-bold tracking-wider">
+                                    <span>Profundo (1h 45m)</span>
+                                    <span>Ligero (4h 12m)</span>
+                                    <span>REM (1h 45m)</span>
+                                </div>
+                                <div className="flex h-3 w-full rounded-full overflow-hidden bg-white/5">
+                                    <div className="h-full bg-indigo-500 w-[25%] hover:opacity-80 transition-opacity" title="Profundo"></div>
+                                    <div className="h-full bg-blue-400 w-[50%] hover:opacity-80 transition-opacity" title="Ligero"></div>
+                                    <div className="h-full bg-purple-400 w-[25%] hover:opacity-80 transition-opacity" title="REM"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
