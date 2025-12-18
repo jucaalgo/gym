@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { UserProvider, useUser } from './context/UserContext';
+import { InstallProvider } from './context/InstallContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Encyclopedia from './pages/Encyclopedia';
@@ -90,49 +91,51 @@ const RequireAdmin = ({ children }) => {
 function App() {
     return (
         <UserProvider>
-            <Router basename={import.meta.env.BASE_URL}>
-                <Routes>
-                    {/* Public Routes */}
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/admin-login" element={<Navigate to="/login" replace />} />
+            <InstallProvider>
+                <Router basename={import.meta.env.BASE_URL}>
+                    <Routes>
+                        {/* Public Routes */}
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/admin-login" element={<Navigate to="/login" replace />} />
 
-                    {/* Onboarding, AI Camera, Hyper-Vision & Workout - Full Screen (No Sidebar) */}
-                    <Route path="/onboarding" element={<RequireAuth><Onboarding /></RequireAuth>} />
-                    <Route path="/scan" element={<RequireAuth><HyperVisionView /></RequireAuth>} />
-                    <Route path="/workout" element={<RequireAuth><ActiveWorkoutView /></RequireAuth>} />
+                        {/* Onboarding, AI Camera, Hyper-Vision & Workout - Full Screen (No Sidebar) */}
+                        <Route path="/onboarding" element={<RequireAuth><Onboarding /></RequireAuth>} />
+                        <Route path="/scan" element={<RequireAuth><HyperVisionView /></RequireAuth>} />
+                        <Route path="/workout" element={<RequireAuth><ActiveWorkoutView /></RequireAuth>} />
 
-                    {/* Protected User Routes (Wrapped in Layout) */}
-                    <Route path="/" element={<RequireAuth><Layout><Dashboard /></Layout></RequireAuth>} />
-                    <Route path="/encyclopedia" element={<RequireAuth><Layout><Encyclopedia /></Layout></RequireAuth>} />
-                    <Route path="/matrix" element={<RequireAuth><Layout><Matrix /></Layout></RequireAuth>} />
-                    <Route path="/nutrition" element={<RequireAuth><Layout><Nutrition /></Layout></RequireAuth>} />
-                    <Route path="/routines" element={<RequireAuth><Layout><Routines /></Layout></RequireAuth>} />
-                    <Route path="/profile" element={<RequireAuth><Layout><Profile /></Layout></RequireAuth>} />
-                    <Route path="/analytics" element={<RequireAuth><Layout><Analytics /></Layout></RequireAuth>} />
-                    <Route path="/journal" element={<RequireAuth><Layout><Journal /></Layout></RequireAuth>} />
-                    <Route path="/leaderboard" element={<RequireAuth><Layout><LeaderboardMatrix /></Layout></RequireAuth>} />
-                    <Route path="/data-test" element={<RequireAuth><Layout><DataTest /></Layout></RequireAuth>} />
+                        {/* Protected User Routes (Wrapped in Layout) */}
+                        <Route path="/" element={<RequireAuth><Layout><Dashboard /></Layout></RequireAuth>} />
+                        <Route path="/encyclopedia" element={<RequireAuth><Layout><Encyclopedia /></Layout></RequireAuth>} />
+                        <Route path="/matrix" element={<RequireAuth><Layout><Matrix /></Layout></RequireAuth>} />
+                        <Route path="/nutrition" element={<RequireAuth><Layout><Nutrition /></Layout></RequireAuth>} />
+                        <Route path="/routines" element={<RequireAuth><Layout><Routines /></Layout></RequireAuth>} />
+                        <Route path="/profile" element={<RequireAuth><Layout><Profile /></Layout></RequireAuth>} />
+                        <Route path="/analytics" element={<RequireAuth><Layout><Analytics /></Layout></RequireAuth>} />
+                        <Route path="/journal" element={<RequireAuth><Layout><Journal /></Layout></RequireAuth>} />
+                        <Route path="/leaderboard" element={<RequireAuth><Layout><LeaderboardMatrix /></Layout></RequireAuth>} />
+                        <Route path="/data-test" element={<RequireAuth><Layout><DataTest /></Layout></RequireAuth>} />
 
 
-                    {/* Protected Admin Routes */}
-                    <Route
-                        path="/admin"
-                        element={
-                            <RequireAdmin>
-                                <Layout><AdminPanel /></Layout>
-                            </RequireAdmin>
-                        }
-                    />
+                        {/* Protected Admin Routes */}
+                        <Route
+                            path="/admin"
+                            element={
+                                <RequireAdmin>
+                                    <Layout><AdminPanel /></Layout>
+                                </RequireAdmin>
+                            }
+                        />
 
-                    {/* Catch-all redirect */}
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
+                        {/* Catch-all redirect */}
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
 
-                {/* Global Overlays */}
-                <LevelUpOverlay />
-                <InstallPrompt />
-                <JCAAssistant />
-            </Router>
+                    {/* Global Overlays */}
+                    <LevelUpOverlay />
+                    <InstallPrompt />
+                    <JCAAssistant />
+                </Router>
+            </InstallProvider>
         </UserProvider>
     );
 }

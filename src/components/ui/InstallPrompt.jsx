@@ -1,46 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Download, X, Share, PlusSquare } from 'lucide-react';
+import { useInstallPrompt } from '../../context/InstallContext';
 
 const InstallPrompt = () => {
-    const [deferredPrompt, setDeferredPrompt] = useState(null);
+    const { deferredPrompt, promptInstall, isIOS } = useInstallPrompt();
     const [showPrompt, setShowPrompt] = useState(false);
-    const [isIOS, setIsIOS] = useState(false);
 
     useEffect(() => {
-        // Check if iOS
-        const isIosDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-
-        if (isIosDevice && !isStandalone) {
-            setIsIOS(true);
-            // Show iOS instructions once per session
-            if (!sessionStorage.getItem('ios_prompt_shown')) {
-                setShowPrompt(true);
-                sessionStorage.setItem('ios_prompt_shown', 'true');
-            }
-        }
-
-        const handler = (e) => {
-            e.preventDefault();
-            setDeferredPrompt(e);
+        // Show prompt if available (Android) or if iOS instructions aren't shown yet
+        if (deferredPrompt) {
             setShowPrompt(true);
-        };
-
-        window.addEventListener('beforeinstallprompt', handler);
-
-        return () => window.removeEventListener('beforeinstallprompt', handler);
-    }, []);
+        } else if (isIOS && !sessionStorage.getItem('ios_prompt_shown')) {
+            setShowPrompt(true);
+            sessionStorage.setItem('ios_prompt_shown', 'true');
+        }
+    }, [deferredPrompt, isIOS]);
 
     const handleInstallClick = async () => {
-        if (!deferredPrompt) return;
-
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-
-        if (outcome === 'accepted') {
-            setDeferredPrompt(null);
-        }
-        setShowPrompt(false);
+        const success = await promptInstall();
+        if (success) setShowPrompt(false);
     };
 
     if (!showPrompt) return null;

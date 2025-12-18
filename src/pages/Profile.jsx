@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useUser } from '../context/UserContext';
+import { useInstallPrompt } from '../context/InstallContext';
 import { User, Shield, Activity, Calendar, Trophy, Zap, Download, Upload, Smartphone, Edit2, Save } from 'lucide-react';
 import soundManager from '../utils/sounds';
 import { triggerHaptic } from '../utils/haptics';
@@ -9,6 +10,7 @@ import { ARCHETYPES } from '../data/archetypes';
 
 const Profile = () => {
     const { user, logout, setUser, updateUserProfile } = useUser();
+    const { promptInstall, deferredPrompt, isIOS, isStandalone } = useInstallPrompt();
     const [isEditing, setIsEditing] = useState(false);
     const [editForm, setEditForm] = useState({});
 
@@ -297,6 +299,27 @@ const Profile = () => {
                 <p className="text-white/50 text-xs mb-6 font-['Roboto_Mono'] leading-relaxed">
                     SECURE OFFLINE SYSTEM. DATA RESIDES LOCALLY. TO MIGRATE, EXPORT BACKUP AND RESTORE ON NEW TERMINAL.
                 </p>
+
+                {/* APP INSTALLATION STATUS */}
+                {!isStandalone && (deferredPrompt || isIOS) && (
+                    <div className="mb-6 p-4 bg-primary/10 border border-primary/30 rounded-xl">
+                        <h4 className="text-primary font-bold text-sm mb-2 font-['Orbitron']">INSTALL APPLICATION</h4>
+                        <p className="text-white/60 text-xs mb-3">Install JCA GYM for offline access and full performance.</p>
+
+                        {isIOS ? (
+                            <div className="text-xs text-white/50 bg-black/20 p-2 rounded border border-white/5">
+                                Tap <span className="text-white font-bold">Share</span> then <span className="text-white font-bold">Add to Home Screen</span>
+                            </div>
+                        ) : (
+                            <button
+                                onClick={promptInstall}
+                                className="w-full py-3 bg-primary text-black rounded-lg font-bold hover:bg-primary/80 transition-all flex items-center justify-center gap-2 uppercase tracking-widest text-xs font-['Orbitron']"
+                            >
+                                <Download className="w-4 h-4" /> Install Now
+                            </button>
+                        )}
+                    </div>
+                )}
 
                 {user.role === 'admin' && (
                     <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between">

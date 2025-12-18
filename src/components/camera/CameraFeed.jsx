@@ -25,8 +25,16 @@ export default function CameraFeed({ onVideoReady, isActive = true }) {
     }, [isActive]);
 
     async function startCamera() {
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-            setError('Cámara no soportada en este entorno (se requiere HTTPS o localhost)');
+        // 1. Context Security Check for Mobile
+        if (!window.isSecureContext && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            setError('CRITICAL: Mobile camera requires HTTPS or localhost. Current context is insecure.');
+            setLoading(false);
+            return;
+        }
+
+        // 2. Browser Capability Check
+        if (!navigator?.mediaDevices?.getUserMedia) {
+            setError('Browser API not supported. Try Chrome or Safari.');
             setLoading(false);
             return;
         }
@@ -35,15 +43,17 @@ export default function CameraFeed({ onVideoReady, isActive = true }) {
             setLoading(true);
             setError(null);
 
-            // Request camera access
+            // Request camera access with fallback constraints
             const stream = await navigator.mediaDevices.getUserMedia({
                 video: {
-                    facingMode: 'environment', // Use back camera on mobile
+                    facingMode: 'environment',
                     width: { ideal: 1280 },
                     height: { ideal: 720 }
                 },
                 audio: false
-            });
+            }).catch(e => { throw e; }); // Explicitly catch to rethrow to main block
+
+            if (!stream) throw new Error("Stream failed to initialize");
 
             if (videoRef.current) {
                 videoRef.current.srcObject = stream;
@@ -51,18 +61,25 @@ export default function CameraFeed({ onVideoReady, isActive = true }) {
 
                 // Wait for video to be ready
                 videoRef.current.onloadedmetadata = () => {
-                    videoRef.current.play();
-                    setLoading(false);
+                    if (videoRef.current) { // Double check ref
+                        videoRef.current.play().catch(e => console.warn("Play interrupted", e));
+                        setLoading(false);
 
-                    // Notify parent that video is ready
-                    if (onVideoReady) {
-                        onVideoReady(videoRef.current);
+                        // Notify parent that video is ready
+                        if (onVideoReady) {
+                            onVideoReady(videoRef.current);
+                        }
                     }
                 };
             }
         } catch (err) {
             console.error('Camera access error:', err);
-            setError(err.message || 'Failed to access camera');
+            let msg = 'Failed to access camera.';
+            if (err.name === 'NotAllowedError') msg = 'Camera permission denied.';
+            if (err.name === 'NotFoundError') msg = 'No camera device found.';
+            if (err.name === 'NotReadableError') msg = 'Camera is already in use by another app.';
+
+            setError(msg);
             setLoading(false);
         }
     }
