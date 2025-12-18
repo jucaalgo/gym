@@ -11,24 +11,32 @@ import { initializeCatalog } from './image_mapper.js';
 // ══════════════════════════════════════════════════════════════════
 // EXERCISE GENERATOR (CATALOG DRIVEN)
 // ══════════════════════════════════════════════════════════════════
-import { getImageUrl } from './image_mapper.js';
+import { getImageUrl, initializeCatalog, getCatalog } from './image_mapper.js';
 
 export const generateExercises = async () => {
     console.log('[Engine] 🏋️ Starting UNIFIED exercise generation...');
 
-    // 1. Load the Master Catalog (Source of Truth) AND the Image Map
-    let catalog = [];
-    // let imageMap = {}; // DEPRECATED: We use getImageUrl now
+    // 1. Ensure Image Mapper is Initialized (Loads Catalog + AI Manifest)
+    const isReady = await initializeCatalog();
 
+    if (!isReady) {
+        console.error('[Engine] ❌ Failed to initialize image mapper');
+        return [];
+    }
+
+    // Get the authoritative catalog from the mapper
+    const catalog = getCatalog();
+    console.log(`[Engine] ✅ Master Catalog Ready: ${catalog.length} entries`);
+
+    /* DEPRECATED MANUAL FETCH
+    let catalog = [];
     try {
         const [catalogRes] = await Promise.all([
             fetch('/free_exercise_catalog.json'),
-            // fetch('/exercise_image_map.json') // No longer needed directly
         ]);
 
         if (catalogRes.ok) {
             catalog = await catalogRes.json();
-            // imageMap = await mapRes.json();
             console.log(`[Engine] ✅ Loaded Master Catalog: ${catalog.length} entries`);
         } else {
             console.error('[Engine] ❌ Failed to load catalog');
@@ -38,6 +46,7 @@ export const generateExercises = async () => {
         console.error('[Engine] ❌ Network error loading catalog:', e);
         return [];
     }
+    */
 
     const exercises = [];
 
