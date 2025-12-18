@@ -9,11 +9,16 @@
   /* Color Palette - Cyber-Obsidian HUD */
   --color-background: #050508;
   --color-surface: #0c0c14;
-  --color-primary: #00D4FF; /* Cyber Teal */
-  --color-secondary: #B026FF; /* Deep Purple */
-  --color-accent: #FFD700; /* Cyber Gold */
-  --color-success: #39FF14; /* Neon Green */
-  --color-warning: #FFA500;
+  --color-primary: #00D4FF;
+  /* Cyber Teal */
+  --color-secondary: #B026FF;
+  /* Deep Purple */
+  --color-accent: #FFD700;
+  /* Cyber Gold */
+  --color-success: #39FF14;
+  /* Neon Green */
+  --color-warning: #475569;
+  /* Deep Space Gray */
   --color-error: #FF3131;
 
   /* Typography */
@@ -53,7 +58,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
       radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.15), transparent 50%),
       radial-gradient(ellipse 60% 40% at 80% 20%, rgba(236, 72, 153, 0.1), transparent 50%),
       radial-gradient(ellipse 50% 60% at 60% 80%, rgba(139, 92, 246, 0.1), transparent 50%);
@@ -69,7 +74,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
@@ -101,6 +106,7 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -112,13 +118,14 @@
    ═══════════════════════════════════════════════════════════════ */
 
 @layer components {
+
   /* Glassmorphism Panel - The Core Visual */
   .glass-panel {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
+    box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
@@ -244,12 +251,10 @@
 
   /* Skeleton Loading */
   .skeleton {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.05) 25%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0.05) 75%
-    );
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
@@ -260,9 +265,12 @@
    ═══════════════════════════════════════════════════════════════ */
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -272,6 +280,7 @@
   from {
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
   }
+
   to {
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(139, 92, 246, 0.3);
   }
@@ -282,9 +291,11 @@
     top: 0;
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     top: 100%;
     opacity: 1;
@@ -295,9 +306,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -307,15 +320,19 @@
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -326,6 +343,7 @@
     transform: translateY(-100vh) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh) rotate(720deg);
     opacity: 0;
@@ -349,6 +367,6 @@
   .border-gradient {
     border: 1px solid transparent;
     background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
-                linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899) border-box;
+      linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899) border-box;
   }
 }

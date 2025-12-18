@@ -11,9 +11,11 @@ import { getFatigueManager } from '../services/fatigueManager';
 import VisualAsset from '../components/ui/VisualAsset';
 import AROverlay from '../components/camera/AROverlay';
 import { Camera, Scan, X as CloseIcon, Brain, Activity } from 'lucide-react';
+import { useUser } from '../context/UserContext';
 
 export default function ActiveWorkoutView() {
     const navigate = useNavigate();
+    const { user } = useUser();
     const exercises = useExercises();
     const routineEngine = useRef(getRoutineEngine());
     const fatigueManager = useRef(getFatigueManager());
@@ -27,6 +29,7 @@ export default function ActiveWorkoutView() {
     const [fatigueStatus, setFatigueStatus] = useState(null);
     const [isFinished, setIsFinished] = useState(false);
     const [showARScan, setShowARScan] = useState(false);
+    const [arVideoElement, setArVideoElement] = useState(null);
 
     useEffect(() => {
         loadCurrentExercise();
@@ -154,7 +157,7 @@ export default function ActiveWorkoutView() {
     return (
         <div className="min-h-screen bg-[#1A1A1A] relative overflow-hidden">
             {/* Blurred Background Image */}
-            {exerciseDetail && (
+            {exerciseDetail?.imagePath && (
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
@@ -263,8 +266,8 @@ export default function ActiveWorkoutView() {
 
                     {/* Biomechanical Warning */}
                     {exerciseDetail && fatigueSummary.fatigueLevel !== 'Low' && (
-                        <div className="bg-[#FFA500]/10 border border-[#FFA500]/30 rounded-xl p-4 w-full mb-6">
-                            <div className="text-[#FFA500] text-sm font-semibold mb-2">
+                        <div className="bg-warning/10 border border-warning/30 rounded-xl p-4 w-full mb-6">
+                            <div className="text-warning text-sm font-semibold mb-2">
                                 ⚠️ Safety Reminder
                             </div>
                             <div className="text-white/80 text-sm">
@@ -292,13 +295,16 @@ export default function ActiveWorkoutView() {
                     {/* AR SCAN OVERLAY MODAL */}
                     {showARScan && (
                         <div className="fixed inset-0 z-[100] bg-black">
-                            {/* Simulated Camera Feed */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
-                                <Activity className="w-24 h-24 text-white/5 animate-pulse" />
-                            </div>
+                            {/* Camera Layer */}
+                            <CameraFeed onVideoReady={(v) => setArVideoElement(v)} />
 
                             {/* AR Biomechanics Layer */}
-                            <AROverlay mode="biomechanics" videoElement={{ clientWidth: window.innerWidth, clientHeight: window.innerHeight }} />
+                            {arVideoElement && (
+                                <AROverlay
+                                    mode="biomechanics"
+                                    videoElement={arVideoElement}
+                                />
+                            )}
 
                             {/* HUD Controls */}
                             <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start pointer-events-none">

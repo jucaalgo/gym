@@ -25,6 +25,12 @@ export default function CameraFeed({ onVideoReady, isActive = true }) {
     }, [isActive]);
 
     async function startCamera() {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            setError('Cámara no soportada en este entorno (se requiere HTTPS o localhost)');
+            setLoading(false);
+            return;
+        }
+
         try {
             setLoading(true);
             setError(null);

@@ -16,8 +16,13 @@ export default function AROverlay({ detections = [], onHotspotClick, videoElemen
 
         // Match canvas size to video
         const resizeCanvas = () => {
-            canvas.width = videoElement.videoWidth || videoElement.clientWidth;
-            canvas.height = videoElement.videoHeight || videoElement.clientHeight;
+            const width = videoElement.videoWidth || videoElement.clientWidth;
+            const height = videoElement.videoHeight || videoElement.clientHeight;
+
+            if (width > 0 && height > 0) {
+                canvas.width = width;
+                canvas.height = height;
+            }
         };
 
         resizeCanvas();

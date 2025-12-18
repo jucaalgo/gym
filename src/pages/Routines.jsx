@@ -123,13 +123,13 @@ const Routines = () => {
 
                     if (!masterEx) return false;
 
-                    const category = getFocusCategory(masterEx.targetMuscle);
+                    const category = getFocusCategory(masterEx?.targetMuscle);
                     return category === normalizedFilter;
                 });
 
                 // Fallback: Check the routine's own target string if no exercises matched
                 if (!matchesFocus) {
-                    const routineCategory = getFocusCategory(routine.target);
+                    const routineCategory = getFocusCategory(routine?.target);
                     matchesFocus = routineCategory === normalizedFilter;
                 }
             }
@@ -142,8 +142,7 @@ const Routines = () => {
 
     const handleStartRoutine = (routine) => {
         const engine = getRoutineEngine();
-        engine.assignRoutine(routine);
-        localStorage.setItem('activeRoutine', JSON.stringify(routine));
+        engine.assignRoutine(routine); // This handles localStorage correctly
         navigate('/workout');
     };
 

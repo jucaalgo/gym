@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import {
     Camera,
     X,
@@ -57,6 +58,11 @@ const Nutrition = () => {
     }, [phase]);
 
     const startCamera = async () => {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            console.warn('Cámara no soportada en este entorno');
+            return;
+        }
+
         try {
             const mediaStream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: 'environment' }
@@ -235,12 +241,12 @@ const Nutrition = () => {
                     <div className="glass-panel rounded-2xl p-4 mt-6">
                         <div className="flex items-center justify-between mb-3">
                             <span className="text-white/60 text-sm">Progreso de Hoy</span>
-                            <span className="text-white/40 text-sm">{user.todayCalories} / {user.calorieGoal} kcal</span>
+                            <span className="text-white/40 text-sm">{user?.todayCalories || 0} / {user?.calorieGoal || 2000} kcal</span>
                         </div>
                         <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-gradient-to-r from-secondary to-pink-500 rounded-full transition-all"
-                                style={{ width: `${Math.min((user.todayCalories / user.calorieGoal) * 100, 100)}%` }}
+                                style={{ width: `${Math.min(((user?.todayCalories || 0) / (user?.calorieGoal || 2000)) * 100, 100)}%` }}
                             />
                         </div>
                     </div>
@@ -389,7 +395,7 @@ const Nutrition = () => {
                     </div>
 
                     {/* Post-workout adjustment hint */}
-                    {archetype.id === 'guerrero' && (
+                    {archetype?.id === 'guerrero' && (
                         <div className="glass-panel rounded-xl p-3 mb-6 border-l-4 border-primary">
                             <div className="flex items-center gap-2 text-primary text-sm">
                                 <Zap className="w-4 h-4" />

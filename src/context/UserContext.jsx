@@ -86,11 +86,9 @@ export const UserProvider = ({ children }) => {
                 const docRef = doc(db, "users", currentUser.uid);
                 const docSnap = await getDoc(docRef);
 
-                let userData = {};
+                let userData = { ...DEFAULT_USER_TEMPLATE, id: currentUser.uid, email: currentUser.email };
                 if (docSnap.exists()) {
-                    userData = { id: currentUser.uid, email: currentUser.email, ...docSnap.data() };
-                } else {
-                    userData = { id: currentUser.uid, email: currentUser.email };
+                    userData = { ...userData, ...docSnap.data() };
                 }
 
                 // SECURITY OVERRIDE: Enforce Admin for specific email matches

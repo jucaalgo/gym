@@ -167,9 +167,6 @@ export default function EquipmentCard({ detection, onSelectRoutine, onClose, use
 
                                                 // Navigate to workout view
                                                 navigate('/workout');
-
-                                                // Close modal
-                                                if (onSelectRoutine) onSelectRoutine(routine);
                                             }}
                                             className="w-full mt-3 py-2 bg-[#39FF14] text-black rounded-lg font-semibold hover:bg-[#39FF14]/80 transition-colors"
                                         >
