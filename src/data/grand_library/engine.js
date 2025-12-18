@@ -127,13 +127,27 @@ export const generateRoutines = (allExercises) => {
         const shuffled = validPool.sort(() => Math.random() - 0.5);
         const selectedExercises = shuffled.slice(0, 8);
 
+        const routineExercises = selectedExercises.map(selected => ({
+            id: selected.id,
+            name: selected.name,
+            muscleGroup: selected.primaryMuscle,
+            sets: 3,
+            reps: '10-12',
+            rest: 60,
+            source: 'MuscleWiki',
+            _rawData: selected, // Keep full reference for VisualAsset
+            thumbnailUrl: selected.thumbnailUrl || selected.gifUrl || selected.videoUrl, // Explicitly pass image
+            videoUrl: selected.videoUrl,
+            gifUrl: selected.gifUrl
+        }));
+
         routines.push({
             id: split.name.toLowerCase().replace(/\s+/g, '-'),
             name: split.name,
             description: `Targeted ${split.name.toLowerCase()} workout`,
             difficulty: 'Intermediate',
             duration: 45,
-            exercises: selectedExercises,
+            exercises: routineExercises,
             targetMuscles: [split.targetMuscles],
             targetGender: split.gender,
             estimatedDuration: 45,
