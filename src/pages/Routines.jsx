@@ -358,8 +358,23 @@ const Routines = () => {
                             <div className="space-y-3 mb-8">
                                 {selectedRoutine.exercises.map((ex, idx) => (
                                     <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#00D4FF]/30 transition-colors">
-                                        <div className="w-8 h-8 rounded bg-black/50 border border-white/10 flex items-center justify-center text-[#00D4FF] font-['Orbitron'] text-xs">
-                                            {String(idx + 1).padStart(2, '0')}
+                                        <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-black/50 border border-white/10 shrink-0 group-hover:border-[#00D4FF]/50 transition-colors">
+                                            {ex.imagePath || ex.thumbnailUrl ? (
+                                                <img
+                                                    src={ex.imagePath || ex.thumbnailUrl}
+                                                    alt={ex.name}
+                                                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                                                    onError={(e) => {
+                                                        e.target.style.display = 'none';
+                                                        e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
+                                                        e.target.parentElement.innerHTML = `<span class="text-[#00D4FF] font-['Orbitron'] text-xs">${String(idx + 1).padStart(2, '0')}</span>`;
+                                                    }}
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center text-[#00D4FF] font-['Orbitron'] text-xs">
+                                                    {String(idx + 1).padStart(2, '0')}
+                                                </div>
+                                            )}
                                         </div>
                                         <div className="flex-1">
                                             <h4 className="text-white font-medium">{ex.name}</h4>

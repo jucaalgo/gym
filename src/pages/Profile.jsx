@@ -134,7 +134,7 @@ const Profile = () => {
                             <div className="flex items-center gap-6 mb-4">
                                 <div>
                                     <div className="text-3xl font-bold text-white font-['Orbitron'] tracking-wider">
-                                        7<span className="text-sm text-white/40">h</span> 42<span className="text-sm text-white/40">m</span>
+                                        {user.sleepDuration || '7h 42m'}
                                     </div>
                                     <div className="text-[10px] text-white/40 uppercase tracking-widest mt-1">Tiempo Total</div>
                                 </div>
