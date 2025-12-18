@@ -2,12 +2,6 @@
  * THE GRAND LIBRARY: GENERATION ENGINE V4 (Unified Catalog)
  * Unifies Local AI Assets with Full Catalog
  */
-import { initializeCatalog } from './image_mapper.js';
-
-// ══════════════════════════════════════════════════════════════════
-// EXERCISE GENERATOR (CATALOG DRIVEN)
-// ══════════════════════════════════════════════════════════════════
-
 // ══════════════════════════════════════════════════════════════════
 // EXERCISE GENERATOR (CATALOG DRIVEN)
 // ══════════════════════════════════════════════════════════════════
