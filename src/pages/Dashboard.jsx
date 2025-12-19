@@ -410,21 +410,38 @@ const Dashboard = () => {
             </div >
 
             {/* ═══ NAVIGATION HUB (NEW BOTTOM ROW) ═══ */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-24">
-                {/* Journal */}
-                <Link to="/journal" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
-                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-primary/20 group-hover:text-primary transition-colors">
+            <div className="grid grid-cols-2 gap-4 pb-24">
+                {/* 1. TRAINING (Primary) */}
+                <Link to="/routines" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-[#00D4FF]/30 transition-all aspect-square sm:aspect-auto sm:py-6">
+                    <div className="p-4 rounded-full bg-[#00D4FF]/10 text-[#00D4FF] group-hover:bg-[#00D4FF]/20 group-hover:scale-110 transition-all duration-300">
+                        <Dumbbell className="w-8 h-8" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white">Entrenar</span>
+                </Link>
+
+                {/* 2. DAILY EXERCISES (Matrix) */}
+                <Link to="/matrix" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-primary/30 transition-all aspect-square sm:aspect-auto sm:py-6">
+                    <div className="p-4 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                        <Zap className="w-8 h-8" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white">Ejercicios</span>
+                    <span className="text-[10px] text-white/40 -mt-2">del Día</span>
+                </Link>
+
+                {/* 3. ANALYTICS */}
+                <Link to="/analytics" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-secondary/30 transition-all aspect-square sm:aspect-auto sm:py-6">
+                    <div className="p-3 rounded-full bg-secondary/10 text-secondary group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
+                        <TrendingUp className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">Progreso</span>
+                </Link>
+
+                {/* 4. JOURNAL */}
+                <Link to="/journal" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all aspect-square sm:aspect-auto sm:py-6">
+                    <div className="p-3 rounded-full bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:scale-110 transition-all duration-300">
                         <div className="w-6 h-6">📖</div>
                     </div>
                     <span className="text-xs font-bold uppercase tracking-wider text-white/60">Diario</span>
-                </Link>
-
-                {/* Analytics */}
-                <Link to="/analytics" className="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-3 group hover:border-white/20 transition-all">
-                    <div className="p-3 rounded-xl bg-white/5 text-white/60 group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
-                        <TrendingUp className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-white/60">Analíticas</span>
                 </Link>
             </div>
 
