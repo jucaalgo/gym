@@ -65,12 +65,12 @@ export default function ActiveWorkoutView() {
         setReps(next.reps); // Default to target reps
     }
 
-    function handleFinishSetAction() {
+    function handleFinishSetAction(manualRPE = 7) {
         if (!currentExercise) return;
 
         // Automatically record set with a neutral RPE for now (will evaluate at end)
         const status = fatigueManager.current.recordSet(
-            7, // Neutral RPE
+            manualRPE, // Use manual RPE or default 7
             currentExercise.index,
             currentSet,
             currentExercise.name
@@ -293,7 +293,7 @@ export default function ActiveWorkoutView() {
             {/* RPE Input Modal */}
             {showRPEInput && (
                 <RPEInputModal
-                    onSubmit={handleFinishSet}
+                    onSubmit={handleFinishSetAction}
                     onCancel={() => setShowRPEInput(false)}
                 />
             )}

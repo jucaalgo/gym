@@ -79,7 +79,7 @@ export const generateExercises = async () => {
             targetGender: 'unisex',
             category: item.category || 'Strength',
             difficulty: item.level || 'Intermediate',
-            difficulty: item.level || 'Intermediate',
+
             videoUrl: imageUrl,
             thumbnailUrl: imageUrl,
             images: imageUrl ? [imageUrl] : [], // For consistency
